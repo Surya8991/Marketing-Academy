@@ -124,10 +124,10 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
             {/* Kicker */}
             <div
               ref={kickerRef}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#e4e1ff] bg-[#f3f2ff] text-[#4f46b8] text-xs font-mono uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[var(--border)] bg-[var(--lav)] text-[var(--accent)] text-xs font-mono uppercase tracking-wider"
             >
               <span className="h-2 w-2 rounded-full bg-[#36a66c] shadow-[0_0_0_4px_rgba(54,166,108,0.2)] animate-pulse" />
-              <span>The open marketing knowledge platform</span>
+              <span>Free, no sign-up</span>
             </div>
 
             {/* Headline with Instrument Serif Italic */}
@@ -146,24 +146,24 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
               ref={descRef}
               className="font-ui-sans text-base sm:text-lg text-[var(--muted-foreground)] max-w-[52ch] leading-relaxed"
             >
-              Learn the science behind growth, one experiment at a time. Explore practical playbooks,
-              real-world case studies, and interactive tools across the world of modern marketing.
+              {totalLessons} lessons on SEO, ads, email, analytics and more. Written in plain English,
+              with real numbers and the sources they came from.
             </p>
 
             {/* Action Buttons */}
             <div ref={btnsRef} className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 href="/learn"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold text-sm shadow-md shadow-[var(--accent)]/20 hover:bg-[#3930c5] hover:-translate-y-0.5 transition-all"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold text-sm shadow-md shadow-[var(--accent)]/20 hover:opacity-90 hover:-translate-y-0.5 transition-all"
               >
-                <span>Explore the academy</span>
+                <span>Browse lessons</span>
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href="#interactive-lab"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] font-medium text-sm hover:border-[#c9c6ff] hover:bg-[#fbfaff] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] font-medium text-sm hover:border-[var(--accent)] hover:bg-[var(--lav)] transition-all"
               >
-                <span>Discover the labs</span>
+                <span>Try the tools</span>
                 <span className="text-xs">↓</span>
               </a>
             </div>
@@ -174,27 +174,27 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
                 <strong className="block text-xl font-bold text-[var(--foreground)] font-display">
                   {totalLessons}
                 </strong>
-                <span>Playbooks</span>
+                <span>Lessons</span>
               </div>
               <div className="h-8 w-px bg-[var(--border)]" />
               <div>
                 <strong className="block text-xl font-bold text-[var(--foreground)] font-display">
                   {totalCategories}
                 </strong>
-                <span>Disciplines</span>
+                <span>Topics</span>
               </div>
               <div className="h-8 w-px bg-[var(--border)]" />
               <div>
                 <strong className="block text-xl font-bold text-[var(--foreground)] font-display">
                   100%
                 </strong>
-                <span>Free access</span>
+                <span>Free</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: 3D Animated Orbital Sphere Art */}
-          <div className="lg:col-span-5 flex justify-center">
+          <div className="lg:col-span-5 hidden sm:flex justify-center">
             <div
               ref={artRef}
               className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] flex items-center justify-center select-none"
@@ -251,9 +251,9 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
 
               {/* Floating Discipline Badge 1: Psychology */}
               <div
-                className="hero-orbit-label absolute top-4 left-0 sm:left-4 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white shadow-lg text-xs font-bold text-[var(--foreground)]"
+                className="hero-orbit-label absolute top-4 left-0 sm:left-4 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--card)]/90 backdrop-blur-md border border-[var(--border)] shadow-lg text-xs font-bold text-[var(--foreground)]"
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#fff1d9] text-amber-700 font-normal">
+                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[var(--amber)] text-amber-700 font-normal">
                   ✳
                 </span>
                 <span>Psychology</span>
@@ -261,9 +261,9 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
 
               {/* Floating Discipline Badge 2: Growth */}
               <div
-                className="hero-orbit-label absolute top-24 right-0 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white shadow-lg text-xs font-bold text-[var(--foreground)]"
+                className="hero-orbit-label absolute top-24 right-0 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--card)]/90 backdrop-blur-md border border-[var(--border)] shadow-lg text-xs font-bold text-[var(--foreground)]"
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#e9f3ff] text-blue-700 font-normal">
+                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[var(--blue)] text-blue-700 font-normal">
                   ↗
                 </span>
                 <span>Growth</span>
@@ -271,9 +271,9 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
 
               {/* Floating Discipline Badge 3: Strategy */}
               <div
-                className="hero-orbit-label absolute bottom-16 left-2 sm:left-6 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white shadow-lg text-xs font-bold text-[var(--foreground)]"
+                className="hero-orbit-label absolute bottom-16 left-2 sm:left-6 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--card)]/90 backdrop-blur-md border border-[var(--border)] shadow-lg text-xs font-bold text-[var(--foreground)]"
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#e8f5ed] text-emerald-700 font-normal">
+                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[var(--mint)] text-emerald-700 font-normal">
                   ◎
                 </span>
                 <span>Strategy</span>
@@ -281,18 +281,14 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
 
               {/* Floating Discipline Badge 4: AI & automation */}
               <div
-                className="hero-orbit-label absolute bottom-3 right-4 sm:right-8 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-white shadow-lg text-xs font-bold text-[var(--foreground)]"
+                className="hero-orbit-label absolute bottom-3 right-4 sm:right-8 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--card)]/90 backdrop-blur-md border border-[var(--border)] shadow-lg text-xs font-bold text-[var(--foreground)]"
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#eeedff] text-indigo-700 font-normal">
+                <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[var(--lav)] text-indigo-700 font-normal">
                   ⌘
                 </span>
                 <span>AI &amp; automation</span>
               </div>
 
-              {/* Caption */}
-              <span className="absolute -bottom-6 text-[10px] font-mono tracking-wider text-[#9998a8] uppercase">
-                One connected world of marketing knowledge
-              </span>
             </div>
           </div>
         </div>

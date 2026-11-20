@@ -125,7 +125,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
           className="rounded-2xl p-6 mb-10 text-center"
           style={{ border: "1px solid rgba(217,119,6,0.3)", background: "rgba(217,119,6,0.05)" }}
         >
-          <h2 className="text-lg font-bold mb-2" style={{ color: "#d97706" }}>Category Mismatch</h2>
+          <h2 className="text-lg font-bold mb-2" style={{ color: "var(--warning)" }}>Category Mismatch</h2>
           <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             Note: <strong>{toolA.name}</strong> ({toolA.category}) and <strong>{toolB.name}</strong> ({toolB.category}) belong to different marketing disciplines. Side-by-side comparison tables are optimized for tools in the same category.
           </p>
@@ -249,20 +249,20 @@ export default async function ComparisonDetailPage({ params }: Props) {
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
                 <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolA.name}</h4>
                 <div className="space-y-3">
-                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "#16a34a" }}>Pros</h5>
+                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.prosA.map((p, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
-                        <Check size={16} className="shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
+                        <Check size={16} className="shrink-0 mt-0.5" style={{ color: "var(--success)" }} />
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
-                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "#dc2626" }}>Cons</h5>
+                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.consA.map((c, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
-                        <X size={16} className="shrink-0 mt-0.5" style={{ color: "#ef4444" }} />
+                        <X size={16} className="shrink-0 mt-0.5" style={{ color: "var(--danger)" }} />
                         <span>{c}</span>
                       </li>
                     ))}
@@ -274,20 +274,20 @@ export default async function ComparisonDetailPage({ params }: Props) {
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
                 <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolB.name}</h4>
                 <div className="space-y-3">
-                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "#16a34a" }}>Pros</h5>
+                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.prosB.map((p, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
-                        <Check size={16} className="shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
+                        <Check size={16} className="shrink-0 mt-0.5" style={{ color: "var(--success)" }} />
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
-                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "#dc2626" }}>Cons</h5>
+                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.consB.map((c, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
-                        <X size={16} className="shrink-0 mt-0.5" style={{ color: "#ef4444" }} />
+                        <X size={16} className="shrink-0 mt-0.5" style={{ color: "var(--danger)" }} />
                         <span>{c}</span>
                       </li>
                     ))}

@@ -24,18 +24,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Use Agentic AI: LLMs, AI Agents & Prompt Engineering in Action", url: "https://www.youtube.com/watch?v=bwvfdFWR1RI", channel: "IBM Technology" },
       ],
       hi: [
-        { title: "एजेंटिक एआई क्या है और यह कैसे काम करता है?", url: "https://www.youtube.com/watch?v=15_pppse4fY", channel: "codebasics" },
         { title: "What is Agentic AI and AI Agents. Only video you need to watch", url: "https://www.youtube.com/watch?v=hpc5DO2dC-4", channel: "Chai aur Code" },
         { title: "ContextQA द्वारा सॉफ्टवेयर टेस्टिंग के लिए एजेंटिक एआई - नवीन ऑटोमेशन लैब्स", url: "https://www.youtube.com/watch?v=1UnEVmih0pM", channel: "Naveen AutomationLabs" },
         { title: "Ultimate Masterclass on How to Build AI agents? | ft. Ansh Mehra", url: "https://www.youtube.com/watch?v=HsuiJoEj4fU", channel: "Think School Hindi" },
       ],
       te: [
         { title: "Introduction to Agentic AI | What is Agentic AI? Explained in Telugu | Agentic AI Crash Course 2025", url: "https://www.youtube.com/watch?v=HUDBZha13T0", channel: "DATAVALLEY తెలుగు" },
-        { title: "What is Agentic AI and How Does it Work?", url: "https://www.youtube.com/watch?v=15_pppse4fY", channel: "codebasics" },
         { title: "Agentic AI Crash Course from Zero To Expert (35 Hours) | 50+ Real-World Projects (No Coding)", url: "https://www.youtube.com/watch?v=NOxg_LPvGro", channel: "SupriyaTechTalks" },
       ],
       ta: [
-        { title: "What is Agentic AI and How Does it Work?", url: "https://www.youtube.com/watch?v=15_pppse4fY", channel: "codebasics" },
         { title: "AI Agents in 1 minute - Tamil #beginnerai #generativeai #aiagents #aiagentstamil #agenticaitamil", url: "https://www.youtube.com/watch?v=pK4UvqEmvIE", channel: "Applied with AI - Tamil" },
         { title: "🔥 AI Agents Complete Tutorial for Beginners using CrewAI in Tamil | GenAI | AgenticAI", url: "https://www.youtube.com/watch?v=PgPo9WHQczw", channel: "AI with Akash" },
         { title: "How to Build AI Agents - Step by Step with Google Agent Development Kit (Tamil)", url: "https://www.youtube.com/watch?v=OA6y5JoEjGs", channel: "Applied with AI - Tamil" },
@@ -114,22 +111,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Snowflake Cortex AI SQL: Extracting Insights From Multimodal Customer Service Data | AI Bootcamp", url: "https://www.youtube.com/watch?v=ztLylokOBjs", channel: "Snowflake Developers" },
       ],
       hi: [
-        { title: "Use AI in Excel for Data Analysis | No Plugin required", url: "https://www.youtube.com/watch?v=Q-Ar-35nChA", channel: "Levelupwithexcel" },
-        { title: "How I Tricked ChatGPT into Analyzing MASSIVE Datasets (100% Free)", url: "https://www.youtube.com/watch?v=ES2B8vMXW9k", channel: "Website Learners" },
-        { title: "AI tool for data analytics #shorts", url: "https://www.youtube.com/watch?v=ZIZCoLmSVsY", channel: "MyCaptain" },
         { title: "An Amazing AI Tool For Data Analysis 🔥", url: "https://www.youtube.com/watch?v=-O5aqZ55QR8", channel: "CodeWithHarry" },
       ],
       te: [
         { title: "Building Data Analysis Projects with AI Telugu | Vamsi Bhavani", url: "https://www.youtube.com/watch?v=Q6ilZv6EiQk", channel: "Vamsi Bhavani" },
-        { title: "Use AI in Excel for Data Analysis | No Plugin required", url: "https://www.youtube.com/watch?v=Q-Ar-35nChA", channel: "Levelupwithexcel" },
         { title: "Data Analyst 👉🏻 Data + AI Analyst", url: "https://www.youtube.com/watch?v=7fkkpGNAcAg", channel: "uday" },
         { title: "Complete AI Course Tutorial in Telugu | ChatGPT, Gemini, AI Images, Videos, Audio | 12 Hours Video", url: "https://www.youtube.com/watch?v=NFbDEpTKPbc", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
       ],
       ta: [
-        { title: "Use AI in Excel for Data Analysis | No Plugin required", url: "https://www.youtube.com/watch?v=Q-Ar-35nChA", channel: "Levelupwithexcel" },
-        { title: "How I Tricked ChatGPT into Analyzing MASSIVE Datasets (100% Free)", url: "https://www.youtube.com/watch?v=ES2B8vMXW9k", channel: "Website Learners" },
-        { title: "Julius.AI: Why It's the Best AI Tool for Data Analysts in 2025", url: "https://www.youtube.com/watch?v=IP_qjrQaUdE", channel: "Pavan Lalwani" },
-        { title: "AI tool for data analytics #shorts", url: "https://www.youtube.com/watch?v=ZIZCoLmSVsY", channel: "MyCaptain" },
       ],
     },
     articles: [
@@ -160,10 +149,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AI Competitors Analysis: The Only AI Workflow I Trust", url: "https://www.youtube.com/watch?v=UwqX7hgx3pQ", channel: "Mehdi Boufous" },
       ],
       hi: [
-        { title: "How to Use Klue Compete Agent for Competitive Research & Analysis", url: "https://www.youtube.com/watch?v=Hgj8iQ3Yvkg", channel: "Klue" },
         { title: "AI Powered Competitive Intelligence by Prezent Vivo and Nested Knowledge", url: "https://www.youtube.com/watch?v=izYDlcHe-zA", channel: "Prezent" },
         { title: "How to Rank #1 on ChatGPT, Perplexity & Gemini Using AI SEO", url: "https://www.youtube.com/watch?v=5ANXivPeMj0", channel: "WsCube Tech" },
-        { title: "Crayon AI: Capture and Summarize Critical Competitive Insights In Minutes", url: "https://www.youtube.com/watch?v=U46MqPLHv6g", channel: "Crayon Competitive Intelligence" },
       ],
       te: [
         { title: "Google Flow AI Full Course 🔥 Beginner to Expert in 40 Minutes | Complete Guide 2026", url: "https://www.youtube.com/watch?v=mDoI4R8b_ik", channel: "Prathap Varma" },
@@ -208,7 +195,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Content Writing Tutorial for Beginners", url: "https://www.youtube.com/watch?v=ydyfLWUPxz8", channel: "Digital Vidya" },
       ],
       hi: [
-        { title: "AI Content Writing for Beginners | How much you can Earn Without Experience?", url: "https://www.youtube.com/watch?v=mfWCGwr3Jnw", channel: "Shivangi Tiwari" },
         { title: "Blogging with AI in 2025 | Write 99% Human-Like Blogs & Rank #1 on Google", url: "https://www.youtube.com/watch?v=dZ_BgdzADq0", channel: "Moeez Ali Khan" },
         { title: "How I Use AI to Automate Content Creation | Full Guide 2025", url: "https://www.youtube.com/watch?v=VwedJBqdUIs", channel: "HBA Services" },
         { title: "How to Write SEO Friendly Content using AI (Full Practical) | Rank #1 on Google", url: "https://www.youtube.com/watch?v=j4kc8y60qgg", channel: "WsCube Tech" },
@@ -217,11 +203,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Content Writing Tutorial in Telugu - For Beginners | కంటెంట్ ఎలా రాయాలి ? | Chatgpt | Copi.ai", url: "https://www.youtube.com/watch?v=n_GGeWX_s18", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "AI Content Writing Full Course in Telugu - How to Write 100% Original AI Content", url: "https://www.youtube.com/watch?v=9j8XCoO1v8k", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "AI Course in Telugu - How to Write Best Content Using Ai | Blogs, Website Content and Ad Copies", url: "https://www.youtube.com/watch?v=UO9e1dTgHNU", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "AI Content Writing for Beginners | How much you can Earn Without Experience?", url: "https://www.youtube.com/watch?v=mfWCGwr3Jnw", channel: "Shivangi Tiwari" },
       ],
       ta: [
         { title: "How to Write Articles in Tamil 📝| AI Content Writing & Blogging Tutorial for Beginners | SEO Tamil", url: "https://www.youtube.com/watch?v=UcaG2Xc8Dw8", channel: "Digitell Kesavan and Digitell AI Blogging Academy Tamil" },
-        { title: "AI Content Writing for Beginners | How much you can Earn Without Experience?", url: "https://www.youtube.com/watch?v=mfWCGwr3Jnw", channel: "Shivangi Tiwari" },
         { title: "FREE Content Writing AI Tools in Tamil FOR SEO Content Writing Tamil You Need Now! #tools #tamil", url: "https://www.youtube.com/watch?v=mJAm8qCvDSQ", channel: "Digitell Kesavan" },
         { title: "ChatGPT Tutorial - How To Use ChatGPT For Content Writing - ChatGPT Tamil", url: "https://www.youtube.com/watch?v=TetKM10wVrw", channel: "Digital Vishnu" },
       ],
@@ -298,9 +282,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Ethics and Privacy of AI", url: "https://www.youtube.com/watch?v=4dIiBvXsjXw", channel: "University of Manitoba Libraries" },
       ],
       hi: [
-        { title: "What Is AI Ethics | AI Ethics Foundation | How to Implement AI Ethics | Edureka", url: "https://www.youtube.com/watch?v=COgvUFGLPCs", channel: "edureka!" },
         { title: "AI Ethics kya hai? 🤔 Janiye 3 simple tips ek safe digital future ke liye! 🚀 #AIEthics #CyberSafety", url: "https://www.youtube.com/watch?v=hcIn9Mlr6Q4", channel: "Satyamm Vishnoi" },
-        { title: "AI Governance Simplified: From Zero to Pro", url: "https://www.youtube.com/watch?v=LgFBi5XD-Ow", channel: "Prabh Nair" },
         { title: "The Ethics of Artificial Intelligence - In Hindi", url: "https://www.youtube.com/watch?v=z6u7WcBlpIA", channel: "Study Cave" },
       ],
       te: [
@@ -436,8 +418,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How the Attribution Model Works in Digital Marketing? | Video Tutorial in Hindi | LearnVern", url: "https://www.youtube.com/watch?v=fdFkTYYGi_M", channel: "LearnVern" },
-        { title: "Learn Attribution Models in Google Ads│Data-Driven Attribution (DDA) Model│Ads Attributions", url: "https://www.youtube.com/watch?v=P-halMNToRc", channel: "Analyzify - Powerful Shopify Analytics" },
-        { title: "What Is Attribution Modeling? A Quick Explainer for Marketers", url: "https://www.youtube.com/watch?v=BfnJwYuFWVM", channel: "HubSpot Marketing" },
         { title: "Google Ads Attribution Model Explained in Hindi | Google Ads Course in Hindi FREE #googleadscourse", url: "https://www.youtube.com/watch?v=3joi-KofND4", channel: "Marketing Fundas" },
       ],
       te: [
@@ -477,9 +457,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "This Claude AI System Runs Meta Ads Automatically (Full Guide)", url: "https://www.youtube.com/watch?v=iFmL2auLnbs", channel: "WsCube Tech" },
       ],
       hi: [
-        { title: "How to Use AI to Create Winning Ads 🚀", url: "https://www.youtube.com/watch?v=FJi219N1Hgo", channel: "Corporate Catalyst" },
         { title: "How I’d Make Money With AI Ads in 2026 | Beginners Guide", url: "https://www.youtube.com/watch?v=9cXqC8LdioE", channel: "Aftab Khan" },
-        { title: "This Claude AI System Runs Meta Ads Automatically (Full Guide)", url: "https://www.youtube.com/watch?v=iFmL2auLnbs", channel: "WsCube Tech" },
         { title: "Make Realistic AI Ads Brands Pay For | Full Workflow + Prompts", url: "https://www.youtube.com/watch?v=-b-7yrUey2c", channel: "The Bhavya Shah" },
       ],
       te: [
@@ -524,8 +502,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The ONLY Claude Cowork Tutorial You'll Ever Need in 2026", url: "https://www.youtube.com/watch?v=PnPsf-hwGtI", channel: "Aishwarya Srinivasan" },
       ],
       hi: [
-        { title: "How to Achieve Personalization at Scale with Machine Learning", url: "https://www.youtube.com/watch?v=iZko_YquwjU", channel: "Dr. Raj Ramesh" },
-        { title: "Customer Data Platforms (CDP) | Personalization at Scale using AI & ML", url: "https://www.youtube.com/watch?v=2qUyyhvvVpY", channel: "Sankham MarTech Channel" },
         { title: "How AI is Redefining Personalization in Marketing Hindi?", url: "https://www.youtube.com/watch?v=4mAcjNLHkks", channel: "MakeAuthority हिंदी में" },
         { title: "120 mind blowing AI tools #productivity #aitools #ai", url: "https://www.youtube.com/watch?v=0MQEf_7qk4s", channel: "SetupsAI" },
       ],
@@ -535,7 +511,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to use AI to Hyper-Personalize Sales Outreach at Scale | Clay x OpenAI", url: "https://www.youtube.com/watch?v=TjsUtTrd4E4", channel: "Clay" },
       ],
       ta: [
-        { title: "How to Achieve Personalization at Scale with Machine Learning", url: "https://www.youtube.com/watch?v=iZko_YquwjU", channel: "Dr. Raj Ramesh" },
         { title: "Master How to (Build and Deploy 🤔) your Own AI Model in Tamil", url: "https://www.youtube.com/watch?v=M2TSS-GBdwY", channel: "AI Coach John (Tamil)" },
         { title: "HERMES AI Setup in 13 Minutes! Step by Step tutorial (தமிழில்) 🔥", url: "https://www.youtube.com/watch?v=DlIKF0Ht6jU", channel: "The AI Dude - Tamil" },
         { title: "Become Top 0.1% on (CLAUDE Skills) in 31 Minutes (தமிழ்) 🔥", url: "https://www.youtube.com/watch?v=n5xGcIXM7c0", channel: "AI Coach John (Tamil)" },
@@ -568,21 +543,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Rank on Google & Get Cited by ChatGPT, Perplexity and Gemini - AI-Driven Search (Guide 2026)", url: "https://www.youtube.com/watch?v=wVZowh1GSH4", channel: "Ranki dot io" },
       ],
       hi: [
-        { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
-        { title: "How to Rank #1 on ChatGPT, Perplexity & Gemini Using AI SEO", url: "https://www.youtube.com/watch?v=5ANXivPeMj0", channel: "WsCube Tech" },
         { title: ".🚀 Answer Engine Optimization (AEO) Secrets Revealed | Rank in ChatGPT, Gemini & Claude in 2026", url: "https://www.youtube.com/watch?v=_FPNfvj03Tw", channel: "Sayan Roy" },
-        { title: "How To Rank In AI Search Engines (ChatGPT, Claude, Perplexity, Gemini)", url: "https://www.youtube.com/watch?v=ebOrP7DMo-s", channel: "Joshua George" },
       ],
       te: [
-        { title: "How to Rank in ChatGPT & AI Search (Free GEO Audit Method)", url: "https://www.youtube.com/watch?v=A9Gfhvkdh_w", channel: "Shivansh Yadav" },
         { title: ".🚀 Answer Engine Optimization (AEO) Secrets Revealed | Rank in ChatGPT, Gemini & Claude in 2026", url: "https://www.youtube.com/watch?v=_FPNfvj03Tw", channel: "Sayan Roy" },
-        { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
         { title: "How to Get ChatGPT to Recommend Your Business | AI SEO Strategy for Local Businesses", url: "https://www.youtube.com/watch?v=9O6eIikB_a4", channel: "Jamie Stenton - Digital Marketing Expert" },
       ],
       ta: [
         { title: ".🚀 Answer Engine Optimization (AEO) Secrets Revealed | Rank in ChatGPT, Gemini & Claude in 2026", url: "https://www.youtube.com/watch?v=_FPNfvj03Tw", channel: "Sayan Roy" },
-        { title: "How To Rank In AI Search Engines (ChatGPT, Claude, Perplexity, Gemini)", url: "https://www.youtube.com/watch?v=ebOrP7DMo-s", channel: "Joshua George" },
-        { title: "How to Rank in ChatGPT & AI Search (Free GEO Audit Method)", url: "https://www.youtube.com/watch?v=A9Gfhvkdh_w", channel: "Shivansh Yadav" },
         { title: "LLM SEO in Tamil: How to Rank in AI Search (ChatGPT, Gemini, Claude) - AI SEO Explained Step by Step", url: "https://www.youtube.com/watch?v=Mp-uMqN30RM", channel: "Genxure Learning" },
       ],
     },
@@ -659,7 +627,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Social Media Marketing Full Course 2026 | Social Media Marketing Tutorial | SMM Course | Simplilearn", url: "https://www.youtube.com/watch?v=mg3xaPG32SA", channel: "Simplilearn" },
       ],
       hi: [
-        { title: "How to Start an AI-Powered Social Media Agency in 2026 — ₹0 to ₹1 Lakh/Month", url: "https://www.youtube.com/watch?v=beC_uVYqAXc", channel: "Ashutosh Kumar" },
         { title: "Meta Ads full Course 2026 in Hindi | Facebook Ads Course with AI  | #metaadscourse #metaadstutorial", url: "https://www.youtube.com/watch?v=gzvcv7HTo28", channel: "Marketing Fundas" },
         { title: "Complete Generative AI & Digital Marketing Course 2026 🔥 | Free Course For Beginners | Part 1", url: "https://www.youtube.com/watch?v=VdFQRcAhfcc", channel: "Indian Digital Academy" },
         { title: "TOP 4 AI Tools for Social Media Marketing That Save 10+ Hours Daily (2026)", url: "https://www.youtube.com/watch?v=vYijnThqVYw", channel: "Sachin Pathania" },
@@ -674,7 +641,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "3 Useful tools for Digital Marketers | Digital Marketing Course in Tamil", url: "https://www.youtube.com/watch?v=mj_o3_pAP0Q", channel: "Entri Digital Marketing Tamil" },
         { title: "Digital Marketing Full Course in Tamil | 32 Hours | Digital Marketing for Beginners in Tamil", url: "https://www.youtube.com/watch?v=8-ySmWaIH54", channel: "Simplified E-learning" },
         { title: "AI Powered Digital Marketing Masterclass in Tamil | Meta Ads, Google Ads, AI Tools | 50 Days Online", url: "https://www.youtube.com/watch?v=Uvw1zjocAqQ", channel: "Digital Saravanan" },
-        { title: "Social Media Marketing Full Course 2026 | Social Media Marketing Tutorial | SMM Course | Simplilearn", url: "https://www.youtube.com/watch?v=mg3xaPG32SA", channel: "Simplilearn" },
       ],
     },
     articles: [
@@ -706,7 +672,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "ai voice generator free | ai voice kaise generate kare | text to speech | best ai voice generator", url: "https://www.youtube.com/watch?v=WTkwLOrhsik", channel: "Tech Aakash Help" },
       ],
       hi: [
-        { title: "ai voice generator free | ai voice kaise generate kare | text to speech | best ai voice generator", url: "https://www.youtube.com/watch?v=WTkwLOrhsik", channel: "Tech Aakash Help" },
         { title: "FREE Ai Voices ✅ Realistic Text to Speech 🤩 Hindi Natural Emotions Voices #texttospeech #aivoice", url: "https://www.youtube.com/watch?v=QnOJUwOEfrE", channel: "Raj Photo Editing and Much More" },
         { title: "🎙️ How I Make AI Voice Sound 100% Human 🤯 | Full Editing Workflow & Secret Settings", url: "https://www.youtube.com/watch?v=6-bjvDDu7Mw", channel: "Vikash Ai Pro" },
         { title: "Free Human-Like Ai Voice | Monetizable & Unlimited Voiceover for Free | F Guide", url: "https://www.youtube.com/watch?v=BVvKdlV79Pc", channel: "F. Guide" },
@@ -752,22 +717,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Build AI ChatBot with Custom Knowledge Base in 10 mins", url: "https://www.youtube.com/watch?v=6hQF80_xMkQ", channel: "Coding Money" },
       ],
       hi: [
-        { title: "How to Create Custom GPT | OpenAI Tutorial", url: "https://www.youtube.com/watch?v=0Q1AQAxpdGg", channel: "Kevin Stratvert" },
-        { title: "Custom GPT Tutorial - Quickly learn to Create your own GPT with this Step-by-Step Guide for ChatGPT", url: "https://www.youtube.com/watch?v=Tp_TX4UWZf4", channel: "Lawton Learns" },
-        { title: "How To Create Custom GPTs For Beginners", url: "https://www.youtube.com/watch?v=ABVwhZWg1Uk", channel: "The AI Advantage" },
         { title: "How to Create Custom GPT in ChatGPT - Step by Step Tutorial in Hindi", url: "https://www.youtube.com/watch?v=kMdtssqDZAI", channel: "The Next Signal" },
       ],
       te: [
         { title: "Custom GPT | Custom GPT tutorial | In Telugu #education #students #customgpt #shorts #viral", url: "https://www.youtube.com/watch?v=yWvdEfl9hlE", channel: "Telugu Software kurrodu" },
-        { title: "How to Create Custom GPT | OpenAI Tutorial", url: "https://www.youtube.com/watch?v=0Q1AQAxpdGg", channel: "Kevin Stratvert" },
-        { title: "How To Create Custom GPTs For Beginners", url: "https://www.youtube.com/watch?v=ABVwhZWg1Uk", channel: "The AI Advantage" },
-        { title: "Custom GPT Tutorial - Quickly learn to Create your own GPT with this Step-by-Step Guide for ChatGPT", url: "https://www.youtube.com/watch?v=Tp_TX4UWZf4", channel: "Lawton Learns" },
       ],
       ta: [
-        { title: "How to Create Custom GPT | OpenAI Tutorial", url: "https://www.youtube.com/watch?v=0Q1AQAxpdGg", channel: "Kevin Stratvert" },
-        { title: "Create a Custom GPT with Knowledge Base", url: "https://www.youtube.com/watch?v=h-dSyWD_7mI", channel: "Digital Biz Whiz" },
         { title: "Custom GPTs: Build Your Own GPT's in Tamil | தனிப்பட்ட ஜிபிடி செயலிகளை  எளிதாக உருவாக்குவது எப்படி", url: "https://www.youtube.com/watch?v=1Mbg1KbNAT0", channel: "Genaitamil" },
-        { title: "Custom GPT Tutorial - Quickly learn to Create your own GPT with this Step-by-Step Guide for ChatGPT", url: "https://www.youtube.com/watch?v=Tp_TX4UWZf4", channel: "Lawton Learns" },
       ],
     },
     articles: [],
@@ -789,22 +745,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Fine-Tune Gemma 4 in Minutes (No Code!) 🔥 Unsloth Studio Tutorial", url: "https://www.youtube.com/watch?v=d9LGtygWEKQ", channel: "Prompt Engineer" },
       ],
       hi: [
-        { title: "Fine Tuning LLM Explained Simply", url: "https://www.youtube.com/watch?v=ezdIOLbUSWg", channel: "codebasics" },
-        { title: "EASIEST Way to Fine-Tune a LLM and Use It With Ollama", url: "https://www.youtube.com/watch?v=pxhkDaKzBaY", channel: "Warp" },
-        { title: "EASIEST Way to Fine-Tune a LLM and Use It With Ollama", url: "https://www.youtube.com/watch?v=pTaSDVz0gok", channel: "Tech With Tim" },
         { title: "LLM Fine Tuning Crash Course | LLM Fine Tuning Tutorial", url: "https://www.youtube.com/watch?v=IIvORO248Zs", channel: "codebasics" },
       ],
       te: [
-        { title: "Fine Tuning LLM Explained Simply", url: "https://www.youtube.com/watch?v=ezdIOLbUSWg", channel: "codebasics" },
-        { title: "LLM Fine-Tuning Explained: The Complete Guide", url: "https://www.youtube.com/watch?v=Wx1oiBCmxjY", channel: "Aishwarya Srinivasan and The Gen Academy" },
-        { title: "How to build your own Custom AI Assistant (Fine-Tune LLM Tutorial)", url: "https://www.youtube.com/watch?v=s0bkHhTHOoE", channel: "Tech With Lucy" },
         { title: "LLM Fine Tuning Crash Course | LLM Fine Tuning Tutorial", url: "https://www.youtube.com/watch?v=IIvORO248Zs", channel: "codebasics" },
       ],
       ta: [
         { title: "I Fine -Tuned LLM in 10 min", url: "https://www.youtube.com/watch?v=a8ETI6xb-Is", channel: "AI Coach John (Tamil)" },
         { title: "Complete LLM Fine Tuning Tutorial for Beginners (Free and Open Source) | Explained in Tamil | GenAI", url: "https://www.youtube.com/watch?v=gOOS3k-7t6U", channel: "AI with Akash" },
-        { title: "Fine Tuning LLM Explained Simply", url: "https://www.youtube.com/watch?v=ezdIOLbUSWg", channel: "codebasics" },
-        { title: "LLM Fine-Tuning Explained: The Complete Guide", url: "https://www.youtube.com/watch?v=Wx1oiBCmxjY", channel: "Aishwarya Srinivasan and The Gen Academy" },
       ],
     },
     articles: [
@@ -831,7 +779,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Build an MCP Server for LLM Agents: Simplify AI Integration", url: "https://www.youtube.com/watch?v=EyYJI8TPIj8", channel: "IBM Technology" },
       ],
       hi: [
-        { title: "Model Context Protocol Clearly Explained | MCP Beyond the Hype", url: "https://www.youtube.com/watch?v=tzrwxLNHtRY", channel: "codebasics" },
         { title: "MCP Explained | Model Context Protocol  #agenticai", url: "https://www.youtube.com/watch?v=I8Xf2jewMhQ", channel: "Code With Aarohi Hindi" },
         { title: "MCP Explained for Beginners | MCP Client, MCP Server, JSON-RPC & Architecture", url: "https://www.youtube.com/watch?v=tcdtYA0_N7w", channel: "Code With Aarohi Hindi" },
         { title: "What are MCP servers | Explained in Hindi", url: "https://www.youtube.com/watch?v=dZyQNy3-HjU", channel: "Chai aur Code" },
@@ -840,7 +787,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "MCP - Model Context Protocol Explained | Telugu | Vamsi Bhavani", url: "https://www.youtube.com/watch?v=WJoIDzIvlXo", channel: "Vamsi Bhavani" },
         { title: "What is MCP in Telugu - MCP Simple Explanation AI -  AI Telugu", url: "https://www.youtube.com/watch?v=grysXWDZ1hY", channel: "AI Telugu" },
         { title: "1/10 - MCP Course in Telugu | MCP ఎందుకు కావాలి | Vamsi Bhavani", url: "https://www.youtube.com/watch?v=sI-jj9uvSP4", channel: "Vamsi Bhavani" },
-        { title: "Model Context Protocol Clearly Explained | MCP Beyond the Hype", url: "https://www.youtube.com/watch?v=tzrwxLNHtRY", channel: "codebasics" },
       ],
       ta: [
         { title: "Model Context Protocol (MCP) Explained in Tamil 🔥 | AI Integration Made Simple | AI Coach John", url: "https://www.youtube.com/watch?v=DTGyEx8Q8mU", channel: "AI Coach John (Tamil)" },
@@ -877,18 +823,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Claude AI For Marketers: Save 20+ Hours/Week with these Methods 🔥", url: "https://www.youtube.com/watch?v=MVdHWZnT0ps", channel: "Damini Tripathi" },
-        { title: "मल्टीमॉडल AI क्या है? | शुरुआती लोगों के लिए AI ट्यूटोरियल | मल्टीमॉडल AI कैसे काम करता है? | एडु...", url: "https://www.youtube.com/watch?v=cb-RXX_q_wM", channel: "edureka!" },
         { title: "Google Pomelli Kya Hai? | Free AI Marketing Tool | Complete Tutorial in Hindi 2026", url: "https://www.youtube.com/watch?v=A1n56THO1eI", channel: "Dipak on Digital" },
-        { title: "What Is Multimodal AI and How Does It Work?", url: "https://www.youtube.com/watch?v=CDv5J2vHonE", channel: "Jotform AI Agents" },
       ],
       te: [
-        { title: "What Is Multimodal AI? | AI Tutorials For Beginners | Gemini | ChatGPT | Gemma | Simplilearn", url: "https://www.youtube.com/watch?v=E58sFbRqd9M", channel: "Simplilearn" },
         { title: "Multimodal AI Explained #ai #artificialintelligence #ml #generativeai #multimodal #llm #learning", url: "https://www.youtube.com/watch?v=1f7Wud73FeU", channel: "Generative AI with Varun" },
         { title: "Free AI Marketing Tool Pomelli | Complete Tutorial in Telugu Step by Step Guide", url: "https://www.youtube.com/watch?v=5EbQLvvZJ-w", channel: "DM-Hemsundar-Jogi" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
       ],
       ta: [
-        { title: "What Is Multimodal AI? | AI Tutorials For Beginners | Gemini | ChatGPT | Gemma | Simplilearn", url: "https://www.youtube.com/watch?v=E58sFbRqd9M", channel: "Simplilearn" },
         { title: "Pomelli Tutorial | Free AI Marketing Tool Explained (2026)", url: "https://www.youtube.com/watch?v=KXmO1AnrwOw", channel: "Business Automation Tamil" },
         { title: "3 Useful tools for Digital Marketers | Digital Marketing Course in Tamil", url: "https://www.youtube.com/watch?v=mj_o3_pAP0Q", channel: "Entri Digital Marketing Tamil" },
         { title: "Ideas to Impact with Conversational Multimodal AI", url: "https://www.youtube.com/watch?v=WALac2oIhCo", channel: "JedaAi" },
@@ -921,7 +863,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "AI Prompting Mastery 🔥 Hindi Guide to Pro Prompt Engineering", url: "https://www.youtube.com/watch?v=iQuun5zEoL4", channel: "Aretouch" },
-        { title: "Prompt Engineering for Digital Marketers - Beginners to Experts | Aditya Singh", url: "https://www.youtube.com/watch?v=nreo25b0bWs", channel: "Aditya Singh  - I Run Ads" },
         { title: "Prompt Engineering Practical Tutorials in Hindi | #promptengineeringcourse", url: "https://www.youtube.com/watch?v=vJI8AdF1FuY", channel: "Marketing Fundas" },
         { title: "Prompt Engineering Full Course | From Beginner to Pro", url: "https://www.youtube.com/watch?v=YhRfgYH_AoU", channel: "The iScale" },
       ],
@@ -1007,21 +948,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Synthetic Users: AI “Participants”", url: "https://www.youtube.com/watch?v=q_fdcbwHJKQ", channel: "NNgroup" },
       ],
       hi: [
-        { title: "How Synthetic Research and AI Personas are Redefining Market Insights with Mavera’s Jill Axline, PhD", url: "https://www.youtube.com/watch?v=qr_lgJtiiRs", channel: "AI Marketers Guild" },
-        { title: "$100K Market Research for $50? How AI Synthetic Personas Are Changing Product Development", url: "https://www.youtube.com/watch?v=ydZRKOJJfxA", channel: "TheProfessor" },
-        { title: "What is Synthetic Data? No, It's Not \"Fake\" Data", url: "https://www.youtube.com/watch?v=HIusawrGBN4", channel: "IBM Technology" },
         { title: "Create Synthetic User Research Tests in 5 Min | Simulating Audiences and Leveraging Dynamic Personas", url: "https://www.youtube.com/watch?v=cl2MviysVqc", channel: "WEVO" },
       ],
       te: [
-        { title: "How Synthetic Research and AI Personas are Redefining Market Insights with Mavera’s Jill Axline, PhD", url: "https://www.youtube.com/watch?v=qr_lgJtiiRs", channel: "AI Marketers Guild" },
         { title: "Top 4 AI Tools for Digital Marketers || Digital John", url: "https://www.youtube.com/watch?v=XDR1Kpej3oA", channel: "Digital Marketing Course in Telugu" },
         { title: "AI Powered FREE Digital Marketing Course in Telugu || Full Course", url: "https://www.youtube.com/watch?v=9fWhf1djYTw", channel: "Digital Marketing Course in Telugu and Digital Badi" },
         { title: "Marketing AI Tools Telugu", url: "https://www.youtube.com/watch?v=Jddx9AqyHUU", channel: "PythonLife" },
       ],
       ta: [
-        { title: "How Synthetic Research and AI Personas are Redefining Market Insights with Mavera’s Jill Axline, PhD", url: "https://www.youtube.com/watch?v=qr_lgJtiiRs", channel: "AI Marketers Guild" },
-        { title: "$100K Market Research for $50? How AI Synthetic Personas Are Changing Product Development", url: "https://www.youtube.com/watch?v=ydZRKOJJfxA", channel: "TheProfessor" },
-        { title: "What is Synthetic Data? No, It's Not \"Fake\" Data", url: "https://www.youtube.com/watch?v=HIusawrGBN4", channel: "IBM Technology" },
         { title: "A/B testing of ad copy most important| AI tools| Day 23 #fbads", url: "https://www.youtube.com/watch?v=Vz7n8MvhMso", channel: "TheBlissAI" },
       ],
     },
@@ -1049,7 +983,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Jensen Huang's Advice for Students: Master AI to Shape the Future | #NVIDIA CEO Insights 🤖💡", url: "https://www.youtube.com/watch?v=9lQpF3_WmkI", channel: "KaikoMedia" },
       ],
       hi: [
-        { title: "How I Tricked ChatGPT into Analyzing MASSIVE Datasets (100% Free)", url: "https://www.youtube.com/watch?v=ES2B8vMXW9k", channel: "Website Learners" },
         { title: "Game Changing AI Tools", url: "https://www.youtube.com/watch?v=DEvMtZLTT8c", channel: "Think School" },
         { title: "Use AI in Excel for Data Analysis | No Plugin required", url: "https://www.youtube.com/watch?v=Q-Ar-35nChA", channel: "Levelupwithexcel" },
         { title: "120 mind blowing AI tools #productivity #aitools #ai", url: "https://www.youtube.com/watch?v=0MQEf_7qk4s", channel: "SetupsAI" },
@@ -1063,7 +996,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "Generative 𝐀𝐈 (Gen AI)  ? in Tamil", url: "https://www.youtube.com/watch?v=c7yjHFyS3Tw", channel: "Data Engineering" },
         { title: "These 8 AI TOOLS Will Change How You Live - Here’s Why!", url: "https://www.youtube.com/watch?v=h_R3FafQrU8", channel: "Explore with Epaphra" },
-        { title: "How I Tricked ChatGPT into Analyzing MASSIVE Datasets (100% Free)", url: "https://www.youtube.com/watch?v=ES2B8vMXW9k", channel: "Website Learners" },
         { title: "AI Agents vs LLMs vs RAGs vs Agentic AI | Rakesh Gohel", url: "https://www.youtube.com/watch?v=YUNf24-QMzk", channel: "Rakesh Gohel" },
       ],
     },
@@ -1144,15 +1076,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How the Attribution Model Works in Digital Marketing? | Video Tutorial in Hindi | LearnVern", url: "https://www.youtube.com/watch?v=fdFkTYYGi_M", channel: "LearnVern" },
       ],
       te: [
-        { title: "What is Attribution Models In Google Analytics-Tutorial for Beginners", url: "https://www.youtube.com/watch?v=YD4dufmMkcE", channel: "WsCube Tech! ENGLISH" },
-        { title: "What Is Attribution Modeling? A Quick Explainer for Marketers", url: "https://www.youtube.com/watch?v=BfnJwYuFWVM", channel: "HubSpot Marketing" },
         { title: "Attribution Models: The Complete Guide for Beginners", url: "https://www.youtube.com/watch?v=U4mOndKRins", channel: "Clear House Accountants" },
-        { title: "Marketing Attribution Tutorial: Everything You Need to Get Started", url: "https://www.youtube.com/watch?v=Cl7M4w0LKhU", channel: "Ruben Ugarte" },
       ],
       ta: [
         { title: "Marketing & Digital Course: Attribution Marketing in Tamil - SasikumarTalks #SasikumarTalks", url: "https://www.youtube.com/watch?v=11jJjWt1rwA", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "What Is Attribution Modeling? A Quick Explainer for Marketers", url: "https://www.youtube.com/watch?v=BfnJwYuFWVM", channel: "HubSpot Marketing" },
-        { title: "What Is Attribution Modelling | Target Internet", url: "https://www.youtube.com/watch?v=aiCbgnOavT0", channel: "Target Internet" },
         { title: "How to use Google Ads Attribution Model and its Uses Tutorial in Tamil", url: "https://www.youtube.com/watch?v=O8CRKFcDeQw", channel: "Sriram Sparda Digital Marketing {தமிழ்} 😍" },
       ],
     },
@@ -1182,19 +1109,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Attribution, Attribution Models & Attribution Tools in Google Ads | Google Ads Tutorials in Hindi", url: "https://www.youtube.com/watch?v=UV7LJLKCdeg", channel: "Sunil Deshwal" },
         { title: "How the Attribution Model Works in Digital Marketing? | Video Tutorial in Hindi | LearnVern", url: "https://www.youtube.com/watch?v=fdFkTYYGi_M", channel: "LearnVern" },
-        { title: "Marketing Attribution Tutorial: Everything You Need to Get Started", url: "https://www.youtube.com/watch?v=Cl7M4w0LKhU", channel: "Ruben Ugarte" },
         { title: "PART- 17 | Google Analytics Tutorial |  Attribution Models in  Analytics?| (in Hindi)", url: "https://www.youtube.com/watch?v=vJBjwDslXmA", channel: "WsCube Tech" },
       ],
       te: [
-        { title: "What Is Attribution Modeling? A Quick Explainer for Marketers", url: "https://www.youtube.com/watch?v=BfnJwYuFWVM", channel: "HubSpot Marketing" },
-        { title: "Marketing Attribution Tutorial: Everything You Need to Get Started", url: "https://www.youtube.com/watch?v=Cl7M4w0LKhU", channel: "Ruben Ugarte" },
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
       ],
       ta: [
         { title: "Marketing & Digital Course: Attribution Marketing in Tamil - SasikumarTalks #SasikumarTalks", url: "https://www.youtube.com/watch?v=11jJjWt1rwA", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Marketing Attribution Tutorial: Everything You Need to Get Started", url: "https://www.youtube.com/watch?v=Cl7M4w0LKhU", channel: "Ruben Ugarte" },
-        { title: "What Is Attribution Modeling? A Quick Explainer for Marketers", url: "https://www.youtube.com/watch?v=BfnJwYuFWVM", channel: "HubSpot Marketing" },
         { title: "Performance Marketing in Tamil  | Unlock the Secrets of Performance Marketing | Jaiprasanth K", url: "https://www.youtube.com/watch?v=i1i2iaO4uFs", channel: "Jaiprasanth K" },
       ],
     },
@@ -1225,22 +1147,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗗𝗮𝘁𝗮 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 𝗗𝗲𝗺𝗼 | 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲 𝗖𝗗𝗣 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗳𝗼𝗿 𝗕𝘂𝘀𝗶𝗻𝗲𝘀𝘀", url: "https://www.youtube.com/watch?v=fmE6gggZasA", channel: "BOL7 TECHNOLOGIES" },
       ],
       hi: [
-        { title: "What are Customer Data Platforms (CDPs) | Difference between CDP & CRM", url: "https://www.youtube.com/watch?v=TKkjLOWZt6g", channel: "Umar Tazkeer" },
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
         { title: "Adobe Real-Time Customer Data Platform (RT-CDP) Overview | Adobe RT-CDP Tutorial | Demo Session", url: "https://www.youtube.com/watch?v=jiriiyObHuw", channel: "Iteanz Technologies" },
-        { title: "𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗗𝗮𝘁𝗮 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 𝗗𝗲𝗺𝗼 | 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲 𝗖𝗗𝗣 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗳𝗼𝗿 𝗕𝘂𝘀𝗶𝗻𝗲𝘀𝘀", url: "https://www.youtube.com/watch?v=fmE6gggZasA", channel: "BOL7 TECHNOLOGIES" },
       ],
       te: [
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
-        { title: "What is Customer Data Platform - CDP?", url: "https://www.youtube.com/watch?v=AOobYcQvpnI", channel: "Optizent | Marketing, Product & Digital Analytics" },
-        { title: "What are Customer Data Platforms (CDPs) | Difference between CDP & CRM", url: "https://www.youtube.com/watch?v=TKkjLOWZt6g", channel: "Umar Tazkeer" },
         { title: "Best Practices for Customer Data Platforms (CDPs) Implementation Phase", url: "https://www.youtube.com/watch?v=9T9G9Q1z_0M", channel: "Disa Rastogi - Digital Analytics on the Go" },
       ],
       ta: [
-        { title: "What is Customer Data Platform - CDP?", url: "https://www.youtube.com/watch?v=AOobYcQvpnI", channel: "Optizent | Marketing, Product & Digital Analytics" },
-        { title: "What Is a Customer Data Platform (CDP)? | How a CDP Can Turn Your Marketing Up to Eleven", url: "https://www.youtube.com/watch?v=8RGZdPtVyTg", channel: "WebFX" },
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
-        { title: "What Is a Customer Data Platform (CDP)?", url: "https://www.youtube.com/watch?v=0y7JDUmbJzI", channel: "Bloomreach" },
       ],
     },
     articles: [
@@ -1267,21 +1179,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Data Clean Rooms Explained in 60 Seconds", url: "https://www.youtube.com/watch?v=bW0WVrEscHw", channel: "Data Activators" },
       ],
       hi: [
-        { title: "डेटा क्लीन रूम (ऐसी तकनीक जिसे कोई नहीं समझता...)", url: "https://www.youtube.com/watch?v=EEnNOQSCCnU", channel: "Data Activators" },
         { title: "🔥Top 15 Super Ways To Clean Data in MS Excel | How to Clean Data in MS Excel", url: "https://www.youtube.com/watch?v=i6cyJFxd8_Y", channel: "mybigguide" },
-        { title: "Data Clean Rooms Explained in 60 Seconds", url: "https://www.youtube.com/watch?v=bW0WVrEscHw", channel: "Data Activators" },
         { title: "What is data clean room? #shorts", url: "https://www.youtube.com/watch?v=YCceqv-GN20", channel: "Clearcode: AdTech & MarTech Videos" },
       ],
       te: [
-        { title: "Data Clean Rooms (The Technology Nobody Understands...)", url: "https://www.youtube.com/watch?v=EEnNOQSCCnU", channel: "Data Activators" },
         { title: "Clean Room | Basics of Clean room | Telugu | HVAC | Lohisya media", url: "https://www.youtube.com/watch?v=2idq6enqM9o", channel: "Lohisya Media" },
         { title: "API Pharma Clean rooms interview Questions/Interview Questions about clean rooms.", url: "https://www.youtube.com/watch?v=cLsyNJJ0goo", channel: "GVR Pharma tutorial" },
-        { title: "What is a Data Clean Room?", url: "https://www.youtube.com/watch?v=opb5cgx3l0A", channel: "Eye on Tech" },
       ],
       ta: [
         { title: "Master Data Cleaning Full Course for Data Science & Data Analytics | தமிழில் | (Save Hours of Work)", url: "https://www.youtube.com/watch?v=D4JNkwe089o", channel: "BTree Systems" },
-        { title: "Data Clean Rooms (The Technology Nobody Understands...)", url: "https://www.youtube.com/watch?v=EEnNOQSCCnU", channel: "Data Activators" },
-        { title: "What is a Data Clean Room?", url: "https://www.youtube.com/watch?v=opb5cgx3l0A", channel: "Eye on Tech" },
         { title: "Data Cleaning Explained Simply | Data Analyst Day 01 | Excel & Google Sheets in Tamil", url: "https://www.youtube.com/watch?v=4INhNgo0WiY", channel: "Vista Tech" },
       ],
     },
@@ -1315,16 +1221,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Google Analytics 4 Course  | What is cohort Analysis & Exploration in GA4| Part#27 |", url: "https://www.youtube.com/watch?v=TM_cjQB8MOk", channel: "Umar Tazkeer" },
       ],
       te: [
-        { title: "What Is Customer Retention? | Customer Retention Cohort Analysis With Demo | Simplilearn", url: "https://www.youtube.com/watch?v=eieefQIVBR0", channel: "Simplilearn" },
-        { title: "Cohort Analysis Explained: Track Retention & Reduce Churn (Beginners Guide)", url: "https://www.youtube.com/watch?v=M7UEEKbET50", channel: "Explained Hub" },
-        { title: "Customer Retention & Cohort Analysis | How VCs Calculate Customer Retention", url: "https://www.youtube.com/watch?v=OwCATJh4lNg", channel: "Eric Andrews" },
-        { title: "Cohort Analysis Explained with SQL — Retention Made Simple!", url: "https://www.youtube.com/watch?v=mYSqc6Funuc", channel: "Krishna Verma" },
       ],
       ta: [
-        { title: "வாடிக்கையாளர் தக்கவைப்பு என்றால் என்ன? | டெமோவுடன் வாடிக்கையாளர் தக்கவைப்பு கூட்டு பகுப்பாய்வு | ...", url: "https://www.youtube.com/watch?v=eieefQIVBR0", channel: "Simplilearn" },
-        { title: "கூட்டு பகுப்பாய்வு விளக்கம்: தக்கவைப்பைக் கண்காணித்தல் & குறைத்தல் (தொடக்க வழிகாட்டி)", url: "https://www.youtube.com/watch?v=M7UEEKbET50", channel: "Explained Hub" },
-        { title: "Customer Retention & Cohort Analysis | How VCs Calculate Customer Retention", url: "https://www.youtube.com/watch?v=OwCATJh4lNg", channel: "Eric Andrews" },
-        { title: "Cohort analysis: What it is, how to use it and how to present it", url: "https://www.youtube.com/watch?v=KQV5IILGyEE", channel: "Startup Akademia" },
       ],
     },
     articles: [
@@ -1352,22 +1250,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is Klaviyo's Customer Data Platform (CDP)?", url: "https://www.youtube.com/watch?v=wS5LxEXaEjM", channel: "Klaviyo" },
       ],
       hi: [
-        { title: "What is a Composable CDP? (Explained by a Data Engineer)", url: "https://www.youtube.com/watch?v=_Iv1Y2K-8r4", channel: "Data Activators" },
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
-        { title: "𝗖𝘂𝘀𝘁𝗼𝗺𝗲𝗿 𝗗𝗮𝘁𝗮 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 𝗗𝗲𝗺𝗼 | 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲 𝗖𝗗𝗣 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 𝗳𝗼𝗿 𝗕𝘂𝘀𝗶𝗻𝗲𝘀𝘀", url: "https://www.youtube.com/watch?v=fmE6gggZasA", channel: "BOL7 TECHNOLOGIES" },
         { title: "What are Customer Data Platforms (CDPs) | Difference between CDP & CRM", url: "https://www.youtube.com/watch?v=TKkjLOWZt6g", channel: "Umar Tazkeer" },
       ],
       te: [
-        { title: "What is a Composable CDP? (Explained by a Data Engineer)", url: "https://www.youtube.com/watch?v=_Iv1Y2K-8r4", channel: "Data Activators" },
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
         { title: "What is a Composable CDP?", url: "https://www.youtube.com/watch?v=cWqC_oEfe-w", channel: "D·engage - marketing's most powerful CXDP" },
-        { title: "What is a Customer Data Platform? CDPs Explained in 2 Minutes with RudderStack", url: "https://www.youtube.com/watch?v=wPNo9_sAxbU", channel: "RudderStack" },
       ],
       ta: [
-        { title: "What is a Composable CDP? (Explained by a Data Engineer)", url: "https://www.youtube.com/watch?v=_Iv1Y2K-8r4", channel: "Data Activators" },
         { title: "D·engage explain Composable CDPs", url: "https://www.youtube.com/watch?v=cWqC_oEfe-w", channel: "D·engage - marketing's most powerful CXDP" },
-        { title: "What is a Customer Data Platform? CDPs Explained in 2 Minutes with RudderStack", url: "https://www.youtube.com/watch?v=wPNo9_sAxbU", channel: "RudderStack" },
-        { title: "What is a CDP or Customer Data platform? Why is it considered to be Hub of performance marketing?", url: "https://www.youtube.com/watch?v=Ty7v76ey10E", channel: "Senator We Run Ads" },
       ],
     },
     articles: [
@@ -1398,22 +1287,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Setup Google Consent Mode V2 | Tutorial | Shopify + GTM Implementation (Working Example)", url: "https://www.youtube.com/watch?v=zbo3gC2oaVo", channel: "Bipin Patel" },
       ],
       hi: [
-        { title: "Google Analytics में सहमति मोड सेट अप करें", url: "https://www.youtube.com/watch?v=MqAEbshMv84", channel: "Google Analytics" },
-        { title: "Google Consent Mode Explained Privacy and Analytics Best Practices", url: "https://www.youtube.com/watch?v=hBvIw2Y4C60", channel: "AnalyticsLiv" },
-        { title: "गूगल कंसेंट मोड V2 कैसे सेट करें | ट्यूटोरियल | शॉपिफाई + जीटीएम कार्यान्वयन (कार्यशील उदाहरण)", url: "https://www.youtube.com/watch?v=zbo3gC2oaVo", channel: "Bipin Patel" },
-        { title: "Cookie Banner & Consent Mode with Google Tag Manager – GTM Tutorial Lesson 7", url: "https://www.youtube.com/watch?v=sOv6MS67P88", channel: "Loves Data" },
       ],
       te: [
-        { title: "Set up consent mode in Google Analytics", url: "https://www.youtube.com/watch?v=MqAEbshMv84", channel: "Google Analytics" },
-        { title: "Cookie Banner & Consent Mode with Google Tag Manager – GTM Tutorial Lesson 7", url: "https://www.youtube.com/watch?v=sOv6MS67P88", channel: "Loves Data" },
         { title: "Internet Cookies Telugu // #internetcookiestelugu #shorts", url: "https://www.youtube.com/watch?v=AzWtqnGxux0", channel: "Bala Telugu Tech" },
-        { title: "Google Ads Tutorials: Consent Mode", url: "https://www.youtube.com/watch?v=x_N7ZwWEXoY", channel: "Google Ads" },
       ],
       ta: [
-        { title: "Set up consent mode in Google Analytics", url: "https://www.youtube.com/watch?v=MqAEbshMv84", channel: "Google Analytics" },
         { title: "How To Enable Consent Mode V2 for Your Website Using Google Tag Manager Tutorial In Tamil", url: "https://www.youtube.com/watch?v=-BgeCPZXXM8", channel: "Sriram Sparda Digital Marketing {தமிழ்} 😍" },
-        { title: "Cookie Banner & Consent Mode with Google Tag Manager – GTM Tutorial Lesson 7", url: "https://www.youtube.com/watch?v=sOv6MS67P88", channel: "Loves Data" },
-        { title: "What IS Google’s Consent Mode v2? Here's all you need to know", url: "https://www.youtube.com/watch?v=KYcp_dev8DM", channel: "Usercentrics" },
       ],
     },
     articles: [
@@ -1441,19 +1320,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "We Looked At 3000 Landing Pages With Conversion Tracking Set Up", url: "https://www.youtube.com/watch?v=qZD85gJNdiI", channel: "Neil Patel" },
       ],
       hi: [
-        { title: "How To Set Up Google Ads Conversion Tracking Fast 2025", url: "https://www.youtube.com/watch?v=gW_Mmcam_tE", channel: "Arvind Singh | Digital Marketing" },
         { title: "What is Conversion Tracking | Google Ads Conversion Tracking in Hindi", url: "https://www.youtube.com/watch?v=cd3W8S_NW4E", channel: "Marketing Safalta by Raj Thakur" },
         { title: "Part 19 - How To Set Up Google Ads Conversion Tracking | Google Ads Complete Course 2024", url: "https://www.youtube.com/watch?v=65woMhezV3E", channel: "Amit Tiwari" },
         { title: "Google Ads Conversion Tracking Setup 2026 | Step-by-Step Guide for Beginners", url: "https://www.youtube.com/watch?v=wwLBjfyoHro", channel: "Digital with Anant" },
       ],
       te: [
         { title: "Free Google Ads Course in Telugu 2026 | Google Ads Conversion Tracking Tutorial |Class 9 #googleads", url: "https://www.youtube.com/watch?v=qimdCzqFUI0", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "How To Set Up Google Ads Conversion Tracking Fast 2025", url: "https://www.youtube.com/watch?v=gW_Mmcam_tE", channel: "Arvind Singh | Digital Marketing" },
         { title: "GTM Setup Part 3 | Google Tag Manager Step by Step Setup in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=asR3RlXuxrg", channel: "Subbu Digital Marketer" },
         { title: "Google Ads Conversion Tracking Set up in Telugu - Digital Marketing Course Tutorial in Telugu", url: "https://www.youtube.com/watch?v=igTvt7u1jQw", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
       ],
       ta: [
-        { title: "How To Set Up Google Ads Conversion Tracking Fast 2025", url: "https://www.youtube.com/watch?v=gW_Mmcam_tE", channel: "Arvind Singh | Digital Marketing" },
         { title: "Google Ads Tutorial in Tamil - Use the Google Tag to Track Link Click & Page Load Conversions", url: "https://www.youtube.com/watch?v=C_2V3mMwLO8", channel: "Digital Vishnu" },
         { title: "LinkedIn Ads Conversion Tracking and Button Click Event Conversion Tracking Tutorial in Tamil", url: "https://www.youtube.com/watch?v=CMi5RaPo7q8", channel: "Digital Vishnu" },
         { title: "Complete Google Ads Conversion Tracking Tutorial in Tamil - Google Ads Conversion by GA4 & GTM", url: "https://www.youtube.com/watch?v=WvXq7V0I5CA", channel: "Digital Vishnu" },
@@ -1535,13 +1411,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "How to Create #Dashboards in Google Data Studio || GIS in Telugu ||", url: "https://www.youtube.com/watch?v=9BqkEl6WNCg", channel: "GIS in Telugu" },
         { title: "How to Create Excel Dashboards - Telugu Tutorial", url: "https://www.youtube.com/watch?v=2NySxHMWsb4", channel: "Chandoo - Tech in Telugu" },
-        { title: "Best Looker Studio Sales Dashboards 📊 #lookerstudio #salesdashboard #dashboard #template", url: "https://www.youtube.com/watch?v=iwBYd1eKV4Y", channel: "Coupler․io Academy" },
-        { title: "Look & Learn - Creating a dashboard from an Explore", url: "https://www.youtube.com/watch?v=o3MYjg31rbM", channel: "Looker" },
       ],
       ta: [
-        { title: "Best Looker Studio Sales Dashboards 📊 #lookerstudio #salesdashboard #dashboard #template", url: "https://www.youtube.com/watch?v=iwBYd1eKV4Y", channel: "Coupler․io Academy" },
-        { title: "Look & Learn - Viewing dashboards", url: "https://www.youtube.com/watch?v=mTlW_WDq2r4", channel: "Looker" },
-        { title: "Looker Studio Dashboard in 60 Seconds | #lookerstudio #dataanalytics", url: "https://www.youtube.com/watch?v=PlvvSljCSs8", channel: "Data Meets Design" },
         { title: "Google data studio tutorial tamil - Dark Mode GA4 Dashboard  #lookerstudio  #googledatastudio", url: "https://www.youtube.com/watch?v=c-BTZ0fh2Zs", channel: "Riyas Thoughts" },
       ],
     },
@@ -1575,17 +1446,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Explain Dashboards in a Data Analyst Interview and Land the Job! - 5 Step process", url: "https://www.youtube.com/watch?v=kPXuesSTLCg", channel: "Mansi G." },
         { title: "Data Storytelling Unit 8🔥Class 12 Artificial Intelligence | CBSE Boards 2026 SUBJECT CODE - 843", url: "https://www.youtube.com/watch?v=AGjchPVX8Vo", channel: "TestCoach Prime by S Chand and Clarify Knowledge" },
         { title: "Data storytelling|data visualization|#shorts #data storytelling", url: "https://www.youtube.com/watch?v=yWO9R40stzU", channel: "MetaTrendz Hub" },
-        { title: "डेटा स्टोरीटेलिंग 101 | डेटा विश्लेषक की तरह सोचें", url: "https://www.youtube.com/watch?v=H79S8YDuYUU", channel: "Christine Jiang" },
       ],
       te: [
         { title: "Data Storytelling Overview | Telugu | coding nerchuko mawa", url: "https://www.youtube.com/watch?v=6D5sBf3fgfg", channel: "coding nerchuko mawa" },
         { title: "Data Visualization in 2025 | Data Analytics Tutorials Telugu | Brolly Academy", url: "https://www.youtube.com/watch?v=RQ98g2LUdw0", channel: "Brolly Academy" },
-        { title: "Data Storytelling Basics (in 3 Steps): How to Communicate Data and Numbers", url: "https://www.youtube.com/watch?v=zklM_KnNloI", channel: "Word Cortex with Anita" },
-        { title: "Importance of Data Story Telling in Data Analytics || Data Analysis", url: "https://www.youtube.com/watch?v=typWRLL6QBE", channel: "Connect IT Career" },
       ],
       ta: [
         { title: "How To Master STORYTELLING (in Tamil) | C.U.T.E Framework", url: "https://www.youtube.com/watch?v=zdz9rOljoxc", channel: "Rajkumar K" },
-        { title: "Data Storytelling Basics (in 3 Steps): How to Communicate Data and Numbers", url: "https://www.youtube.com/watch?v=zklM_KnNloI", channel: "Word Cortex with Anita" },
         { title: "Data Analysis | Story Telling in Movie Analysis Project | Tamil", url: "https://www.youtube.com/watch?v=Zf65Qp4sDpQ", channel: "ArtificialIntelligenceTamil" },
         { title: "Introduction to Data visualization in Tamil | Data Visualization| DataScience| Machinelearning", url: "https://www.youtube.com/watch?v=0FS-Qnkz2bk", channel: "LWM - தமிழ்" },
       ],
@@ -1616,13 +1483,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Lec - 2: Introduction to Data Warehouse🏺 with Examples", url: "https://www.youtube.com/watch?v=NphMcnU8ymU", channel: "Gate Smashers" },
       ],
       hi: [
-        { title: "Lec - 2: Introduction to Data Warehouse🏺 with Examples", url: "https://www.youtube.com/watch?v=NphMcnU8ymU", channel: "Gate Smashers" },
         { title: "Difference Between Data Warehouse, Data Mart & Data Lake", url: "https://www.youtube.com/watch?v=jnfMA2YVRtw", channel: "Gate Smashers" },
         { title: "Data Warehouse Part-1 Explained in Hindi | Data Engineering Series", url: "https://www.youtube.com/watch?v=7f6lFEKEY4k", channel: "5 Minutes Engineering" },
       ],
       te: [
         { title: "Database vs. Warehouse vs. Data Lake vs. Data Mart - Super Explanation in Telugu 👌", url: "https://www.youtube.com/watch?v=83He9vB_bNI", channel: "Chandoo - Tech in Telugu" },
-        { title: "Data Warehouse || How data Warehouse works#coding#artificialintelligence#data#datawarehouse#warehous", url: "https://www.youtube.com/watch?v=RaSMkneDqak", channel: "Information hub" },
         { title: "Data Warehouse in Telugu", url: "https://www.youtube.com/watch?v=xFLE1_V7u6M", channel: "Learners Page" },
       ],
       ta: [
@@ -1658,22 +1523,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Building an Experimentation Platform in Clojure by Nivedita & Srihari at Functional Conf 15", url: "https://www.youtube.com/watch?v=owKilUt4G2g", channel: "ConfEngine" },
       ],
       hi: [
-        { title: "Key Question to Create a Culture of Experimentation", url: "https://www.youtube.com/watch?v=NmJz8XGw3Rg", channel: "Testing Theory" },
         { title: "Experiments (A/B testing) in Google Ads | Google Ads Tutorials in Hindi", url: "https://www.youtube.com/watch?v=dM6JeqdYXkY", channel: "Sunil Deshwal" },
-        { title: "How to Create a Successful Culture of Experimentation", url: "https://www.youtube.com/watch?v=A3sxDQNFDMk", channel: "VWO" },
         { title: "System Design: A/B Testing & Experimentation Platform", url: "https://www.youtube.com/watch?v=YlIQ9GcRYXk", channel: "System Design Fight Club" },
       ],
       te: [
-        { title: "Key Question to Create a Culture of Experimentation", url: "https://www.youtube.com/watch?v=NmJz8XGw3Rg", channel: "Testing Theory" },
-        { title: "How to Create a Successful Culture of Experimentation", url: "https://www.youtube.com/watch?v=A3sxDQNFDMk", channel: "VWO" },
-        { title: "Thomas Ezan — Experimentation at scale: Fuel your application’s growth through A/B testing", url: "https://www.youtube.com/watch?v=aiY0lLcjFc8", channel: "Mobius — конференция по мобильной разработке" },
         { title: "How Yelp built an Experimentation Program from scratch", url: "https://www.youtube.com/watch?v=LTSbNiyDgnI", channel: "VWO" },
       ],
       ta: [
-        { title: "Key Question to Create a Culture of Experimentation", url: "https://www.youtube.com/watch?v=NmJz8XGw3Rg", channel: "Testing Theory" },
         { title: "This is how Netflix experiments with new features, AB Testing in simple terms | Tamil", url: "https://www.youtube.com/watch?v=03LkG6Vx2bc", channel: "Hareesh Rajendran" },
         { title: "System Design: A/B Testing & Experimentation Platform", url: "https://www.youtube.com/watch?v=YlIQ9GcRYXk", channel: "System Design Fight Club" },
-        { title: "Building an Experimentation Culture using I.D.E.A.", url: "https://www.youtube.com/watch?v=SVtQ-8TSZD8", channel: "Ruben Ugarte" },
       ],
     },
     articles: [
@@ -1705,18 +1563,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Best Funnel Project Series for Data Analytics | Funnel Analysis for Beginners | Tuta Tech", url: "https://www.youtube.com/watch?v=4xYYK4yoexk", channel: "Tuta Tech" },
-        { title: "5 Steps of Funnel Analysis Every Product Analyst Must Master", url: "https://www.youtube.com/watch?v=v1OrVfYrWNU", channel: "CodeVisium" },
         { title: "🔥 Master Funnel Exploration in GA4 | Google Analytics Course | Part-3 🎯📊", url: "https://www.youtube.com/watch?v=dUga4rLFQzc", channel: "The Manser" },
         { title: "Part - 7 | Funnel Reports in Google Analytics 4 | Funnel Analysis in Analysis Hub (Hindi)", url: "https://www.youtube.com/watch?v=_QYmbkrPKA4", channel: "SEO Utkarsh" },
       ],
       te: [
-        { title: "Main Steps of Sales Funnel Analysis and Customer Journey", url: "https://www.youtube.com/watch?v=2FfSI5A8KK4", channel: "Dashly" },
         { title: "Funnel exploration in Google Analytics 4 | Funnel reports in GA4", url: "https://www.youtube.com/watch?v=c_AhsKuNrWk", channel: "Analytics Mania - Google Analytics & Tag Manager" },
-        { title: "Funnel Analysis 101 | Ujjwal Trivedi | Product Manager |Product Management | AntWak", url: "https://www.youtube.com/watch?v=G8UFpYvEqZA", channel: "AntWalk | Crafting Human Capability" },
-        { title: "5 Steps of Funnel Analysis Every Product Analyst Must Master", url: "https://www.youtube.com/watch?v=v1OrVfYrWNU", channel: "CodeVisium" },
       ],
       ta: [
-        { title: "5 Steps of Funnel Analysis Every Product Analyst Must Master", url: "https://www.youtube.com/watch?v=v1OrVfYrWNU", channel: "CodeVisium" },
         { title: "Google Analytics 4 Tutorial (GA4) - How to Create a Funnel Exploration Report in GA4", url: "https://www.youtube.com/watch?v=Jjb7TAzMUgQ", channel: "Digital Vishnu" },
         { title: "Canadian Client Paid Me ₹6,616.23 to Build a Landing Page in 24 Hours | Tamil", url: "https://www.youtube.com/watch?v=IMmjxeBeWk4", channel: "Shafni Side" },
         { title: "Start Your DIGITAL MARKETING Career in 30 Days with Zero Experience", url: "https://www.youtube.com/watch?v=xZMLPpmvLRA", channel: "Vignesh Ravi" },
@@ -1753,14 +1606,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is Funnel Analysis?", url: "https://www.youtube.com/watch?v=aYphfb3itVg", channel: "karmanx" },
       ],
       te: [
-        { title: "Funnel Analysis 101 | Ujjwal Trivedi | Product Manager |Product Management | AntWak", url: "https://www.youtube.com/watch?v=G8UFpYvEqZA", channel: "AntWalk | Crafting Human Capability" },
         { title: "Google Analytics in Telugu | GA4 - Odmt Digital Marketing Training Course Hyderabad", url: "https://www.youtube.com/watch?v=r3GSbB41Cuw", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "Learn Funnel Exploration in Google Analytics 4 As a BEGINNER (Funnel analysis tutorial in GA4)", url: "https://www.youtube.com/watch?v=pvONfp6hw74", channel: "Clicks Don't Lie - Understand ecommerce data" },
       ],
       ta: [
         { title: "Google Analytics 4 Tutorial (GA4) - How to Create a Funnel Exploration Report in GA4", url: "https://www.youtube.com/watch?v=Jjb7TAzMUgQ", channel: "Digital Vishnu" },
         { title: "Mixpanel Tutorial for Beginners | Master Product Analytics & User Tracking", url: "https://www.youtube.com/watch?v=bYL93eV_sNw", channel: "Phylux Express" },
-        { title: "Funnel Analysis 101 | Ujjwal Trivedi | Product Manager |Product Management | AntWak", url: "https://www.youtube.com/watch?v=G8UFpYvEqZA", channel: "AntWalk | Crafting Human Capability" },
         { title: "Shocking GA4 Report Full Secrets in Tamil 🔥 Boost Traffic & Conversions with Google Analytics 4!", url: "https://www.youtube.com/watch?v=IWvr1RPd7q8", channel: "Sriram Sparda Digital Marketing {தமிழ்} 😍" },
       ],
     },
@@ -1788,7 +1638,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "GA4 Tutorial (Part 5) – How to Set Up Key Events and Audiences", url: "https://www.youtube.com/watch?v=d8go8MFk3ls", channel: "Loves Data" },
       ],
       hi: [
-        { title: "Google Analytics 4 Course | Creating Custom Events in GA4 | Step by Step Full Tutorial | Part#14 |", url: "https://www.youtube.com/watch?v=V3vvFPvVyfA", channel: "Umar Tazkeer" },
         { title: "Google Analytics 4 Tutorial | What Are Events in Google Analytics - GA  Events - GA4 Tutorial #13", url: "https://www.youtube.com/watch?v=xJ3YeHf4m7E", channel: "Robin Mehta" },
         { title: "Google Analytics 4 | GA4 Tutorials | GA4 for Beginners", url: "https://www.youtube.com/watch?v=pVYFRYCz09c", channel: "Social Masla" },
         { title: "GA4 Event Tracking in GTM | Google Analytics 4 Event Setup Tutorial (Step by Step Hindi)", url: "https://www.youtube.com/watch?v=iHtNspvovj8", channel: "Digiwebengineers" },
@@ -1796,13 +1645,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Google Analytics Telugu - GA4 Tutorial for Beginners -How to Set up Google Analytics to Your Website", url: "https://www.youtube.com/watch?v=zB5TGldcnvU", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "Google Analytics in Telugu | GA4 - Odmt Digital Marketing Training Course Hyderabad", url: "https://www.youtube.com/watch?v=r3GSbB41Cuw", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "How to Setup Events in Google Analytics 4? Create Key Events in ga4 - Complete Tutorial ga4 Events", url: "https://www.youtube.com/watch?v=3sXvHyJ3AZE", channel: "Content Crafting" },
         { title: "GA4 Full Course in One Video – Zero to Pro |Online AI Powered Performance Marketing Course in Telugu", url: "https://www.youtube.com/watch?v=b2YQOYZvwek", channel: "Subbu Digital Marketer" },
       ],
       ta: [
         { title: "Google Analytics Tutorial in Tamil GA4 - GA4 Phone Call Events Step By Step Tutorial in Tamil", url: "https://www.youtube.com/watch?v=lEiNCLaH950", channel: "Digital Vishnu" },
         { title: "How to Install & What is Google Analytics 4 using Google Tag manger Tutorial In Tamil #ga4tamil", url: "https://www.youtube.com/watch?v=sHPZ4t0WXqA", channel: "Sriram Sparda Digital Marketing {தமிழ்} 😍" },
-        { title: "How to Setup Events in Google Analytics 4? Create Key Events in ga4 - Complete Tutorial ga4 Events", url: "https://www.youtube.com/watch?v=3sXvHyJ3AZE", channel: "Content Crafting" },
         { title: "Google Analytics Tutorial in Tamil GA4 - How to Track Form Submissions in Google Analytics 4", url: "https://www.youtube.com/watch?v=eLdfHkLDAaI", channel: "Digital Vishnu" },
       ],
     },
@@ -1878,20 +1725,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "What is Incremental Integeration Testing in Software Testing? - Videos  in Hindi", url: "https://www.youtube.com/watch?v=cSNHuW9pKxk", channel: "LearnVern" },
         { title: "Types of ETL Test Cases  - Incremental Load , Error handling & Data Reconcialliation Test Cases", url: "https://www.youtube.com/watch?v=mPDhn-HbA2o", channel: "ETL QA Labs Hindi" },
-        { title: "Incrementality Testing in Digital Marketing & testing architecture", url: "https://www.youtube.com/watch?v=_6r4JfsFDAQ", channel: "Senator We Run Ads" },
         { title: "WHITE BOX - INCREMENTAL TESTING (IN HINDI)", url: "https://www.youtube.com/watch?v=83-X8293ddE", channel: "LearnEveryone" },
       ],
       te: [
-        { title: "Incrementality Testing in Digital Marketing & testing architecture", url: "https://www.youtube.com/watch?v=_6r4JfsFDAQ", channel: "Senator We Run Ads" },
         { title: "Software Testing in Telugu part-19| 2.Intigration Testing | Levels of testing | Software testing", url: "https://www.youtube.com/watch?v=trShQY6MO6I", channel: "Surya Edu Tech" },
         { title: "4 What are SDLC INCREMENTAL Models - Manual Testing Training Videos In Telugu By Mr.Rao Sir", url: "https://www.youtube.com/watch?v=yu0BmOv6k38", channel: "VLR Training" },
         { title: "Types of Software Testing | interview course tutorial #manualtesting #shots #ytshorts #selenium", url: "https://www.youtube.com/watch?v=7oyEz5K7Pqw", channel: "Bhau-Automation Lab" },
       ],
       ta: [
-        { title: "Incrementality Testing in Digital Marketing & testing architecture", url: "https://www.youtube.com/watch?v=_6r4JfsFDAQ", channel: "Senator We Run Ads" },
         { title: "Understanding how to Handle Incremental Data without Primary Key | Use Composite Key | #faq", url: "https://www.youtube.com/watch?v=WiLNNpO5VEM", channel: "Sumit Mittal" },
         { title: "Big Bang Testing vs Incremental Testing | Software Testing Levels | Tamil", url: "https://www.youtube.com/watch?v=iyEEPsSrOuI", channel: "Slideonix" },
-        { title: "Marketing Measurement for Beginners | Part 3 - Incrementality & GeoLift Testing", url: "https://www.youtube.com/watch?v=LbjhZUO2mqs", channel: "Funnel" },
       ],
     },
     articles: [
@@ -1920,20 +1763,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "7 Important Key Performance Indicators(KPI) For Google Ads | Google ads Tutorials 2022 in Hindi", url: "https://www.youtube.com/watch?v=KoPuCUTiNeI", channel: "Four Steps Digital" },
-        { title: "Key Performance Indicators (KPIs) in Digital Marketing: What They Are and How to Optimize Them", url: "https://www.youtube.com/watch?v=5hYhKlzzc5o", channel: "WsCube Tech" },
         { title: "Digital Marketing Metrics & KPI's (Don't Miss this)", url: "https://www.youtube.com/watch?v=ZXgEpPb7UQQ", channel: "Chakresh Tiwari" },
-        { title: "डिजिटल मार्केटिंग मेट्रिक्स और KPI की व्याख्या (उदाहरण सहित)", url: "https://www.youtube.com/watch?v=mPiWWnJsVGw", channel: "Elevate Digital" },
       ],
       te: [
         { title: "What is KPI in digital marketing in Telugu #vlrtraining || What is a KPI with example?", url: "https://www.youtube.com/watch?v=yYXj75b6mek", channel: "VLR Training" },
         { title: "KPI Telugu | Key performance Indicator | Key Progress Indicator", url: "https://www.youtube.com/watch?v=6m2g3iofKjg", channel: "Bhargavi - Data Analyst" },
-        { title: "KPI in Marketing - Everything You Need To Know", url: "https://www.youtube.com/watch?v=qc2djlkA6sU", channel: "Marketing Explained" },
         { title: "What is meant by KPI in Project Management In Telugu | KPI | Key Performance Indicator | PMP Basics", url: "https://www.youtube.com/watch?v=unVYrzEP4BI", channel: "Mythna PM Hub Telugu" },
       ],
       ta: [
         { title: "Key Performance Indicators Explained", url: "https://www.youtube.com/watch?v=6sHhaPspMQk", channel: "Laven Lokesh" },
         { title: "KRA & KPI in Manufacturing Unit - In Tamil Language", url: "https://www.youtube.com/watch?v=z5wmGK8gTnk", channel: "KaizenClub" },
-        { title: "Social Media KPIs: What are they and how to use them ⚡️", url: "https://www.youtube.com/watch?v=aKi5iO9O-zk", channel: "Metricool" },
         { title: "Digital Marketing Metrics Explained (Part 1) | Impressions, Clicks, CPC, CTR & Conversions", url: "https://www.youtube.com/watch?v=rX6-Ixi5azo", channel: "TamilTechBlend" },
       ],
     },
@@ -1964,7 +1803,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Calculating Your LTV:CAC Ratio (And Why It's Such an Important SaaS Metric for Startup Success)", url: "https://www.youtube.com/watch?v=wMLMig8tSd0", channel: "TK Kader" },
       ],
       hi: [
-        { title: "Understand LTV-CAC Ratio & How to Calculate It | upGrowth", url: "https://www.youtube.com/watch?v=NOE3EQ43PBg", channel: "upGrowth" },
         { title: "What is LTV to CAC ratio? What is the ideal LTV to CAC ratio. #cac #ltv #startup #sharktankindia", url: "https://www.youtube.com/watch?v=RzQE_a99ebs", channel: "Business Guru-Hindi" },
         { title: "Magic lies in  LTV:CAC Ratio - that Separates Profitable Businesses from others", url: "https://www.youtube.com/watch?v=N0dlAUOFGvs", channel: "Umar Tazkeer" },
         { title: "Lifetime Value of Customers Explained For Beginners | In Hindi", url: "https://www.youtube.com/watch?v=1JJa1Zwj4I8", channel: "Amarpal Khanuja" },
@@ -1972,14 +1810,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Startup Terminology - CAC, LTV, Life time value, Customer Acquisition Cost", url: "https://www.youtube.com/watch?v=SzJ3GUAzugE", channel: "Startup CoE Telugu - Startup Knowledge in Telugu" },
         { title: "What is LTV Ratio? #Shorts #ltvratio #ltv #loantovalue", url: "https://www.youtube.com/watch?v=KPAhJaYJW_M", channel: "Boss Wallah (Telugu)" },
-        { title: "Understand LTV-CAC Ratio & How to Calculate It | upGrowth", url: "https://www.youtube.com/watch?v=NOE3EQ43PBg", channel: "upGrowth" },
-        { title: "Mastering Startup Math: TAM, CAC, Churn, Retention, LTV, Payback and more", url: "https://www.youtube.com/watch?v=fvNKX7WCFvE", channel: "Prime Venture Partners" },
       ],
       ta: [
-        { title: "How to Calculate LTV to CAC Ratio (Free Calculator + 4 Questions to Make It Easy)", url: "https://www.youtube.com/watch?v=GZsSWV-CnkM", channel: "Josiah Roche — Google Ads + SEO Training" },
         { title: "Shopify LTV to CAC Ratio: Why it's important & how to calculate it", url: "https://www.youtube.com/watch?v=VwMWTExHxSg", channel: "Rahi Jain - Subscription LTV Maximizer™" },
         { title: "Customer Acquisition Cost in Tamil | Kamal Coachversity", url: "https://www.youtube.com/watch?v=vc0w_wmvorA", channel: "Kamal Coachversity" },
-        { title: "How to Calculate LTV/CAC Ratio", url: "https://www.youtube.com/watch?v=KvPhM_-LLP4", channel: "Corporate Finance Institute" },
       ],
     },
     articles: [
@@ -2009,19 +1843,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Data Governance Hindi- डेटा गवर्नेंस क्या है ?", url: "https://www.youtube.com/watch?v=bz2HRyAxGiE", channel: "Data and Technology" },
-        { title: "Data Governance Explained in 5 Minutes", url: "https://www.youtube.com/watch?v=uPsUjKLHLAg", channel: "IBM Technology" },
         { title: "What is Data Governance? | Detailed Explanation with Business Insights for Analysts & Leaders #data", url: "https://www.youtube.com/watch?v=J21zsWriRQI", channel: "Rushikesh Deshpande" },
-        { title: "07- Data Security & Compliance in Data Governance | Protecting Data in the Real World", url: "https://www.youtube.com/watch?v=qfP5mOtzvsU", channel: "Learn DAX" },
       ],
       te: [
         { title: "What is Data Governance? | Yaswanth Sai Palaghat", url: "https://www.youtube.com/watch?v=_Io6dqyTUfU", channel: "Yaswanth Sai Palaghat" },
-        { title: "Data Governance Explained in 5 Minutes", url: "https://www.youtube.com/watch?v=uPsUjKLHLAg", channel: "IBM Technology" },
-        { title: "Explain “Data Governance” in 30 Seconds #KNIME #shorts", url: "https://www.youtube.com/watch?v=vLFQ7kBli5A", channel: "KNIME" },
         { title: "💡Data Governance vs Data Quality ! 🚀", url: "https://www.youtube.com/watch?v=gnk7rBDlJ3o", channel: "DataMuscle" },
       ],
       ta: [
-        { title: "Data Governance Explained in 5 Minutes", url: "https://www.youtube.com/watch?v=uPsUjKLHLAg", channel: "IBM Technology" },
-        { title: "Explain “Data Governance” in 30 Seconds #KNIME #shorts", url: "https://www.youtube.com/watch?v=vLFQ7kBli5A", channel: "KNIME" },
         { title: "Lesson 9: Introduction to Data Governance: Frameworks & Best Practices", url: "https://www.youtube.com/watch?v=CT7Yc6vgsQk", channel: "Data Management - byNovaPower" },
         { title: "What Is Data Governance? Tools, Compliance, Security & Best Practices Explained", url: "https://www.youtube.com/watch?v=phRsOMuo3nc", channel: "Baserow" },
       ],
@@ -2065,7 +1893,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Effectively Use KPI Alongside OKR (4 WAYS)", url: "https://www.youtube.com/watch?v=ha1racoxJjo", channel: "DoerPreneur Soft" },
         { title: "Digital Marketing for Business Owners in Tamil | Full Beginner Roadmap", url: "https://www.youtube.com/watch?v=ju6C-Q89QUo", channel: "Sangeetha S Abishek" },
         { title: "Key Performance Indicators Explained", url: "https://www.youtube.com/watch?v=6sHhaPspMQk", channel: "Laven Lokesh" },
-        { title: "OKRs vs KPIs Explained (with Simple Examples)", url: "https://www.youtube.com/watch?v=qzU_8G8Rxzc", channel: "Your Strategy Simplified" },
       ],
     },
     articles: [
@@ -2093,21 +1920,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "What is Marketing Mix | Sanjay Appan | #commerce", url: "https://www.youtube.com/watch?v=kWNTPszv69s", channel: "sanjay_appan" },
-        { title: "मार्केटिंग मिक्स मॉडलिंग (MMM) क्या है और यह क्यों महत्वपूर्ण है?", url: "https://www.youtube.com/watch?v=Xnq_q_b5l8U", channel: "Google Ads" },
         { title: "What is Marketing Mix Modeling (MMM)?: Your Guide to Smarter Measurement | Lifesight", url: "https://www.youtube.com/watch?v=pQoV7hOBNx8", channel: "Lifesight" },
         { title: "Lecture 29: Marketing Mix Models and Advertising Models", url: "https://www.youtube.com/watch?v=0TvEsNKx02A", channel: "NPTEL IIT Kharagpur" },
       ],
       te: [
         { title: "What is Marketing Mix Modeling (MMM)?: Your Guide to Smarter Measurement | Lifesight", url: "https://www.youtube.com/watch?v=pQoV7hOBNx8", channel: "Lifesight" },
-        { title: "What is marketing mix modeling? MMM explained in less than 10 minutes", url: "https://www.youtube.com/watch?v=LIQbP8Gv6cQ", channel: "Funnel" },
         { title: "4. Marketing Mix - 4 P's of Marketing Mix from Marketing Management Subject", url: "https://www.youtube.com/watch?v=6fYGc6PY1FA", channel: "Devika's Commerce & Management Academy" },
-        { title: "What is Marketing Mix Modeling (MMM) and Why is it Important?", url: "https://www.youtube.com/watch?v=Xnq_q_b5l8U", channel: "Google Ads" },
       ],
       ta: [
         { title: "Marketing Mix Models Explained 📊", url: "https://www.youtube.com/watch?v=9aQ_avDdKGM", channel: "imFORZA" },
-        { title: "What is marketing mix modeling? MMM explained in less than 10 minutes", url: "https://www.youtube.com/watch?v=LIQbP8Gv6cQ", channel: "Funnel" },
         { title: "Marketing mix | 4 p’s | marketing mix in Tamil | marketing management in Tamil | Santhosh Balaji", url: "https://www.youtube.com/watch?v=9f8GJuVhzb8", channel: "Santhosh Balaji Rajagopal" },
-        { title: "What is Marketing Mix Modeling (MMM) and Why is it Important?", url: "https://www.youtube.com/watch?v=Xnq_q_b5l8U", channel: "Google Ads" },
       ],
     },
     articles: [
@@ -2134,22 +1956,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Digital Marketing Metrics & KPI's Explained (With Examples)", url: "https://www.youtube.com/watch?v=mPiWWnJsVGw", channel: "Elevate Digital" },
       ],
       hi: [
-        { title: "What Is Predictive Analytics | How Does Predictive Analytics Work | Data Analytics | Simplilearn", url: "https://www.youtube.com/watch?v=tdV9L3C-hxQ", channel: "Simplilearn" },
-        { title: "Lecture 23- Predictive Analytics for Personalized Marketing", url: "https://www.youtube.com/watch?v=DAxm3vZ4eGk", channel: "IIT Roorkee July 2018" },
         { title: "What is the meaning of Predictive Analytics in Hindi Predictive Analytics ka matlab kya hota hai", url: "https://www.youtube.com/watch?v=Yqh7u0fR6UA", channel: "What Is In Hindi" },
         { title: "Marketing Analytics | How to Become a Marketing Analyst | Marketing Analytics 101 | Intellipaat", url: "https://www.youtube.com/watch?v=bXS-HXMNWYI", channel: "Intellipaat" },
       ],
       te: [
-        { title: "What Is Predictive Analytics | How Does Predictive Analytics Work | Data Analytics | Simplilearn", url: "https://www.youtube.com/watch?v=tdV9L3C-hxQ", channel: "Simplilearn" },
-        { title: "Lecture 23- Predictive Analytics for Personalized Marketing", url: "https://www.youtube.com/watch?v=DAxm3vZ4eGk", channel: "IIT Roorkee July 2018" },
         { title: "GA4 Full Course in One Video – Zero to Pro |Online AI Powered Performance Marketing Course in Telugu", url: "https://www.youtube.com/watch?v=b2YQOYZvwek", channel: "Subbu Digital Marketer" },
         { title: "EP 40: AI Analytics – Transforming Marketing from Hindsight to Foresight", url: "https://www.youtube.com/watch?v=B7JqTN2SR94", channel: "AsembleAI" },
       ],
       ta: [
-        { title: "What Is Predictive Analytics | How Does Predictive Analytics Work | Data Analytics | Simplilearn", url: "https://www.youtube.com/watch?v=tdV9L3C-hxQ", channel: "Simplilearn" },
-        { title: "Predictive Analytics in Marketing | Exclusive Lesson", url: "https://www.youtube.com/watch?v=uhwaTpCALKU", channel: "YouAccel" },
-        { title: "What is predictive analytics? Transforming data into future insights", url: "https://www.youtube.com/watch?v=cVibCHRSxB0", channel: "TECHtalk" },
-        { title: "Lecture 23- Predictive Analytics for Personalized Marketing", url: "https://www.youtube.com/watch?v=DAxm3vZ4eGk", channel: "IIT Roorkee July 2018" },
       ],
     },
     articles: [
@@ -2180,11 +1994,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Google Privacy Sandbox #Shorts", url: "https://www.youtube.com/watch?v=8i6m-84TRXw", channel: "Tech Buffet Shorts" },
         { title: "Google Chrome Trick: Privacy Sandbox", url: "https://www.youtube.com/watch?v=Yl2qzXKxatw", channel: "The PNG2 Technical Solutions" },
         { title: "Navigating a Cookie-less Future: Google's Privacy Sandbox on Web Explained", url: "https://www.youtube.com/watch?v=m0BJvtpVhMI", channel: "Tech Forum" },
-        { title: "The Privacy Sandbox Masterclass: A Complete Guide to Google's Cookieless Future", url: "https://www.youtube.com/watch?v=3TUHIngGgug", channel: "CKonnect" },
       ],
       te: [
         { title: "What will Privacy Sandbox do to Attribution?", url: "https://www.youtube.com/watch?v=uPRzQiVMZz0", channel: "district m" },
-        { title: "The Privacy Sandbox Masterclass: A Complete Guide to Google's Cookieless Future", url: "https://www.youtube.com/watch?v=3TUHIngGgug", channel: "CKonnect" },
         { title: "Navigating a Cookie-less Future: Google's Privacy Sandbox on Web Explained", url: "https://www.youtube.com/watch?v=m0BJvtpVhMI", channel: "Tech Forum" },
       ],
       ta: [
@@ -2219,20 +2031,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Marketing Analytics VS Product Analytics", url: "https://www.youtube.com/watch?v=9JFXMN7U3FU", channel: "Product Talk with Malthi" },
-        { title: "Marketing Analytics vs. Product Analytics", url: "https://www.youtube.com/watch?v=BWc3VsL9jog", channel: "Lights OnData" },
         { title: "Learn Product Analytics in 60 mins | Real World Examples", url: "https://www.youtube.com/watch?v=f6S9FF8K7zw", channel: "Alok The Analyst - Hindi" },
         { title: "Meta Marketing Analytics Specialization Coursera Complete Review In Hindi", url: "https://www.youtube.com/watch?v=RWJ51CyETv8", channel: "Shivam Chhuneja" },
       ],
       te: [
-        { title: "Marketing Analytics vs. Product Analytics", url: "https://www.youtube.com/watch?v=BWc3VsL9jog", channel: "Lights OnData" },
         { title: "Marketing Analytics VS Product Analytics", url: "https://www.youtube.com/watch?v=9JFXMN7U3FU", channel: "Product Talk with Malthi" },
         { title: "Introduction to Marketing Analytics | Marketing Analytics vs. Marketing Research", url: "https://www.youtube.com/watch?v=GLL9tQCGhq0", channel: "MBA Journey" },
-        { title: "What is Product Analytics | Product Management | Become a Product Analyst | with Examples", url: "https://www.youtube.com/watch?v=NbjzPkLOZIw", channel: "Manoj" },
       ],
       ta: [
-        { title: "Marketing Analytics vs. Product Analytics", url: "https://www.youtube.com/watch?v=BWc3VsL9jog", channel: "Lights OnData" },
-        { title: "Marketing Analytics Vs Product Analytics!", url: "https://www.youtube.com/watch?v=nDyaT2r-lYc", channel: "DAIOM - Data AI & Omnichannel." },
-        { title: "What is Product Analytics | Product Management | Become a Product Analyst | with Examples", url: "https://www.youtube.com/watch?v=NbjzPkLOZIw", channel: "Manoj" },
         { title: "Data Analytics vs. Data Science (Tamil) | career growth", url: "https://www.youtube.com/watch?v=ZzrJz3j7fPc", channel: "HR_Navin" },
       ],
     },
@@ -2261,20 +2067,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Lec - 3: ETL (Extract, Transform, Load) | Data 📊Aggregation | Data Warehouse🏭 & Mining ⛏️", url: "https://www.youtube.com/watch?v=Tq8oCFjP6kQ", channel: "Gate Smashers" },
         { title: "How Does Reverse ETL Work?", url: "https://www.youtube.com/watch?v=bfK3TvN-SU4", channel: "Data Activators" },
-        { title: "What is Reverse ETL? (Explained in 40 Seconds)", url: "https://www.youtube.com/watch?v=X1wDBPRqvl4", channel: "Data Activators" },
         { title: "Reverse ETL-Demystified", url: "https://www.youtube.com/watch?v=rB1-TW1Q0uY", channel: "The Data Channel" },
       ],
       te: [
-        { title: "What is Reverse ETL? Simple Explanation!", url: "https://www.youtube.com/watch?v=SLWp-24s1ys", channel: "Abhilash Marichi" },
-        { title: "What is Reverse ETL?", url: "https://www.youtube.com/watch?v=DRAGfc5or2Y", channel: "Kahan Data Solutions" },
-        { title: "What is Reverse ETL? (Explained in 40 Seconds)", url: "https://www.youtube.com/watch?v=X1wDBPRqvl4", channel: "Data Activators" },
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
       ],
       ta: [
-        { title: "What is Reverse ETL? Simple Explanation!", url: "https://www.youtube.com/watch?v=SLWp-24s1ys", channel: "Abhilash Marichi" },
         { title: "Airflow - Python ETL Automation in Tamil", url: "https://www.youtube.com/watch?v=vc-8pWW8KqI", channel: "Data Engineering" },
         { title: "How Does Reverse ETL Work?", url: "https://www.youtube.com/watch?v=bfK3TvN-SU4", channel: "Data Activators" },
-        { title: "What is Reverse ETL?", url: "https://www.youtube.com/watch?v=DRAGfc5or2Y", channel: "Kahan Data Solutions" },
       ],
     },
     articles: [
@@ -2301,8 +2101,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Server-Side Tagging Explained: Track Smarter, Stay Compliant", url: "https://www.youtube.com/watch?v=L-cF6QV14UI", channel: "Usercentrics" },
       ],
       hi: [
-        { title: "What is Server Side Tracking | Difference between Web based & Server Side Tracking (MasterClass)", url: "https://www.youtube.com/watch?v=NPnrbmzf1XI", channel: "Umar Tazkeer" },
-        { title: "Google Tag Manager Server Side Tagging Tutorial", url: "https://www.youtube.com/watch?v=H_Ea6qCG9B0", channel: "Abdul Kayium | GA4, GTM | Server Side Tracking" },
         { title: "Easily Set up Google Ads Server Side Tracking 2025", url: "https://www.youtube.com/watch?v=HorP-MaBxGM", channel: "Ibrahim Bepary" },
         { title: "How to Set Up Facebook Conversion API (2025) | GTM Server-Side Tracking & Advanced Pixel Setup", url: "https://www.youtube.com/watch?v=3RgIPLYRCwU", channel: "Aftab Strategy Lab" },
       ],
@@ -2310,13 +2108,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Introduction to React Router In Telugu 2025 | Client Side Routing Vs Server Side Routing", url: "https://www.youtube.com/watch?v=yIUngPOBGA0", channel: "Aravind Samudrala - Telugu" },
         { title: "Servers అంటే ఏంటి | Servers explained in Telugu | Vamsi Bhavani", url: "https://www.youtube.com/watch?v=z55uTXqpWew", channel: "Vamsi Bhavani" },
         { title: "13. Next.JS Server-Side Data Fetching in Telugu", url: "https://www.youtube.com/watch?v=EiPucAkEAlU", channel: "Telugu WebTech" },
-        { title: "Server-side tracking explained in 100 seconds || What is server-side GTM?", url: "https://www.youtube.com/watch?v=t2X8PPasa5k", channel: "Analytics Mania - Google Analytics & Tag Manager" },
       ],
       ta: [
         { title: "🔍 Client-Side vs Server-Side: Why Some Websites Load Faster! 🔍 #shorts #websitelaunch #server", url: "https://www.youtube.com/watch?v=eIwJZBzT7fg", channel: "Error Makes Clever" },
-        { title: "Server-side tracking explained in 100 seconds || What is server-side GTM?", url: "https://www.youtube.com/watch?v=t2X8PPasa5k", channel: "Analytics Mania - Google Analytics & Tag Manager" },
-        { title: "Google Tag Manager Server-side Tagging Tutorial 2026 || Server-side tracking with GTM", url: "https://www.youtube.com/watch?v=vm8u4BckuRI", channel: "Analytics Mania - Google Analytics & Tag Manager" },
-        { title: "What is Server Side Tracking | Difference between Web based & Server Side Tracking (MasterClass)", url: "https://www.youtube.com/watch?v=NPnrbmzf1XI", channel: "Umar Tazkeer" },
       ],
     },
     articles: [
@@ -2390,20 +2184,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Tracking Attribution With Cookies vs. Without Cookies", url: "https://www.youtube.com/watch?v=T3WhnWnT1NI", channel: "CallSource" },
       ],
       hi: [
-        { title: "Cookieless Measurement and Attribution Tactics - The Future of ROI", url: "https://www.youtube.com/watch?v=oaAhMd9Vu3s", channel: "Coegi - A Digital Media Agency" },
         { title: "What are Cookies, First click and last Click Attribution in Affiliate marketing", url: "https://www.youtube.com/watch?v=JN1cB-hEV7M", channel: "Harsh Agrawal - AI & Digital Transformation" },
-        { title: "Cookieless Analytics & Attribution - Metricsflow Explainer", url: "https://www.youtube.com/watch?v=IstStX9YwmI", channel: "Metricsflow - \"stop losing data, start learning\"" },
-        { title: "How advertisers can overcome signal loss and identity issues for better measurements in 2024?", url: "https://www.youtube.com/watch?v=iRBeaEr302w", channel: "Lifesight" },
       ],
       te: [
-        { title: "Cookieless Analytics & Attribution - Metricsflow Explainer", url: "https://www.youtube.com/watch?v=IstStX9YwmI", channel: "Metricsflow - \"stop losing data, start learning\"" },
-        { title: "Cookieless Measurement and Attribution Tactics - The Future of ROI", url: "https://www.youtube.com/watch?v=oaAhMd9Vu3s", channel: "Coegi - A Digital Media Agency" },
-        { title: "Marketing Attribution & MMM in a Cookieless World", url: "https://www.youtube.com/watch?v=FX4he0ZC7Qw", channel: "Provalytics®" },
-        { title: "Cookieless Analytics & Attribution", url: "https://www.youtube.com/watch?v=e2lQVSVAdgo", channel: "Metricsflow - \"stop losing data, start learning\"" },
       ],
       ta: [
-        { title: "Cookieless Analytics & Attribution - Metricsflow Explainer", url: "https://www.youtube.com/watch?v=IstStX9YwmI", channel: "Metricsflow - \"stop losing data, start learning\"" },
-        { title: "Cookieless Measurement and Attribution Tactics - The Future of ROI", url: "https://www.youtube.com/watch?v=oaAhMd9Vu3s", channel: "Coegi - A Digital Media Agency" },
         { title: "How Cookies & Sessions Work | Banking Logout Mystery Solved! #shorts #sessions #cookies", url: "https://www.youtube.com/watch?v=753IDZ000is", channel: "Error Makes Clever" },
         { title: "COOKIE VS SESSION #cookie #tamil", url: "https://www.youtube.com/watch?v=UerTbzUc50I", channel: "iamdhil" },
       ],
@@ -2445,14 +2230,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "UTM = లీడ్స్ బూస్ట్ Best Digital Marketing Course in Telugu #digitalmarketingintelugu #seotelugu", url: "https://www.youtube.com/watch?v=z7efiBVpKt8", channel: "BVR Alpha Community" },
         { title: "Track Your Google Ads Like a Pro with UTM Tags | Digital Marketing Course in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=6r9Bb1v7Go8", channel: "Subbu Digital Marketer" },
-        { title: "UTM Parameters and Tracking Explained in 100 Seconds", url: "https://www.youtube.com/watch?v=eZs-KfVTm14", channel: "MeasureSchool" },
-        { title: "How to Use UTM Parameters to Track Your Marketing: A Beginner’s Guide", url: "https://www.youtube.com/watch?v=KYFZOg_L7Z0", channel: "Social Media Examiner" },
       ],
       ta: [
         { title: "Google Analytics 4 Tutorial in Tamil - UTM Parameters in GA4 - GA4 Campaign Tracking with UTMs", url: "https://www.youtube.com/watch?v=k50F7VUjPyk", channel: "Digital Vishnu" },
         { title: "GTM Tamil. Google Tag Manager Presentation with Live Example - Sasikumar Talks #SasikumarTalks", url: "https://www.youtube.com/watch?v=vM8Ot4k0VpE", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "UTM Tags Explained for Google Analytics (Beginner Friendly)", url: "https://www.youtube.com/watch?v=97rbAj1-m_I", channel: "Brendan Gillen" },
-        { title: "UTM அளவுருக்கள் மற்றும் கண்காணிப்பு 100 வினாடிகளில் விளக்கப்பட்டது", url: "https://www.youtube.com/watch?v=eZs-KfVTm14", channel: "MeasureSchool" },
       ],
     },
     articles: [
@@ -2481,9 +2262,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The Best B2B Marketing Advice People DON’T LEVERAGE ENOUGH!", url: "https://www.youtube.com/watch?v=Tvldi7uk-E8", channel: "Neil Patel" },
       ],
       hi: [
-        { title: "B2B Marketing Strategy | How To Create B2B Brand | How To Do B2B Brand Marketing #b2b #b2bmarketing", url: "https://www.youtube.com/watch?v=-Vm1B3h1sSc", channel: "Amit Tiwari" },
         { title: "B2B Marketing Strategy | How To Increase B2B Business | How to Do B2B Digital Marketing", url: "https://www.youtube.com/watch?v=1sFKb1LLZGk", channel: "Amit Tiwari" },
-        { title: "B2B Marketing Strategy | How To Create B2B Brand | How To Do B2B Brand Marketing", url: "https://www.youtube.com/watch?v=ZFM2bREILKA", channel: "Amit Tiwari" },
         { title: "B2B Marketing Strategies in Hindi | Definition, techniques and conclusion with ppt | ABM", url: "https://www.youtube.com/watch?v=DTogkZcf3co", channel: "Asaan Bhasha Mein" },
       ],
       te: [
@@ -2530,13 +2309,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "WHAT IS Your Brand's Personality Type? ( know them to build Brand Personality)", url: "https://www.youtube.com/watch?v=AaDotqWA0HY", channel: "Brand Guru" },
       ],
       te: [
-        { title: "How Carl Jung's 12 character archetypes apply to branding | D&AD Masterclass", url: "https://www.youtube.com/watch?v=b-Ri4ppisQA", channel: "D&AD - Creative Advertising, Design and Digital" },
-        { title: "Brand Archetypes Fundamentals | 12 Examples for Business", url: "https://www.youtube.com/watch?v=lpCmdp8gM3k", channel: "Visme" },
-        { title: "The 12 brand archetypes: An Introduction", url: "https://www.youtube.com/watch?v=gVit8SXlui0", channel: "Coven of Humanity | Brand Building 101" },
       ],
       ta: [
         { title: "Branding basics in Tamil - Brand Archetypes Endral Enna | Marketing Concepts in Tamil", url: "https://www.youtube.com/watch?v=aFfg9ocf0OE", channel: "Sangeetha S Abishek" },
-        { title: "How Carl Jung's 12 character archetypes apply to branding | D&AD Masterclass", url: "https://www.youtube.com/watch?v=b-Ri4ppisQA", channel: "D&AD - Creative Advertising, Design and Digital" },
         { title: "இப்படிதான் ஒரு BRAND உருவாக்கப்படுகிறது | Product Branding Strategy in Tamil", url: "https://www.youtube.com/watch?v=4lfYG98gEeE", channel: "GenMindly" },
       ],
     },
@@ -2573,7 +2348,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "What is Branding  | How Branding Impacts Business Success  | Telugu Business Tip", url: "https://www.youtube.com/watch?v=rnXIvZmRHCU", channel: "Raviteja builds" },
-        { title: "Free template | Brand Guidelines 🔥🔥", url: "https://www.youtube.com/watch?v=_5FxMhQwP8U", channel: "GraphiqVibe" },
         { title: "🔥 Pomelli Full Tutorial – Build a Complete Brand with AI 🤯 #PomelliAI #BrandingAI #AIWebsiteBuilder", url: "https://www.youtube.com/watch?v=nVBHgJjPlEg", channel: "AI School Telugu" },
         { title: "How To Design a Brand Identity? | Full Graphic Design Process of Real Client", url: "https://www.youtube.com/watch?v=yB2j6JJmnJk", channel: "Anik Jain" },
       ],
@@ -2654,16 +2428,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Lecture 53: Brand Equity: Measuring Outcomes- 1", url: "https://www.youtube.com/watch?v=QrJ7djc-xW8", channel: "IIT Roorkee July 2018" },
       ],
       hi: [
-        { title: "Brand equity, brand equity measurement, brand equity measurement and management system,", url: "https://www.youtube.com/watch?v=xoPhKH63L7E", channel: "Management Mantra" },
         { title: "keller brand equity model, keller brand resonance pyramid, keller brand equity model", url: "https://www.youtube.com/watch?v=8LmdfySS-N4", channel: "Management Mantra" },
         { title: "Brand Assets Valuator model, brand assests valuator model malayalam, brand equity model", url: "https://www.youtube.com/watch?v=3o-J8N_LDK0", channel: "Management Mantra" },
         { title: "What Is Brand Equity | Brand Equity In Hindi | The Guru", url: "https://www.youtube.com/watch?v=zoOkBAlWiZE", channel: "The Guru" },
       ],
       te: [
-        { title: "Lecture 53: Brand Equity: Measuring Outcomes- 1", url: "https://www.youtube.com/watch?v=QrJ7djc-xW8", channel: "IIT Roorkee July 2018" },
-        { title: "Brand equity, brand equity measurement, brand equity measurement and management system,", url: "https://www.youtube.com/watch?v=xoPhKH63L7E", channel: "Management Mantra" },
         { title: "Brand Assets Valuator model, brand assests valuator model malayalam, brand equity model", url: "https://www.youtube.com/watch?v=3o-J8N_LDK0", channel: "Management Mantra" },
-        { title: "Brand Equity Measurement", url: "https://www.youtube.com/watch?v=o83ct3B1Vg4", channel: "CSS Mentoring" },
       ],
       ta: [
         { title: "இப்படிதான் ஒரு BRAND உருவாக்கப்படுகிறது | Product Branding Strategy in Tamil", url: "https://www.youtube.com/watch?v=4lfYG98gEeE", channel: "GenMindly" },
@@ -2701,19 +2471,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Accountants: How to Improve Brand Visibility in AI Search", url: "https://www.youtube.com/watch?v=9PnBwMgZl9Q", channel: "Mitco Digital" },
         { title: "Track and Improve Your Brand's Visibility in AI Search", url: "https://www.youtube.com/watch?v=vOlTzb5sV1A", channel: "AppSumo / Products" },
-        { title: "Building a Search Proof Brand: How to Own Your AI Search Presence in 2026", url: "https://www.youtube.com/watch?v=1DxfexAluB8", channel: "Jaspreet Singh" },
-        { title: "How to Dominate AI Search Results in 2026 (ChatGPT, AI Overviews & More)", url: "https://www.youtube.com/watch?v=bhTo8fDmr5I", channel: "Surfer Academy" },
       ],
       te: [
-        { title: "Building a Search Proof Brand: How to Own Your AI Search Presence in 2026", url: "https://www.youtube.com/watch?v=1DxfexAluB8", channel: "Jaspreet Singh" },
         { title: "International SEO in the AI Era: Boost Global Brand Visibility", url: "https://www.youtube.com/watch?v=VTbSSarShTc", channel: "Seprotec Multilingual Solutions" },
-        { title: "Feed the machine: How to get your brand into AI answers", url: "https://www.youtube.com/watch?v=pq4kPUgy17w", channel: "Katarina Dahlin" },
         { title: "Why Your Business Doesn't Show Up In AI Search (And How to Fix It)", url: "https://www.youtube.com/watch?v=qT3M5WVafRQ", channel: "HubSpot Marketing" },
       ],
       ta: [
-        { title: "Building a Search Proof Brand: How to Own Your AI Search Presence in 2026", url: "https://www.youtube.com/watch?v=1DxfexAluB8", channel: "Jaspreet Singh" },
         { title: "Track and Improve Your Brand's Visibility in AI Search", url: "https://www.youtube.com/watch?v=vOlTzb5sV1A", channel: "AppSumo / Products" },
-        { title: "Feed the machine: How to get your brand into AI answers", url: "https://www.youtube.com/watch?v=pq4kPUgy17w", channel: "Katarina Dahlin" },
         { title: "Google Confirms No Need for AEO or GEO | Here's What I Do to Rank in AI Results | SEO Tips in Tamil", url: "https://www.youtube.com/watch?v=67Q6n1s2Ixk", channel: "Sundar Digital Marketer" },
       ],
     },
@@ -2746,7 +2510,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Complete Brand Identity Design Tutorial for a  Cafe | Step-by-Step Branding Process in Hindi", url: "https://www.youtube.com/watch?v=amC6PXoGJG8", channel: "Grafisite" },
         { title: "Premium Course - 4 Pillars of Branding | Digital Marketing for Businesses | Ep-03", url: "https://www.youtube.com/watch?v=dBbzZkBUWU0", channel: "Sahil Khanna" },
         { title: "Free template | Brand Guidelines 🔥🔥", url: "https://www.youtube.com/watch?v=_5FxMhQwP8U", channel: "GraphiqVibe" },
-        { title: "Personal brand from scratch #1", url: "https://www.youtube.com/watch?v=C3yvNs95W_c", channel: "Pritika Loonia" },
       ],
       te: [
         { title: "This Is How Brands Use Dual Brand Strategy...  #telugu #telugubusiness #business", url: "https://www.youtube.com/watch?v=l8I5Ectc-n8", channel: "Deepak Talluri" },
@@ -2785,22 +2548,18 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What Is Brand Strategy And How To Do It (Step 1)", url: "https://www.youtube.com/watch?v=TqczYbFPWnk", channel: "The Futur" },
       ],
       hi: [
-        { title: "17 मिनट में ब्रांड रणनीति सीखें (101 क्रैश कोर्स)", url: "https://www.youtube.com/watch?v=VrwBu8DYWkE", channel: "Brand Master Academy" },
         { title: "7 Proven Strategies to Build a Brand in 2025 | Brand Building Strategies", url: "https://www.youtube.com/watch?v=bZHWwNWL3BM", channel: "Rajiv Talreja" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
-        { title: "ब्रांडिंग क्या है? 4 मिनट का क्रैश कोर्स।", url: "https://www.youtube.com/watch?v=sO4te2QNsHY", channel: "The Futur" },
       ],
       te: [
         { title: "This Is How Brands Use Dual Brand Strategy...  #telugu #telugubusiness #business", url: "https://www.youtube.com/watch?v=l8I5Ectc-n8", channel: "Deepak Talluri" },
         { title: "What is Branding  | How Branding Impacts Business Success  | Telugu Business Tip", url: "https://www.youtube.com/watch?v=rnXIvZmRHCU", channel: "Raviteja builds" },
-        { title: "Learn Brand Strategy In 17 Minutes (101 Crash Course)", url: "https://www.youtube.com/watch?v=VrwBu8DYWkE", channel: "Brand Master Academy" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
       ],
       ta: [
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
         { title: "What is brand strategy? | Tamil Course on Branding", url: "https://www.youtube.com/watch?v=NBl1I6O_B-g", channel: "Shashank SN" },
         { title: "How to Brand a Micro-SaaS From Scratch | ft shashank | branding tutorial in tamil", url: "https://www.youtube.com/watch?v=Iu-Op8JWzpk", channel: "Sanjeev NC | SaaS & AI Tamil" },
-        { title: "Learn Brand Strategy In 17 Minutes (101 Crash Course)", url: "https://www.youtube.com/watch?v=VrwBu8DYWkE", channel: "Brand Master Academy" },
       ],
     },
     articles: [
@@ -2874,7 +2633,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How To Build A Big Brand? By Sandeep Maheshwari | Hindi", url: "https://www.youtube.com/watch?v=xMDG9_E925k", channel: "Sandeep Maheshwari" },
         { title: "Brand Building Is not Marketing #sharktankindia #lenskart #brand #marketing #branding #starbucks", url: "https://www.youtube.com/watch?v=EST7RInH6nw", channel: "STARTUP DECODING" },
-        { title: "Creating your brand voice - a complete guide", url: "https://www.youtube.com/watch?v=9kXGb7Kx2bo", channel: "Elo Creative Studio" },
         { title: "7 Proven Strategies to Build a Brand in 2025 | Brand Building Strategies", url: "https://www.youtube.com/watch?v=bZHWwNWL3BM", channel: "Rajiv Talreja" },
       ],
       te: [
@@ -2918,10 +2676,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How Much Does Performance Marketing Pay ? | Performance Marketer Salary #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=5H6miu456cE", channel: "Simplilearn" },
       ],
       hi: [
-        { title: "Dark Reality Of Print On Demand Business😰", url: "https://www.youtube.com/watch?v=AgthiSKdLrU", channel: "Gaurav Srivastava" },
         { title: "How To Build A Big Brand? By Sandeep Maheshwari | Hindi", url: "https://www.youtube.com/watch?v=xMDG9_E925k", channel: "Sandeep Maheshwari" },
         { title: "Print On  Demand Business Reality", url: "https://www.youtube.com/watch?v=jgHhCT1rWCQ", channel: "Arzoo coach" },
-        { title: "Brand Building Is not Marketing #sharktankindia #lenskart #brand #marketing #branding #starbucks", url: "https://www.youtube.com/watch?v=EST7RInH6nw", channel: "STARTUP DECODING" },
       ],
       te: [
         { title: "Day 20/100: Reach vs Impressions Explained | 100 Days Business Marketing Series in Telugu", url: "https://www.youtube.com/watch?v=3gltgw4yKu0", channel: "Digital Chandu Telugu" },
@@ -3008,10 +2764,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Learn brand strategy in 25 minutes", url: "https://www.youtube.com/watch?v=DmqNCv3QVUY", channel: "orenmeetsworld" },
       ],
       hi: [
-        { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
         { title: "Multi branding strategy | in hindi #facts #shorts", url: "https://www.youtube.com/watch?v=aK8-ZhAh1hM", channel: "해외선물 대장금" },
         { title: "What is Co Branding", url: "https://www.youtube.com/watch?v=i8b9262UIC8", channel: "Thrive With Rohit" },
-        { title: "The Brand That Broke All Marketing Rules | Zudio Marketing Case Study", url: "https://www.youtube.com/watch?v=R5sG2V5ICYo", channel: "Anurag Bansal" },
       ],
       te: [
         { title: "Unlocking the Power of Co-Branding Flex Boards: Explained in Telugu", url: "https://www.youtube.com/watch?v=kBbd9KglkNw", channel: "Raagnaai Ads # Expert in NON DIGITAL marketing" },
@@ -3022,7 +2776,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "What is co branding strategy?", url: "https://www.youtube.com/watch?v=i6hUdPc_o7A", channel: "Jeevaraj Fredrick" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
         { title: "Sound Branding SECRETS You Need to Know in 2025! #tamil", url: "https://www.youtube.com/watch?v=tXA-gwrsujA", channel: "Nuke It" },
       ],
     },
@@ -3055,21 +2808,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Evaluating Distinctive Memory Cues and Brand Assets", url: "https://www.youtube.com/watch?v=1KRGfiOsgYo", channel: "HotspexInc" },
       ],
       hi: [
-        { title: "What are Distinctive Brand Assets?", url: "https://www.youtube.com/watch?v=fF1jYOMk_W4", channel: "LID Publishing" },
-        { title: "विशिष्ट ब्रांड संपत्ति कैसे बनाएं (शीर्ष ब्रांडिंग उदाहरण)", url: "https://www.youtube.com/watch?v=yLvXStMsIyk", channel: "Brand Master Academy" },
         { title: "How to name your brand or company by ashneer grover || #shorts #short #motivation #entrepreneur", url: "https://www.youtube.com/watch?v=73EfoR-ZGuE", channel: "Motivation vau" },
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
       ],
       te: [
-        { title: "What are Distinctive Brand Assets?", url: "https://www.youtube.com/watch?v=fF1jYOMk_W4", channel: "LID Publishing" },
-        { title: "How To Create Distinctive Brand Assets (Top Branding Examples)", url: "https://www.youtube.com/watch?v=yLvXStMsIyk", channel: "Brand Master Academy" },
         { title: "🔥 Pomelli Full Tutorial – Build a Complete Brand with AI 🤯 #PomelliAI #BrandingAI #AIWebsiteBuilder", url: "https://www.youtube.com/watch?v=nVBHgJjPlEg", channel: "AI School Telugu" },
         { title: "Branding vs. Style guide | UI/UX Design tutorial in Telugu", url: "https://www.youtube.com/watch?v=ORLXaobDz9Y", channel: "AGILITY DESIGN" },
       ],
       ta: [
-        { title: "What are Distinctive Brand Assets?", url: "https://www.youtube.com/watch?v=fF1jYOMk_W4", channel: "LID Publishing" },
         { title: "How to Brand a Micro-SaaS From Scratch | ft shashank | branding tutorial in tamil", url: "https://www.youtube.com/watch?v=Iu-Op8JWzpk", channel: "Sanjeev NC | SaaS & AI Tamil" },
-        { title: "How To Create Distinctive Brand Assets (Top Branding Examples)", url: "https://www.youtube.com/watch?v=yLvXStMsIyk", channel: "Brand Master Academy" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
       ],
     },
@@ -3187,18 +2934,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "|| adaptation vs standardization || in hindi by iefa syed..||", url: "https://www.youtube.com/watch?v=8f8ggliETTs", channel: "Learn with iefa" },
-        { title: "Brand Building Is not Marketing #sharktankindia #lenskart #brand #marketing #branding #starbucks", url: "https://www.youtube.com/watch?v=EST7RInH6nw", channel: "STARTUP DECODING" },
-        { title: "Product Standardization vs Adaptation | TYBMS International Marketing", url: "https://www.youtube.com/watch?v=MX_Zv7eDqFo", channel: "Commerce Guide Narayan Sir" },
-        { title: "Balancing Global Marketing Standardization vs Adaptation (4 Minutes)", url: "https://www.youtube.com/watch?v=K1Fw3H45bAw", channel: "BioTech Whisperer" },
       ],
       te: [
         { title: "Standardization vs Adaptation: Which Actually Wins #businessstrategy #marketing", url: "https://www.youtube.com/watch?v=Cpkac7PaFwA", channel: "Marketing Insights & Success" },
-        { title: "Balancing Global Marketing Standardization vs Adaptation (4 Minutes)", url: "https://www.youtube.com/watch?v=K1Fw3H45bAw", channel: "BioTech Whisperer" },
-        { title: "Product Standardization vs Adaptation | TYBMS International Marketing", url: "https://www.youtube.com/watch?v=MX_Zv7eDqFo", channel: "Commerce Guide Narayan Sir" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
       ],
       ta: [
-        { title: "Balancing Global Marketing Standardization vs Adaptation (4 Minutes)", url: "https://www.youtube.com/watch?v=K1Fw3H45bAw", channel: "BioTech Whisperer" },
         { title: "Branding vs Marketing explained in tamil", url: "https://www.youtube.com/watch?v=TN44yg2RTKk", channel: "Thasanthan" },
         { title: "Branding basics in Tamil - Brand Archetypes Endral Enna | Marketing Concepts in Tamil", url: "https://www.youtube.com/watch?v=aFfg9ocf0OE", channel: "Sangeetha S Abishek" },
         { title: "Standardization vs Adaptation: Which Actually Wins #businessstrategy #marketing", url: "https://www.youtube.com/watch?v=Cpkac7PaFwA", channel: "Marketing Insights & Success" },
@@ -3227,14 +2968,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What Is Branding? 4 Minute Crash Course.", url: "https://www.youtube.com/watch?v=sO4te2QNsHY", channel: "The Futur" },
       ],
       hi: [
-        { title: "How Brands Grow 📗by Byron Sharp #marketing #branding #business #entrepreneurship #books", url: "https://www.youtube.com/watch?v=I7u4npM2wAo", channel: "Jing Gao" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
         { title: "How To Build A Big Brand? By Sandeep Maheshwari | Hindi", url: "https://www.youtube.com/watch?v=xMDG9_E925k", channel: "Sandeep Maheshwari" },
         { title: "Branding Basics | Everything You Need To Know About Branding | Hindi | Marketing Basics | Marketing", url: "https://www.youtube.com/watch?v=6nUF0Sd0RgU", channel: "Sahil Khanna" },
       ],
       te: [
-        { title: "How Brands Grow 📗by Byron Sharp #marketing #branding #business #entrepreneurship #books", url: "https://www.youtube.com/watch?v=I7u4npM2wAo", channel: "Jing Gao" },
-        { title: "How Brands Grow : What Marketers Don't Know - Quick Audiobook Summary by Byron Sharp", url: "https://www.youtube.com/watch?v=G5RfQ7fJPCk", channel: "Event Horizon" },
         { title: "🔥Telugu Podcast on CELEBRITY BRANDS | Marketing Strategies & More Ft. Founder of Saaki", url: "https://www.youtube.com/watch?v=qi9yXySANQ8", channel: "Telugu Connects - Growth Podcast" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
       ],
@@ -3322,7 +3060,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "How to Create a Brand Name & Logo | Telugu Branding Tips for Beginners@radhika__sri", url: "https://www.youtube.com/watch?v=WLO1Mc7qWzA", channel: "radhika sri" },
-        { title: "When Choosing Your Brand Name, Try To Keep It Under 4 Syllables", url: "https://www.youtube.com/watch?v=B9lw8Hyzges", channel: "Neil Patel" },
         { title: "Your brand name is your identity in the marketplace‼️ | Telugu Talks With LK", url: "https://www.youtube.com/watch?v=mssOF2T36XM", channel: "Telugu-Talks With LK" },
         { title: "Choose Your Business Name with AI | Business Name Generator", url: "https://www.youtube.com/watch?v=2mtTdKUVXM8", channel: "Website Learners" },
       ],
@@ -3359,14 +3096,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Use Stories to Elevate Your Brand", url: "https://www.youtube.com/watch?v=0zmIAhEI09A", channel: "The Futur" },
       ],
       hi: [
-        { title: "Narrative Transportation Theory - RMG922 Group 6", url: "https://www.youtube.com/watch?v=6aFnHs3S0i4", channel: "Donna Smith" },
         { title: "what is brand storytelling | why storytelling is important | brand storytelling examples", url: "https://www.youtube.com/watch?v=xVHEx5x--bo", channel: "Timir Naha" },
         { title: "Storytelling Techniques in Hindi | Storytelling Tips - Become a Great Storyteller", url: "https://www.youtube.com/watch?v=1vDkqCHFyhg", channel: "Public Speaking Academy" },
         { title: "Story of Transportation - Hindi", url: "https://www.youtube.com/watch?v=0YA7MM9Wikg", channel: "EduSaksham" },
       ],
       te: [
         { title: "How to narrate a script? #filmmaking #saileshkolanu #director #storytelling #shortsfeed #telugu", url: "https://www.youtube.com/watch?v=4QoloHvDfKU", channel: "LLCT - Let's Learn Cinema Together" },
-        { title: "Narrative Transportation Theory - RMG922 Group 6", url: "https://www.youtube.com/watch?v=6aFnHs3S0i4", channel: "Donna Smith" },
         { title: "SS Rajamouli Direction Lessons | Story and Screenplay | SS Rajamouli Interviews Krish | #GPSK", url: "https://www.youtube.com/watch?v=rew8fq5yDXg", channel: "Telugu Filmnagar" },
         { title: "Storytelling Techniques For Presentation: Nikhil Podcast In Telugu For Business Project Presentation", url: "https://www.youtube.com/watch?v=QkgW5TWmOBM", channel: "Figuring Out by Jay" },
       ],
@@ -3374,7 +3109,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Do Marketing for your Business Tamil | Building a Story Brand Book Summary |almost everything", url: "https://www.youtube.com/watch?v=sw6J4-NGGxA", channel: "Almost Everything" },
         { title: "Pixar's 22 Rules of Story Telling | Screeplay Techniques | Tamil | Take Ok", url: "https://www.youtube.com/watch?v=4H3AR5HWHUM", channel: "Take Okay" },
         { title: "How to Write Stories Like a Pro 🎬 | Filmmaking Storytelling Secrets | Tamil", url: "https://www.youtube.com/watch?v=4orAGbrugoY", channel: "The Film Skool ( Tamil )" },
-        { title: "Narrative Transportation Theory - RMG922 Group 6", url: "https://www.youtube.com/watch?v=6aFnHs3S0i4", channel: "Donna Smith" },
       ],
     },
     articles: [],
@@ -3443,8 +3177,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "Branding vs. Style guide | UI/UX Design tutorial in Telugu", url: "https://www.youtube.com/watch?v=ORLXaobDz9Y", channel: "AGILITY DESIGN" },
-        { title: "Brand Refresh vs Rebrand What's the BIG Difference #branding #rebranding #brandrefresh", url: "https://www.youtube.com/watch?v=m-hgb7ebGVc", channel: "Denny Kurien" },
-        { title: "Rebrand vs Brand Refresh  - What's the difference?", url: "https://www.youtube.com/watch?v=UJ0v7QFOgZM", channel: "Rock Your Brand®" },
         { title: "Secrets Behind Brand Logo 🤔🧐 #shorts #trendingshorts #brandlogo #kowshikimaridi", url: "https://www.youtube.com/watch?v=SA5IrWfRuKo", channel: "Boss Wallah (Telugu)" },
       ],
       ta: [
@@ -3488,7 +3220,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "Graphic Design in Telugu | Graphic Designing Career Explained", url: "https://www.youtube.com/watch?v=WqCTwnVKb6M", channel: "Maneesh Studios" },
-        { title: "Logo vs Visual Identity vs Brand Identity", url: "https://www.youtube.com/watch?v=BU431vdXquo", channel: "Anurag Attri" },
         { title: "Logo Principles and Ethics | creative space Telugu", url: "https://www.youtube.com/watch?v=ghZ9QuZbbX8", channel: "CREATIVEspace" },
         { title: "Can a logo truly represent your identity⁉️ | Telugu Talks With LK", url: "https://www.youtube.com/watch?v=uTJytUab5yQ", channel: "Telugu-Talks With LK" },
       ],
@@ -3527,8 +3258,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How to make Faceless Videos with AI", url: "https://www.youtube.com/watch?v=6ZqxfloJ3Vk", channel: "Drk Talks" },
         { title: "SEO Tutorial for Beginners 2025 | Rank #1 on Google | SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fj6V1vjqP-4", channel: "Saddam Kassim" },
-        { title: "Best SEO Tools For 2025 #SEO #SEOtools #googlerankings", url: "https://www.youtube.com/watch?v=adQhWdS5h90", channel: "Kate Smoothy | Google & AI SEO Specialist" },
-        { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
       ],
       te: [
         { title: "AI Video Tutorial Guide in Telugu | Complete Google Flow, WHISK & AI Studio Course", url: "https://www.youtube.com/watch?v=6KepRbYZ-kU", channel: "Telugu Tech AI" },
@@ -3571,19 +3300,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "AI Content Operations: Stop Publishing Random AI Content", url: "https://www.youtube.com/watch?v=PePpUdZwNkE", channel: "Anubhav Gupta" },
-        { title: "AI Governance Simplified: From Zero to Pro", url: "https://www.youtube.com/watch?v=LgFBi5XD-Ow", channel: "Prabh Nair" },
         { title: "Passing AAISM: A Deep Dive into Domain 1 AI Governance", url: "https://www.youtube.com/watch?v=jb6tQppDPoE", channel: "Prabh Nair" },
-        { title: "How to learn AI for students & professionals (guide)", url: "https://www.youtube.com/watch?v=zRuCpMKajZk", channel: "Corporate Catalyst" },
       ],
       te: [
         { title: "AI Content Writing Full Course in Telugu - How to Write 100% Original AI Content", url: "https://www.youtube.com/watch?v=9j8XCoO1v8k", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "How to Start AI Content Creation Full Detailed Course", url: "https://www.youtube.com/watch?v=FhCW-kk4kIk", channel: "Hello Tejaa" },
-        { title: "How to learn AI for students & professionals (guide)", url: "https://www.youtube.com/watch?v=zRuCpMKajZk", channel: "Corporate Catalyst" },
         { title: "Roadmap to Become a Generative AI Expert for Beginners in 2025", url: "https://www.youtube.com/watch?v=39zbC_PrNQs", channel: "Analytics Vidhya" },
       ],
       ta: [
         { title: "Ai Free course in tamil | Artificial intelligence future #ai #tamil #shorts", url: "https://www.youtube.com/watch?v=G3sj23pqK9U", channel: "Digiman" },
-        { title: "AI Governance Simplified: From Zero to Pro", url: "https://www.youtube.com/watch?v=LgFBi5XD-Ow", channel: "Prabh Nair" },
         { title: "Roadmap to Become a Generative AI Expert for Beginners in 2025", url: "https://www.youtube.com/watch?v=39zbC_PrNQs", channel: "Analytics Vidhya" },
         { title: "AI Agents vs LLMs vs RAGs vs Agentic AI | Rakesh Gohel", url: "https://www.youtube.com/watch?v=YUNf24-QMzk", channel: "Rakesh Gohel" },
       ],
@@ -3610,19 +3335,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The BEST SEO Tutorial for Businesses 2026 (Full Guide)", url: "https://www.youtube.com/watch?v=ZKZnDORR0ds", channel: "Caleb Ulku" },
       ],
       hi: [
-        { title: "वेबसाइट के लिए SEO कंटेंट कैसे लिखें | Google पर #1 रैंक 🏆", url: "https://www.youtube.com/watch?v=gydm3Vy7XC4", channel: "Website Learners" },
         { title: "How to Write SEO Content That Ranks #1 in Google", url: "https://www.youtube.com/watch?v=2_ppjYbtJDs", channel: "Ghulam Ali SEO" },
         { title: "SEO Tutorial for Beginners 2025 | Rank #1 on Google | SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fj6V1vjqP-4", channel: "Saddam Kassim" },
         { title: "Part 5: 🚀 Blogger Advanced SEO Settings 2025 | Blogger Website Ka SEO Kaise Kare? Complete Tutorial🔥", url: "https://www.youtube.com/watch?v=LhV1h8NPNEk", channel: "YT King Pankaj" },
       ],
       te: [
         { title: "Google AdSense ఎలా Apply చెయ్యాలి? Blogging Income, Niches & SEO Content Telugu | High CPC Keywords", url: "https://www.youtube.com/watch?v=6V8qyEaqWWc", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "How to Write SEO Content for Website | Ranks #1 🏆 on Google", url: "https://www.youtube.com/watch?v=gydm3Vy7XC4", channel: "Website Learners" },
         { title: "How to create SEO friendly Blog post in Blogger In Telugu | Blogger Tutorials in Telugu", url: "https://www.youtube.com/watch?v=UL0NXiWfjiE", channel: "Vijaya Kumar Arunapuram" },
         { title: "Learn SEO Course in Telugu - 6 Hours Free Tutorial  | Complete Digital Marketing Course in Telugu", url: "https://www.youtube.com/watch?v=Mdk79zqghJo", channel: "Kiran Smart School" },
       ],
       ta: [
-        { title: "How to Write SEO Content for Website | Ranks #1 🏆 on Google", url: "https://www.youtube.com/watch?v=gydm3Vy7XC4", channel: "Website Learners" },
         { title: "How to Write Articles in Tamil 📝| AI Content Writing & Blogging Tutorial for Beginners | SEO Tamil", url: "https://www.youtube.com/watch?v=UcaG2Xc8Dw8", channel: "Digitell Kesavan and Digitell AI Blogging Academy Tamil" },
         { title: "SEO in 4 Minutes தமிழ் | What is SEO in Tamil | How Does it Works | Digital Marketing", url: "https://www.youtube.com/watch?v=RUEImDRe_lY", channel: "KGS Digital Marketing Tamil" },
         { title: "How to Write Viral Blog Post in Tamil | write blogs using ai tools | #tamiltutorial #blogger", url: "https://www.youtube.com/watch?v=d_yjNgCqvCc", channel: "WP Dev Tamil" },
@@ -3655,7 +3377,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "इस चरण-दर-चरण फ्रेमवर्क के साथ 10 मिनट में एनालिटिक्स केस स्टडी में महारत हासिल करें", url: "https://www.youtube.com/watch?v=Okddfzt_GKU", channel: "Alok The Analyst - Hindi" },
-        { title: "How to solve Case Study? | Solved Example | Business Analyst 2023 | Consulting Interview | Hindi", url: "https://www.youtube.com/watch?v=npHOE0bsvJU", channel: "Hrithik Mehlawat" },
         { title: "LIVE मार्केटिंग केस स्टडी हल करें | MBA केस स्टडी हल करें", url: "https://www.youtube.com/watch?v=YCx4lmRjxoo", channel: "Amol Wadhwa" },
         { title: "How to make your first UX Case Study in 2024 | complete guide with free template | Hindi", url: "https://www.youtube.com/watch?v=UAmGffii60g", channel: "Saurabh Saini" },
       ],
@@ -3667,7 +3388,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "How to Make your FIRST UI/UX case study | Detailed walkthrough | in Tamil | Thoufiq M", url: "https://www.youtube.com/watch?v=DQqMWAx0ZkE", channel: "Thoufiq M" },
-        { title: "Complete Guide to Product Case Studies | Product Management | Product Teardown", url: "https://www.youtube.com/watch?v=rmhWq35CN3g", channel: "Manoj" },
         { title: "Case Study என்றால் என்ன? | Case Study Explained in Tamil | Easy Explanation", url: "https://www.youtube.com/watch?v=xgISRGCdRTI", channel: "ishaq_ux" },
         { title: "How To Do Case Study In UI UX Design | UI UX Case Study Tamil | UX Case Study Presentation", url: "https://www.youtube.com/watch?v=cRcjCG2_6dc", channel: "BTree Systems" },
       ],
@@ -3699,14 +3419,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Find Your Target Audience in 2025 6 Step Framework + Free Templates", url: "https://www.youtube.com/watch?v=6mugRyElbd0", channel: "HubSpot Marketing" },
       ],
       hi: [
-        { title: "Secrets to Building the Most Engaging Community Ever", url: "https://www.youtube.com/watch?v=6ZVpufakwfk", channel: "Pat Flynn" },
-        { title: "How to make successful content, Part 1", url: "https://www.youtube.com/watch?v=mNZrHcjUG5s", channel: "GaryVee" },
         { title: "This Is Your Sign To Start Content Creation", url: "https://www.youtube.com/watch?v=gxbKPQqKmmQ", channel: "Nikhil Kamath" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
       ],
       te: [
         { title: "Content Creation in 2026 | 02 tips for content creation telugu #shorts #contentcreation #trending", url: "https://www.youtube.com/watch?v=AHo9EYoPYGM", channel: "Maneesh Studios" },
-        { title: "Secrets to Building the Most Engaging Community Ever", url: "https://www.youtube.com/watch?v=6ZVpufakwfk", channel: "Pat Flynn" },
         { title: "This Is Your Sign To Start Content Creation", url: "https://www.youtube.com/watch?v=gxbKPQqKmmQ", channel: "Nikhil Kamath" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
       ],
@@ -3744,9 +3461,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Content Delivery Network In Hindi | Link Website With Cloudflare", url: "https://www.youtube.com/watch?v=Wgv24Dkq6VU", channel: "Amit Tiwari" },
       ],
       te: [
-        { title: "What is a CDN (Content Delivery Network)?", url: "https://www.youtube.com/watch?v=b4_6thkYZXs", channel: "Gaurav Sen" },
-        { title: "What Is A CDN? How Does It Work?", url: "https://www.youtube.com/watch?v=RI9np1LWzqw", channel: "ByteByteGo" },
-        { title: "CDN - Content Delivery Network - Explained", url: "https://www.youtube.com/watch?v=nhhfSBm6v4A", channel: "PowerCert Animated Videos" },
         { title: "Content Delivery Network (CDN) ✅ #systemdesign", url: "https://www.youtube.com/watch?v=ZN5S_flPKNE", channel: "Build with Akshit" },
       ],
       ta: [
@@ -3784,7 +3498,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "This AI tool translates video to ANY language #shorts #videotips #videomarketingtips", url: "https://www.youtube.com/watch?v=os7nUVOZ_0E", channel: "Ryan Jordan" },
         { title: "Fix youtube comments translation. Hindi to English. fix in all Google app at once.", url: "https://www.youtube.com/watch?v=KeeOQQtZSQ8", channel: "V's Garden" },
         { title: "The Difference Between Translation and Localization Services", url: "https://www.youtube.com/watch?v=y388BZ5EKf0", channel: "Traduality" },
-        { title: "Localization In React - Make Your Websites International | React Translations Tutorial (React-18n)", url: "https://www.youtube.com/watch?v=0GmDPAlwifs", channel: "PedroTech" },
       ],
       te: [
         { title: "ఈ ఒక్క AI టూల్‌తో ఏ భాషలోనైనా మాట్లాడవచ్చు! 🌍 | AI Video Translation Tutorial (Telugu) #heygen", url: "https://www.youtube.com/watch?v=DZ2K6kyyMe4", channel: "Digital PRO Praveen (Telugu)" },
@@ -3825,7 +3538,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How I plan my social media content!", url: "https://www.youtube.com/watch?v=XSMNLuUdVQY", channel: "Abi Connick" },
       ],
       hi: [
-        { title: "Learn Content Creation for Beginners | Shilpa Jaiswal | Social Media  #socialmedia #contentcreator", url: "https://www.youtube.com/watch?v=tOkCkP8Qg9g", channel: "The Social Shero" },
         { title: "5 Best Content Creation Tools for Social Media Content & Website", url: "https://www.youtube.com/watch?v=RtJ9pXx1jcY", channel: "Tech Study" },
         { title: "अपनी सोशल मीडिया सामग्री को स्वचालित करें (कोई प्रयास आवश्यक नहीं!) 💻☕ #contentcreation #digitalm...", url: "https://www.youtube.com/watch?v=jyKBSOfn9QA", channel: "Website Learners" },
         { title: "Content Creation for complete beginners| Shilpa Jaiswal | Social Media #socialmedia #contentcreator", url: "https://www.youtube.com/watch?v=2iIJge_7mm4", channel: "The Social Shero" },
@@ -3912,9 +3624,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "3X Content Velocity & Zero Guesswork with Quattr's Content AI", url: "https://www.youtube.com/watch?v=C9TDlAEjCF8", channel: "Quattr" },
       ],
       hi: [
-        { title: "Speed Beats Perfection — How I 10x’d My Content Output with AI ⚡", url: "https://www.youtube.com/watch?v=HQPnUCdoveM", channel: "Vireel" },
         { title: "Image Enhancing AI Tool 🚀🔥- By Aditya Kachave | Be10x", url: "https://www.youtube.com/watch?v=JVqEV-0X1SE", channel: "Be10x" },
-        { title: "Submagic AI: Edit Short-Form Videos 10x Faster! 🚀✨", url: "https://www.youtube.com/watch?v=aJS-qY9VymI", channel: "Submagic Ai Tutorials" },
         { title: "AI For UpScaling Videos 🔥", url: "https://www.youtube.com/watch?v=wBpNiAtFVHU", channel: "CodeWithHarry" },
       ],
       te: [
@@ -3924,9 +3634,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Top AI Tools in Telugu", url: "https://www.youtube.com/watch?v=x_T8mrI81rY", channel: "PythonLife" },
       ],
       ta: [
-        { title: "Speed Beats Perfection — How I 10x’d My Content Output with AI ⚡", url: "https://www.youtube.com/watch?v=HQPnUCdoveM", channel: "Vireel" },
         { title: "Ai Audio Enchancer", url: "https://www.youtube.com/watch?v=yr5Q7RW6HOw", channel: "Ge Ranjith" },
-        { title: "How to Create Any Content 10x Faster With AI", url: "https://www.youtube.com/watch?v=1q__Vs2JqbI", channel: "Kallaway" },
         { title: "Stop Vibe Coding!! #ai #vibecoding", url: "https://www.youtube.com/watch?v=cgD-bTTe20I", channel: "Builders Central" },
       ],
     },
@@ -3964,8 +3672,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "How to Create an Ebook and Sell it online | How to create an Ebook in Canva", url: "https://www.youtube.com/watch?v=fbuFR8kTjU4", channel: "Digitech Praveen Here" },
-        { title: "Creating an Ebook in a day with Canva and ChatGPT", url: "https://www.youtube.com/watch?v=JfFNusP3Sa8", channel: "Fae Johnson" },
-        { title: "How to Write Your 1st E-Book", url: "https://www.youtube.com/watch?v=sJXggZ9Ho4s", channel: "SamCart" },
         { title: "How To Create Digital Products Telugu | How To Create E-Books Courses AI Tools Telugu  MDR INFO TECH", url: "https://www.youtube.com/watch?v=CVTCp1P7NCo", channel: "MDR INFO TECH" },
       ],
       ta: [
@@ -4000,21 +3706,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Plan your Social Media Content using a Google Sheets Spreadsheet #socialmedia #socialmediamanager", url: "https://www.youtube.com/watch?v=dCO75ywzDpk", channel: "thinklikeagirlboss" },
       ],
       hi: [
-        { title: "एक बेहतरीन संपादकीय कैलेंडर कैसे बनाएं", url: "https://www.youtube.com/watch?v=kETWbZ6TwII", channel: "TutorialsPoint" },
         { title: "How to Create an Editorial Calendar with Google Calendar", url: "https://www.youtube.com/watch?v=oAtfBYPaJ3k", channel: "Gargi Bhola" },
         { title: "Easy CONTENT CALENDAR for Creators (using Google Sheet)", url: "https://www.youtube.com/watch?v=dJ2mksrr5oc", channel: "Create With Shivam" },
         { title: "how to make your google calendar aesthetic", url: "https://www.youtube.com/watch?v=gIZhle4AmtQ", channel: "Life with Hope" },
       ],
       te: [
-        { title: "How to Create a Perfect Editorial Calendar", url: "https://www.youtube.com/watch?v=kETWbZ6TwII", channel: "TutorialsPoint" },
         { title: "Social Media Content Calendar 2022 Free Download || Make Money |Grow Online| Digital Guru Sai Telugu", url: "https://www.youtube.com/watch?v=yFK8GfKdMSg", channel: "ThanksAI" },
         { title: "Illustrator Beginner Tutorial Telugu - Class 14 | Calendar Design 2 types of Customization in Easy.", url: "https://www.youtube.com/watch?v=yDeRX1AE7co", channel: "Grafix Vidya" },
-        { title: "How To Create A 30-Day Content Calendar & Grow On Social Media #contentcreation #ai", url: "https://www.youtube.com/watch?v=scqAWkgLLKQ", channel: "Saptaparna Dhar" },
       ],
       ta: [
         { title: "Create a 30-Day Content Calendar with AI – FAST & FREE! | Leads Logesh in Tamil", url: "https://www.youtube.com/watch?v=Njwn0FTGpY0", channel: "Leads Logesh" },
         { title: "Day 7 - How to Build a Content Calendar from Scratch | Live Tamil Example | itsprakashhere", url: "https://www.youtube.com/watch?v=BPEyQuxxNf0", channel: "Prakash" },
-        { title: "How To Create A 30-Day Content Calendar & Grow On Social Media #contentcreation #ai", url: "https://www.youtube.com/watch?v=scqAWkgLLKQ", channel: "Saptaparna Dhar" },
         { title: "How to Create Monthly Content Calendar & Generate Content Ideas as a Social Media Manager", url: "https://www.youtube.com/watch?v=QKKgGU-DOa8", channel: "Shara Obligar" },
       ],
     },
@@ -4044,18 +3746,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "When Should You Gate or Ungate SaaS Features & Content?", url: "https://www.youtube.com/watch?v=Gpw99ojX6x4", channel: "ProductLed" },
       ],
       hi: [
-        { title: "Gated vs. Ungated Content…What’s the Real Answer for B2B Marketers?", url: "https://www.youtube.com/watch?v=Gitgq8KMtN4", channel: "Insightly CRM by Unbounce" },
         { title: "What Is Gated and Non-Gated Content", url: "https://www.youtube.com/watch?v=yAPsndzoqS0", channel: "UppSkill" },
         { title: "Amazon Gated vs Ungated products explained", url: "https://www.youtube.com/watch?v=D0PFDYJopck", channel: "Zero To Sale" },
       ],
       te: [
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
         { title: "Content Marketing Complete Guide Telugu | Business Growth Strategy 2025 | Startup Marketing Tips", url: "https://www.youtube.com/watch?v=fMgm3dpmmB4", channel: "Raviteja builds" },
-        { title: "Gated vs. Ungated Content | Which is Best?", url: "https://www.youtube.com/watch?v=DSApbV5UyQE", channel: "Blend B2B - HubSpot Partner" },
         { title: "Content Marketing Explained in Telugu | Step-by-Step Guide for Startups & Businesses", url: "https://www.youtube.com/watch?v=56Q7qzniOYc", channel: "Raviteja builds" },
       ],
       ta: [
-        { title: "Gated vs. Ungated Content…What’s the Real Answer for B2B Marketers?", url: "https://www.youtube.com/watch?v=Gitgq8KMtN4", channel: "Insightly CRM by Unbounce" },
         { title: "I started a Digital Marketing Company 😊 😁  | Madan Gowri | Tamil | MG", url: "https://www.youtube.com/watch?v=yQPo1GlW7Do", channel: "Madan Gowri" },
         { title: "Marketing Matters: Gated versus Ungated Content", url: "https://www.youtube.com/watch?v=lDjkbb8sA7Y", channel: "The Partner Marketing Group" },
         { title: "BEST MARKETING STRATEGY ✅|#shorts #youtubeshorts #tamil", url: "https://www.youtube.com/watch?v=7s0DVdzDqi0", channel: "Cheran Academy" },
@@ -4088,19 +3787,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How to Create Interactive Content for Online Teaching | Genially | Hindi", url: "https://www.youtube.com/watch?v=JT7weB9CKnI", channel: "Banthiya's Training & Consultancy" },
         { title: "How to create interactive quiz video using h5p | Quick and Easy Tutorial", url: "https://www.youtube.com/watch?v=GDT1B3K1yck", channel: "Hemanth Sai Sivva" },
-        { title: "How to create interactive content with @genially_official #Genially #tutorial", url: "https://www.youtube.com/watch?v=ZXALgoDrOvI", channel: "Genially" },
         { title: "5 Best Content Creation Tools for Social Media Content & Website", url: "https://www.youtube.com/watch?v=RtJ9pXx1jcY", channel: "Tech Study" },
       ],
       te: [
         { title: "H5P ను ఉపయోగించే విధానం// Creating interactive content with H5P in TELUGU // AP SCERT, WEBINAR", url: "https://www.youtube.com/watch?v=-jLJRRF-A_g", channel: "PANTHULU GAARU" },
         { title: "How to create interactive quiz video using h5p | Quick and Easy Tutorial", url: "https://www.youtube.com/watch?v=GDT1B3K1yck", channel: "Hemanth Sai Sivva" },
         { title: "How to Start Content Creation in 2025 a Complete Roadmap in Telugu", url: "https://www.youtube.com/watch?v=2075gQPolCo", channel: "Hello Tejaa" },
-        { title: "H5P Tutorial - Create Interactives for Your LMS or Website", url: "https://www.youtube.com/watch?v=7UH0qWudtp8", channel: "Technology for Teachers and Students" },
       ],
       ta: [
         { title: "Audience-அ அப்படியே மிரள வைங்க! 😲 Slidea AI: Create Interactive Presentations in Tamil!", url: "https://www.youtube.com/watch?v=lntk5RjnUcU", channel: "The AI Dude - Tamil" },
         { title: "Automate Anything! Claude Cowork Masterclass Part-1 (தமிழில்)", url: "https://www.youtube.com/watch?v=D61JR8jb3JE", channel: "The AI Dude - Tamil" },
-        { title: "H5P Tutorial - Create Interactives for Your LMS or Website", url: "https://www.youtube.com/watch?v=7UH0qWudtp8", channel: "Technology for Teachers and Students" },
         { title: "Digital Marketing for Business Owners in Tamil | Full Beginner Roadmap", url: "https://www.youtube.com/watch?v=ju6C-Q89QUo", channel: "Sangeetha S Abishek" },
       ],
     },
@@ -4220,21 +3916,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Best SEO Tools For 2025 #SEO #SEOtools #googlerankings", url: "https://www.youtube.com/watch?v=adQhWdS5h90", channel: "Kate Smoothy | Google & AI SEO Specialist" },
       ],
       hi: [
-        { title: "How to Generate 2000 Leads in Just 10 Min (Free lead generation method) #leads", url: "https://www.youtube.com/watch?v=Lvymp3TAeiA", channel: "Marketing Expert" },
-        { title: "Lead Automation  #Shorts", url: "https://www.youtube.com/watch?v=_qiV0UBl1l8", channel: "Pre Tutorials - AI Marketing" },
         { title: "5+ Content Research Tips & Tools to Write Amazing Articles | Full Strategy & Techniques", url: "https://www.youtube.com/watch?v=eEgtyPhz5mA", channel: "WsCube Tech" },
         { title: "On-Page SEO Series | Part 8 —Internal Links | How to Create Internal Links |What is Internal Linking", url: "https://www.youtube.com/watch?v=IVao-kovFQ8", channel: "Amit Tiwari" },
       ],
       te: [
-        { title: "How to Generate 2000 Leads in Just 10 Min (Free lead generation method) #leads", url: "https://www.youtube.com/watch?v=Lvymp3TAeiA", channel: "Marketing Expert" },
-        { title: "Lead Automation  #Shorts", url: "https://www.youtube.com/watch?v=_qiV0UBl1l8", channel: "Pre Tutorials - AI Marketing" },
         { title: "3 Tools For Content Writers", url: "https://www.youtube.com/watch?v=aLkZVv_vyes", channel: "Digital Scholar" },
         { title: "How to Learn Coding In Telugu - 4 Simple Steps | Step 1 | Programming for Beginners | Entri Elevate", url: "https://www.youtube.com/watch?v=E_OIgTTb7Rg", channel: "Entri Coding తెలుగు" },
       ],
       ta: [
         { title: "How to Build 1, 000+ FREE Backlinks withChatGPT (AI Link Building) Tamil ✅", url: "https://www.youtube.com/watch?v=IzMyakK2_j8", channel: "Rajkumar SEO Service" },
         { title: "The 4 Best Places To Do Market Research | Marketing Research | Digital Marketing", url: "https://www.youtube.com/watch?v=T8emev4z2Jk", channel: "Teaching-Revolution" },
-        { title: "How to Generate 2000 Leads in Just 10 Min (Free lead generation method) #leads", url: "https://www.youtube.com/watch?v=Lvymp3TAeiA", channel: "Marketing Expert" },
         { title: "🔍 Search Engine Optimization Explained 📈 in Tamil | #thillaithetechie", url: "https://www.youtube.com/watch?v=Lx2jbn6EI14", channel: "Thillai The Techie" },
       ],
     },
@@ -4309,19 +4000,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "The Ultimate Guide To Repurposing Content | How To Maximize Your Content (in Hindi)", url: "https://www.youtube.com/watch?v=AL_fMIAdtU4", channel: "StartupWise हिंदी में" },
-        { title: "एआई कंटेंट रिपर्पसिंग | मेक डॉट कॉम ट्यूटोरियल: यूट्यूब से लिंक्डइन ऑटोमेशन", url: "https://www.youtube.com/watch?v=ILElarvYjgo", channel: "Thalita Milan - Tech & Marketing Tips" },
         { title: "कंटेंट रीपरपजिंग अब बेहद आसान | Canva AI 2.0 के साथ 1 पोस्ट से 4 प्लेटफॉर्म्स पर कुछ ही मिनटों में", url: "https://www.youtube.com/watch?v=Ivcf2mInCkY", channel: "Created by Wayne" },
         { title: "What Is Content Repurposing? ( Hindi Marketing Video)", url: "https://www.youtube.com/watch?v=UZ-4nLFJjVM", channel: "UppSkill" },
       ],
       te: [
         { title: "Day 42/100: What is Content Repurposing? | Explained in Telugu | 100 Days Business Marketing Series", url: "https://www.youtube.com/watch?v=7HvI3ywq4-4", channel: "Digital Chandu Telugu" },
-        { title: "How to repurpose content to get more views. #contentmarketing #repurposing #marketing #content", url: "https://www.youtube.com/watch?v=ujS6rRbnxGc", channel: "Steven Records" },
         { title: "How to Start Content Creation in 2025 a Complete Roadmap in Telugu", url: "https://www.youtube.com/watch?v=2075gQPolCo", channel: "Hello Tejaa" },
         { title: "Content Repurposing Made Easy | From 1 Post to 4 Platforms in Minutes with Canva AI 2.0", url: "https://www.youtube.com/watch?v=Ivcf2mInCkY", channel: "Created by Wayne" },
       ],
       ta: [
         { title: "உள்ளடக்கத்தை மறுபயன்பாடு செய்வது எளிது | Canva AI 2.0 மூலம் நிமிடங்களில் 1 பதிவிலிருந்து 4 தளங்கள...", url: "https://www.youtube.com/watch?v=Ivcf2mInCkY", channel: "Created by Wayne" },
-        { title: "You WON'T BELIEVE How FAST You Can Repurpose Content with AI Automation", url: "https://www.youtube.com/watch?v=txG8rFKHlW4", channel: "digitalSamaritan" },
         { title: "Power of Content Creation", url: "https://www.youtube.com/watch?v=sKzYGjQceP4", channel: "Explore with Epaphra" },
         { title: "(Tamil) Social media content ideas masterclass - content strategy", url: "https://www.youtube.com/watch?v=5OmAloPbdE0", channel: "Sangeetha S Abishek" },
       ],
@@ -4351,20 +4039,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "BEing Seen & BEing Heard as a Thought Leader! | Mitchell Levy | TEDxHickory", url: "https://www.youtube.com/watch?v=KwRuTKWNZyw", channel: "TEDx Talks" },
       ],
       hi: [
-        { title: "What is a Thought Leader?", url: "https://www.youtube.com/watch?v=v06RFbAJ86c", channel: "Communication Coach Alexander Lyon" },
         { title: "Become a LEADER by following 3 steps!", url: "https://www.youtube.com/watch?v=OW4DHeauZv0", channel: "Rajiv Talreja" },
         { title: "LinkedIn पर थॉट लीडर कैसे बनें (बिना किसी बड़े फॉलोइंग के भी)", url: "https://www.youtube.com/watch?v=Vi-DPWAY1C0", channel: "Executive Resume Writers" },
         { title: "How To Establish Thought Leadership | Content Tips #marketing #contentstrategy #thoughtleadership", url: "https://www.youtube.com/watch?v=iVaKJOEiKdE", channel: "Shikhar Suri" },
       ],
       te: [
         { title: "Become a LEADER by following 3 steps!", url: "https://www.youtube.com/watch?v=OW4DHeauZv0", channel: "Rajiv Talreja" },
-        { title: "Denise Brosseau: How to Become a Thought Leader", url: "https://www.youtube.com/watch?v=A91ovXbZap8", channel: "Stanford Graduate School of Business" },
         { title: "నిజమైన లీడర్స్ ఇలా తయారవుతారు | Dare to Lead Book Explained in Telugu | Courage, Trust & Leadership", url: "https://www.youtube.com/watch?v=zWTOLBK7rG4", channel: "Unlock Thought" },
         { title: "Leadership Communication Skills Telugu | ఎలా మాట్లాడితే గెలుస్తారు", url: "https://www.youtube.com/watch?v=RTwQ-60_mio", channel: "Akella Raghavendra" },
       ],
       ta: [
         { title: "Leadership Skills in Tamil | Dr V S Jithendra", url: "https://www.youtube.com/watch?v=m_qtbKr7uD0", channel: "Psychology in Tamil" },
-        { title: "What is a Thought Leader?", url: "https://www.youtube.com/watch?v=v06RFbAJ86c", channel: "Communication Coach Alexander Lyon" },
         { title: "ஒரு தலைவன் என்றால் எப்படி இருக்க வேண்டும் என்று தெரியுமா? | Leadership | Tamil motivational quotes", url: "https://www.youtube.com/watch?v=_41uNC3Ws6w", channel: "Waste Your 30 Seconds" },
         { title: "The Leader Who Had No Title | Book Summary in Tamil | Karka Kasadara", url: "https://www.youtube.com/watch?v=ETV36NP6Vtg", channel: "Karka Kasadara" },
       ],
@@ -4396,22 +4081,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Structure a Topic (Keyword) Cluster in WordPress for SEO", url: "https://www.youtube.com/watch?v=HimrbEy-hlM", channel: "Shaheryar" },
       ],
       hi: [
-        { title: "Concept of Topic Clusters & How can they help us | WsCube Tech", url: "https://www.youtube.com/watch?v=izpNOSPegoQ", channel: "WsCube Tech" },
         { title: "Make Keyword Cluster in 3 Minutes", url: "https://www.youtube.com/watch?v=L7wcNhtWfHA", channel: "Ghulam Ali SEO" },
-        { title: "SEO Strategy: Topic Clusters and Pillar Pages Explained", url: "https://www.youtube.com/watch?v=LS2t-mKS1mU", channel: "Shaheryar" },
         { title: "How to create SILOS, Topic Clusters and Pillar Pages with EXAMPLES (2025)", url: "https://www.youtube.com/watch?v=8uyVuDfmVqM", channel: "Navdeep Soni" },
       ],
       te: [
-        { title: "Pillar Pages vs Topic Clusters: How I Build Topical Authority", url: "https://www.youtube.com/watch?v=4-uHnR2H32w", channel: "Matthew Zare" },
-        { title: "Pillar Pages and Topic Clusters Explained!", url: "https://www.youtube.com/watch?v=AzTutClzfs4", channel: "Marketing Explained" },
-        { title: "Topic Clustering Made Simple | Beginner's Business Guide 2025", url: "https://www.youtube.com/watch?v=iYbQbm-zS-k", channel: "Semrush" },
         { title: "Pillar Pages and Cluster Content: SEO Strategies", url: "https://www.youtube.com/watch?v=wVQKTid2Qu0", channel: "Psychology with Shalini" },
       ],
       ta: [
-        { title: "Pillar Pages vs Topic Clusters: How I Build Topical Authority", url: "https://www.youtube.com/watch?v=4-uHnR2H32w", channel: "Matthew Zare" },
-        { title: "Pillar Pages and Topic Clusters Explained!", url: "https://www.youtube.com/watch?v=AzTutClzfs4", channel: "Marketing Explained" },
         { title: "How to Optimise a Header Tags for SEO in Tamil | SEO Tutorial in Tamil | #18", url: "https://www.youtube.com/watch?v=HwWVbPdiNBw", channel: "Simplified E-learning" },
-        { title: "Topic Clustering Made Simple | Beginner's Business Guide 2025", url: "https://www.youtube.com/watch?v=iYbQbm-zS-k", channel: "Semrush" },
       ],
     },
     articles: [
@@ -4484,7 +4161,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "This Is Your Sign To Start Content Creation", url: "https://www.youtube.com/watch?v=gxbKPQqKmmQ", channel: "Nikhil Kamath" },
-        { title: "Video Content Strategy: How to Get Started", url: "https://www.youtube.com/watch?v=RsRe0-_uMro", channel: "Social Media Examiner" },
         { title: "Content Strategy - Explained in Hindi / Urdu", url: "https://www.youtube.com/watch?v=CXka1DP2v_o", channel: "ZPZ Education" },
         { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
       ],
@@ -4533,7 +4209,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "FREE Webinar for the path to get a Software Job #softwarecourse #noncodingjobs #freewebinar", url: "https://www.youtube.com/watch?v=Nv41iAucwQw", channel: "The Classy Code♦️IDMC" },
         { title: "2 Hours Live webinar for YouTube content strategy", url: "https://www.youtube.com/watch?v=zUBgIjACsSE", channel: "Vikas Telugu Tech" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
-        { title: "How You Can Make Your Webinar Feel Like An Event 🎉 #webinars", url: "https://www.youtube.com/watch?v=aCkXuvJaxOw", channel: "Made To See (formerly WebinarExperts)" },
       ],
       ta: [
         { title: "WHAT IS WEBINAR? HOW TO EARN MONEY IN WEBINAR | TAMIL", url: "https://www.youtube.com/watch?v=khblD3EHb6g", channel: "JAVITH IN UPDATES" },
@@ -4568,8 +4243,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Content Marketing Explained | 6 Step Process | Social Seller Academy - Hindi", url: "https://www.youtube.com/watch?v=emUpshX-ToI", channel: "Social Seller Academy" },
       ],
       hi: [
-        { title: "Content Marketing Explained | 6 Step Process | Social Seller Academy - Hindi", url: "https://www.youtube.com/watch?v=emUpshX-ToI", channel: "Social Seller Academy" },
-        { title: "What is Content Marketing  | Contant Marketing |  Contant Marketing Tutorial", url: "https://www.youtube.com/watch?v=oZ5F4aknYFY", channel: "WsCube Tech" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Hindi", url: "https://www.youtube.com/watch?v=ZucOiqzRznA", channel: "Saddam Kassim" },
         { title: "What is Content Marketing & How to Drive More Traffic to Your Website? (Full Strategy Tutorial)", url: "https://www.youtube.com/watch?v=dzUfIg0NDH0", channel: "WsCube Tech" },
       ],
@@ -4611,19 +4284,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Facebook Ads Tutorial: What is A/B Testing?", url: "https://www.youtube.com/watch?v=pgweJS2ViNE", channel: "Learn With Shopify" },
       ],
       hi: [
-        { title: "A/B परीक्षण की सरल व्याख्या", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Simple explanation of A/B Testing In Hindi", url: "https://www.youtube.com/watch?v=Vif1U1FLUeQ", channel: "codebasics Hindi" },
         { title: "Experiments (A/B testing) in Google Ads | Google Ads Tutorials in Hindi", url: "https://www.youtube.com/watch?v=dM6JeqdYXkY", channel: "Sunil Deshwal" },
         { title: "The Power of A/B Testing in Marketing | Sandeep Maheshwari", url: "https://www.youtube.com/watch?v=JrvdUSrTtbI", channel: "MD Infotech" },
       ],
       te: [
         { title: "How to Setup A/B Test in Facebook Ads in Telugu | Practical Tutorial | SDM Classes", url: "https://www.youtube.com/watch?v=jobgE2MKpRw", channel: "Subbu Digital Marketer" },
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "What is AB Testing in Telugu  || Digital John || 6309973292", url: "https://www.youtube.com/watch?v=vgSsnfjEBU8", channel: "Digital Marketing Course in Telugu" },
         { title: "A/B Testing in Telugu | Skill Nerchuko | Vivek Kandula | Marketing Strategies", url: "https://www.youtube.com/watch?v=dzTRmGqiW4A", channel: "Skill Nerchuko" },
       ],
       ta: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "This is how Netflix experiments with new features, AB Testing in simple terms | Tamil", url: "https://www.youtube.com/watch?v=03LkG6Vx2bc", channel: "Hareesh Rajendran" },
         { title: "What is A/B Testing? | எ/பி டெஸ்டிங் ரௌசர் என்றால் என்ன? | Digital Marketing In Tamil", url: "https://www.youtube.com/watch?v=4dvZFPYfWLA", channel: "Vimalesh Gopal" },
         { title: "What is A/B testing or split testing in digital marketing (Tamil)", url: "https://www.youtube.com/watch?v=bcrxb_LAkN0", channel: "Sangeetha S Abishek" },
@@ -4746,16 +4416,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is AIDA Model? AIDA Model Explained in Hindi | AIDA Copywriting Framework for Facebook Ads #32", url: "https://www.youtube.com/watch?v=PtcE8T4eUhc", channel: "My Online Master" },
         { title: "AIDA vs PAS - Which Framework Leads to Better Conversion?", url: "https://www.youtube.com/watch?v=Zb32q3U8L3U", channel: "Xgrid" },
         { title: "AIDA Model Copywriting Kya Hai & How to Use the AIDA Formula in Copywriting?", url: "https://www.youtube.com/watch?v=H7RkuJZIZVc", channel: "WsCube Tech" },
-        { title: "कॉपीराइटिंग में AIDA फॉर्मूला का उपयोग कैसे करें।", url: "https://www.youtube.com/watch?v=flgSOV9bW4k", channel: "Kopywriting Kourse" },
       ],
       te: [
         { title: "marketing strategy for businesss | What is the AIDA Framework? telugu Start up series #10", url: "https://www.youtube.com/watch?v=2oOvN4cqpbA", channel: "Raviteja builds" },
         { title: "🔥 How Much Does A Copywriter Make ? | Copywriter Salary In India #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=nO_SM2MgwL4", channel: "Simplilearn" },
         { title: "Write INSANELY GOOD COPIES with this FRAMEWORK - AIDA Copywriting framework", url: "https://www.youtube.com/watch?v=Y8cjBKUBXtM", channel: "Shyam Govind - International B2B SEO consultant" },
-        { title: "How to use the AIDA formula in copywriting.", url: "https://www.youtube.com/watch?v=flgSOV9bW4k", channel: "Kopywriting Kourse" },
       ],
       ta: [
-        { title: "How to use the AIDA formula in copywriting.", url: "https://www.youtube.com/watch?v=flgSOV9bW4k", channel: "Kopywriting Kourse" },
         { title: "Learning to Create and Use the AIDA FRAMEWORK | Doodly Tutorials", url: "https://www.youtube.com/watch?v=H9GCBPfPALQ", channel: "Doodly Official" },
         { title: "👇5 tools I use for Copywriting (Check Description)| Become a productive & high income copywriter✨", url: "https://www.youtube.com/watch?v=XFyzcypHm80", channel: "Saheli Chatterjee" },
         { title: "🔥 How Much Does A Copywriter Make ? | Copywriter Salary In India #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=nO_SM2MgwL4", channel: "Simplilearn" },
@@ -4788,7 +4455,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Know these Business Models - B2B, B2C, B2G #shorts #shortsvideo", url: "https://www.youtube.com/watch?v=6rIZyZ-jIn8", channel: "CareerRide Hindi" },
-        { title: "सर्वश्रेष्ठ B2B मार्केटिंग सलाह जिसका लोग पर्याप्त लाभ नहीं उठाते!", url: "https://www.youtube.com/watch?v=Tvldi7uk-E8", channel: "Neil Patel" },
         { title: "difference between B2B and B2C|| B2B|| B2C", url: "https://www.youtube.com/watch?v=lH9GI1sDn8Y", channel: "study with neha" },
         { title: "2025 IndiaMart Account Open, Documents, commission ￼for B2B Selling #indiamart #b2b #manufacturer", url: "https://www.youtube.com/watch?v=Z1rGwOUNAwQ", channel: "Surazz Gupta" },
       ],
@@ -4799,8 +4465,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "B2B B2C అంటే ఏమిటి? | Business Marketing Strategies | V News Vishesha | #marketing #shorts", url: "https://www.youtube.com/watch?v=mtA3Tt_QDC0", channel: "V News" },
       ],
       ta: [
-        { title: "The Best B2B Marketing Advice People DON’T LEVERAGE ENOUGH!", url: "https://www.youtube.com/watch?v=Tvldi7uk-E8", channel: "Neil Patel" },
-        { title: "How to get your first B2B client in 1 week on LinkedIn", url: "https://www.youtube.com/watch?v=EEqITOaKNFA", channel: "Cleverly | #1 B2B Lead Generation Agency" },
         { title: "Mastering Excel's VLOOKUP: A Step-by-Step Tutorial for Excel Users Explained in Tamil", url: "https://www.youtube.com/watch?v=IVYVQjRyHJs", channel: "Mr Excel Tamil" },
         { title: "B2B, B2C, D2C Explained: Which One is Your Business? #businesstips #startupsuccess", url: "https://www.youtube.com/watch?v=US1ESKXlZJ0", channel: "Le Intelligensia" },
       ],
@@ -4873,22 +4537,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to not get caught using ChatGPT! #chatgpt", url: "https://www.youtube.com/watch?v=uCyBj4M2vBI", channel: "AllThingsAI" },
       ],
       hi: [
-        { title: "This Method Gets You Cited by ChatGPT, Perplexity & Google AI", url: "https://www.youtube.com/watch?v=K-DX13vh1LM", channel: "Nico | AI Ranking" },
-        { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
-        { title: "Perplexity Pro Vs ChatGPT Plus AI", url: "https://www.youtube.com/watch?v=RdUM4yp8Vj4", channel: "Gizmo Rush" },
         { title: "Perplexity Ai Full Tutorial In Hindi - You Will NEVER use GOOGLE Again!", url: "https://www.youtube.com/watch?v=EUFQLvBp62w", channel: "Nishtek AI" },
       ],
       te: [
-        { title: "This Method Gets You Cited by ChatGPT, Perplexity & Google AI", url: "https://www.youtube.com/watch?v=K-DX13vh1LM", channel: "Nico | AI Ranking" },
-        { title: "Perplexity Pro Vs ChatGPT Plus AI", url: "https://www.youtube.com/watch?v=RdUM4yp8Vj4", channel: "Gizmo Rush" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
-        { title: "🚨 STOP copy-pasting from ChatGPT!", url: "https://www.youtube.com/watch?v=OEkYErd6wtM", channel: "Farhan" },
       ],
       ta: [
-        { title: "This Method Gets You Cited by ChatGPT, Perplexity & Google AI", url: "https://www.youtube.com/watch?v=K-DX13vh1LM", channel: "Nico | AI Ranking" },
-        { title: "Perplexity Pro Vs ChatGPT Plus AI", url: "https://www.youtube.com/watch?v=RdUM4yp8Vj4", channel: "Gizmo Rush" },
-        { title: "Learn 80% of Perplexity in under 10 minutes!", url: "https://www.youtube.com/watch?v=YoWdogtZRw8", channel: "Jeff Su" },
-        { title: "ChatGPT-5 vs Perplexity Pro | Which AI Tool Should You Use in 2025? | Intellipaat #shorts", url: "https://www.youtube.com/watch?v=rHvEk_PV6zk", channel: "Intellipaat" },
       ],
     },
     articles: [
@@ -4924,7 +4578,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "What is Copywriting & How to become a Copywriter? | Career Opportunities | Demand etc..", url: "https://www.youtube.com/watch?v=q1YAmUEIg5w", channel: "Unfiltered Growth Telugu" },
         { title: "Copywriting Mastery Course Explained in Telugu | Learn Copywriting from Scratch | SDM Classes", url: "https://www.youtube.com/watch?v=xLJhPFIE_DM", channel: "Subbu Digital Marketer" },
-        { title: "👇5 tools I use for Copywriting (Check Description)| Become a productive & high income copywriter✨", url: "https://www.youtube.com/watch?v=XFyzcypHm80", channel: "Saheli Chatterjee" },
         { title: "What Is Copywriting? (Telugu)", url: "https://www.youtube.com/watch?v=rT_zcbxtEmI", channel: "Raja Vamshi Dasu" },
       ],
       ta: [
@@ -5009,12 +4662,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Copywriting Mastery Course Explained in Telugu | Learn Copywriting from Scratch | SDM Classes", url: "https://www.youtube.com/watch?v=xLJhPFIE_DM", channel: "Subbu Digital Marketer" },
         { title: "🔥 How Much Does A Copywriter Make ? | Copywriter Salary In India #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=nO_SM2MgwL4", channel: "Simplilearn" },
         { title: "3 best ways to practice copywriting without clients", url: "https://www.youtube.com/watch?v=dn8TAWBCjS8", channel: "Ria Pruthi" },
-        { title: "Direct Response vs. Conversion Copywriting: Which is better?", url: "https://www.youtube.com/watch?v=54iBBjIb4Zk", channel: "Roy Furr" },
       ],
       ta: [
         { title: "Copywriting vs Content Writing | What’s the Difference | Digital Marketing Basics #digitalmarketing", url: "https://www.youtube.com/watch?v=SF66gANZGRA", channel: "Entri Digital Marketing Tamil" },
         { title: "1. Copy writing #copywriting #tamil #income #earning #money #skill #selfdevelopment #educational", url: "https://www.youtube.com/watch?v=bIRZcDZXTJg", channel: "Seshath M" },
-        { title: "How to see if copywriting is for you", url: "https://www.youtube.com/watch?v=Iv2-1PCWoAA", channel: "Steven Baterina" },
         { title: "what is Copy Writing in tamil | Powerful business Strategy 🔥🤑💯 #copywriting", url: "https://www.youtube.com/watch?v=Q33jrTi51kM", channel: "Mr Dhina $" },
       ],
     },
@@ -5043,13 +4694,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Learn Email Marketing in 39 Minutes!", url: "https://www.youtube.com/watch?v=pLhQOYMGa88", channel: "Alex Hormozi" },
       ],
       hi: [
-        { title: "I made ₹5 Lakh with Email Copywriting | Full Course 2025", url: "https://www.youtube.com/watch?v=DQ11w5Y3ixs", channel: "Anashrut Finance" },
         { title: "FREE Email Copywriting Course | Fundamentals, Examples, And Roadmap in 1.5 Hours", url: "https://www.youtube.com/watch?v=WEzBwl_9Bn8", channel: "Armash Kamal" },
-        { title: "Email Copywriting for Beginners: FREE Course With Examples", url: "https://www.youtube.com/watch?v=wvlXKzdpNdU", channel: "Armash Kamal" },
         { title: "Copywriting Full Tutorial | Learn Complete Copywriting in 2 Hours", url: "https://www.youtube.com/watch?v=0pb4evBBBDg", channel: "Lets Uncover" },
       ],
       te: [
-        { title: "Easy Email Copywriting Tutorial (Step By Step)", url: "https://www.youtube.com/watch?v=asQ-naffXkE", channel: "Mike Nardi" },
         { title: "Do You Want to Become A Copy Writer...❓❓ Then Watch this Reel 🔥🔥", url: "https://www.youtube.com/watch?v=YzdyPPd1sO0", channel: "HelloVeeru" },
         { title: "3 best ways to practice copywriting without clients", url: "https://www.youtube.com/watch?v=dn8TAWBCjS8", channel: "Ria Pruthi" },
         { title: "What is Copywriting & How to become a Copywriter? | Career Opportunities | Demand etc..", url: "https://www.youtube.com/watch?v=q1YAmUEIg5w", channel: "Unfiltered Growth Telugu" },
@@ -5058,7 +4706,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Email marketing hacks |#shorts #tamil", url: "https://www.youtube.com/watch?v=J80dgcAmLlM", channel: "Cheran Academy" },
         { title: "3 best ways to practice copywriting without clients", url: "https://www.youtube.com/watch?v=dn8TAWBCjS8", channel: "Ria Pruthi" },
         { title: "what is Copy Writing in tamil | Powerful business Strategy 🔥🤑💯 #copywriting", url: "https://www.youtube.com/watch?v=Q33jrTi51kM", channel: "Mr Dhina $" },
-        { title: "Email copywriting for beginners", url: "https://www.youtube.com/watch?v=Ul4Vc6xWYZk", channel: "Adrianna Anna" },
       ],
     },
     articles: [
@@ -5086,7 +4733,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to see if copywriting is for you", url: "https://www.youtube.com/watch?v=Iv2-1PCWoAA", channel: "Steven Baterina" },
       ],
       hi: [
-        { title: "Copywriting: Features VS Benefits -- Which is better??", url: "https://www.youtube.com/watch?v=giIjE1TP-q8", channel: "Kopywriting Kourse" },
         { title: "Ultimate Tips to Convert Features into Benefits | Copy Writing Course | #4", url: "https://www.youtube.com/watch?v=eMAKlS_NI4Y", channel: "Umar Tazkeer" },
         { title: "Copywriting In Hindi - Features vs Benefits Here's the Difference & Why It Matters", url: "https://www.youtube.com/watch?v=nD37x9ruhkQ", channel: "Digital Shivam" },
         { title: "What is Copywriting: Roles, Benefits, Techniques, Examples (2023) | Copywriting for Beginners", url: "https://www.youtube.com/watch?v=F5FbKzk5C98", channel: "WsCube Tech" },
@@ -5094,11 +4740,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Copywriting Mastery Course Explained in Telugu | Learn Copywriting from Scratch | SDM Classes", url: "https://www.youtube.com/watch?v=xLJhPFIE_DM", channel: "Subbu Digital Marketer" },
         { title: "What is Copywriting & How to become a Copywriter? | Career Opportunities | Demand etc..", url: "https://www.youtube.com/watch?v=q1YAmUEIg5w", channel: "Unfiltered Growth Telugu" },
-        { title: "Copywriting: Features VS Benefits -- Which is better??", url: "https://www.youtube.com/watch?v=giIjE1TP-q8", channel: "Kopywriting Kourse" },
         { title: "Do You Want to Become A Copy Writer...❓❓ Then Watch this Reel 🔥🔥", url: "https://www.youtube.com/watch?v=YzdyPPd1sO0", channel: "HelloVeeru" },
       ],
       ta: [
-        { title: "Copywriting: Features VS Benefits -- Which is better??", url: "https://www.youtube.com/watch?v=giIjE1TP-q8", channel: "Kopywriting Kourse" },
         { title: "Do You Want to Become A Copy Writer...❓❓ Then Watch this Reel 🔥🔥", url: "https://www.youtube.com/watch?v=YzdyPPd1sO0", channel: "HelloVeeru" },
         { title: "What is Copy Writing | How To Become A Copywriter | Highest Paying Work From Home Jobs | In Tamil |", url: "https://www.youtube.com/watch?v=VMj3x-5YhFg", channel: "Sandeep Iniyan" },
         { title: "what is Copy Writing in tamil | Powerful business Strategy 🔥🤑💯 #copywriting", url: "https://www.youtube.com/watch?v=Q33jrTi51kM", channel: "Mr Dhina $" },
@@ -5132,19 +4776,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "33 Ways to write effective headlines", url: "https://www.youtube.com/watch?v=24myklFeKWk", channel: "Sahil Khanna" },
-        { title: "Copywriting Tutorial: How To Write Headlines", url: "https://www.youtube.com/watch?v=sdoj1TVbAJY", channel: "Alex Cattoni" },
         { title: "Part 6 - Best Way To Write Headlines & Description For Google Ads | Google Ads Complete Course", url: "https://www.youtube.com/watch?v=8iYzl2yOHuM", channel: "Amit Tiwari" },
         { title: "Copywriting In Hindi -  How To Write Viral Headlines ( My Secret Formula )", url: "https://www.youtube.com/watch?v=tjHGw2uG2Sc", channel: "Digital Shivam" },
       ],
       te: [
-        { title: "Copywriting Tutorial: How To Write Headlines", url: "https://www.youtube.com/watch?v=sdoj1TVbAJY", channel: "Alex Cattoni" },
         { title: "How to Write Google Ads Short Headline and Ad Copies", url: "https://www.youtube.com/watch?v=nlNA6re7S8A", channel: "iambarkat" },
-        { title: "How To Write Google Ads Headlines That Get CLICKS", url: "https://www.youtube.com/watch?v=V7aPPZW6b1U", channel: "Ben Heath - Google Ads" },
         { title: "I Made Fastest Writing World Record", url: "https://www.youtube.com/watch?v=vMGyW-pd0JY", channel: "MadCaP" },
       ],
       ta: [
-        { title: "Copywriting Tutorial: How To Write Headlines", url: "https://www.youtube.com/watch?v=sdoj1TVbAJY", channel: "Alex Cattoni" },
-        { title: "How To Write Google Ads Headlines That Get CLICKS", url: "https://www.youtube.com/watch?v=V7aPPZW6b1U", channel: "Ben Heath - Google Ads" },
         { title: "How to Write Google Ads Short Headline and Ad Copies", url: "https://www.youtube.com/watch?v=nlNA6re7S8A", channel: "iambarkat" },
         { title: "How to write fast handwriting 🖋️ 3 Tamil tips ✨ #niruscalligraphy #handwriting beginners", url: "https://www.youtube.com/watch?v=3bLqJZzZPrY", channel: "Nirus Calligraphy Tamil" },
       ],
@@ -5219,19 +4858,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Making Columns in MS Word Document #msword #msoffice #column", url: "https://www.youtube.com/watch?v=3VQlkn2iAPc", channel: "Angkon's Tutorial Academy" },
       ],
       hi: [
-        { title: "How to print four pages in 1 page #shortfeed #shorts", url: "https://www.youtube.com/watch?v=iBj11fD1jfE", channel: "TechZone by Anu" },
         { title: "Semester's Exam Bit Papers 🤫 Students Micro Xerox Bit Papers #exam #students", url: "https://www.youtube.com/watch?v=zKCC1yC_8-M", channel: "Sindhi Yaa" },
-        { title: "Capital & Small Letter Tricks in Word | #computer #asmr #tricks #word #typing", url: "https://www.youtube.com/watch?v=wk2RxByjWH0", channel: "Mister Typing" },
-        { title: "Shortcut to change small letters to capital letters in word.", url: "https://www.youtube.com/watch?v=TLhqyj__WKU", channel: "LEARN BASICSS" },
       ],
       te: [
-        { title: "How to print four pages in 1 page #shortfeed #shorts", url: "https://www.youtube.com/watch?v=iBj11fD1jfE", channel: "TechZone by Anu" },
-        { title: "Capital & Small Letter Tricks in Word | #computer #asmr #tricks #word #typing", url: "https://www.youtube.com/watch?v=wk2RxByjWH0", channel: "Mister Typing" },
         { title: "Computer Shortcut Key for increase font size #computer #tricks #trending #video #msoffice #viral", url: "https://www.youtube.com/watch?v=O7_1TsvIiX4", channel: "DYSA TECH" },
         { title: "Semester's Exam Bit Papers 🤫 Students Micro Xerox Bit Papers #exam #students", url: "https://www.youtube.com/watch?v=zKCC1yC_8-M", channel: "Sindhi Yaa" },
       ],
       ta: [
-        { title: "How to print four pages in 1 page #shortfeed #shorts", url: "https://www.youtube.com/watch?v=iBj11fD1jfE", channel: "TechZone by Anu" },
         { title: "Semester's Exam Bit Papers 🤫 Students Micro Xerox Bit Papers #exam #students", url: "https://www.youtube.com/watch?v=zKCC1yC_8-M", channel: "Sindhi Yaa" },
         { title: "Micro Xerox For Exam 😱//#shorts#microxerox", url: "https://www.youtube.com/watch?v=UrIlWjBUjf4", channel: "BanglaTech78" },
         { title: "Computer Shortcut Key for increase font size #computer #tricks #trending #video #msoffice #viral", url: "https://www.youtube.com/watch?v=O7_1TsvIiX4", channel: "DYSA TECH" },
@@ -5264,20 +4897,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Learn Copywriting, the Highest Paying Skill✅| Comment 'Copywriting' to become High Income Copywriter", url: "https://www.youtube.com/watch?v=9eVZQ2i2kcw", channel: "Saheli Chatterjee" },
       ],
       hi: [
-        { title: "Learn Copywriting, the Highest Paying Skill✅| Comment 'Copywriting' to become High Income Copywriter", url: "https://www.youtube.com/watch?v=9eVZQ2i2kcw", channel: "Saheli Chatterjee" },
-        { title: "🔥 How Much Does A Copywriter Make ? | Copywriter Salary In India #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=nO_SM2MgwL4", channel: "Simplilearn" },
-        { title: "Learn Copywriting in 76 Minutes – Harry Dry", url: "https://www.youtube.com/watch?v=TUMjnmfsPeM", channel: "David Perell" },
-        { title: "Here's Copywriting Solved", url: "https://www.youtube.com/watch?v=rqo2iPLwH9E", channel: "Alex Hormozi" },
       ],
       te: [
-        { title: "🔥 How Much Does A Copywriter Make ? | Copywriter Salary In India #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=nO_SM2MgwL4", channel: "Simplilearn" },
         { title: "What is Copywriting & How to become a Copywriter? | Career Opportunities | Demand etc..", url: "https://www.youtube.com/watch?v=q1YAmUEIg5w", channel: "Unfiltered Growth Telugu" },
-        { title: "Learn Copywriting in 76 Minutes – Harry Dry", url: "https://www.youtube.com/watch?v=TUMjnmfsPeM", channel: "David Perell" },
         { title: "How much does a COPYWRITER make?", url: "https://www.youtube.com/watch?v=Ctyi0ekYh1Y", channel: "Broke Brothers" },
       ],
       ta: [
-        { title: "Learn Copywriting, the Highest Paying Skill✅| Comment 'Copywriting' to become High Income Copywriter", url: "https://www.youtube.com/watch?v=9eVZQ2i2kcw", channel: "Saheli Chatterjee" },
-        { title: "Learn Copywriting in 76 Minutes – Harry Dry", url: "https://www.youtube.com/watch?v=TUMjnmfsPeM", channel: "David Perell" },
         { title: "How Long Should Your Copy Be? #copywriting #copywritingtips", url: "https://www.youtube.com/watch?v=-RHQuY40U1I", channel: "Suhayb Sana" },
         { title: "✍️𝐒𝐄𝐂𝐑𝐄𝐓𝐒 𝐅𝐫𝐨𝐦 𝐂𝐨𝐩𝐲𝐰𝐫𝐢𝐭𝐢𝐧𝐠 𝐋𝐞𝐠𝐞𝐧𝐝s | Learn Timeless Techniques from David Ogilvy, Eugene M. Schwartz", url: "https://www.youtube.com/watch?v=klxEOaWBabY", channel: "Fast Education With AI" },
       ],
@@ -5308,19 +4933,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Words that sell | Copywriting power words series.", url: "https://www.youtube.com/watch?v=HFFgdoXSXDE", channel: "Copy Spark" },
       ],
       hi: [
-        { title: "the psychological power of word choice | #shorts #copywriting #marketing", url: "https://www.youtube.com/watch?v=cmjn-OiV9Wg", channel: "Copy That!" },
         { title: "How to Use Power words in Copy Writing | Copy writing Course | #2", url: "https://www.youtube.com/watch?v=YbiPIRIY-8U", channel: "Umar Tazkeer" },
-        { title: "Learn Copywriting in 76 Minutes – Harry Dry", url: "https://www.youtube.com/watch?v=TUMjnmfsPeM", channel: "David Perell" },
-        { title: "The Science of Copywriting: Psychological Principles that Drive Conversions", url: "https://www.youtube.com/watch?v=UrdfAhiaffY", channel: "HubSpot Marketing" },
       ],
       te: [
-        { title: "the psychological power of word choice | #shorts #copywriting #marketing", url: "https://www.youtube.com/watch?v=cmjn-OiV9Wg", channel: "Copy That!" },
         { title: "5 Psychology Hacks You Should Know. #facts #telugu #telugufacts #nareshbukya", url: "https://www.youtube.com/watch?v=Z8eTHJ8kkYs", channel: "NB Show Telugu" },
         { title: "Reverse psychology:ఈ మైండ్ ట్రిక్ నేర్చుకొని అందరు మీమాటవినేలా చేసుకోండి|7Psychological Laws OfPower", url: "https://www.youtube.com/watch?v=njypQXCF0bo", channel: "Yasaswi thoughts" },
         { title: "Copywriting Mastery Course Explained in Telugu | Learn Copywriting from Scratch | SDM Classes", url: "https://www.youtube.com/watch?v=xLJhPFIE_DM", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "the psychological power of word choice | #shorts #copywriting #marketing", url: "https://www.youtube.com/watch?v=cmjn-OiV9Wg", channel: "Copy That!" },
         { title: "Mind reading #selfimprovement #psychology #bodylanguage #tamil", url: "https://www.youtube.com/watch?v=JFxnnwM2DG4", channel: "Brofessors" },
         { title: "மக்களை  படியுங்கள்| Psychological Tricks To READ PEOPLE in Tamil | Tips to read people and manipulat", url: "https://www.youtube.com/watch?v=6z3f2IKFrew", channel: "Beyond The Ordinary - Tamil Audiobooks" },
         { title: "The 48 Laws of Power | அடுத்தவர்களை MANIPULATE செய்வது எப்படி? | Tamil Book Summary | Karka Kasadara", url: "https://www.youtube.com/watch?v=FG6LVJncJ30", channel: "Karka Kasadara" },
@@ -5355,21 +4975,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Sales letter:How to Write|Business Communication| BUSINESS LETTER|FYBCOM sem2|FYBAF FYBMS Ark sir", url: "https://www.youtube.com/watch?v=B8LIqIab9iE", channel: "LEARN IN UNIQUE STYLE ARK SIR   (गुरुदक्षिणा 1rs )" },
-        { title: "Whiteboard Wednesday - The Anatomy of the Perfect Sales Letter 💌", url: "https://www.youtube.com/watch?v=-iD1YVbGGdw", channel: "AJ Mastermind" },
-        { title: "Breaking Down My High Converting Video Sales Letter (VSL) Copy | Elements and Structure Revealed!", url: "https://www.youtube.com/watch?v=UvQ-nawXB5Y", channel: "Armash Kamal" },
         { title: "उच्च रूपांतरण वाले लैंडिंग पृष्ठ की संरचना | रूपांतरण दर अनुकूलन युक्तियाँ", url: "https://www.youtube.com/watch?v=hcPxMuxh5Tc", channel: "Neil Patel" },
       ],
       te: [
-        { title: "How To Write A High Converting Video Sales Letter (VSL) From Scratch", url: "https://www.youtube.com/watch?v=_6-nvZ8PlSM", channel: "Alex Cattoni" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
         { title: "How To Create A High Converting Video Sales Letter (8 Steps With Examples)", url: "https://www.youtube.com/watch?v=QLm7Y-rDAmY", channel: "Ajay Dhunna" },
-        { title: "Breaking Down My High Converting Video Sales Letter (VSL) Copy | Elements and Structure Revealed!", url: "https://www.youtube.com/watch?v=UvQ-nawXB5Y", channel: "Armash Kamal" },
       ],
       ta: [
-        { title: "How To Write A High Converting Video Sales Letter (VSL) From Scratch", url: "https://www.youtube.com/watch?v=_6-nvZ8PlSM", channel: "Alex Cattoni" },
-        { title: "Write a High-Converting Sales Letter (Step-by-Step Guide)", url: "https://www.youtube.com/watch?v=N35r5aowCIw", channel: "Jason Whaling" },
-        { title: "How To Write A $10M Video Sales Letter (VSL)", url: "https://www.youtube.com/watch?v=cdZJCrJ1ZxM", channel: "Conversionly" },
-        { title: "How To Write A Sales Letter", url: "https://www.youtube.com/watch?v=Ed7S4r7hrDY", channel: "Alex Cattoni" },
       ],
     },
     articles: [
@@ -5401,18 +5013,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Building a StoryBrand Explained in Hindi | Marketing का सबसे Powerful Formula  Book Summary", url: "https://www.youtube.com/watch?v=hdKh6aQmWIE", channel: "Bookwala Safar" },
         { title: "Business में पैसा कमाने की गारंटी इसी कहानी में छुपी है | Building a StoryBrand Book", url: "https://www.youtube.com/watch?v=jDzR6PRYd3I", channel: "Sandip Kumar Official" },
-        { title: "the StoryBrand Framework Explained In 7 Minutes", url: "https://www.youtube.com/watch?v=YFDJYdMd1wU", channel: "StoryBrand With Donald Miller" },
         { title: "Building a storybrand book Summary | 7 Simple steps to learn Selling skills in Hindi | SB7 framework", url: "https://www.youtube.com/watch?v=srYDYmQvX_w", channel: "PBS - Parkeet book summary" },
       ],
       te: [
-        { title: "the StoryBrand Framework Explained In 7 Minutes", url: "https://www.youtube.com/watch?v=YFDJYdMd1wU", channel: "StoryBrand With Donald Miller" },
-        { title: "STORYBRAND: Framework for Business STORYTELLING | Donald Miller (Animated Summary)", url: "https://www.youtube.com/watch?v=uFQVc5OzgM0", channel: "The Founders' Potential" },
-        { title: "Master the StoryBrand Framework with Donald Miller: Clarify Your Message in 7 Steps", url: "https://www.youtube.com/watch?v=S8lH_TdQZgs", channel: "StoryBrand With Donald Miller" },
         { title: "Content Marketing Complete Guide Telugu | Business Growth Strategy 2025 | Startup Marketing Tips", url: "https://www.youtube.com/watch?v=fMgm3dpmmB4", channel: "Raviteja builds" },
       ],
       ta: [
-        { title: "STORYBRAND: Framework for Business STORYTELLING | Donald Miller (Animated Summary)", url: "https://www.youtube.com/watch?v=uFQVc5OzgM0", channel: "The Founders' Potential" },
-        { title: "the StoryBrand Framework Explained In 7 Minutes", url: "https://www.youtube.com/watch?v=YFDJYdMd1wU", channel: "StoryBrand With Donald Miller" },
         { title: "How to Brand a Micro-SaaS From Scratch | ft shashank | branding tutorial in tamil", url: "https://www.youtube.com/watch?v=Iu-Op8JWzpk", channel: "Sanjeev NC | SaaS & AI Tamil" },
         { title: "How To Master STORYTELLING (in Tamil) | C.U.T.E Framework", url: "https://www.youtube.com/watch?v=zdz9rOljoxc", channel: "Rajkumar K" },
       ],
@@ -5491,14 +5097,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "UX Writing Explained: Salary, Courses & Career Tips for Freshers", url: "https://www.youtube.com/watch?v=5RULQ8Mu57E", channel: "Sharmilee Sarkar | Content Designer" },
       ],
       te: [
-        { title: "What is UX Writing? A Beginner's Guide", url: "https://www.youtube.com/watch?v=iK4d7nL4VV0", channel: "Sharmilee Sarkar | Content Designer" },
-        { title: "Microcopy. Complete UX Writing Guide 🖊", url: "https://www.youtube.com/watch?v=ylx67a1v7_M", channel: "Maria Fetiskina" },
         { title: "How to get your first job as a UX writer?", url: "https://www.youtube.com/watch?v=8IXgAcOe10s", channel: "All About UX Writing" },
         { title: "UX Writing & Microcopy that Converts – The Power of 3 Tiny Words", url: "https://www.youtube.com/watch?v=vEPbPuft1-0", channel: "Web D School" },
       ],
       ta: [
         { title: "UX Writing & Microcopy that Converts – The Power of 3 Tiny Words", url: "https://www.youtube.com/watch?v=vEPbPuft1-0", channel: "Web D School" },
-        { title: "What is UX Writing? A Beginner's Guide", url: "https://www.youtube.com/watch?v=iK4d7nL4VV0", channel: "Sharmilee Sarkar | Content Designer" },
         { title: "My 5-Step UX/UI Design Process — From Start to Deliver", url: "https://www.youtube.com/watch?v=aoFMyMYhKCM", channel: "Faizur Rehman" },
         { title: "How to get your first job as a UX writer?", url: "https://www.youtube.com/watch?v=8IXgAcOe10s", channel: "All About UX Writing" },
       ],
@@ -5524,7 +5127,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "VALUE PROPOSITION CANVAS CA FINAL SPOM SCPM 10 MAKS SURE SHOT SUCCESS by CA SANKALP KANSTIYA", url: "https://www.youtube.com/watch?v=W7_N58ZEecA", channel: "CA SANKALP KANSTIYA" },
         { title: "How to write a Value Proposition | Hindi| Examples of Value Proposition  | Amazon", url: "https://www.youtube.com/watch?v=6yeUoeDCuFo", channel: "The Future Entrepreneur" },
-        { title: "How to Write Copy That Converts | 5 Things You Need to Know About Writing GREAT Marketing Copy", url: "https://www.youtube.com/watch?v=s2L6eRObBqw", channel: "Neil Patel" },
         { title: "What is copywriting in hindi | copywriting for beginners | fastest growing skill", url: "https://www.youtube.com/watch?v=RBDm3JXj4Cw", channel: "Sachinxgupta" },
       ],
       te: [
@@ -5566,22 +5168,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Write Script To Addict Viewers.", url: "https://www.youtube.com/watch?v=x2i7Rr_kQ40", channel: "Creative Mind new journey" },
       ],
       hi: [
-        { title: "How To Write Script To Addict Viewers.", url: "https://www.youtube.com/watch?v=x2i7Rr_kQ40", channel: "Creative Mind new journey" },
-        { title: "How To Write A Killer Script That Keeps Viewers Hooked", url: "https://www.youtube.com/watch?v=7I50PECz7SU", channel: "Kallaway and Kallaway | YouTube Growth" },
-        { title: "Write YouTube Script Like This & Get 2X Watch Time! 😏", url: "https://www.youtube.com/watch?v=M3fc6wzx9eI", channel: "DecodingYT" },
-        { title: "How to Read a Script While Filming | The Secret to Smooth & Professional Videos", url: "https://www.youtube.com/watch?v=Wvwn90HyYso", channel: "Detail" },
       ],
       te: [
-        { title: "My SIMPLE process for writing short-form video scripts.", url: "https://www.youtube.com/watch?v=HpSuY4fd6wc", channel: "Alex Cattoni" },
         { title: "How To Write A Script Using Celtx ft RRR | Script Writing | Celtx | RRR |", url: "https://www.youtube.com/watch?v=7KgwqeAFLeA", channel: "InfiniFeed" },
-        { title: "How To Write A Killer Script That Keeps Viewers Hooked", url: "https://www.youtube.com/watch?v=7I50PECz7SU", channel: "Kallaway and Kallaway | YouTube Growth" },
-        { title: "Write YouTube Script Like This & Get 2X Watch Time! 😏", url: "https://www.youtube.com/watch?v=M3fc6wzx9eI", channel: "DecodingYT" },
       ],
       ta: [
         { title: "How to write script for reels? #contentcreation #tamil", url: "https://www.youtube.com/watch?v=oOg8mb7cgKk", channel: "Profit Pencil" },
         { title: "6 Stages in Script Development (Tamil) - Screenplay Writing Tips", url: "https://www.youtube.com/watch?v=V3hOBr34jl8", channel: "Nandhini JS" },
-        { title: "How To Write A Killer Script That Keeps Viewers Hooked", url: "https://www.youtube.com/watch?v=7I50PECz7SU", channel: "Kallaway and Kallaway | YouTube Growth" },
-        { title: "My SIMPLE process for writing short-form video scripts.", url: "https://www.youtube.com/watch?v=HpSuY4fd6wc", channel: "Alex Cattoni" },
       ],
     },
     articles: [
@@ -5620,7 +5213,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "తెలివిగా మాట్లాడడం నేర్చుకోండి : Communication Skills Tips : How To Talk To ANYONE | Telugu Geeks", url: "https://www.youtube.com/watch?v=aeouUpYPMtc", channel: "Telugu Geeks" },
         { title: "Create a brand voice and tone", url: "https://www.youtube.com/watch?v=-fMZ_PR5tw0", channel: "Imperial eCommerce" },
         { title: "Unleash Your Inner Voice with JV Sriram's Voice Modulation Techniques", url: "https://www.youtube.com/watch?v=FoVIjWv8B4k", channel: "IMPACT Tv తెలుగు" },
-        { title: "Branding 101: How To Build Customer Loyalty With Brand Voice", url: "https://www.youtube.com/watch?v=et-a39drCsU", channel: "Alex Cattoni" },
       ],
       ta: [
         { title: "Create a brand voice and tone", url: "https://www.youtube.com/watch?v=-fMZ_PR5tw0", channel: "Imperial eCommerce" },
@@ -5657,22 +5249,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Focus Mapping -- Hands on with Dr. BJ Fogg", url: "https://www.youtube.com/watch?v=9NZ8wU6DiHM", channel: "Dr. BJ Fogg" },
       ],
       hi: [
-        { title: "How Simplicity Changes Behavior -- BJ Fogg's Behavior Model", url: "https://www.youtube.com/watch?v=oRkKWPqEkYU", channel: "Dr. BJ Fogg" },
-        { title: "Let's use the Fogg behaviour model together | UX Design Tips", url: "https://www.youtube.com/watch?v=Uw1Z2oYGxOM", channel: "Value at Void™" },
         { title: "UX Design - BJ Fogg's Behaviour Model (Hindi)", url: "https://www.youtube.com/watch?v=JdUdwJ9eQ1g", channel: "Tehelka Design" },
-        { title: "Fogg's Model | UX Design Tips", url: "https://www.youtube.com/watch?v=QI10Ac3vb6k", channel: "Value at Void™" },
       ],
       te: [
-        { title: "How Simplicity Changes Behavior -- BJ Fogg's Behavior Model", url: "https://www.youtube.com/watch?v=oRkKWPqEkYU", channel: "Dr. BJ Fogg" },
-        { title: "Fogg's Model | UX Design Tips", url: "https://www.youtube.com/watch?v=QI10Ac3vb6k", channel: "Value at Void™" },
-        { title: "Let's use the Fogg behaviour model together | UX Design Tips", url: "https://www.youtube.com/watch?v=Uw1Z2oYGxOM", channel: "Value at Void™" },
         { title: "Behavioral Design Patterns in Telugu | Software Design Patterns in Telugu", url: "https://www.youtube.com/watch?v=K73jpZNpUL4", channel: "Programming Line in Telugu" },
       ],
       ta: [
-        { title: "How Simplicity Changes Behavior -- BJ Fogg's Behavior Model", url: "https://www.youtube.com/watch?v=oRkKWPqEkYU", channel: "Dr. BJ Fogg" },
-        { title: "Let's use the Fogg behaviour model together | UX Design Tips", url: "https://www.youtube.com/watch?v=Uw1Z2oYGxOM", channel: "Value at Void™" },
         { title: "41. All Behavioral Design Patterns | Strategy, Observer, State, Template, Command, Visitor, Memento", url: "https://www.youtube.com/watch?v=DBDnUkTobaE", channel: "Concept && Coding - by Shrayansh" },
-        { title: "Fogg behavior model in 2 minutes and 30 seconds", url: "https://www.youtube.com/watch?v=jsbF9z6adAo", channel: "Kris Skrinak" },
       ],
     },
     articles: [
@@ -5704,7 +5287,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "कैलकुलेटर का MU बटन उपयोग #calculatorhacks #calculator", url: "https://www.youtube.com/watch?v=x4pEfv6rUXs", channel: "Accounts Funda" },
         { title: "Build Interactive Buttons in Power BI (Hindi)", url: "https://www.youtube.com/watch?v=usTu0AcFW2s", channel: "KnowHow Academy Hindi" },
         { title: "कैलकुलेटर का जीटी बटन उपयोग #calculatorhacks #calculator", url: "https://www.youtube.com/watch?v=Wsa-r9XMHwY", channel: "Accounts Funda" },
-        { title: "मैं बटन का उपयोग कैसे करूं? #शैक्षिक #इलेक्ट्रॉनिक्स #गेमरगर्ल #आर्डिनो #विज्ञान", url: "https://www.youtube.com/watch?v=LchoEic0t0o", channel: "WoolyBeetle1" },
       ],
       te: [
         { title: "HTML Buttons Explained 🎯 Button vs Submit in Forms | Telugu Web Dev Basics 🚀", url: "https://www.youtube.com/watch?v=tsXlSaEym0s", channel: "Hello World Telugu!" },
@@ -5713,7 +5295,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "HTML Buttons | Buttons in HTML | Buttons in Telugu | HTML 5 | HTML 5 in Telugu | KIRAN SAI", url: "https://www.youtube.com/watch?v=HwTyn_h7ca0", channel: "Kiran Sai" },
       ],
       ta: [
-        { title: "how do i use a button  #educational #electronics #gamergirl #arduino #science", url: "https://www.youtube.com/watch?v=LchoEic0t0o", channel: "WoolyBeetle1" },
         { title: "HTML Button Elements Explained in Tamil | HTML Full Course Tamil", url: "https://www.youtube.com/watch?v=s1bplJhUYQw", channel: "Sri Lotus" },
         { title: "How to use push buttons☢ with Arduino in tamil || Learn Arduino in tamil || Arduino input() ||", url: "https://www.youtube.com/watch?v=o-4Ja9b0rko", channel: "Tamil workshop" },
         { title: "Selenium Tutorial series | Tamil | PART  6 - Working with Buttons| From basic to complex examples", url: "https://www.youtube.com/watch?v=_jAnQ9ng_XY", channel: "Learn Automation Online" },
@@ -5753,15 +5334,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "Campaign Optimization Full Course in Telugu | Online Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=9eI1VnJ3ggY", channel: "Subbu Digital Marketer" },
-        { title: "SHOPIFY checkout hack to increase REVENUE #shopify #shopifyseller #shopifystore", url: "https://www.youtube.com/watch?v=p6yhJoiBcZI", channel: "Ty Chapman" },
-        { title: "Customize WooCommerce Checkout Page Using FunnelKit Builder Optimize Conversions and User Experience", url: "https://www.youtube.com/watch?v=hZJVDpC1lZY", channel: "Suhail Ahmad - Wordpress Tutorials" },
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
       ],
       ta: [
         { title: "Ecommerce Checkout Field Editor  | Tamil Tutorial 2026", url: "https://www.youtube.com/watch?v=uRAtenP97K0", channel: "TechieGlide" },
         { title: "How I Managed a 100% Salary Hike Job Switch Within 2 Years", url: "https://www.youtube.com/watch?v=nJQ1nc4HPNM", channel: "Karthik M" },
         { title: "Amazon Campaign Optimization Full Tutorial 2025 Updated | For Beginners  | Part -2", url: "https://www.youtube.com/watch?v=14Q_3RzYMmQ", channel: "MR Ecommerce Solutions" },
-        { title: "Customize WooCommerce Checkout Page Using FunnelKit Builder Optimize Conversions and User Experience", url: "https://www.youtube.com/watch?v=hZJVDpC1lZY", channel: "Suhail Ahmad - Wordpress Tutorials" },
       ],
     },
     articles: [
@@ -5795,18 +5373,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Conversion Rate Explained | What is Conversion Rate | In Hindi", url: "https://www.youtube.com/watch?v=JInG40Lvvkc", channel: "Amarpal Khanuja" },
         { title: "How to do Conversion Rate Optimization | Tips & Tricks | (in Hindi)", url: "https://www.youtube.com/watch?v=YkBVHKVyrc0", channel: "WsCube Tech" },
         { title: "Maths not Mathing 💀🤯 | Kuldeep Singhaniaa #shorts", url: "https://www.youtube.com/watch?v=ezZW2QhuFDc", channel: "Kuldeep Singhania Shorts" },
-        { title: "एक इकाई से दूसरी इकाई में कैसे परिवर्तित करें?", url: "https://www.youtube.com/watch?v=dFIFPv7SiFs", channel: "LKLogic" },
       ],
       te: [
-        { title: "Mensuration Unit Conversions", url: "https://www.youtube.com/watch?v=Bt4bj9TMe54", channel: "Bright Maths" },
-        { title: "Metric conversions simplified", url: "https://www.youtube.com/watch?v=l_nK02Zn_BM", channel: "Simplify Maths" },
         { title: "#How to change km to meter ,cm ,& mm /#Measure distance", url: "https://www.youtube.com/watch?v=aVLq1bVnFZU", channel: "Short tricks" },
         { title: "Basic information of Measures metric conversion maths in Telugu", url: "https://www.youtube.com/watch?v=G0PO_KLwRxs", channel: "Basic information learning Home" },
       ],
       ta: [
         { title: "Measurements  Conversion in Tamil / Kalvikan", url: "https://www.youtube.com/watch?v=xh71jSPiIcM", channel: "Kalvi kan" },
-        { title: "Mensuration Unit Conversions", url: "https://www.youtube.com/watch?v=Bt4bj9TMe54", channel: "Bright Maths" },
-        { title: "How to convert from one unit to another?", url: "https://www.youtube.com/watch?v=dFIFPv7SiFs", channel: "LKLogic" },
         { title: "#How to change km to meter ,cm ,& mm /#Measure distance", url: "https://www.youtube.com/watch?v=aVLq1bVnFZU", channel: "Short tricks" },
       ],
     },
@@ -5836,22 +5409,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Turn More Visitors Into Customers", url: "https://www.youtube.com/watch?v=khAPTEy3RVc", channel: "Winning With Shopify" },
       ],
       hi: [
-        { title: "Conversion Rate Optimization - Turn Visitors Into Customers", url: "https://www.youtube.com/watch?v=TmhxguEY7yo", channel: "Semrush" },
-        { title: "CRO: Turn Visitors into Customers in 2025", url: "https://www.youtube.com/watch?v=cgTg9BXSRro", channel: "Dcrayons" },
-        { title: "Conversion Rate Optimization (CRO) for Beginners: Turn Visitors into Customers", url: "https://www.youtube.com/watch?v=MGLrh94a7IU", channel: "CodeLucky" },
-        { title: "How To Increase Conversion Rate On Shopify (2025 CRO Guide)", url: "https://www.youtube.com/watch?v=kLneJKAqRtk", channel: "Michael Bernstein" },
       ],
       te: [
-        { title: "Conversion Rate Optimization In Telugu | Turn More Visitors Into Customers #CRO #MarketingTelugu", url: "https://www.youtube.com/watch?v=66zZnya3dt0", channel: "lookalikesolutions" },
         { title: "CRO Explained: How to Turn More Website Visitors Into Customers (9 Actionable Tips)", url: "https://www.youtube.com/watch?v=jOxJGSS4rF4", channel: "imFORZA" },
-        { title: "Conversion Rate Optimization (CRO) for Beginners: Turn Visitors into Customers", url: "https://www.youtube.com/watch?v=MGLrh94a7IU", channel: "CodeLucky" },
-        { title: "CRO: Turn Visitors into Customers in 2025", url: "https://www.youtube.com/watch?v=cgTg9BXSRro", channel: "Dcrayons" },
       ],
       ta: [
         { title: "CRO Explained: How to Turn More Website Visitors Into Customers (9 Actionable Tips)", url: "https://www.youtube.com/watch?v=jOxJGSS4rF4", channel: "imFORZA" },
-        { title: "Conversion Rate Optimization (CRO) for Beginners: Turn Visitors into Customers", url: "https://www.youtube.com/watch?v=MGLrh94a7IU", channel: "CodeLucky" },
-        { title: "CRO: Turn Visitors into Customers in 2025", url: "https://www.youtube.com/watch?v=cgTg9BXSRro", channel: "Dcrayons" },
-        { title: "Conversion Rate Optimization - Turn Visitors Into Customers", url: "https://www.youtube.com/watch?v=TmhxguEY7yo", channel: "Semrush" },
       ],
     },
     articles: [
@@ -5880,7 +5443,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "CRO – Minimizing Customer Effort", url: "https://www.youtube.com/watch?v=5Y6MHYDkYME", channel: "TutorialsPoint" },
       ],
       hi: [
-        { title: "CRO – Understanding Your Customers", url: "https://www.youtube.com/watch?v=KHnnqETJzBA", channel: "TutorialsPoint" },
         { title: "Understanding Customer Needs | market research", url: "https://www.youtube.com/watch?v=gg-8dR5kGQI", channel: "Gurukul Business School" },
         { title: "3 Secret Customer Research Techniques for Ecom Brands", url: "https://www.youtube.com/watch?v=dU2kN79g5Eg", channel: "Bharat Mavens (Growth Marketing Agency)" },
         { title: "How Companies Clone Human for | Market Research | Free Resource | IN HINDI", url: "https://www.youtube.com/watch?v=QDbZFysG5tM", channel: "Curious Preetam" },
@@ -5895,7 +5457,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Generate 2000 Leads in Just 10 Min (Free lead generation method) #leads", url: "https://www.youtube.com/watch?v=Lvymp3TAeiA", channel: "Marketing Expert" },
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
         { title: "Market Research step by step guide in Tamil", url: "https://www.youtube.com/watch?v=69w-5jHXU5Y", channel: "Jeevaraj Fredrick" },
-        { title: "The 4 Best Places To Do Market Research | Marketing Research | Digital Marketing", url: "https://www.youtube.com/watch?v=T8emev4z2Jk", channel: "Teaching-Revolution" },
       ],
     },
     articles: [
@@ -5925,21 +5486,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Experiment = Growth", url: "https://www.youtube.com/watch?v=WkCGpRwwiew", channel: "Arjun Chavan" },
       ],
       hi: [
-        { title: "Conversion Rate Optimization (CRO) Explained #conversionoptimization #conversionrate", url: "https://www.youtube.com/watch?v=jIXxKcpsRB0", channel: "Semrush" },
-        { title: "Experiment = Growth", url: "https://www.youtube.com/watch?v=WkCGpRwwiew", channel: "Arjun Chavan" },
         { title: "What Are Growth Experiments and How Can You Run Them Effectively?", url: "https://www.youtube.com/watch?v=4jrieG30dCE", channel: "Funnely" },
       ],
       te: [
         { title: "First job story🥰 #shorts #shortsindia #telugu #teluguvlogs #resignation #trendingshorts #tcs #fyp", url: "https://www.youtube.com/watch?v=D0WeZMpvjMU", channel: "Shivani & Shashi" },
-        { title: "How to run #growthexperiments #growth #growthhacking #growthstrategies", url: "https://www.youtube.com/watch?v=WkO9UJs4634", channel: "HARSHH SHETHIA" },
         { title: "EPIC Volcano Eruption Model 🤯  🌋 | Easy School Project Science!  #shorts", url: "https://www.youtube.com/watch?v=-kxepo4v5ng", channel: "Simple experiments" },
         { title: "Conversion Rate Optimization In Telugu | Turn More Visitors Into Customers #CRO #MarketingTelugu", url: "https://www.youtube.com/watch?v=66zZnya3dt0", channel: "lookalikesolutions" },
       ],
       ta: [
         { title: "What Are Growth Experiments and How Can You Run Them Effectively?", url: "https://www.youtube.com/watch?v=4jrieG30dCE", channel: "Funnely" },
         { title: "Cro experiment | Cro class started | Cro #shorts #viral #yt #upsc", url: "https://www.youtube.com/watch?v=QEaX5kplimw", channel: "Arise for Rise" },
-        { title: "How to run #growthexperiments #growth #growthhacking #growthstrategies", url: "https://www.youtube.com/watch?v=WkO9UJs4634", channel: "HARSHH SHETHIA" },
-        { title: "Experiment = Growth", url: "https://www.youtube.com/watch?v=WkCGpRwwiew", channel: "Arjun Chavan" },
       ],
     },
     articles: [
@@ -5972,19 +5528,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Cure OCD Permanently l How to Cure OCD at Home in Hindi l Dr Kashika Jain", url: "https://www.youtube.com/watch?v=xaXMHB-JWAI", channel: "Dr Kashika Jain : Psychologist" },
         { title: "DDOS ATTACK.#coding #programming #ddos #cybersecurity #neet", url: "https://www.youtube.com/watch?v=KINXu_gWLqE", channel: "Neeraj Walia" },
         { title: "Mobile exit intent pop up - How it works - Poptin", url: "https://www.youtube.com/watch?v=MsA1ak5-mXw", channel: "Poptin" },
-        { title: "What Are Exit-Intent Popups? 3 EASY HACKS to Convert MORE Visitors 📈", url: "https://www.youtube.com/watch?v=yVQDNN5myOI", channel: "OptiMonk" },
       ],
       te: [
-        { title: "📢 Recover sales with exit-intent pop-ups:", url: "https://www.youtube.com/watch?v=zg_GGwcp4lo", channel: "SuperteamAI" },
         { title: "Mobile exit intent pop up - How it works - Poptin", url: "https://www.youtube.com/watch?v=MsA1ak5-mXw", channel: "Poptin" },
-        { title: "What Are Exit-Intent Popups? 3 EASY HACKS to Convert MORE Visitors 📈", url: "https://www.youtube.com/watch?v=yVQDNN5myOI", channel: "OptiMonk" },
-        { title: "Create an Exit Intent Popup in WordPress (With a Content Upgrade Offer)", url: "https://www.youtube.com/watch?v=VBMYn1Q-S48", channel: "Elementor" },
       ],
       ta: [
-        { title: "Create an Exit Intent Popup in WordPress (With a Content Upgrade Offer)", url: "https://www.youtube.com/watch?v=VBMYn1Q-S48", channel: "Elementor" },
         { title: "செயலி இல்லாமல் Shopify-ல் Exit-Intent பாப்அப்பைச் சேர்ப்பது எப்படி (படி-படி வழிகாட்டி 2026)", url: "https://www.youtube.com/watch?v=lxI10BhS5SM", channel: "Foysal Ahmed" },
         { title: "Mobile exit intent pop up - How it works - Poptin", url: "https://www.youtube.com/watch?v=MsA1ak5-mXw", channel: "Poptin" },
-        { title: "What is Exit-Intent Popup? Best Exit Intent Popups to Increase Conversions", url: "https://www.youtube.com/watch?v=eQs4AjBP-l0", channel: "Popupsmart" },
       ],
     },
     articles: [
@@ -6104,12 +5654,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Section Formula for Internal and External Division | Basic Geometry Concept | IITJEE | Edusaral", url: "https://www.youtube.com/watch?v=1fT-8fXkfpI", channel: "Edusaral" },
-        { title: "section formula with trick #shorts #maths #tricks", url: "https://www.youtube.com/watch?v=UNJK4UTKtrM", channel: "ER STUDY CIRCLE" },
         { title: "|Conic Section |Circle |Ellipse| Parabola |Hyperbola |importantnotes |short", url: "https://www.youtube.com/watch?v=gJz4lByMHUg", channel: "Maths युग" },
         { title: "All Possible Website's Hero Section Designs structures Defined in HIndi #uidesign #design #website", url: "https://www.youtube.com/watch?v=_P3DrG3cnec", channel: "Pelfizz Studio" },
       ],
       te: [
-        { title: "The Hero Section Formula (Keep It Simple)", url: "https://www.youtube.com/watch?v=sOwM8tUJSIQ", channel: "Thrive Themes" },
         { title: "|Conic Section |Circle |Ellipse| Parabola |Hyperbola |importantnotes |short", url: "https://www.youtube.com/watch?v=gJz4lByMHUg", channel: "Maths युग" },
         { title: "Straight line //basic formula #mathclub #formulas #shorts", url: "https://www.youtube.com/watch?v=9-FUKPi3fnI", channel: "MATH CLUB" },
         { title: "Mathematics Bodmas question #bodmas #maths #mathproblems #shortsvideo", url: "https://www.youtube.com/watch?v=vO_zMCChFo8", channel: "Oye it’s saimon" },
@@ -6149,7 +5697,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Get Landing page layout in minutes #figmatutorial #designsoftware #figma #landing #page e", url: "https://www.youtube.com/watch?v=vj98CE96MCs", channel: "UXmastermind" },
         { title: "how to create a landing page for free  #shorts #landingpage #website", url: "https://www.youtube.com/watch?v=h-bBbIQrHIc", channel: "Boostweretech" },
         { title: "Landing Page Optimization MASTERCLASS (2025 Edition)", url: "https://www.youtube.com/watch?v=uJuVA4_VhOA", channel: "Umar Tazkeer" },
-        { title: "The Anatomy Of A High Converting Landing Page | Conversion Rate Optimization Tips", url: "https://www.youtube.com/watch?v=hcPxMuxh5Tc", channel: "Neil Patel" },
       ],
       te: [
         { title: "Landing Page in 60 Seconds in Telugu | Build a Professional Website Fast", url: "https://www.youtube.com/watch?v=Ity4zmyiaAA", channel: "College Coders" },
@@ -6235,21 +5782,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Multivariate testing explained |  A/B Testing vs Multi-variate testing | Hindi |", url: "https://www.youtube.com/watch?v=iB78Bul3QRI", channel: "Mushy Channel" },
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Simple explanation of A/B Testing In Hindi", url: "https://www.youtube.com/watch?v=Vif1U1FLUeQ", channel: "codebasics Hindi" },
-        { title: "A/B Testing v/s Multivariate Testing", url: "https://www.youtube.com/watch?v=gLgElpZB0F0", channel: "Preeti Semwal" },
       ],
       te: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
-        { title: "A/B Testing vs. Multivariate Testing for Design Optimization", url: "https://www.youtube.com/watch?v=fp6UWlZm1jk", channel: "NNgroup" },
-        { title: "AB Testing vs Multivariate Testing", url: "https://www.youtube.com/watch?v=zL5t1Hsu8Ww", channel: "Shogun" },
-        { title: "A/B Testing v/s Multivariate Testing", url: "https://www.youtube.com/watch?v=gLgElpZB0F0", channel: "Preeti Semwal" },
       ],
       ta: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
-        { title: "AB Testing vs Multivariate Testing", url: "https://www.youtube.com/watch?v=zL5t1Hsu8Ww", channel: "Shogun" },
-        { title: "A/B Testing vs Multivariate Testing - What's the Difference?", url: "https://www.youtube.com/watch?v=1DePvd5Hftw", channel: "Funnel" },
-        { title: "A/B Testing vs. Multivariate Testing for Design Optimization", url: "https://www.youtube.com/watch?v=fp6UWlZm1jk", channel: "NNgroup" },
       ],
     },
     articles: [
@@ -6282,19 +5819,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Etsy Personalized Listings Complete Guide 2026 | Custom Orders Setup Tutorial in Hindi !!", url: "https://www.youtube.com/watch?v=Vz0tfpnLedE", channel: "SS Digital India" },
         { title: "Add your personal touch with an automated email signature ✍ #Shorts", url: "https://www.youtube.com/watch?v=LnEKdAL_sx0", channel: "Google Workspace" },
-        { title: "CRO Strategies Unveiled: Leveraging Personalisation to increase conversion", url: "https://www.youtube.com/watch?v=waR5YMxh0iI", channel: "Growth Tribe" },
         { title: "VWO डेमो और पूर्ण ट्यूटोरियल: सर्वश्रेष्ठ CRO टूल (AB परीक्षण, हीटमैप्स, वैयक्तिकरण)", url: "https://www.youtube.com/watch?v=3h6vBU1IjJQ", channel: "Business Solution" },
       ],
       te: [
         { title: "Conversion Rate Optimization In Telugu | Turn More Visitors Into Customers #CRO #MarketingTelugu", url: "https://www.youtube.com/watch?v=66zZnya3dt0", channel: "lookalikesolutions" },
-        { title: "Personalization: The CRO Recipe for Next Generation Websites", url: "https://www.youtube.com/watch?v=N4qlei7ujHs", channel: "VWO" },
         { title: "Conversion Rate Optimization (CRO) Explained #conversionoptimization #conversionrate", url: "https://www.youtube.com/watch?v=jIXxKcpsRB0", channel: "Semrush" },
         { title: "What is Conversion Rate Optimization? (CRO)", url: "https://www.youtube.com/watch?v=oxmEYl18p4w", channel: "Satish Gaire" },
       ],
       ta: [
         { title: "Conversion Rate Optimization (CRO) Explained #conversionoptimization #conversionrate", url: "https://www.youtube.com/watch?v=jIXxKcpsRB0", channel: "Semrush" },
         { title: "Conversion￼ Rate Optimization (CRO) | #shorts #digitalmarketing #education #whytap", url: "https://www.youtube.com/watch?v=x3WK62UaK2I", channel: "WHY TAP" },
-        { title: "Personalization: The CRO Recipe for Next Generation Websites", url: "https://www.youtube.com/watch?v=N4qlei7ujHs", channel: "VWO" },
         { title: "How Does Personalization Revolutionize Marketing?  #digitalmarketing #personalisationmarketing", url: "https://www.youtube.com/watch?v=ZmVDs6Ele9A", channel: "Purple Pro Media" },
       ],
     },
@@ -6325,7 +5859,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Introduction to Conversion Rate Optimization (CRO) | Elements & Tools of CRO | CRO Course  #1", url: "https://www.youtube.com/watch?v=bXZMzTTqsRk", channel: "Umar Tazkeer" },
-        { title: "How to do Conversion Rate Optimization (CRO)", url: "https://www.youtube.com/watch?v=Uh9V8HhkXNo", channel: "Senator We Run Ads" },
         { title: "Learn Full Conversion Rate optimization in 2 Hours in Hindi | Conversion Rate Optimization Course", url: "https://www.youtube.com/watch?v=E-KvCghuvYg", channel: "Umar Tazkeer" },
         { title: "How to do Conversion Rate Optimization | Tips & Tricks | (in Hindi)", url: "https://www.youtube.com/watch?v=YkBVHKVyrc0", channel: "WsCube Tech" },
       ],
@@ -6361,21 +5894,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How big of a difference can conversion optimization make? #conversion #CRO #optimization", url: "https://www.youtube.com/watch?v=HHGhxuK56cg", channel: "Steven Records" },
       ],
       hi: [
-        { title: "How big of a difference can conversion optimization make? #conversion #CRO #optimization", url: "https://www.youtube.com/watch?v=HHGhxuK56cg", channel: "Steven Records" },
         { title: "Learn Full Conversion Rate optimization in 2 Hours in Hindi | Conversion Rate Optimization Course", url: "https://www.youtube.com/watch?v=E-KvCghuvYg", channel: "Umar Tazkeer" },
         { title: "HOW TO INCREASE WEBSITE CONVERSION RATE ? 📈 | CRO | NASSUMMIT | NASDAILY", url: "https://www.youtube.com/watch?v=70wJWz544pw", channel: "Vedant Singh Thakur" },
         { title: "increase FREE TRIAL TO PAID conversion rate in 18 minutes (mobile apps, saas, cro)", url: "https://www.youtube.com/watch?v=UnZ2RM2k7FM", channel: "Alim Charaniya | Apps, Startups & Investing" },
       ],
       te: [
         { title: "Conversion Rate Optimization In Telugu | Turn More Visitors Into Customers #CRO #MarketingTelugu", url: "https://www.youtube.com/watch?v=66zZnya3dt0", channel: "lookalikesolutions" },
-        { title: "How big of a difference can conversion optimization make? #conversion #CRO #optimization", url: "https://www.youtube.com/watch?v=HHGhxuK56cg", channel: "Steven Records" },
         { title: "Ultimate Guide To Conversion Rate Optimization (CRO) |Tools, Strategy And Tips (Part 4) | Madhan Raj", url: "https://www.youtube.com/watch?v=NIMN0mSDfrc", channel: "SAAS Marketing Madhan Raj" },
         { title: "increase FREE TRIAL TO PAID conversion rate in 18 minutes (mobile apps, saas, cro)", url: "https://www.youtube.com/watch?v=UnZ2RM2k7FM", channel: "Alim Charaniya | Apps, Startups & Investing" },
       ],
       ta: [
-        { title: "How big of a difference can conversion optimization make? #conversion #CRO #optimization", url: "https://www.youtube.com/watch?v=HHGhxuK56cg", channel: "Steven Records" },
-        { title: "Conversion Rate Optimization (CRO) Explained #conversionoptimization #conversionrate", url: "https://www.youtube.com/watch?v=jIXxKcpsRB0", channel: "Semrush" },
-        { title: "How to improve your conversion rate", url: "https://www.youtube.com/watch?v=J20NheIH0IE", channel: "Alex Hormozi" },
         { title: "Ultimate Guide To Conversion Rate Optimization (CRO) |Tools, Strategy And Tips (Part 4) | Madhan Raj", url: "https://www.youtube.com/watch?v=NIMN0mSDfrc", channel: "SAAS Marketing Madhan Raj" },
       ],
     },
@@ -6413,14 +5941,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "SAMPLE SIZE IN HINDI | Concept, Factors, Process | Marketing Research | BBA/MBA | ppt", url: "https://www.youtube.com/watch?v=eRVkEGNfhDo", channel: "Management Mantra" },
       ],
       te: [
-        { title: "How To Calculate Sample Size Use Yamane Taro 1967 #statistics #samplesize #shorts", url: "https://www.youtube.com/watch?v=F03NPrx9mE4", channel: "Rachana Chiv" },
         { title: "How to determine Sample Size ? l Cochran's Formula l Infinite Population", url: "https://www.youtube.com/watch?v=6_c8qTuuF1A", channel: "Dr Yogesh Gaikwad" },
-        { title: "How to determine the Sample Size?", url: "https://www.youtube.com/watch?v=51NS0cGjBIk", channel: "My Easy Statistics" },
         { title: "Large Sample Tests overview in Telugu", url: "https://www.youtube.com/watch?v=3ZKC4gjOXZc", channel: "MATHS BY SRAVAN VATAMBEDU" },
       ],
       ta: [
         { title: "Popuation vs sample data in Tamil #statisticsfordatascience #datascienceforbeginners #stats #தமிழ்", url: "https://www.youtube.com/watch?v=hZ5uevcjh6g", channel: "Data Science with Keerthi (தமிழில்)" },
-        { title: "How To Calculate Sample Size Use Yamane Taro 1967 #statistics #samplesize #shorts", url: "https://www.youtube.com/watch?v=F03NPrx9mE4", channel: "Rachana Chiv" },
         { title: "How to determine Sample Size ? l Cochran's Formula l Infinite Population", url: "https://www.youtube.com/watch?v=6_c8qTuuF1A", channel: "Dr Yogesh Gaikwad" },
         { title: "Types of Sampling | Explained in Tamil | In Tamil Language | NTA NET PAPER - I", url: "https://www.youtube.com/watch?v=m6HtYHWScFk", channel: "BBA CLASSROOM" },
       ],
@@ -6455,12 +5980,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Social Proof for Websites | How to Integrate Social Proof? | CRO #5", url: "https://www.youtube.com/watch?v=DK_v9vmz8II", channel: "Umar Tazkeer" },
-        { title: "I wish I knew this before | Github tricks and tricks | Why Should You Use GitHub?", url: "https://www.youtube.com/watch?v=j-AGXZx6E94", channel: "Ritik Singh" },
         { title: "Software Documentation Technical Writing with AI", url: "https://www.youtube.com/watch?v=tjca2bfVM_A", channel: "Grow with Anto" },
         { title: "Unique Way To Use Chat GPT #shorts #rajshamani #motivation #india", url: "https://www.youtube.com/watch?v=CRe_O0_W3-8", channel: "learn with shamani" },
       ],
       te: [
-        { title: "I wish I knew this before | Github tricks and tricks | Why Should You Use GitHub?", url: "https://www.youtube.com/watch?v=j-AGXZx6E94", channel: "Ritik Singh" },
         { title: "3 Income Sources through which I made 1 Lakh at age 22  #Shorts", url: "https://www.youtube.com/watch?v=3eX0U15aRMQ", channel: "Saheli Chatterjee" },
         { title: "Software Documentation Technical Writing with AI", url: "https://www.youtube.com/watch?v=tjca2bfVM_A", channel: "Grow with Anto" },
         { title: "Internship Misconceptions in Telugu #internship #telugunews #internships", url: "https://www.youtube.com/watch?v=ttIWOKnayXQ", channel: "Vamsi Bhavani" },
@@ -6506,11 +6029,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "How to Check Web Page loading speed in Google PageSpeed Insights | Blogger VJ", url: "https://www.youtube.com/watch?v=4LqIEeN5v8A", channel: "Vijaya Kumar Arunapuram" },
         { title: "వర్డ్ ప్రెస్ వెబ్సైటు స్పీడ్ ని పెంచటం (ఆప్టిమైజ్ )చేయటం ఎలా ?Google PageSpeed Insights InTelugu", url: "https://www.youtube.com/watch?v=wRfNizCrmLQ", channel: "VLR Training" },
-        { title: "Website Speed Optimization: How to improve website SEO with Google Pagespeed Insights", url: "https://www.youtube.com/watch?v=WBHK4PCz-FU", channel: "StarMorph AI" },
-        { title: "Google Pagespeed Insights Reporting Tool  How To Improve Your Performance Score", url: "https://www.youtube.com/watch?v=X6WoPNB8-h8", channel: "Web Host Tutorials" },
       ],
       ta: [
-        { title: "Website Speed Optimization: How to improve website SEO with Google Pagespeed Insights", url: "https://www.youtube.com/watch?v=WBHK4PCz-FU", channel: "StarMorph AI" },
         { title: "How to Test Your Website Loading Speed  | SEO Tutorial in Tamil | #45", url: "https://www.youtube.com/watch?v=sNh_GiQTFPA", channel: "Simplified E-learning" },
         { title: "SEO Class 18.4: Page Speed Insights Optimization. (Tamil) Search Analyst Sasikumar. #SasikumarTalks", url: "https://www.youtube.com/watch?v=t754f4E1_eA", channel: "Sasikumar Talks (Training Academy)" },
         { title: "How To Increase Blogger Page Speed | Page Speed Test | Tamil Bloggers", url: "https://www.youtube.com/watch?v=08LsfjvMcOg", channel: "Tamil Bloggers" },
@@ -6545,13 +6065,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Multiplication of Two Continuous-Time Signals | Basic Operations on Signals (Example 1)", url: "https://www.youtube.com/watch?v=36pwaRkUAxs", channel: "EnggClasses" },
       ],
       hi: [
-        { title: "Design for Trust: 5 Conversion & SEO Signals That Turn Visitors into Leads", url: "https://www.youtube.com/watch?v=Z4UW6BjZsS4", channel: "Thinkit Media, Inc" },
         { title: "How Radio Frequency works #hams #radio #frequency", url: "https://www.youtube.com/watch?v=rkrQkXtioVY", channel: "Scout Library" },
         { title: "Your Android is SECRETLY sharing your data! Turn these OFF immediately to protect yourself! #android", url: "https://www.youtube.com/watch?v=gKsCEA6Ra9o", channel: "Computer Geeks" },
-        { title: "What is Algo Trading? #Algo #AlgoRooms 📈", url: "https://www.youtube.com/watch?v=ElRmVEqRoQU", channel: "Pushkar Raj Thakur: Stock Market Educator 📈" },
       ],
       te: [
-        { title: "Design for Trust: 5 Conversion & SEO Signals That Turn Visitors into Leads", url: "https://www.youtube.com/watch?v=Z4UW6BjZsS4", channel: "Thinkit Media, Inc" },
         { title: "Live hacking done by Vishwanath Ethical hacker #trending #education #ethicalhacking", url: "https://www.youtube.com/watch?v=R_v4YJIunnI", channel: "Cyber Blockz" },
         { title: "How Radio Frequency works #hams #radio #frequency", url: "https://www.youtube.com/watch?v=rkrQkXtioVY", channel: "Scout Library" },
         { title: "Your Android is SECRETLY sharing your data! Turn these OFF immediately to protect yourself! #android", url: "https://www.youtube.com/watch?v=gKsCEA6Ra9o", channel: "Computer Geeks" },
@@ -6636,19 +6153,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Simple explanation of A/B Testing In Hindi", url: "https://www.youtube.com/watch?v=Vif1U1FLUeQ", channel: "codebasics Hindi" },
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Email Marketing Split Testing Tutorial in Hindi | A/B Testing Email Marketing  #emailmarketingcourse", url: "https://www.youtube.com/watch?v=aQtWx3EyHUI", channel: "Marketing Fundas" },
         { title: "A/B Testing and Email Marketing Tutorial in Hindi by Viral Jadhav", url: "https://www.youtube.com/watch?v=T28Q6OmtdPA", channel: "Viral Jadhav" },
       ],
       te: [
         { title: "How to Setup A/B Test in Facebook Ads in Telugu | Practical Tutorial | SDM Classes", url: "https://www.youtube.com/watch?v=jobgE2MKpRw", channel: "Subbu Digital Marketer" },
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "What is AB Testing in Telugu  || Digital John || 6309973292", url: "https://www.youtube.com/watch?v=vgSsnfjEBU8", channel: "Digital Marketing Course in Telugu" },
         { title: "A/B Testing in Telugu | Skill Nerchuko | Vivek Kandula | Marketing Strategies", url: "https://www.youtube.com/watch?v=dzTRmGqiW4A", channel: "Skill Nerchuko" },
       ],
       ta: [
         { title: "What is A/B testing or split testing in digital marketing (Tamil)", url: "https://www.youtube.com/watch?v=bcrxb_LAkN0", channel: "Sangeetha S Abishek" },
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Why do we need A / B Testing ? What is A/B Testing or Split Testing ? | InterviewDOT", url: "https://www.youtube.com/watch?v=usVgK2iEx4A", channel: "Interview DOT" },
         { title: "What is A/B Testing? | எ/பி டெஸ்டிங் ரௌசர் என்றால் என்ன? | Digital Marketing In Tamil", url: "https://www.youtube.com/watch?v=4dvZFPYfWLA", channel: "Vimalesh Gopal" },
       ],
@@ -6686,14 +6200,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "How to Create an Abandoned Cart Flow in Klaviyo (Email marketing for begginers)", url: "https://www.youtube.com/watch?v=WERenU0OItU", channel: "Hamed - Email marketing" },
         { title: "Recover Abandoned Carts and Boost Sales Automatically | Klaviyo", url: "https://www.youtube.com/watch?v=pMa_dliWKrk", channel: "Flowium - eCommerce Email Marketing" },
-        { title: "Dynamic Content Klaviyo Tutorial 2026 (Abandoned Cart/Checkout & Browse Abandonment)", url: "https://www.youtube.com/watch?v=MKFAxSNTl9A", channel: "Vex Petrovich" },
-        { title: "How to Create a High-Converting Browse Abandonment Flow in Klaviyo", url: "https://www.youtube.com/watch?v=rn5hKrswboc", channel: "Max Sturtevant" },
       ],
       ta: [
         { title: "Klaviyo Tutorial: How To Set Up A HIGH Converting Site Abandonment Flow In 2022", url: "https://www.youtube.com/watch?v=0Nby1ybj1cc", channel: "Robert Orona" },
         { title: "Recover Abandoned Carts and Boost Sales Automatically | Klaviyo", url: "https://www.youtube.com/watch?v=pMa_dliWKrk", channel: "Flowium - eCommerce Email Marketing" },
         { title: "How to Create A High Converting Abandoned Cart Flow (2025 Klaviyo Tutorial)", url: "https://www.youtube.com/watch?v=-UJ8T7N8O6k", channel: "Aaron Bermingham" },
-        { title: "Dynamic Content Klaviyo Tutorial 2026 (Abandoned Cart/Checkout & Browse Abandonment)", url: "https://www.youtube.com/watch?v=MKFAxSNTl9A", channel: "Vex Petrovich" },
       ],
     },
     articles: [
@@ -6723,21 +6234,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Account Based Marketing (ABM) |  अकाउंट बेस्ड मार्केटिंग कैसे करें?", url: "https://www.youtube.com/watch?v=1dryvNhvj08", channel: "Abby Digital (Hindi)" },
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
-        { title: "The Ultimate Guide to Account Based Marketing (ABM)", url: "https://www.youtube.com/watch?v=nZS7xjR3bD0", channel: "Sarah Challis" },
         { title: "What is Account Based Marketing? | Umar Tazkeer", url: "https://www.youtube.com/watch?v=VaxsNmqnCBY", channel: "Umar Tazkeer" },
       ],
       te: [
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
         { title: "Account Based Marketing in Telugu | Skill Nerchuko | Vivek Kandula | Marketing Strategies", url: "https://www.youtube.com/watch?v=6TU2bvg91D4", channel: "Skill Nerchuko" },
-        { title: "The Ultimate Guide to Account Based Marketing (ABM)", url: "https://www.youtube.com/watch?v=nZS7xjR3bD0", channel: "Sarah Challis" },
         { title: "Email Marketing Explained in  Telugu | #emailmarketingintelugu #emailmarketing #coldemailmarketing", url: "https://www.youtube.com/watch?v=GJtjAT71NdY", channel: "Lucky Studios" },
       ],
       ta: [
         { title: "ABM. Account-based Marketing. Search Analyst Sasikumar Talks. (Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=4bt_O8uwQ1Q", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
-        { title: "The Ultimate Guide to Account Based Marketing (ABM)", url: "https://www.youtube.com/watch?v=nZS7xjR3bD0", channel: "Sarah Challis" },
-        { title: "Account Based Marketing | What is ABM and How to do it?", url: "https://www.youtube.com/watch?v=GgTmx1feWmM", channel: "Senator We Run Ads" },
       ],
     },
     articles: [
@@ -6763,22 +6267,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Personalize 1,000s of Cold Emails With AI (Icebreakers at Scale)", url: "https://www.youtube.com/watch?v=4WfzFW1ppq0", channel: "Faris Bio" },
       ],
       hi: [
-        { title: "How To Personalize 1000+ Emails in Under 30 Seconds", url: "https://www.youtube.com/watch?v=w5aMuFVheBc", channel: "GMass" },
-        { title: "Creating Stylish and Personalized Emails with Merge Tags ✉️ | OfferingTree Tutorials", url: "https://www.youtube.com/watch?v=XEnlAcd2F5Q", channel: "OfferingTree" },
-        { title: "How to Send Personalized Emails at Scale (Clay Tutorial)", url: "https://www.youtube.com/watch?v=d8ZU9lbQRLU", channel: "AIMS Consulting Services" },
-        { title: "How to use AI to send Personalised Emails as a Virtual Assistant", url: "https://www.youtube.com/watch?v=fQmQW8stvlw", channel: "Skill Arbitrage" },
       ],
       te: [
-        { title: "How to Send Personalized Emails at Scale (Clay Tutorial)", url: "https://www.youtube.com/watch?v=d8ZU9lbQRLU", channel: "AIMS Consulting Services" },
-        { title: "How To Personalize 1000+ Emails in Under 30 Seconds", url: "https://www.youtube.com/watch?v=w5aMuFVheBc", channel: "GMass" },
-        { title: "Creating Stylish and Personalized Emails with Merge Tags ✉️ | OfferingTree Tutorials", url: "https://www.youtube.com/watch?v=XEnlAcd2F5Q", channel: "OfferingTree" },
-        { title: "How to use AI to send Personalised Emails as a Virtual Assistant", url: "https://www.youtube.com/watch?v=fQmQW8stvlw", channel: "Skill Arbitrage" },
       ],
       ta: [
-        { title: "How To Personalize 1000+ Emails in Under 30 Seconds", url: "https://www.youtube.com/watch?v=w5aMuFVheBc", channel: "GMass" },
-        { title: "Creating Stylish and Personalized Emails with Merge Tags ✉️ | OfferingTree Tutorials", url: "https://www.youtube.com/watch?v=XEnlAcd2F5Q", channel: "OfferingTree" },
-        { title: "How to use AI to send Personalised Emails as a Virtual Assistant", url: "https://www.youtube.com/watch?v=fQmQW8stvlw", channel: "Skill Arbitrage" },
-        { title: "How to Send Personalized Emails at Scale (Clay Tutorial)", url: "https://www.youtube.com/watch?v=d8ZU9lbQRLU", channel: "AIMS Consulting Services" },
       ],
     },
     articles: [
@@ -6810,13 +6302,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AMP Emails - The Next Frontier", url: "https://www.youtube.com/watch?v=yDq4ocN5dZs", channel: "Mailmodo" },
       ],
       hi: [
-        { title: "Evolve your email marketing strategy with AMP", url: "https://www.youtube.com/watch?v=HjcVFciIZBk", channel: "WebEngage" },
-        { title: "Life of an AMP email: From code to your email client's inbox  (AMP Contributor Summit ’19)", url: "https://www.youtube.com/watch?v=yqJ6sGkbttc", channel: "The AMP Channel" },
-        { title: "A Real Life Examples of AMP Interactive Email In Action", url: "https://www.youtube.com/watch?v=E97RyfUMXfk", channel: "Mailmodo" },
-        { title: "Coolest Things You Can Do With AMP Interactive Emails", url: "https://www.youtube.com/watch?v=h2gBJaodSwc", channel: "Mailmodo" },
       ],
       te: [
-        { title: "Evolve your email marketing strategy with AMP", url: "https://www.youtube.com/watch?v=HjcVFciIZBk", channel: "WebEngage" },
         { title: "Gmail AI Magic: Mails in Seconds! ✨ |  ఈమెయిల్ టెన్షన్ పోయింది! Gmail AIతో క్షణాల్లో మెయిల్స్! 🚀", url: "https://www.youtube.com/watch?v=-V43BIzhEHs", channel: "AI Gateway TV" },
         { title: "How To Personalize 1000+ Emails in Under 30 Seconds", url: "https://www.youtube.com/watch?v=w5aMuFVheBc", channel: "GMass" },
         { title: "Design beautiful emails in Canva in 3 easy steps.", url: "https://www.youtube.com/watch?v=GnHhKQzVS4A", channel: "En Ming Ong" },
@@ -6824,8 +6311,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "AMP For EMAIL in Tamil : Is this the Future of Email Marketing ! |  Tamil Explainer", url: "https://www.youtube.com/watch?v=KYht1BOGV8o", channel: "Tamil Explainer" },
         { title: "How To Personalize 1000+ Emails in Under 30 Seconds", url: "https://www.youtube.com/watch?v=w5aMuFVheBc", channel: "GMass" },
-        { title: "A Real Life Examples of AMP Interactive Email In Action", url: "https://www.youtube.com/watch?v=E97RyfUMXfk", channel: "Mailmodo" },
-        { title: "Exploring the Hottest Trend: AMP Emails in Your Inbox! #shorts", url: "https://www.youtube.com/watch?v=3gAW4rrjxIc", channel: "Flowium - eCommerce Email Marketing" },
       ],
     },
     articles: [
@@ -6895,7 +6380,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How to set Auto Mail Reply in Gmail Tutorial | Email Automation Tips and Tricks", url: "https://www.youtube.com/watch?v=dQrY9q7Nhjk", channel: "Tejas Agrawal" },
-        { title: "How to Send Automated Emails from Google Sheets | n8n Email Automation Tutorial (Step-by-Step)", url: "https://www.youtube.com/watch?v=3f-YWi_rgP0", channel: "DolphyAI" },
         { title: "How to Automate Email Campaigns in 10 Minutes (Brevo Tutorial for Beginners) (in Hindi)", url: "https://www.youtube.com/watch?v=kIkhCUkUHRA", channel: "StartupWise हिंदी में" },
       ],
       te: [
@@ -6905,7 +6389,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Send Emails Automatically with Power Automate | Step-by-Step Guide | Explained in Telugu", url: "https://www.youtube.com/watch?v=q0PBuXgXS-o", channel: "Ishra Data Labs" },
       ],
       ta: [
-        { title: "Automate Emails in One Click with Excel VBA! 🔥 Save Time with This Outlook Hack!", url: "https://www.youtube.com/watch?v=se7LWXe2mqA", channel: "Jacob Automation" },
         { title: "Unleashing the Time-Saving Magic of Power Automate Desktop", url: "https://www.youtube.com/watch?v=N5dkXkFecH4", channel: "TechSocket" },
         { title: "Zapier Beginner? Check This Out!", url: "https://www.youtube.com/watch?v=f9cJCK4CxIw", channel: "Zapier" },
         { title: "The Only Klaviyo Email Marketing Flows Video You'll Ever Need", url: "https://www.youtube.com/watch?v=LfB3YD09ouQ", channel: "Elliot Kovac" },
@@ -6936,20 +6419,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Email Automation Explained: Triggers, Rules & Actions", url: "https://www.youtube.com/watch?v=A_tXo1SHzCI", channel: "MailerLite" },
       ],
       hi: [
-        { title: "How to Setup Behaviour Based Email Triggers", url: "https://www.youtube.com/watch?v=Rp__RNn42Dg", channel: "Digital Deepak" },
         { title: "How to Forward and Reply Entire Mail Thread in Gmail | Hindi Guide | Email Tutorial 2025", url: "https://www.youtube.com/watch?v=ZP3qXHFkVl4", channel: "Techubabu - Excel Tutorials and Office Skills" },
         { title: "best email marketing #emailmarketing #emails #digitalmarketing #boldinbox #sharktankindia", url: "https://www.youtube.com/watch?v=mzaN9PaVPx8", channel: "Boldinbox" },
-        { title: "एक ऐसा AI एजेंट बनाएँ जो Gmail पढ़े और उसका जवाब दे (बिना कोड के)", url: "https://www.youtube.com/watch?v=ZcP4BwY9rHw", channel: "Remi Taffin" },
       ],
       te: [
-        { title: "Behavioral Triggers in Email Marketing Strategy", url: "https://www.youtube.com/watch?v=bfBbqO_u3FE", channel: "Email Mastery Pro" },
-        { title: "How to Setup Behaviour Based Email Triggers", url: "https://www.youtube.com/watch?v=Rp__RNn42Dg", channel: "Digital Deepak" },
         { title: "#Complete Jenkins Easy way in Telugu --  Build Triggers, SCM, Notifications LAB - Session 05", url: "https://www.youtube.com/watch?v=fZaOn7JDDs4", channel: "Tech IT Factory" },
-        { title: "Chapter 4   3 Understanding behavioral triggers", url: "https://www.youtube.com/watch?v=rM3A2PIfcBU", channel: "VBOUT" },
       ],
       ta: [
         { title: "SQL Triggers in Tamil | Easy Explanation with Examples", url: "https://www.youtube.com/watch?v=VcYN_00tElI", channel: "Tech with Hema" },
-        { title: "How to Setup Behaviour Based Email Triggers", url: "https://www.youtube.com/watch?v=Rp__RNn42Dg", channel: "Digital Deepak" },
         { title: "Jenkins Beginner Tutorial - How to Trigger Job with Email | Poll Mailbox Trigger Plugin", url: "https://www.youtube.com/watch?v=DWlAQe57uz8", channel: "Automation Step by Step" },
         { title: "What is MYSQL Triggers In தமிழ்  |  #Shorts", url: "https://www.youtube.com/watch?v=qw-qdOfqMWw", channel: "UNIQ Technologies" },
       ],
@@ -6979,13 +6456,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Customer Lifetime Value (CLV) क्या होता है? | Customer Lifetime Value Explained in Hindi | CLV kya h", url: "https://www.youtube.com/watch?v=iN7-cagmypA", channel: "Baaten Business Ki by Abhishek Patel" },
         { title: "Lifetime Value of Customers Explained For Beginners | In Hindi", url: "https://www.youtube.com/watch?v=1JJa1Zwj4I8", channel: "Amarpal Khanuja" },
         { title: "CLTV Customer lifetime value, marketing analytics, measuring customer life time value, aktu mba note", url: "https://www.youtube.com/watch?v=veD_kb9RrfU", channel: "DWIVEDI GUIDANCE" },
-        { title: "ग्राहक जीवनकाल मूल्य की गणना कैसे करें | ग्राहक जीवनकाल मूल्य भविष्यवाणी | सिम्पलीलर्न", url: "https://www.youtube.com/watch?v=Pc06VoScVRY", channel: "Simplilearn" },
       ],
       te: [
         { title: "What is Customer Lifetime Value (CLV) in Telugu?", url: "https://www.youtube.com/watch?v=OTemyPTDREI", channel: "Digital Marketing Course in Telugu" },
         { title: "Lifetime Value Ala Calculate Cheyali? | Vamshi Kurapati", url: "https://www.youtube.com/watch?v=x27RXn7ww2A", channel: "Best of Raw Talks (Clips)" },
-        { title: "How To Calculate Customer Lifetime Value | Customer Lifetime Value Prediction | Simplilearn", url: "https://www.youtube.com/watch?v=Pc06VoScVRY", channel: "Simplilearn" },
-        { title: "What is Customer Lifetime Value (CLV)? | Marketing Analytics for Beginners | Part 30", url: "https://www.youtube.com/watch?v=x0L75CV5eSI", channel: "Data Science Dojo" },
       ],
       ta: [
         { title: "What is Customer Lifetime Value? Explained in Tamil", url: "https://www.youtube.com/watch?v=jUKhNpDdecM", channel: "Laven Lokesh" },
@@ -7015,19 +6489,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Write Killer Cold Emails That GUARANTEE Responses (45.8% Reply Rate?!)", url: "https://www.youtube.com/watch?v=881Dr4lMey4", channel: "Alex Berman" },
       ],
       hi: [
-        { title: "प्रभावी कोल्ड ईमेल भेजने के 6 चरण 📧| श्रेया पट्टर", url: "https://www.youtube.com/watch?v=D9R9YAsjd_A", channel: "Shreya Pattar" },
         { title: "5 कोल्ड ईमेल ट्रिक्स जो आपकी ज़िंदगी बदल देंगी!🔥 कोल्ड ईमेल कैसे लिखें", url: "https://www.youtube.com/watch?v=YtiLBfDfadY", channel: "Ishan Sharma" },
         { title: "3 Tips For Cold Email, By Ankur Warikoo #shorts #ankurwarikoo #kushallodha", url: "https://www.youtube.com/watch?v=hzLNxyvpFWY", channel: "Kushal Lodha" },
         { title: "असीमित ग्राहक कैसे प्राप्त करें (निःशुल्क लीड जनरेशन + ईमेल आउटरीच विधि)", url: "https://www.youtube.com/watch?v=6ITyod_JlhI", channel: "Aasil Khan" },
       ],
       te: [
-        { title: "6 Steps To Send Effective Cold Emails 📧| Shreya Pattar", url: "https://www.youtube.com/watch?v=D9R9YAsjd_A", channel: "Shreya Pattar" },
         { title: "B2B Lead Generation: Cold Emails 📧 vs LinkedIn Outreach 💼 – Which Works Best?", url: "https://www.youtube.com/watch?v=MFwrsTNBI6c", channel: "Emblix Academy Digital Marketing  in Telugu" },
         { title: "Cold Email Template that I use to apply for jobs: CHECK DESCRIPTION!", url: "https://www.youtube.com/watch?v=F5T-pEEIrsk", channel: "Charul Sharma" },
         { title: "How to Get Internships with Cold Emails on LinkedIn! 💼📩#coldemailtips #telugutech #shortfeed #job", url: "https://www.youtube.com/watch?v=rynbTiyyQng", channel: "Subramanyam Nellore" },
       ],
       ta: [
-        { title: "6 Steps To Send Effective Cold Emails 📧| Shreya Pattar", url: "https://www.youtube.com/watch?v=D9R9YAsjd_A", channel: "Shreya Pattar" },
         { title: "How to write a good COLD EMAIL for Job 2022 TAMIL?💯😍How to write email to get internship business", url: "https://www.youtube.com/watch?v=NGzskQWmt8o", channel: "Aishwarya Rengan" },
         { title: "Instantly.AI Full (Advanced) Tutorial | Skyrocket Your Email Outreach & Sales Automation in No Time!", url: "https://www.youtube.com/watch?v=NqgFCFiFLY0", channel: "sourabh mittal" },
         { title: "How to Send 10,000 Cold Emails Per Day (Step-by-Step Tutorial)", url: "https://www.youtube.com/watch?v=er2b9GZA5dI", channel: "Saleshandy" },
@@ -7055,21 +6526,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "What is CAN-SPAM Act? | Email Marketing Law Explained in Hindi | Digital Marketing Compliance Guide", url: "https://www.youtube.com/watch?v=L8xwnxRR2ac", channel: "Digital Marketing with Gaurav" },
-        { title: "CAN-SPAM, GDPR और CASL की व्याख्या | ईमेल मार्केटिंग कानूनी अनुपालन", url: "https://www.youtube.com/watch?v=HY5IkNCiEvY", channel: "PAMCET" },
         { title: "Digital forensic  CFAA DMCA CAN-Spam act in HINDI", url: "https://www.youtube.com/watch?v=Mv8EBXf98ZE", channel: "Last moment tuitions" },
         { title: "What is GDPR - GDPR क्या होता है ? quick guide in HINDI", url: "https://www.youtube.com/watch?v=ngBXCCbqxgQ", channel: "Magazine3 TV हिंदी में" },
       ],
       te: [
-        { title: "CAN-SPAM, GDPR & CASL Explained | Email Marketing Legal Compliance", url: "https://www.youtube.com/watch?v=HY5IkNCiEvY", channel: "PAMCET" },
         { title: "GDPR compliances- Telugu", url: "https://www.youtube.com/watch?v=rTDGckUL93A", channel: "RK Technologies" },
         { title: "Easy HIPAA & GDPR Compliance in Snowflake | Snowflake Tutorials Telugu | Brolly Academy", url: "https://www.youtube.com/watch?v=4QxYD4Sgj6E", channel: "Brolly Academy" },
-        { title: "GDPR, CASL, CAN SPAM, Oh My!", url: "https://www.youtube.com/watch?v=44o7p7kAcHs", channel: "MarDreamin'" },
       ],
       ta: [
-        { title: "CAN-SPAM, GDPR & CASL Explained | Email Marketing Legal Compliance", url: "https://www.youtube.com/watch?v=HY5IkNCiEvY", channel: "PAMCET" },
-        { title: "GDPR, CASL, CAN SPAM, Oh My!", url: "https://www.youtube.com/watch?v=44o7p7kAcHs", channel: "MarDreamin'" },
-        { title: "GDPR? CASL? CAN-SPAM? What you need to know about international email.", url: "https://www.youtube.com/watch?v=w1gTn6PL6ns", channel: "Adestra" },
-        { title: "How to be CASL & GDPR compliant for the New Year 2019", url: "https://www.youtube.com/watch?v=cZ18VVHURKA", channel: "The Collider: Tools for Good" },
       ],
     },
     articles: [
@@ -7100,14 +6564,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Configure SPF, DKIM, DMARC records || Email Automation System #emailmarketingintelugu", url: "https://www.youtube.com/watch?v=0njoz5UjAsY", channel: "Lucky Studios" },
         { title: "E-mail Investigation | Phishing Attack | Cyber Security | Email Security | SPF | DKIM | DMARC|Telugu", url: "https://www.youtube.com/watch?v=DpJhWnJ6VZU", channel: "Aadvik Cyber" },
-        { title: "How DKIM SPF & DMARC Work to Prevent Email Spoofing", url: "https://www.youtube.com/watch?v=c9fLp5uIxp8", channel: "Thobson Technologies" },
         { title: "Email Authentication Protocols - SPF, DKIM & DMARC Explained Simply #EmailSecurity", url: "https://www.youtube.com/watch?v=NkDAiU4azlI", channel: "Security For You" },
       ],
       ta: [
         { title: "What is 1. DMARC ,2. DKIM 3. SPF ?", url: "https://www.youtube.com/watch?v=2aGWneChLHo", channel: "SILICON CHIP'S TAMILAN" },
         { title: "Email Security Techniques | SPF | DKIM | DMARC | Part4 //Perumal Jegan", url: "https://www.youtube.com/watch?v=LCIHGYxE5eM", channel: "Perumal Jegan" },
-        { title: "How DKIM SPF & DMARC Work to Prevent Email Spoofing", url: "https://www.youtube.com/watch?v=c9fLp5uIxp8", channel: "Thobson Technologies" },
-        { title: "GoHighLevel Email Deliverability 2025: SPF, DKIM, DMARC + Warmup (No Spam)", url: "https://www.youtube.com/watch?v=TB1PQrXx5s8", channel: "Ethan Fleming Marketing" },
       ],
     },
     articles: [
@@ -7219,13 +6680,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Learn Email Marketing in 39 Minutes!", url: "https://www.youtube.com/watch?v=pLhQOYMGa88", channel: "Alex Hormozi" },
       ],
       hi: [
-        { title: "I made ₹5 Lakh with Email Copywriting | Full Course 2025", url: "https://www.youtube.com/watch?v=DQ11w5Y3ixs", channel: "Anashrut Finance" },
         { title: "FREE Email Copywriting Course | Fundamentals, Examples, And Roadmap in 1.5 Hours", url: "https://www.youtube.com/watch?v=WEzBwl_9Bn8", channel: "Armash Kamal" },
-        { title: "Email Copywriting for Beginners: FREE Course With Examples", url: "https://www.youtube.com/watch?v=wvlXKzdpNdU", channel: "Armash Kamal" },
         { title: "Copywriting Full Tutorial | Learn Complete Copywriting in 2 Hours", url: "https://www.youtube.com/watch?v=0pb4evBBBDg", channel: "Lets Uncover" },
       ],
       te: [
-        { title: "Easy Email Copywriting Tutorial (Step By Step)", url: "https://www.youtube.com/watch?v=asQ-naffXkE", channel: "Mike Nardi" },
         { title: "Do You Want to Become A Copy Writer...❓❓ Then Watch this Reel 🔥🔥", url: "https://www.youtube.com/watch?v=YzdyPPd1sO0", channel: "HelloVeeru" },
         { title: "3 best ways to practice copywriting without clients", url: "https://www.youtube.com/watch?v=dn8TAWBCjS8", channel: "Ria Pruthi" },
         { title: "What is Copywriting & How to become a Copywriter? | Career Opportunities | Demand etc..", url: "https://www.youtube.com/watch?v=q1YAmUEIg5w", channel: "Unfiltered Growth Telugu" },
@@ -7234,7 +6692,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Email marketing hacks |#shorts #tamil", url: "https://www.youtube.com/watch?v=J80dgcAmLlM", channel: "Cheran Academy" },
         { title: "3 best ways to practice copywriting without clients", url: "https://www.youtube.com/watch?v=dn8TAWBCjS8", channel: "Ria Pruthi" },
         { title: "what is Copy Writing in tamil | Powerful business Strategy 🔥🤑💯 #copywriting", url: "https://www.youtube.com/watch?v=Q33jrTi51kM", channel: "Mr Dhina $" },
-        { title: "Email copywriting for beginners", url: "https://www.youtube.com/watch?v=Ul4Vc6xWYZk", channel: "Adrianna Anna" },
       ],
     },
     articles: [
@@ -7351,22 +6808,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Email Marketing: GDPR Survival Guide", url: "https://www.youtube.com/watch?v=eq0iUoC83Hk", channel: "Email Blaster" },
       ],
       hi: [
-        { title: "What is CAN-SPAM Act? | Email Marketing Law Explained in Hindi | Digital Marketing Compliance Guide", url: "https://www.youtube.com/watch?v=L8xwnxRR2ac", channel: "Digital Marketing with Gaurav" },
-        { title: "Mastering Email Compliance: Navigating CAN-SPAM & GDPR for Cold Email Marketing", url: "https://www.youtube.com/watch?v=JJBCnl4FaGQ", channel: "Smartlead" },
-        { title: "Email Marketing - CAN Spam Compliance", url: "https://www.youtube.com/watch?v=NpPXyALJwWk", channel: "TutorialsPoint" },
         { title: "CAN-SPAM Compliance | Salesforce Marketing Cloud in Hinglish | Improve Email Deliverability", url: "https://www.youtube.com/watch?v=Odk2I4v6IOA", channel: "Ronak Kumawat" },
       ],
       te: [
-        { title: "Email Marketing - CAN Spam Compliance", url: "https://www.youtube.com/watch?v=NpPXyALJwWk", channel: "TutorialsPoint" },
-        { title: "CAN-SPAM, GDPR & CASL Explained | Email Marketing Legal Compliance", url: "https://www.youtube.com/watch?v=HY5IkNCiEvY", channel: "PAMCET" },
-        { title: "What is CAN-SPAM Act? | Email Marketing Law Explained in Hindi | Digital Marketing Compliance Guide", url: "https://www.youtube.com/watch?v=L8xwnxRR2ac", channel: "Digital Marketing with Gaurav" },
         { title: "Email Marketing Explained in  Telugu | #emailmarketingintelugu #emailmarketing #coldemailmarketing", url: "https://www.youtube.com/watch?v=GJtjAT71NdY", channel: "Lucky Studios" },
       ],
       ta: [
         { title: "Email marketing hacks |#shorts #tamil", url: "https://www.youtube.com/watch?v=J80dgcAmLlM", channel: "Cheran Academy" },
-        { title: "Mastering Email Compliance: Navigating CAN-SPAM & GDPR for Cold Email Marketing", url: "https://www.youtube.com/watch?v=JJBCnl4FaGQ", channel: "Smartlead" },
-        { title: "CAN-SPAM, GDPR & CASL Explained | Email Marketing Legal Compliance", url: "https://www.youtube.com/watch?v=HY5IkNCiEvY", channel: "PAMCET" },
-        { title: "Email Marketing - CAN Spam Compliance", url: "https://www.youtube.com/watch?v=NpPXyALJwWk", channel: "TutorialsPoint" },
       ],
     },
     articles: [
@@ -7394,20 +6842,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Run a B2B Inbox Placement Test in InboxDoctor", url: "https://www.youtube.com/watch?v=veDGLqtWW3I", channel: "InboxDoctor" },
       ],
       hi: [
-        { title: "How To InboxAlly: Test Inbox Placement", url: "https://www.youtube.com/watch?v=oIEPeVNUePw", channel: "InboxAlly: Mastering Email Deliverability" },
-        { title: "How to Improve Email Deliverability and Inbox Placement in Klaviyo", url: "https://www.youtube.com/watch?v=0-HNeQcCKV8", channel: "Klaviyo" },
-        { title: "InboxSys Demo – Improve Email Deliverability & Inbox Placement", url: "https://www.youtube.com/watch?v=EUCWWOuLxnQ", channel: "InboxSys" },
-        { title: "WEBINAR: How to nail inbox placement and improve deliverability", url: "https://www.youtube.com/watch?v=Dvo1reeEy7Q", channel: "Force24 - Marketing Automation" },
       ],
       te: [
-        { title: "How to Improve Email Deliverability and Inbox Placement in Klaviyo", url: "https://www.youtube.com/watch?v=0-HNeQcCKV8", channel: "Klaviyo" },
-        { title: "How To InboxAlly: Test Inbox Placement", url: "https://www.youtube.com/watch?v=oIEPeVNUePw", channel: "InboxAlly: Mastering Email Deliverability" },
-        { title: "InboxSys Demo – Improve Email Deliverability & Inbox Placement", url: "https://www.youtube.com/watch?v=EUCWWOuLxnQ", channel: "InboxSys" },
       ],
       ta: [
-        { title: "How To InboxAlly: Test Inbox Placement", url: "https://www.youtube.com/watch?v=oIEPeVNUePw", channel: "InboxAlly: Mastering Email Deliverability" },
-        { title: "How to Improve Email Deliverability and Inbox Placement in Klaviyo", url: "https://www.youtube.com/watch?v=0-HNeQcCKV8", channel: "Klaviyo" },
-        { title: "InboxSys Demo – Improve Email Deliverability & Inbox Placement", url: "https://www.youtube.com/watch?v=EUCWWOuLxnQ", channel: "InboxSys" },
         { title: "How to land in an inbox with cold email, Email Deliverability Guide (Part 01) #InboxOptimization", url: "https://www.youtube.com/watch?v=3y87n59AqYc", channel: "Dan Automation X" },
       ],
     },
@@ -7482,7 +6920,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How Remote Push Notifications Work on iOS", url: "https://www.youtube.com/watch?v=k_gHLgNTgr0", channel: "Crafting Swift" },
       ],
       hi: [
-        { title: "How To Send Push Notifications With JavaScript?", url: "https://www.youtube.com/watch?v=SaPOWEskPG8", channel: "Piyush Garg" },
         { title: "Day 15: 🚀 How to Set Up Free Push Notifications | OneSignal Tutorial (Step-by-Step in Hindi)", url: "https://www.youtube.com/watch?v=omUHbu5Twfk", channel: "Pre Tutorials - AI Marketing" },
         { title: "React Native Expo Push Notifications Tutorial in Hindi | Firebase FCM Setup + Development Build", url: "https://www.youtube.com/watch?v=sUnHxNjLJHY", channel: "ALL PROGRAMMING HINDI" },
         { title: "What is Service Worker? in Hindi: Offline Web, Push Notifications & PWA Power!", url: "https://www.youtube.com/watch?v=lsBx3lqX1mI", channel: "Sarabjeet Singh (sarabs3)" },
@@ -7522,18 +6959,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Re-Engagement Email = Win Them Back 🔄 | Email Marketing Tips", url: "https://www.youtube.com/watch?v=nS3xbWyx9HE", channel: "Ecom Email Playbook" },
       ],
       hi: [
-        { title: "How to Run a Re-Engagement Email Campaign With GetResponse | GetResponse Tutorial", url: "https://www.youtube.com/watch?v=j-eridzkwkQ", channel: "GetResponse" },
         { title: "How to Automate Email Campaigns in 10 Minutes (Brevo Tutorial for Beginners) (in Hindi)", url: "https://www.youtube.com/watch?v=kIkhCUkUHRA", channel: "StartupWise हिंदी में" },
         { title: "How to win Back Inactive Subscribers with re-engagement email campaign", url: "https://www.youtube.com/watch?v=yh_eWjK5VRY", channel: "weMail" },
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
       ],
       te: [
-        { title: "3 Part Re-Engagement Email Campaign: How to Win Back Inactive Subscribers With This Email Series", url: "https://www.youtube.com/watch?v=XZcRcNd3A38", channel: "Kate Emiley" },
-        { title: "Re-Engagement Email = Win Them Back 🔄 | Email Marketing Tips", url: "https://www.youtube.com/watch?v=nS3xbWyx9HE", channel: "Ecom Email Playbook" },
         { title: "Facebook Engagement Campaign Setup Explained in Telugu | Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=dX-JzYjqHEo", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "Re-Engagement Email = Win Them Back 🔄 | Email Marketing Tips", url: "https://www.youtube.com/watch?v=nS3xbWyx9HE", channel: "Ecom Email Playbook" },
         { title: "How to Become an Email Marketing Expert in 2023 Tamil | Email Marketing in Tamil | #05", url: "https://www.youtube.com/watch?v=67x0mIuOp8A", channel: "Simplified E-learning" },
       ],
     },
@@ -7563,21 +6996,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "RFM Analysis in SQL SERVER Explained | Customer Segmentation Tutorial | Part 1", url: "https://www.youtube.com/watch?v=r5_iHWl9b08", channel: "Fasih Ahmed" },
-        { title: "एक्सेल ट्यूटोरियल में RFM विश्लेषण | सरल विभाजन विश्लेषण", url: "https://www.youtube.com/watch?v=i-HNJZeOOMY", channel: "Adam Finer - Learn BI" },
         { title: "When MBA meets AI: Smarter customer segmentation through RFM + KMeans", url: "https://www.youtube.com/watch?v=iI7TVMdUz4g", channel: "Jiya Marwaha" },
-        { title: "पांडा में RFM विश्लेषण ट्यूटोरियल: सरल ग्राहक विभाजन विश्लेषण", url: "https://www.youtube.com/watch?v=9wxWrERZvss", channel: "Jie Jenn" },
       ],
       te: [
-        { title: "Marketing data science:RFM segmentation", url: "https://www.youtube.com/watch?v=dOpu8VHO8pI", channel: "Kiran Sathyanarayana: Data Science Leader" },
         { title: "How to do RFM Analysis Customer Segmentation using Python Machine Learning", url: "https://www.youtube.com/watch?v=WvmFjuGxneI", channel: "Ronith Sharmila" },
-        { title: "Customer Segmentation: RFM Analysis using SPSS", url: "https://www.youtube.com/watch?v=FhIaLJQQjbE", channel: "the outlier 73" },
         { title: "RFM Analysis for customer segmentation", url: "https://www.youtube.com/watch?v=v8NKeTq0Ag8", channel: "Priyanka Pooranachandran" },
       ],
       ta: [
         { title: "RFM Analysis for customer segmentation", url: "https://www.youtube.com/watch?v=v8NKeTq0Ag8", channel: "Priyanka Pooranachandran" },
-        { title: "Marketing data science:RFM segmentation", url: "https://www.youtube.com/watch?v=dOpu8VHO8pI", channel: "Kiran Sathyanarayana: Data Science Leader" },
         { title: "How to do RFM Analysis Customer Segmentation using Python Machine Learning", url: "https://www.youtube.com/watch?v=WvmFjuGxneI", channel: "Ronith Sharmila" },
-        { title: "எக்செல் பயிற்சியில் RFM பகுப்பாய்வு | எளிய பிரிவு பகுப்பாய்வு", url: "https://www.youtube.com/watch?v=i-HNJZeOOMY", channel: "Adam Finer - Learn BI" },
       ],
     },
     articles: [
@@ -7604,17 +7031,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Segmentation (Detailed Explanation) ll Operating System Course ll Explained in Hindi", url: "https://www.youtube.com/watch?v=Nng4G6JKGQo", channel: "5 Minutes Engineering" },
         { title: "Day 7: Image Segmentation | 100 Days Computer Vision | Urdu Hindi", url: "https://www.youtube.com/watch?v=Laxtizu94eQ", channel: "AI with Noor" },
         { title: "L-5.17: Segmentation Vs Paging | Segmentation Working | Operating system", url: "https://www.youtube.com/watch?v=dz9Tk6KCMlQ", channel: "Gate Smashers" },
-        { title: "छवि विभाजन, अर्थ विभाजन, उदाहरण विभाजन और पैनोप्टिक विभाजन", url: "https://www.youtube.com/watch?v=5QUmlXBb0MY", channel: "LearnOpenCV" },
       ],
       te: [
         { title: "Segmentation in operating system | segmentation in os", url: "https://www.youtube.com/watch?v=eMo0IzOCdzs", channel: "SRT Telugu Lectures" },
         { title: "Segmentation in Telugu", url: "https://www.youtube.com/watch?v=vzbcrCRslng", channel: "CSE & IT Tutorials 4u" },
-        { title: "segmentation in operating system | segmentation in memory management | non contiguous allocation", url: "https://www.youtube.com/watch?v=H7cJsF79iew", channel: "Sudhakar Atchala" },
         { title: "Image Segmentation using Graph Cut Simplified in Telugu💡 | Full Code Explanation(Easy Understanding)", url: "https://www.youtube.com/watch?v=3bizgO9Msbo", channel: "Tumma Saichandana-Telugu" },
       ],
       ta: [
         { title: "மார்க்கெட் செக்மென்ட்டேஷன் | Market Segmentation | Marketing | MBA Series | Mathankumar Gopal", url: "https://www.youtube.com/watch?v=WQc8-Q0bnjo", channel: "Mathankumar Gopal" },
-        { title: "segmentation in operating system | segmentation in memory management | non contiguous allocation", url: "https://www.youtube.com/watch?v=H7cJsF79iew", channel: "Sudhakar Atchala" },
         { title: "Basics of Segmentation | Types of Segmentation (Tamil)", url: "https://www.youtube.com/watch?v=0DgUTuGnw4I", channel: "FinanceGuyTamil" },
         { title: "Segmentation in operating system tamil|| OS || Anna university reg-2021.", url: "https://www.youtube.com/watch?v=y42QE_aQiBo", channel: "Murugan Tech World" },
       ],
@@ -7685,15 +7109,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "7 Subject Lines That Get Your Emails Opened", url: "https://www.youtube.com/watch?v=YahcimJVBm0", channel: "Dan Lok" },
       ],
       hi: [
-        { title: "I Tried 195 Cold Email Subject Lines, These Are the Best", url: "https://www.youtube.com/watch?v=fdad4jUDEJA", channel: "Instantly" },
         { title: "5 Killer Techniques to Write Subject Lines in Email Copywriting (With Examples)", url: "https://www.youtube.com/watch?v=n_AN8fnyFvg", channel: "Armash Kamal" },
         { title: "How To Write Cold Email Subject Lines? | Best Subject Lines For Cold Emails in SaaS Sales- In Hindi", url: "https://www.youtube.com/watch?v=JzcY9KHS1nI", channel: "Pratik Pandey" },
         { title: "How To Write Best Subject Lines For Cold Emails? | Crash Course- In Hindi", url: "https://www.youtube.com/watch?v=88FMFOvpx1I", channel: "Pratik Pandey" },
       ],
       te: [
         { title: "📲 How to Write Effective Email Subject Lines", url: "https://www.youtube.com/watch?v=g-rkbk274uY", channel: "Website Learners" },
-        { title: "I Tried 195 Cold Email Subject Lines, These Are the Best", url: "https://www.youtube.com/watch?v=fdad4jUDEJA", channel: "Instantly" },
-        { title: "The Subject Line Trick That Got Me 77% Opens", url: "https://www.youtube.com/watch?v=AF0I66VLsCE", channel: "Prospeo" },
         { title: "How To Get Your Email Opened Every Time (Subject Lines)", url: "https://www.youtube.com/watch?v=MyNKagV4zSk", channel: "lemlist" },
       ],
       ta: [
@@ -7731,20 +7152,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Sending transactional emails using API and SMTP | Zoho ZeptoMail webinars", url: "https://www.youtube.com/watch?v=wOvldpmoHww", channel: "Zoho ZeptoMail" },
       ],
       hi: [
-        { title: "How to Use Brevo Transactional Emails Step by Step Tutorial", url: "https://www.youtube.com/watch?v=e51gksZrNa8", channel: "Speak About Digital" },
-        { title: "Transactional Email Explained | Tutorial by Mailtrap", url: "https://www.youtube.com/watch?v=-b3ZHhOHALk", channel: "Mailtrap" },
         { title: "Brevo Complete Tutorial in Hindi | Email Marketing & CRM for Beginners | Grow Your Business", url: "https://www.youtube.com/watch?v=zgkBK0MsHxQ", channel: "Techlo Tanic" },
         { title: "Send Transactional Emails from Google Sheets Send Invoice on Emailहिन्दी", url: "https://www.youtube.com/watch?v=9TJQN6pHGo8", channel: "Pabbly Hindi" },
       ],
       te: [
-        { title: "How to Use Brevo Transactional Emails Step by Step Tutorial", url: "https://www.youtube.com/watch?v=e51gksZrNa8", channel: "Speak About Digital" },
-        { title: "Transactional Email Explained - Tutorial by Mailtrap", url: "https://www.youtube.com/watch?v=lCIClIUFIrg", channel: "Mailtrap" },
         { title: "⚡️ Is Zepto Mail the BEST Transactional Email Service?", url: "https://www.youtube.com/watch?v=4ug0n5cqREc", channel: "The Inventar" },
         { title: "How to Send Transactional Emails with Enginemailer API | Developer Guide 2026", url: "https://www.youtube.com/watch?v=iYBjiFUCw2Q", channel: "Enginemailer" },
       ],
       ta: [
-        { title: "How to Use Brevo Transactional Emails Step by Step Tutorial", url: "https://www.youtube.com/watch?v=e51gksZrNa8", channel: "Speak About Digital" },
-        { title: "Transactional Email Explained - Tutorial by Mailtrap", url: "https://www.youtube.com/watch?v=lCIClIUFIrg", channel: "Mailtrap" },
         { title: "⚡️ Is Zepto Mail the BEST Transactional Email Service?", url: "https://www.youtube.com/watch?v=4ug0n5cqREc", channel: "The Inventar" },
         { title: "Perfect Format for a Business Email #email", url: "https://www.youtube.com/watch?v=MfNMbe56TcE", channel: "learn English with Rimsha Raheen" },
       ],
@@ -7816,7 +7231,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "WhatsApp Business Masterclass 2026:🔥Complete Tutorial (Step-by-Step Guide)", url: "https://www.youtube.com/watch?v=k7bX9WbJwq0", channel: "The Digital School by Prakash" },
-        { title: "How To Use WhatsApp Business App For Sales & Growth", url: "https://www.youtube.com/watch?v=85DOQj0yplI", channel: "WsCube Tech" },
         { title: "How To Sell Products On WhatsApp in 2026 | WhatsApp Catalogue and Ads | Hindi", url: "https://www.youtube.com/watch?v=B__uR3Z2nkk", channel: "The Digital School by Prakash" },
         { title: "How to Do WhatsApp Marketing in 2026 🎯 WhatsApp Marketing Kaise Kare", url: "https://www.youtube.com/watch?v=I2EwGWcHeXA", channel: "Zaayega Seller Gyan" },
       ],
@@ -7857,9 +7271,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "3 Part Re-Engagement Email Campaign: How to Win Back Inactive Subscribers With This Email Series", url: "https://www.youtube.com/watch?v=XZcRcNd3A38", channel: "Kate Emiley" },
       ],
       hi: [
-        { title: "क्लावियो विनबैक फ्लो: एक बार के खरीदारों को नियमित ग्राहकों में बदलें (2026 क्लावियो ट्यूटोरियल)", url: "https://www.youtube.com/watch?v=mu8tHETQSa8", channel: "Emiel Dingemans from Magicianly | Email Marketing" },
         { title: "Email Marketing Win-Back Campaigns", url: "https://www.youtube.com/watch?v=HOFSmaq0h_Y", channel: "Contactology" },
-        { title: "Win Back Campaigns - Better Agency Tutorial", url: "https://www.youtube.com/watch?v=PlGsPUuF4lg", channel: "Better Agency" },
       ],
       te: [
         { title: "Facebook Engagement Campaign Setup Explained in Telugu | Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=dX-JzYjqHEo", channel: "Subbu Digital Marketer" },
@@ -7868,7 +7280,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Google Ads Performance Max Campaign Setup | Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=0-RqLsGFclE", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "Win Back Campaigns - Better Agency Tutorial", url: "https://www.youtube.com/watch?v=PlGsPUuF4lg", channel: "Better Agency" },
         { title: "Facebook Lead Generation Campaign In Tamil | Meta Lead Generation Campaign Explained In Tamil", url: "https://www.youtube.com/watch?v=EXir5CNq6qs", channel: "Consult Us Now Digital Marketing Agency, Chennai" },
         { title: "Google Ads Tutorial Tamil: First Campaign Setup from Scratch | Beginners Guide - 2025", url: "https://www.youtube.com/watch?v=ciQdxA6AGj0", channel: "Digital Sameem" },
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
@@ -7895,20 +7306,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How marketers should think about building a first-party data strategy", url: "https://www.youtube.com/watch?v=IrRAAYT8Bkg", channel: "Think with Google" },
       ],
       hi: [
-        { title: "The Future of Consumer Marketing: Zero Party Data | Swish Goswami | TEDxTrinityBellwoods", url: "https://www.youtube.com/watch?v=chRsxs1fwcI", channel: "TEDx Talks" },
-        { title: "The Missing Ingredient in Most First-/Zero-Party Data Strategies? Effective Consent Management", url: "https://www.youtube.com/watch?v=ndpukgU7geQ", channel: "Osano" },
         { title: "Zero Party Data| Startup| Sarthak Ahuja", url: "https://www.youtube.com/watch?v=ziI3mOgn-PE", channel: "Sarthak Ahuja" },
-        { title: "What Is Zero-Party Data? And How Do I Collect It?", url: "https://www.youtube.com/watch?v=OOh28lL775w", channel: "Digioh" },
       ],
       te: [
-        { title: "The Missing Ingredient in Most First-/Zero-Party Data Strategies? Effective Consent Management", url: "https://www.youtube.com/watch?v=ndpukgU7geQ", channel: "Osano" },
         { title: "Zero Party Data| Startup| Sarthak Ahuja", url: "https://www.youtube.com/watch?v=ziI3mOgn-PE", channel: "Sarthak Ahuja" },
-        { title: "The Future of Consumer Marketing: Zero Party Data | Swish Goswami | TEDxTrinityBellwoods", url: "https://www.youtube.com/watch?v=chRsxs1fwcI", channel: "TEDx Talks" },
         { title: "Zero vs. First-Party Data: What’s the Difference?", url: "https://www.youtube.com/watch?v=P-6mmyXD-c0", channel: "attentive" },
       ],
       ta: [
-        { title: "The Missing Ingredient in Most First-/Zero-Party Data Strategies? Effective Consent Management", url: "https://www.youtube.com/watch?v=ndpukgU7geQ", channel: "Osano" },
-        { title: "The Future of Consumer Marketing: Zero Party Data | Swish Goswami | TEDxTrinityBellwoods", url: "https://www.youtube.com/watch?v=chRsxs1fwcI", channel: "TEDx Talks" },
         { title: "Digital Marketing for Business Owners in Tamil | Full Beginner Roadmap", url: "https://www.youtube.com/watch?v=ju6C-Q89QUo", channel: "Sangeetha S Abishek" },
         { title: "Zero Party Data| Startup| Sarthak Ahuja", url: "https://www.youtube.com/watch?v=ziI3mOgn-PE", channel: "Sarthak Ahuja" },
       ],
@@ -7934,12 +7338,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "4 p's of Marketing | Marketing Mix (Hindi)", url: "https://www.youtube.com/watch?v=N5P6N3g3568", channel: "Commerce Gyaan" },
-        { title: "The 4 Ps of The Marketing Mix Simplified", url: "https://www.youtube.com/watch?v=Mco8vBAwOmA", channel: "College & Career Ready Labs │ Paxton Patterson" },
         { title: "What is 4 P's of Marketing in Hindi | Marketing Mix in Hindi | What is Marketing Mix?", url: "https://www.youtube.com/watch?v=7PR46l6g4u8", channel: "My Online Master" },
-        { title: "Marketing Ke 4 P's : \"PRODUCT , PRICE , PLACE & PROMOTION\" #hustlewithrajat", url: "https://www.youtube.com/watch?v=-MQJHoI2Xjs", channel: "HUSTLE WITH RAJAT" },
       ],
       te: [
-        { title: "The 4 Ps of The Marketing Mix Simplified", url: "https://www.youtube.com/watch?v=Mco8vBAwOmA", channel: "College & Career Ready Labs │ Paxton Patterson" },
         { title: "4 P's of Marketing Explained in Telugu | Marketing Mix | Marketing Fundamentals | Santhosh Naayak", url: "https://www.youtube.com/watch?v=sOa61vQ8USA", channel: "Dream Destination Academy" },
         { title: "Marketing mix or 4 ps of marketing in telugu #shorts #mbatelugu", url: "https://www.youtube.com/watch?v=TiKtxwJbHDs", channel: "Asgar Hussain" },
         { title: "Naa +1 board exam results 🙂#ishqyouall #telugu #shortvideo #comedy #youtubeshorts #trendingshorts", url: "https://www.youtube.com/watch?v=nTSwghWzmR8", channel: "Varshini Chilukuri" },
@@ -7948,7 +7349,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Marketing mix | 4 p’s | marketing mix in Tamil | marketing management in Tamil | Santhosh Balaji", url: "https://www.youtube.com/watch?v=9f8GJuVhzb8", channel: "Santhosh Balaji Rajagopal" },
         { title: "4 P's of Marketing Mix in Tamil", url: "https://www.youtube.com/watch?v=OfGpyjyO3yo", channel: "Asif Sahib" },
         { title: "4Ps of Marketing | Marketing Mix | Product, Place, Price & Promotion Tamil", url: "https://www.youtube.com/watch?v=VhsDUWAweTs", channel: "FinanceGuyTamil" },
-        { title: "The 4 Ps of The Marketing Mix Simplified", url: "https://www.youtube.com/watch?v=Mco8vBAwOmA", channel: "College & Career Ready Labs │ Paxton Patterson" },
       ],
     },
     articles: [
@@ -7976,20 +7376,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "The 5 C Framework", url: "https://www.youtube.com/watch?v=XKav14SNawI", channel: "Messmerize India - Rachna Kacker" },
-        { title: "5Cs of Marketing | Marketing Analysis | Marketing Fundamentals| #10", url: "https://www.youtube.com/watch?v=HjW6qtzH46I", channel: "Umar Tazkeer" },
-        { title: "5C's of Credit Analysis", url: "https://www.youtube.com/watch?v=XWqHxfDaZbw", channel: "CA Raja Classes" },
-        { title: "The 5 Cs of Marketing Strategy!", url: "https://www.youtube.com/watch?v=eZ_zCsvB8sE", channel: "Realist Academy" },
       ],
       te: [
-        { title: "5Cs of Marketing | Marketing Analysis | Marketing Fundamentals| #10", url: "https://www.youtube.com/watch?v=HjW6qtzH46I", channel: "Umar Tazkeer" },
         { title: "5Cs in Credit Analysis", url: "https://www.youtube.com/watch?v=yGL9m1MfksE", channel: "CA Raja Classes" },
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
         { title: "🔥Salary of Python Developer #simplilearn  #shorts", url: "https://www.youtube.com/watch?v=143HUOjEBcs", channel: "Simplilearn" },
       ],
       ta: [
-        { title: "The 5 Cs of Marketing Strategy!", url: "https://www.youtube.com/watch?v=eZ_zCsvB8sE", channel: "Realist Academy" },
         { title: "5Cs in Credit Analysis", url: "https://www.youtube.com/watch?v=yGL9m1MfksE", channel: "CA Raja Classes" },
-        { title: "5C's of Credit Analysis", url: "https://www.youtube.com/watch?v=XWqHxfDaZbw", channel: "CA Raja Classes" },
         { title: "Don't become a Java Developer in 2025 | Java Roadmap 2025 | Charan_techstudio", url: "https://www.youtube.com/watch?v=0FrJrRU-pKw", channel: "Charan_techstudio" },
       ],
     },
@@ -8015,22 +7409,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Using Digital Marketing to Launch an Account-Based Marketing (ABM) Strategy", url: "https://www.youtube.com/watch?v=yj26ZqV-zKo", channel: "Insightly CRM by Unbounce" },
       ],
       hi: [
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
         { title: "Account Based Marketing (ABM) |  अकाउंट बेस्ड मार्केटिंग कैसे करें?", url: "https://www.youtube.com/watch?v=1dryvNhvj08", channel: "Abby Digital (Hindi)" },
-        { title: "The ABM Workflow Explained | How B2B Companies Win with Account-Based Marketing | UrbanSpell |", url: "https://www.youtube.com/watch?v=bSYYUhXxy4Y", channel: "UrbanSpell" },
         { title: "The ABM Playbook for B2B Marketing - https://amzn.eu/d/df7NaIP", url: "https://www.youtube.com/watch?v=rt_iFmtAwyE", channel: "In Love With Marketing" },
       ],
       te: [
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
-        { title: "The ABM Workflow Explained | How B2B Companies Win with Account-Based Marketing | UrbanSpell |", url: "https://www.youtube.com/watch?v=bSYYUhXxy4Y", channel: "UrbanSpell" },
         { title: "Account-Based Marketing (ABM) Step by Step", url: "https://www.youtube.com/watch?v=Ady6A2VYGbY", channel: "Standarity" },
-        { title: "The Ultimate Guide to Account Based Marketing (ABM)", url: "https://www.youtube.com/watch?v=nZS7xjR3bD0", channel: "Sarah Challis" },
       ],
       ta: [
-        { title: "What is Account Based Marketing? How to setup for your B2B business (2024 version)", url: "https://www.youtube.com/watch?v=Jx0muHw5NUY", channel: "Senator We Run Ads" },
-        { title: "The ABM Workflow Explained | How B2B Companies Win with Account-Based Marketing | UrbanSpell |", url: "https://www.youtube.com/watch?v=bSYYUhXxy4Y", channel: "UrbanSpell" },
         { title: "What is \"Account Based Marketing\"??? #salestips #b2b #marketingstrategy #salestraining #businesstips", url: "https://www.youtube.com/watch?v=QFgYcSuvN-w", channel: "MBAfied" },
-        { title: "The Ultimate Guide to Account Based Marketing (ABM)", url: "https://www.youtube.com/watch?v=nZS7xjR3bD0", channel: "Sarah Challis" },
       ],
     },
     articles: [
@@ -8061,9 +7447,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Implement the AIDA Model 💪", url: "https://www.youtube.com/watch?v=2PkrD2wfmWo", channel: "imFORZA" },
       ],
       hi: [
-        { title: "What is a Marketing Funnel? || AIDA Model || Marketing Management- Part 4 #marketingfunnel", url: "https://www.youtube.com/watch?v=75QhAzzzbs0", channel: "Crack with Indresh" },
         { title: "What is AIDA Model in Marketing? | AIDA Explained with Examples", url: "https://www.youtube.com/watch?v=ustULj_EfOU", channel: "Mathur Sir Classes" },
-        { title: "Digital Marketing Funnel Explained | Types, Stages & Strategies (Hindi Tutorial)", url: "https://www.youtube.com/watch?v=9mm-T9t9NeU", channel: "KnowHow Academy Hindi" },
         { title: "Digital Marketing Funnel 2025🔥 | I Bet Nobody's Telling This 🤐", url: "https://www.youtube.com/watch?v=mwU-imoqJEE", channel: "Damini Tripathi" },
       ],
       te: [
@@ -8103,7 +7487,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "What is Performance Marketing? | (in Hindi)", url: "https://www.youtube.com/watch?v=m4eF2YE3SJM", channel: "Umar Tazkeer" },
-        { title: "परफॉर्मेंस मार्केटर कौन होते हैं और उनकी कमाई कितनी होती है? #shorts #simplilearn", url: "https://www.youtube.com/watch?v=eVL7qHjFZyI", channel: "Simplilearn" },
         { title: "Performance Vs Growth Marketing (2023) | Aditya Singh", url: "https://www.youtube.com/watch?v=twrYz36Cms0", channel: "Aditya Singh  - I Run Ads" },
       ],
       te: [
@@ -8115,7 +7498,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "Performance Marketing in Tamil  | Unlock the Secrets of Performance Marketing | Jaiprasanth K", url: "https://www.youtube.com/watch?v=i1i2iaO4uFs", channel: "Jaiprasanth K" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "Who Is A Performance Marketer And How Much they Earn? #shorts #simplilearn", url: "https://www.youtube.com/watch?v=eVL7qHjFZyI", channel: "Simplilearn" },
         { title: "Performance Marketing Course | The Only Video You Need To Watch #performancemarketing", url: "https://www.youtube.com/watch?v=-n-5NQd5no8", channel: "HelloVeeru" },
       ],
     },
@@ -8152,12 +7534,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Branding vs. Style guide | UI/UX Design tutorial in Telugu", url: "https://www.youtube.com/watch?v=ORLXaobDz9Y", channel: "AGILITY DESIGN" },
         { title: "Your brand name is your identity in the marketplace‼️ | Telugu Talks With LK", url: "https://www.youtube.com/watch?v=mssOF2T36XM", channel: "Telugu-Talks With LK" },
-        { title: "Logo vs Visual Identity vs Brand Identity", url: "https://www.youtube.com/watch?v=BU431vdXquo", channel: "Anurag Attri" },
         { title: "Secrets Behind Brand Logo 🤔🧐 #shorts #trendingshorts #brandlogo #kowshikimaridi", url: "https://www.youtube.com/watch?v=SA5IrWfRuKo", channel: "Boss Wallah (Telugu)" },
       ],
       ta: [
         { title: "What is a Brand | Difference between Brand, Branding and Identity | Brand Maker Vikkyz | MCeez", url: "https://www.youtube.com/watch?v=7ipvSjfC5O8", channel: "Madras Creatives" },
-        { title: "Logo vs Visual Identity vs Brand Identity", url: "https://www.youtube.com/watch?v=BU431vdXquo", channel: "Anurag Attri" },
         { title: "✒️Learn logo types ?#graphicdesign #graphics #designer #design #tamil  #contentcreator", url: "https://www.youtube.com/watch?v=IueeFRk3d60", channel: "Wahid" },
         { title: "Complete Brand Identity Using Genspark AI | Tamil AI Design Tutorial", url: "https://www.youtube.com/watch?v=MOkzTWzeKPY", channel: "Dezin with John" },
       ],
@@ -8270,22 +7650,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "B2B GTM Using Signal-Led Growth & Dark Funnel Strategy | Full Breakdown", url: "https://www.youtube.com/watch?v=dtZyonClLfY", channel: "Insightstap" },
       ],
       hi: [
-        { title: "Community-Led Growth: Leveraging Connections to Fuel Your GTM Strategy", url: "https://www.youtube.com/watch?v=Nceikj2Wk24", channel: "Cybersecurity Ecosystem Show" },
-        { title: "How To Create a Killer Go-To-Market (GTM) Strategy | Dose 009", url: "https://www.youtube.com/watch?v=KMVjS5HRHIk", channel: "Dreamit" },
         { title: "What is Go-To Market (GTM) Strategy?", url: "https://www.youtube.com/watch?v=c3fTEpkFnGE", channel: "Ehmad Zubair" },
-        { title: "The GROWTH Framework: Designing Community for GTM Impact", url: "https://www.youtube.com/watch?v=KH7fXiW54m8", channel: "Clocktower Advisors" },
       ],
       te: [
-        { title: "Community Led GTM For Founders", url: "https://www.youtube.com/watch?v=7tRKHEu3wco", channel: "Animesh Mishra" },
         { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
         { title: "\"Community Led Growth\" by M. Suhas | importance of community | community growth strategy | TF 2022", url: "https://www.youtube.com/watch?v=YU7VnVVcto8", channel: "The Test Tribe" },
         { title: "#1 strategy to BEAT your competition!", url: "https://www.youtube.com/watch?v=d--bdurlVvY", channel: "Rajiv Talreja" },
       ],
       ta: [
-        { title: "The GROWTH Framework: Designing Community for GTM Impact", url: "https://www.youtube.com/watch?v=KH7fXiW54m8", channel: "Clocktower Advisors" },
-        { title: "Community Led GTM For Founders", url: "https://www.youtube.com/watch?v=7tRKHEu3wco", channel: "Animesh Mishra" },
         { title: "What really is Go-To-Market (GTM) strategy?!", url: "https://www.youtube.com/watch?v=oHXw_BRmPeY", channel: "Henry Latham" },
-        { title: "GTM Clarity: Why Growth Feels Harder Than It Should", url: "https://www.youtube.com/watch?v=cN5MeKRpiIo", channel: "Amplified Motion Group" },
       ],
     },
     articles: [
@@ -8322,13 +7695,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Customer Journey Map Real Estate TELUGU || Customer Journey Map Real Estate Channel || Real Estate", url: "https://www.youtube.com/watch?v=o8Mc8tzUJlI", channel: "Everything Business Telugu" },
         { title: "User Persona | User story | User Journey map  Ela cheyali @designhorizons", url: "https://www.youtube.com/watch?v=rgjabls-VQg", channel: "Design Horizons" },
-        { title: "How To Create a Customer Journey Map 2026 | Customer Journey Mapping Tutorial | Simplilearn", url: "https://www.youtube.com/watch?v=-eyRiwXQw24", channel: "Simplilearn" },
         { title: "What is customer journey in telugu?", url: "https://www.youtube.com/watch?v=T2pgYJ1duX4", channel: "Digital Aravind" },
       ],
       ta: [
         { title: "Customer Journey - என்னன்னு தெரியுமா? | News Cafe Tamil", url: "https://www.youtube.com/watch?v=KuhkuMw82G0", channel: "News Cafe Tamil" },
         { title: "Customer Journey Mapping | UX Lesson 7 | Let's learn from scratch", url: "https://www.youtube.com/watch?v=d9jzZN5H5QQ", channel: "Tharani Subramanian" },
-        { title: "How To Create a Customer Journey Map 2026 | Customer Journey Mapping Tutorial | Simplilearn", url: "https://www.youtube.com/watch?v=-eyRiwXQw24", channel: "Simplilearn" },
         { title: "User Journey Mapping || EP 21 || User Research Series தமிழ்", url: "https://www.youtube.com/watch?v=42PTJ3uIOl4", channel: "Design with Ramuk" },
       ],
     },
@@ -8356,22 +7727,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The Real Difference Between Demand Generation vs Lead Generation for B2B Teams", url: "https://www.youtube.com/watch?v=y394Cqwcuho", channel: "reachmarketingllc" },
       ],
       hi: [
-        { title: "Demand Generation VS Lead Generation (30 seconds Explanation) #demandgeneration #leadgeneration", url: "https://www.youtube.com/watch?v=yLdtBq6aOH4", channel: "Surbhi Rawat" },
-        { title: "What's the difference between demand generation vs. lead generation? (5-Min Takes — Marketing #7)", url: "https://www.youtube.com/watch?v=97xkR4vYiYY", channel: "UserGems" },
-        { title: "Demand Generation Vs Lead Generation | Which Is Better?", url: "https://www.youtube.com/watch?v=5Ax74PgNeWQ", channel: "Monish Meghani" },
-        { title: "The Real Difference Between Demand Generation vs Lead Generation for B2B Teams", url: "https://www.youtube.com/watch?v=y394Cqwcuho", channel: "reachmarketingllc" },
       ],
       te: [
-        { title: "What's the difference between demand generation vs. lead generation? (5-Min Takes — Marketing #7)", url: "https://www.youtube.com/watch?v=97xkR4vYiYY", channel: "UserGems" },
-        { title: "Demand Generation VS Lead Generation (30 seconds Explanation) #demandgeneration #leadgeneration", url: "https://www.youtube.com/watch?v=yLdtBq6aOH4", channel: "Surbhi Rawat" },
         { title: "Demand Generation vs. Lead Generation", url: "https://www.youtube.com/watch?v=uKUN6PQ4Sjo", channel: "Selling Power" },
-        { title: "Demand Generation Vs Lead Generation | Which Is Better?", url: "https://www.youtube.com/watch?v=5Ax74PgNeWQ", channel: "Monish Meghani" },
       ],
       ta: [
         { title: "Demand Generation vs Lead Generation | Real Estate Marketing Strategy(Tamil)🚀#treeta #realestatetips", url: "https://www.youtube.com/watch?v=4gpkfjq7uNY", channel: "The Real Estate Entrepreneur" },
-        { title: "What's the difference between demand generation vs. lead generation? (5-Min Takes — Marketing #7)", url: "https://www.youtube.com/watch?v=97xkR4vYiYY", channel: "UserGems" },
-        { title: "Demand Generation Vs Lead Generation Marketing", url: "https://www.youtube.com/watch?v=XOyAvHJddZU", channel: "Elements Brand Management" },
-        { title: "Demand Generation VS Lead Generation (30 seconds Explanation) #demandgeneration #leadgeneration", url: "https://www.youtube.com/watch?v=yLdtBq6aOH4", channel: "Surbhi Rawat" },
       ],
     },
     articles: [
@@ -8404,13 +7765,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
         { title: "Digital Marketing Course in Telugu - Odmt Training Hyderabad - Call 7386603165", url: "https://www.youtube.com/watch?v=ESn9nO48HXA", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "Business Strategy: Transforming Funnels to Flywheels to Grow Better", url: "https://www.youtube.com/watch?v=-rFDImjgIo0", channel: "HubSpot Marketing" },
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
       ],
       ta: [
-        { title: "The Flywheel Model: The Business Strategy Challenging the Marketing Funnel", url: "https://www.youtube.com/watch?v=6WL0yo5xcZ0", channel: "Varx" },
         { title: "What is a Digital Marketing funnel | Implementing funnel based Marketing | Customer Journey (Tamil)", url: "https://www.youtube.com/watch?v=GWXsfa955_8", channel: "Sangeetha S Abishek" },
-        { title: "Business Strategy: Transforming Funnels to Flywheels to Grow Better", url: "https://www.youtube.com/watch?v=-rFDImjgIo0", channel: "HubSpot Marketing" },
         { title: "What is Marketing Funnel in Tamil? Day 14 #100DaysBGSUsingAI #digitalsaravanan", url: "https://www.youtube.com/watch?v=hgmt-i6WRxg", channel: "Digital Saravanan" },
       ],
     },
@@ -8438,22 +7796,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Build a Go-To-Market Strategy (by an Ex-Google PMM)", url: "https://www.youtube.com/watch?v=eDVtBleIxag", channel: "Henry Wang" },
       ],
       hi: [
-        { title: "Go-to-Market Strategy Breakdown for Digital Marketers - Umar Tazkeer", url: "https://www.youtube.com/watch?v=jarKc9MDak4", channel: "Umar Tazkeer" },
-        { title: "Go to Market Strategy Framework | How to Build Go to Market Strategy | GTM Strategy | Simplilearn", url: "https://www.youtube.com/watch?v=F4YuptMRMBY", channel: "Simplilearn" },
-        { title: "Master Go-to-Market Strategy in the Era of AI", url: "https://www.youtube.com/watch?v=YUirUpewstw", channel: "Aakash Gupta" },
         { title: "What Is A Go-to-market Strategy (GTM)? Basics of GTM Explained For Startups & Business Owners", url: "https://www.youtube.com/watch?v=Z6-LamxS-Yg", channel: "Nishtha Pande" },
       ],
       te: [
-        { title: "Go to Market Strategy Framework | How to Build Go to Market Strategy | GTM Strategy | Simplilearn", url: "https://www.youtube.com/watch?v=F4YuptMRMBY", channel: "Simplilearn" },
         { title: "What Is A Go-to-market Strategy (GTM)? Basics of GTM Explained For Startups & Business Owners", url: "https://www.youtube.com/watch?v=Z6-LamxS-Yg", channel: "Nishtha Pande" },
-        { title: "How To Create a Killer Go-To-Market (GTM) Strategy | Dose 009", url: "https://www.youtube.com/watch?v=KMVjS5HRHIk", channel: "Dreamit" },
-        { title: "Go-to-Market Strategy Breakdown for Digital Marketers - Umar Tazkeer", url: "https://www.youtube.com/watch?v=jarKc9MDak4", channel: "Umar Tazkeer" },
       ],
       ta: [
         { title: "Startup 101: What is GTM (Go-To-Market) Strategy & Why Is It Crucial? | Startup Singam", url: "https://www.youtube.com/watch?v=NkXdOZ04Qv4", channel: "Startup Singam" },
-        { title: "Go to Market Strategy Framework | How to Build Go to Market Strategy | GTM Strategy | Simplilearn", url: "https://www.youtube.com/watch?v=F4YuptMRMBY", channel: "Simplilearn" },
         { title: "Go-To-Market (GTM) Strategy Explained | How to Launch & Sell Successfully 🚀 | Just Business", url: "https://www.youtube.com/watch?v=w9zWVt6ZYtI", channel: "JustBusiness Dot Com" },
-        { title: "How To Create a Killer Go-To-Market (GTM) Strategy | Dose 009", url: "https://www.youtube.com/watch?v=KMVjS5HRHIk", channel: "Dreamit" },
       ],
     },
     articles: [
@@ -8485,11 +7835,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Jobs to be done Framework for Product Management", url: "https://www.youtube.com/watch?v=C8awBlM5i08", channel: "Yash Thakker" },
         { title: "Data Analyst Job Nahi Mil Rahi? Ye Galti 90% Students Kar rahe hai", url: "https://www.youtube.com/watch?v=ljfCWzOSkhQ", channel: "Skillsiya" },
-        { title: "Jobs to be Done with Examples", url: "https://www.youtube.com/watch?v=dbVN6EYql6k", channel: "PlaybookUX" },
         { title: "Jobs-to-Be-Done vs. Personas", url: "https://www.youtube.com/watch?v=IanZkc-i2J4", channel: "NNgroup" },
       ],
       te: [
-        { title: "Jobs to be Done with Examples", url: "https://www.youtube.com/watch?v=dbVN6EYql6k", channel: "PlaybookUX" },
         { title: "👌ఇంటి నుండి వర్క్ చేసుకోవచ్చు | 12th Pass to Degree |Jobs in Telugu | Work from Home Job from Zomato", url: "https://www.youtube.com/watch?v=v2bR8VtCYAA", channel: "V the Techee" },
         { title: "How to Start Freelancing with NO EXPERIENCE in Telugu  (A Complete Beginner's Guide)", url: "https://www.youtube.com/watch?v=ip8vQdRtgTE", channel: "Digitech Praveen Here" },
         { title: "First job story🥰 #shorts #shortsindia #telugu #teluguvlogs #resignation #trendingshorts #tcs #fyp", url: "https://www.youtube.com/watch?v=D0WeZMpvjMU", channel: "Shivani & Shashi" },
@@ -8497,7 +7845,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "Learn 80% of Claude Cowork in Just 30 Minutes 🔥 Tamil | 2026", url: "https://www.youtube.com/watch?v=CdCfqakID24", channel: "AI Coach John (Tamil)" },
         { title: "How I Managed a 100% Salary Hike Job Switch Within 2 Years", url: "https://www.youtube.com/watch?v=nJQ1nc4HPNM", channel: "Karthik M" },
-        { title: "Jobs to be Done with Examples", url: "https://www.youtube.com/watch?v=dbVN6EYql6k", channel: "PlaybookUX" },
         { title: "Stop searching jobs in LinkedIn ❌👎🏻🙏🏻", url: "https://www.youtube.com/watch?v=xhr4ZaI8X0c", channel: "Sethu" },
       ],
     },
@@ -8526,21 +7873,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Calculate LTV:CAC (Even If You Don’t Run Ads)", url: "https://www.youtube.com/watch?v=QL4dMtXn47g", channel: "Jordan Rafealov" },
       ],
       hi: [
-        { title: "What is LTV to CAC? The Most Important Metric in Ecommerce #ecommerce #digitalmarketing #marketing", url: "https://www.youtube.com/watch?v=_g1f7JduUto", channel: "Robert Hester" },
         { title: "CAC vs LTV : Metrics you NEED to know! #cac #ltv #customeracquisition #seostrategy #digital", url: "https://www.youtube.com/watch?v=KflaR-TcHNo", channel: "Contentious by Spacebar" },
-        { title: "Mastering Startup Math: TAM, CAC, Churn, Retention, LTV, Payback and more", url: "https://www.youtube.com/watch?v=fvNKX7WCFvE", channel: "Prime Venture Partners" },
-        { title: "Performance Marketing Metrics Tutorial: Master CPA, CPL & ROAS in 14 Minutes", url: "https://www.youtube.com/watch?v=Xsz1QuYExSI", channel: "My Online Master" },
       ],
       te: [
-        { title: "What is LTV to CAC? The Most Important Metric in Ecommerce #ecommerce #digitalmarketing #marketing", url: "https://www.youtube.com/watch?v=_g1f7JduUto", channel: "Robert Hester" },
-        { title: "📊 The Most Important Business Metric: LTV to CAC (Explained by Hormozi)", url: "https://www.youtube.com/watch?v=OXYGgvZeV1E", channel: "Kyle Ack" },
-        { title: "Mastering Startup Math: TAM, CAC, Churn, Retention, LTV, Payback and more", url: "https://www.youtube.com/watch?v=fvNKX7WCFvE", channel: "Prime Venture Partners" },
         { title: "Startup Terminology - CAC, LTV, Life time value, Customer Acquisition Cost", url: "https://www.youtube.com/watch?v=SzJ3GUAzugE", channel: "Startup CoE Telugu - Startup Knowledge in Telugu" },
       ],
       ta: [
-        { title: "What is LTV to CAC? The Most Important Metric in Ecommerce #ecommerce #digitalmarketing #marketing", url: "https://www.youtube.com/watch?v=_g1f7JduUto", channel: "Robert Hester" },
         { title: "How to Find Winning Ads in Meta Ads | ROAS & Metrics Explained in Tamil", url: "https://www.youtube.com/watch?v=ORTYNphEYko", channel: "Business Automation Tamil" },
-        { title: "Mastering Startup Math: TAM, CAC, Churn, Retention, LTV, Payback and more", url: "https://www.youtube.com/watch?v=fvNKX7WCFvE", channel: "Prime Venture Partners" },
         { title: "CAC vs LTV : Metrics you NEED to know! #cac #ltv #customeracquisition #seostrategy #digital", url: "https://www.youtube.com/watch?v=KflaR-TcHNo", channel: "Contentious by Spacebar" },
       ],
     },
@@ -8569,7 +7908,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "meaning of vision mission values and goals | vision mission values in hindi", url: "https://www.youtube.com/watch?v=DwvuV76LjjE", channel: "Hardik Gadhia" },
-        { title: "मिशन, विज़न और मूल्य: व्याख्या | बिज़नेस + कॉर्पोरेट रणनीति पाठ्यक्रम", url: "https://www.youtube.com/watch?v=Ue6hxaN0YoQ", channel: "Consultport" },
         { title: "What is Mission, Vision and Core Values for a Business", url: "https://www.youtube.com/watch?v=4aGv_wNL4EA", channel: "Edu24 india" },
         { title: "मिशन, विजन और मूल मूल्य", url: "https://www.youtube.com/watch?v=7rl676EiQuk", channel: "Dr Mukesh Aggarwal" },
       ],
@@ -8577,10 +7915,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Planning and Mission | Mission Vision and Values in Management | Principles of Management Telugu", url: "https://www.youtube.com/watch?v=43RP3Qa02TU", channel: "Commerce Tutorials" },
         { title: "విజన్ మరియు మిషన్ తెలుగు వెర్షన్ - Understand VISION and MISSION", url: "https://www.youtube.com/watch?v=_DUUFYEhibE", channel: "Dr Amar Nagesh Kumar" },
         { title: "Vision and Mission both - Explained in English and Telugu Simultaneously", url: "https://www.youtube.com/watch?v=oASqMij7aFo", channel: "Dr Amar Nagesh Kumar" },
-        { title: "Mission, Vision, & Values: Explained | Business + Corporate Strategy Course", url: "https://www.youtube.com/watch?v=Ue6hxaN0YoQ", channel: "Consultport" },
       ],
       ta: [
-        { title: "Mission, Vision, & Values: Explained | Business + Corporate Strategy Course", url: "https://www.youtube.com/watch?v=Ue6hxaN0YoQ", channel: "Consultport" },
         { title: "Mission! Vision! Purpose! Where I learned from! | Sidd Ahmed!", url: "https://www.youtube.com/watch?v=JYaQzrjshSQ", channel: "Sidd Ahmed" },
         { title: "Strategic Mission and Vision | How to set Mission and Vision explained in Tamil #video3#mba#bba", url: "https://www.youtube.com/watch?v=CDe7E-nmMGA", channel: "G and G" },
         { title: "Mission and Vision | Difference | Fully Explained in Tamil | @StudyRiderz", url: "https://www.youtube.com/watch?v=zti7IvOyy9M", channel: "Study Riderz" },
@@ -8607,22 +7943,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Product-Led Growth Bootcamp | Creating the Ultimate PLG Strategy", url: "https://www.youtube.com/watch?v=V2Cew0iBBfQ", channel: "Product-Led Growth Hub" },
       ],
       hi: [
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
         { title: "Part 1/5: Product Led Growth Explained (PLG Fundamentals)", url: "https://www.youtube.com/watch?v=ND9fhaen2G0", channel: "PM Interview Prep Club" },
         { title: "What is Product Led Growth or PLG?", url: "https://www.youtube.com/watch?v=bnDdqpQAN8Y", channel: "Young Urban Project" },
         { title: "What is product-led growth? EXPLAINED #shorts #marketing #growthx", url: "https://www.youtube.com/watch?v=NZcLUTdseeU", channel: "GrowthX" },
       ],
       te: [
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
-        { title: "Product Led Growth Framework Masterclass", url: "https://www.youtube.com/watch?v=jvOZMQYjYYY", channel: "ProductLed" },
         { title: "What is product-led growth? (PLG)", url: "https://www.youtube.com/watch?v=RALGsXKOU8A", channel: "Blake Bartlett" },
       ],
       ta: [
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
-        { title: "What is Product-Led Growth? A 30-minute guide to PLG", url: "https://www.youtube.com/watch?v=LQ2eyBztSAs", channel: "Funnel" },
-        { title: "The Evolution of Product-Led Growth: PLG x AI", url: "https://www.youtube.com/watch?v=JSMvq9dXKxA", channel: "ProductLed" },
       ],
     },
     articles: [
@@ -8649,13 +7977,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Hospital Position | Medical Position | Hospital | Hospital Knowledge | Doctor | Nursing | Pharmacy", url: "https://www.youtube.com/watch?v=Y4aJx1ou-Qo", channel: "Indian Medical Lecture💉" },
         { title: "Hospital Position | Medical Position | Hospital | Hospital Knowledge | Doctor | Nursing | Pharmacy", url: "https://www.youtube.com/watch?v=LrrDlfzvnvQ", channel: "Varsha Nursing Academy" },
         { title: "Anatomical Terminology|Sagittal,coronal,axial plane Radiographer & X ray Technician| By Suraj sir", url: "https://www.youtube.com/watch?v=yS1J0QNydLs", channel: "GURUVIDHYA CAREER INSTITUTE, PARAMEDICAL JAIPUR" },
-        { title: "CSS Position Property | Sigma Web Development Course - Tutorial #28", url: "https://www.youtube.com/watch?v=cOw6tgH6P20", channel: "CodeWithHarry" },
       ],
       te: [
         { title: "Web Development CSS POSITION PROPERTY ( Important Interview Question ***) in Telugu ( LESSON - 14 )", url: "https://www.youtube.com/watch?v=cb5F34PzadQ", channel: "Coding Bathulu" },
         { title: "CSS Position in 8 Minutes (Absolute, Relative, Fixed, Sticky) in Web Development in Telugu.", url: "https://www.youtube.com/watch?v=IJ9maf7Lt90", channel: "Backbench Coders" },
         { title: "17. Positions in CSS || CSS Tutorial for Beginners in Telugu", url: "https://www.youtube.com/watch?v=Qjr1Th7m3Hk", channel: "Telugu WebTech" },
-        { title: "Learn CSS Positions in 4 minutes", url: "https://www.youtube.com/watch?v=YEmdHbQBCSQ", channel: "Coding2GO" },
       ],
       ta: [
         { title: "CSS Positioning Made Simple: A Beginner-Friendly Tutorial 🎨✨ | Tamil | EMC", url: "https://www.youtube.com/watch?v=jnfyH1k2c38", channel: "Error Makes Clever" },
@@ -8690,14 +8016,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Pricing Strategies In Marketing - Price Skimming And Penetration Pricing In Hindi - Premium Pricing", url: "https://www.youtube.com/watch?v=-1kbLfJhcu4", channel: "Business Analytics by SkillArbitrage" },
-        { title: "PRICING STRATEGY | THE PSYCHOLOGY OF PRICING |5 TACTICS |AKASH BHATT | MARKETING", url: "https://www.youtube.com/watch?v=LZdRwqcpfdI", channel: "Akash Bhatt" },
         { title: "Why Prices End with Rs 99 ? | Psychological Pricing | Price tags | Hindi", url: "https://www.youtube.com/watch?v=r1mnTqUl7_s", channel: "Tech Capsule" },
-        { title: "मूल्य निर्धारण मनोविज्ञान: ब्रांड आपको अधिक खर्च करने के लिए कैसे बरगलाते हैं", url: "https://www.youtube.com/watch?v=VbQk-znqJCk", channel: "Max Klymenko" },
       ],
       te: [
         { title: "Pricing Strategy💯 | Telugu Business Podcast | #shorts", url: "https://www.youtube.com/watch?v=__NB1d7Vmak", channel: "Telugu Connects - Growth Podcast" },
-        { title: "Pricing Psychology: How Brands Trick You To Spend More", url: "https://www.youtube.com/watch?v=VbQk-znqJCk", channel: "Max Klymenko" },
-        { title: "Pricing strategy an introduction Explained", url: "https://www.youtube.com/watch?v=sF6AMj3H0jg", channel: "Leaders Talk - ThinkEduca" },
         { title: "99% mandi valla product pricing lo yi mistake chestaru. #pricing #marketing #businesstips #business", url: "https://www.youtube.com/watch?v=1Jimi_05SUE", channel: "Business Unfiltered With Teja" },
       ],
       ta: [
@@ -8734,21 +8056,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "The 5 Critical Steps to Product-Market Fit | Best Business Lesson | Hindi #startup", url: "https://www.youtube.com/watch?v=iYDSjK-3CSY", channel: "StartUp With Sid" },
-        { title: "उत्पाद बाज़ार में अपनी जगह बनाने के 5 चरण | स्टार्टअप बज़ | मिंट", url: "https://www.youtube.com/watch?v=e0JyvBUxAHE", channel: "Mint" },
         { title: "What is Product Market Fit ? | How to Measure and Achieve Product Market Fit? | Umar Tazkeer", url: "https://www.youtube.com/watch?v=gJDI79VAP64", channel: "Umar Tazkeer" },
         { title: "What is Product Market Fit? Shark Tank Term Explained. #shortsfeed #startupindia #sharktank", url: "https://www.youtube.com/watch?v=EzQDJ2dQztw", channel: "Tan Man Dhan" },
       ],
       te: [
         { title: "Product Market Fit: Key to Startup Success #shorts #productmarketfit #startupsuccess", url: "https://www.youtube.com/watch?v=k07TKO7GhW4", channel: "Boss Wallah Daily Telugu" },
-        { title: "5 Steps To Find a Product Market Fit | Startup Buzz | Mint", url: "https://www.youtube.com/watch?v=e0JyvBUxAHE", channel: "Mint" },
-        { title: "How to Find Product Market Fit - A Detailed Framework", url: "https://www.youtube.com/watch?v=E_FyTYiR5nw", channel: "Ash Maurya - LEANFoundry" },
         { title: "How to Find Product Market Fit Fast in a StartUp | Karan Bajaj", url: "https://www.youtube.com/watch?v=hgBTL95bBtU", channel: "Karan Bajaj" },
       ],
       ta: [
         { title: "What is Product Market Fit in Tamil", url: "https://www.youtube.com/watch?v=y1rcQMAagg4", channel: "Laven Lokesh" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "How to Find Product Market Fit - A Detailed Framework", url: "https://www.youtube.com/watch?v=E_FyTYiR5nw", channel: "Ash Maurya - LEANFoundry" },
-        { title: "5 Steps To Find a Product Market Fit | Startup Buzz | Mint", url: "https://www.youtube.com/watch?v=e0JyvBUxAHE", channel: "Mint" },
       ],
     },
     articles: [
@@ -8773,22 +8090,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is revenue operations (RevOps)? #shorts", url: "https://www.youtube.com/watch?v=u2dGO7e5MLM", channel: "Revenue Operations Alliance" },
       ],
       hi: [
-        { title: "What is RevOps? The Complete Guide to Revenue Operations", url: "https://www.youtube.com/watch?v=8mneLrvheK8", channel: "Evenbound" },
-        { title: "What Is RevOps? A Crash Course In Revenue Operations", url: "https://www.youtube.com/watch?v=qY-KJFqoO8A", channel: "Neighbourhood Co." },
-        { title: "What is Revenue Operations (RevOps)? | Complete Beginner’s Guide to RevOps Explained", url: "https://www.youtube.com/watch?v=pL9d2cgX5no", channel: "Iteanz Digital" },
-        { title: "What is revenue operations (RevOps)? #shorts", url: "https://www.youtube.com/watch?v=u2dGO7e5MLM", channel: "Revenue Operations Alliance" },
       ],
       te: [
-        { title: "What is RevOps? The Complete Guide to Revenue Operations", url: "https://www.youtube.com/watch?v=8mneLrvheK8", channel: "Evenbound" },
-        { title: "What is Revenue Operations (RevOps)? | Complete Beginner’s Guide to RevOps Explained", url: "https://www.youtube.com/watch?v=pL9d2cgX5no", channel: "Iteanz Digital" },
-        { title: "What is revenue operations (RevOps)? #shorts", url: "https://www.youtube.com/watch?v=u2dGO7e5MLM", channel: "Revenue Operations Alliance" },
-        { title: "What is revenue operations (RevOps)?", url: "https://www.youtube.com/watch?v=rWCdzvTV5Kg", channel: "Revenue Operations Alliance" },
       ],
       ta: [
-        { title: "Revenue Operations Explained  #saas #revops  #saasmarketing #podcast", url: "https://www.youtube.com/watch?v=IXhwgLemL68", channel: "SaaS Alliance" },
-        { title: "What is Revenue Operations (RevOps)? | Complete Beginner’s Guide to RevOps Explained", url: "https://www.youtube.com/watch?v=pL9d2cgX5no", channel: "Iteanz Digital" },
-        { title: "What is RevOps? The Complete Guide to Revenue Operations", url: "https://www.youtube.com/watch?v=8mneLrvheK8", channel: "Evenbound" },
-        { title: "What Is RevOps? A Crash Course In Revenue Operations", url: "https://www.youtube.com/watch?v=qY-KJFqoO8A", channel: "Neighbourhood Co." },
       ],
     },
     articles: [
@@ -8814,22 +8119,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "MBA Lectures -  STP in marketing- SEGMENTATION,TARGETING AND POSITIONING - LEARN WITH ARUNIMA", url: "https://www.youtube.com/watch?v=GkIDgdb5FV8", channel: "Learn With Arunima" },
       ],
       hi: [
-        { title: "What is Segmentation, Targeting and Positioning| Marketing  (Hindi)", url: "https://www.youtube.com/watch?v=Xh7KHJTKbWU", channel: "Commerce Gyaan" },
-        { title: "STP Framework in Marketing | Segmentation Targeting and Positioning |  Marketing Fundamentals | #12", url: "https://www.youtube.com/watch?v=EaMc55oeIwc", channel: "Umar Tazkeer" },
         { title: "Marketing STP - Segmentation Targeting Positioning | मार्केटिंग STP क्या हैं ? MSP-5", url: "https://www.youtube.com/watch?v=qoD5w_orBws", channel: "Digital Yodha" },
-        { title: "Segmentation, Targeting, Positioning, Differentiation, Marketing Management, basis of segmentation", url: "https://www.youtube.com/watch?v=JoYvk_Vmxf4", channel: "DWIVEDI GUIDANCE" },
       ],
       te: [
         { title: "What is Segmentation, Targeting, Positioning in Marketing", url: "https://www.youtube.com/watch?v=7H12DEiqcd0", channel: "Digital Marketing Course in Telugu" },
         { title: "What is Segmentation in Marketing?", url: "https://www.youtube.com/watch?v=0aanQYlUy4E", channel: "Digital Marketing Course in Telugu" },
         { title: "Market Segmentation| MARKET SEGMENTATION IN TELUGU | market Segmentation|marketing|#marketing", url: "https://www.youtube.com/watch?v=_xhFML7kMNQ", channel: "RS ACADEMY" },
-        { title: "STP Marketing (Segmentation, Targeting, Positioning)", url: "https://www.youtube.com/watch?v=iGOw39GWDaI", channel: "EPM" },
       ],
       ta: [
         { title: "STP- #Segmentation, targeting and positioning -types and strategies| Tamil", url: "https://www.youtube.com/watch?v=50JtYedpvuU", channel: "Deepi Senpai" },
         { title: "What is Segmentation Targeting Positioning Model in Marketing? STP in Tamil", url: "https://www.youtube.com/watch?v=N_yC49GiNTA", channel: "FinanceGuyTamil" },
         { title: "Basics of Positioning in STP Model | Repositioning (Tamil)", url: "https://www.youtube.com/watch?v=oeYg4njVTA4", channel: "FinanceGuyTamil" },
-        { title: "Market Segmentation in 12 minutes", url: "https://www.youtube.com/watch?v=LbYv2RWE4Tk", channel: "Leaders Talk - ThinkEduca" },
       ],
     },
     articles: [
@@ -8862,8 +8162,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Strategy vs Tactics in Hindi | Master the Art of Warfare | LearStory", url: "https://www.youtube.com/watch?v=WXMgwsC0hCA", channel: "LearStory" },
       ],
       te: [
-        { title: "Differences between Tactics and Strategy.", url: "https://www.youtube.com/watch?v=_EyGD4aUYic", channel: "Academic Gain Tutorials" },
-        { title: "Strategy vs Tactics - Difference Between Strategy and Tactics", url: "https://www.youtube.com/watch?v=9HF3accqW6A", channel: "Marketing91" },
         { title: "ALL Chess Tactics Explained |Chess Strategy, Moves, Ideas & Basics for Beginners| How to Play Chess", url: "https://www.youtube.com/watch?v=E4F77emUnqQ", channel: "Chess Talk" },
         { title: "Tactics vs Strategy|Difference between tactics and strategy|Tactics and strategy difference", url: "https://www.youtube.com/watch?v=yBPW2jilbLA", channel: "Last Night Study" },
       ],
@@ -8903,14 +8201,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "What Is Value Proposition With Examples In Telugu || Digital Marketing Video - 1", url: "https://www.youtube.com/watch?v=4F5YtDZrnwA", channel: "KARTHIK METTU" },
         { title: "Value Proposition Explained in Telugu 💡 | The Secret to Winning Customers | Startup Tips India", url: "https://www.youtube.com/watch?v=osUAHMrOybQ", channel: "Jagadeesh Varma Dandu" },
-        { title: "Strategyzer’s value proposition canvas explained with examples in strategic management.", url: "https://www.youtube.com/watch?v=V4B1ZARQj34", channel: "Management by Dr. Mitul Dhimar" },
         { title: "Value Proposition Design class4  AI Digital Marketing Online Telugu", url: "https://www.youtube.com/watch?v=A7pk7IYBNYo", channel: "Sri Digital Marketing World" },
       ],
       ta: [
         { title: "Business strategy and tips (VALUE PROPOSITION) Tamil", url: "https://www.youtube.com/watch?v=mcHt-7IVzLs", channel: "KAAVALKARAN - GALATTA" },
         { title: "What is Value Proposition | How to Create a Powerful Value Proposition in TAMIL", url: "https://www.youtube.com/watch?v=Zblld1_iWLg", channel: "Laven Lokesh" },
-        { title: "Strategyzer’s value proposition canvas explained with examples in strategic management.", url: "https://www.youtube.com/watch?v=V4B1ZARQj34", channel: "Management by Dr. Mitul Dhimar" },
-        { title: "Strategyzer's Value Proposition Canvas Explained", url: "https://www.youtube.com/watch?v=ReM1uqmVfP0", channel: "Strategyzer" },
       ],
     },
     articles: [
@@ -8939,7 +8234,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Hindi", url: "https://www.youtube.com/watch?v=ZucOiqzRznA", channel: "Saddam Kassim" },
-        { title: "Stop Confusing Sales & Marketing! | Essential Business English Terms Explained | English With Ananya", url: "https://www.youtube.com/watch?v=tV65lERq8IY", channel: "Learn English | Let's Talk - Free English Lessons" },
         { title: "Learn DIGITAL MARKETING in 2025: FULL ROADMAP | Digital Marketing Course", url: "https://www.youtube.com/watch?v=KZLroOQKT-g", channel: "Ishan Sharma" },
       ],
       te: [
@@ -8979,22 +8273,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Grow Sales Fast with Pirate Metrics (AARRR Framework)", url: "https://www.youtube.com/watch?v=sHGY-vigexU", channel: "ReadinGraphics" },
       ],
       hi: [
-        { title: "AARRR Framework | Pirate Metrics | Product Management Course", url: "https://www.youtube.com/watch?v=jd2rpMhiTNA", channel: "AI Product Manager | Chirag Gupta" },
         { title: "Follow the ‘AARRR’ Framework to Drive Revenue", url: "https://www.youtube.com/watch?v=to4zvfTvkjQ", channel: "MoEngage" },
         { title: "AARRR फ्रेमवर्क उत्पाद प्रबंधन (उदाहरण सहित)", url: "https://www.youtube.com/watch?v=5RqCL_rFY8U", channel: "Yash Thakker" },
-        { title: "पायरेट मेट्रिक्स: (AARRR) Firebase के साथ", url: "https://www.youtube.com/watch?v=0g-MFSCQN2A", channel: "Firebase" },
       ],
       te: [
-        { title: "AARRR Framework | Pirate Metrics | Product Management Course", url: "https://www.youtube.com/watch?v=jd2rpMhiTNA", channel: "AI Product Manager | Chirag Gupta" },
-        { title: "Master the AARRR Pirate Metrics: Grow Your Product Like a Pro!", url: "https://www.youtube.com/watch?v=k0A4-KkETx4", channel: "AI Product Management" },
-        { title: "What are Pirate Metrics? AARRR framework in 3 minutes", url: "https://www.youtube.com/watch?v=zIwrgnT498E", channel: "Product Chat" },
-        { title: "Key Metrics for Pirates and Product Managers: explaining the AARRR framework", url: "https://www.youtube.com/watch?v=TEuIwSGZ7DY", channel: "Product Teacher" },
       ],
       ta: [
-        { title: "AARRR Framework | Pirate Metrics | Product Management Course", url: "https://www.youtube.com/watch?v=jd2rpMhiTNA", channel: "AI Product Manager | Chirag Gupta" },
         { title: "AARRR Startup Metrics For Your Business Growth", url: "https://www.youtube.com/watch?v=C7CGidpUlOM", channel: "Needo HQ" },
-        { title: "What are Pirate Metrics? AARRR framework in 3 minutes", url: "https://www.youtube.com/watch?v=zIwrgnT498E", channel: "Product Chat" },
-        { title: "Master the AARRR Pirate Metrics: Grow Your Product Like a Pro!", url: "https://www.youtube.com/watch?v=k0A4-KkETx4", channel: "AI Product Management" },
       ],
     },
     articles: [
@@ -9022,22 +8307,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "P-values and significance tests | AP Statistics | Khan Academy", url: "https://www.youtube.com/watch?v=KS6KEWaoOOE", channel: "Khan Academy" },
       ],
       hi: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Simple explanation of A/B Testing In Hindi", url: "https://www.youtube.com/watch?v=Vif1U1FLUeQ", channel: "codebasics Hindi" },
         { title: "Statistics for Data Science (A/B Testing Interview Questions in Tech Companies)", url: "https://www.youtube.com/watch?v=MdkLh1UC3IQ", channel: "Rajeev Kanth | BEPEC" },
-        { title: "A/B Testing Course 014: Statistical significance, confidence level and the certainty of your results", url: "https://www.youtube.com/watch?v=cuxZWi7xfAs", channel: "Data36 - Online Data Science Courses" },
       ],
       te: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "Statistics for Data Science (A/B Testing Interview Questions in Tech Companies)", url: "https://www.youtube.com/watch?v=MdkLh1UC3IQ", channel: "Rajeev Kanth | BEPEC" },
-        { title: "A/B Testing Course 014: Statistical significance, confidence level and the certainty of your results", url: "https://www.youtube.com/watch?v=cuxZWi7xfAs", channel: "Data36 - Online Data Science Courses" },
-        { title: "A/B testing - Statistical significance for beginners", url: "https://www.youtube.com/watch?v=BmNBxAhatYI", channel: "ABoptimization" },
       ],
       ta: [
-        { title: "Simple explanation of A/B Testing", url: "https://www.youtube.com/watch?v=eiIhTbFP0ls", channel: "codebasics" },
         { title: "🤯 Statistical Testing A-Z Made Easy in Tamil - Statistics Masterclass Part-3 | AI Coach John", url: "https://www.youtube.com/watch?v=HBzdbeXYseI", channel: "AI Coach John (Tamil)" },
-        { title: "A/B testing - Statistical significance for beginners", url: "https://www.youtube.com/watch?v=BmNBxAhatYI", channel: "ABoptimization" },
-        { title: "A/B Testing & Statistical Significance - 4 Steps to Know How to Call a Winning Test", url: "https://www.youtube.com/watch?v=c5YaKCMraO8", channel: "Testing Theory" },
       ],
     },
     articles: [
@@ -9114,21 +8391,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Mystery of 'AHA MOMENT' | EIC | EP 4", url: "https://www.youtube.com/watch?v=L31-d66cpEw", channel: "Jam with Ashish" },
-        { title: "अहा! मोमेंट क्या है? उत्पाद को अपनाने और सक्रिय करने के लिए कैसे प्रेरित करें!", url: "https://www.youtube.com/watch?v=1vjqiH83BRc", channel: "Whatfix" },
-        { title: "Unlocking the Aha Moment: Boost User Activation and Retention in 6 Easy Steps", url: "https://www.youtube.com/watch?v=RVKuHGJbK8w", channel: "TelemetryDeck" },
         { title: "Turning boring topics into ‘aha!’ moments  #Shorts #YouTubeShorts #ShortsFeed #ViralShorts #shorts", url: "https://www.youtube.com/watch?v=ralqzjMvjgE", channel: "Fazil khans Tutorial" },
       ],
       te: [
-        { title: "What is an Aha! Moment? How it works, Top Examples & How to Find Yours", url: "https://www.youtube.com/watch?v=Cucx3OyT8Wo", channel: "UserGuiding.com" },
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
         { title: "My First Aha Moment as a VA 🤍✨. #digitalmahila #day13 #digitalmahilachallenge #virtualassistant #aha", url: "https://www.youtube.com/watch?v=EQn3lmb5QsA", channel: "Pravaaha Digital by Mounika" },
-        { title: "What Is the Aha! Moment? How to Drive Product Adoption & Activation!", url: "https://www.youtube.com/watch?v=1vjqiH83BRc", channel: "Whatfix" },
       ],
       ta: [
-        { title: "What is an Aha! Moment? How it works, Top Examples & How to Find Yours", url: "https://www.youtube.com/watch?v=Cucx3OyT8Wo", channel: "UserGuiding.com" },
-        { title: "How to Find Your Product's \"Aha!\" Moment", url: "https://www.youtube.com/watch?v=fOx7yEdqPpk", channel: "Chameleon" },
-        { title: "What Is the Aha! Moment? How to Drive Product Adoption & Activation!", url: "https://www.youtube.com/watch?v=1vjqiH83BRc", channel: "Whatfix" },
-        { title: "User/Product Fit: Turn Aha Moments Into Aha Journeys", url: "https://www.youtube.com/watch?v=cuNzMD1ULJk", channel: "ProductLed" },
       ],
     },
     articles: [
@@ -9158,10 +8427,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Roadmap to Become a Generative AI Expert for Beginners in 2025", url: "https://www.youtube.com/watch?v=39zbC_PrNQs", channel: "Analytics Vidhya" },
       ],
       hi: [
-        { title: "Use AI in Excel for Data Analysis | No Plugin required", url: "https://www.youtube.com/watch?v=Q-Ar-35nChA", channel: "Levelupwithexcel" },
-        { title: "How I Tricked ChatGPT into Analyzing MASSIVE Datasets (100% Free)", url: "https://www.youtube.com/watch?v=ES2B8vMXW9k", channel: "Website Learners" },
-        { title: "How to use AI features in Excel | Save 4 Hours Daily by using AI Tools #excel #ai #exceltips", url: "https://www.youtube.com/watch?v=6WG0019Memg", channel: "Short and Clear Excel" },
-        { title: "120 mind blowing AI tools #productivity #aitools #ai", url: "https://www.youtube.com/watch?v=0MQEf_7qk4s", channel: "SetupsAI" },
       ],
       te: [
         { title: "🚀 AI Course Telugu: Learn Prompt Engineering in 15 Minutes | ChatGPT & All AI Tools", url: "https://www.youtube.com/watch?v=2b_He92krNg", channel: "Anil Raju's VFX" },
@@ -9202,8 +8467,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "HubSpot Loop Marketing Explained 2025 AI : Build Your Growth Loop with Webguruz", url: "https://www.youtube.com/watch?v=ASWuIqBp1ak", channel: "WebGuruz Technologies Pvt Ltd" },
       ],
       hi: [
-        { title: "5 Proven Sales Techniques to scale B2B businesses!", url: "https://www.youtube.com/watch?v=VMoN3o786ms", channel: "Rajiv Talreja" },
-        { title: "The Best B2B Marketing Advice People DON’T LEVERAGE ENOUGH!", url: "https://www.youtube.com/watch?v=Tvldi7uk-E8", channel: "Neil Patel" },
         { title: "B2B Marketing Strategy | How To Increase B2B Business | How to Do B2B Digital Marketing", url: "https://www.youtube.com/watch?v=1sFKb1LLZGk", channel: "Amit Tiwari" },
         { title: "Digital Marketing for B2B | 6 Strategies for Business-to-Business Growth 📈", url: "https://www.youtube.com/watch?v=8iVygvJZg90", channel: "IIDE - The Digital Business School" },
       ],
@@ -9246,21 +8509,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Community-Led Growth: Turn Customers Into Your Best Sales Team", url: "https://www.youtube.com/watch?v=MwmIA0xagq4", channel: "Salesfully Support" },
       ],
       hi: [
-        { title: "Community-led Growth - Take Your Growth from Funnel to Flywheel", url: "https://www.youtube.com/watch?v=p9AKjmCSVaE", channel: "Instruqt" },
-        { title: "What is community-led growth?", url: "https://www.youtube.com/watch?v=ptX4fGbuOm8", channel: "Community-Led Alliance" },
-        { title: "Designing Your Own Role: Community-Led Growth", url: "https://www.youtube.com/watch?v=XhabBkEBwyQ", channel: "MultiLingual" },
-        { title: "The power of community-led growth | Jake Lee", url: "https://www.youtube.com/watch?v=spnQFPCvopg", channel: "Manchester Blockchain Alliance" },
       ],
       te: [
         { title: "How Telugu Creator Kanth’s Community-Led Drive is Restoring Andhra Pradesh’s Heritage Konerus", url: "https://www.youtube.com/watch?v=8okioG9ckHA", channel: "The Logical Indian" },
-        { title: "Community-led Growth - Take Your Growth from Funnel to Flywheel", url: "https://www.youtube.com/watch?v=p9AKjmCSVaE", channel: "Instruqt" },
-        { title: "CXO Connect Program: The New Flywheel: Product-Led Growth + Ecosystem-Led Growth", url: "https://www.youtube.com/watch?v=LJuPY8GYhns", channel: "Mint" },
         { title: "Centralized corporate control vs. Community-led growth. Which side are you on? 🤷‍♂️", url: "https://www.youtube.com/watch?v=eHBhyy8CYaI", channel: "AVRDIGITAL1968" },
       ],
       ta: [
-        { title: "Designing Your Own Role: Community-Led Growth", url: "https://www.youtube.com/watch?v=XhabBkEBwyQ", channel: "MultiLingual" },
-        { title: "What is community-led growth?", url: "https://www.youtube.com/watch?v=ptX4fGbuOm8", channel: "Community-Led Alliance" },
-        { title: "The power of community-led growth | Jake Lee", url: "https://www.youtube.com/watch?v=spnQFPCvopg", channel: "Manchester Blockchain Alliance" },
         { title: "FlyWheel working method in tamil|what is fly wheel?|flywheel in tamil|flywheel explained in tamil", url: "https://www.youtube.com/watch?v=-KYmENNxynk", channel: "Tamil Mech" },
       ],
     },
@@ -9293,7 +8547,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Javascript tutorial in Hindi #15 For Loop Explained in Depth | Increment, Reverse & Nested Loops", url: "https://www.youtube.com/watch?v=VeC94nPF1u8", channel: "Code Step By Step" },
         { title: "Trending Engagement Reel #viral #ringceremony", url: "https://www.youtube.com/watch?v=AgSmg4qDV3k", channel: "Tarj Video Films" },
-        { title: "लूप वीडियो कैसे बनाएं ताकि लोग उसे बार-बार देखें? #loopvideos #capcutedit #iphoneediting", url: "https://www.youtube.com/watch?v=Hzi9VMmS4qg", channel: "Dasha Rudik" },
         { title: "Tujhko jo paya | Engagement proposal | Kneel down 2024 | Ring Ceremony #wedding #engagementdance", url: "https://www.youtube.com/watch?v=OKjreshJUgU", channel: "SweetPotatoTales" },
       ],
       te: [
@@ -9381,20 +8634,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Difference between Freemium VS Free Trial | Explained | Hindi", url: "https://www.youtube.com/watch?v=jVoBcZocYlY", channel: "Hustle Inside" },
         { title: "What is Freemium Model? | Explained | Hindi", url: "https://www.youtube.com/watch?v=rtWt9JTL6C4", channel: "Hustle Inside" },
-        { title: "What is the difference betwen Freemium and Free Trial?", url: "https://www.youtube.com/watch?v=MlYLeRb2Q8I", channel: "Startup Akademia" },
         { title: "What is Freemium Business Model? How Free apps make more money by Freemium revenue model?", url: "https://www.youtube.com/watch?v=fgoXUdYMWlg", channel: "Digital Dhandha" },
       ],
       te: [
-        { title: "Freemium vs. Free Trial: Which Will Grow Your SaaS Faster? | SaaS Pricing Fundamentals", url: "https://www.youtube.com/watch?v=v-bCGaYc4jw", channel: "AI, SaaS & Agentic Pricing with Monetizely" },
-        { title: "SaaSy Take: Freemium vs Free Trial", url: "https://www.youtube.com/watch?v=8jmtGH9nl8E", channel: "AI, SaaS & Agentic Pricing with Monetizely" },
-        { title: "What is the difference betwen Freemium and Free Trial?", url: "https://www.youtube.com/watch?v=MlYLeRb2Q8I", channel: "Startup Akademia" },
         { title: "Don’t forget to cancel your free trials with this simple trick! #lifehacks #hacks #lifehack", url: "https://www.youtube.com/watch?v=zbk4X2FzaEE", channel: "rashmiix" },
       ],
       ta: [
-        { title: "Freemium vs. Free Trial: Which Will Grow Your SaaS Faster? | SaaS Pricing Fundamentals", url: "https://www.youtube.com/watch?v=v-bCGaYc4jw", channel: "AI, SaaS & Agentic Pricing with Monetizely" },
         { title: "What is Freemium in business explained in Tamil", url: "https://www.youtube.com/watch?v=-2VNyKhQ6xs", channel: "Laven Lokesh" },
         { title: "Freemium business model in Tamil | Business model in Tamil  #companyregistration", url: "https://www.youtube.com/watch?v=z_bhg5YTPvs", channel: "eAuditor Office" },
-        { title: "SaaSy Take: Freemium vs Free Trial", url: "https://www.youtube.com/watch?v=8jmtGH9nl8E", channel: "AI, SaaS & Agentic Pricing with Monetizely" },
       ],
     },
     articles: [
@@ -9469,19 +8716,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "RICE Framework | How to prioritize backlog for Product Managers | 5 Minute Business Concepts", url: "https://www.youtube.com/watch?v=zfxyj6v4qUA", channel: "5 Minute Manager" },
         { title: "RICE vs ICE: The Best Feature Prioritization Frameworks for Product Managers", url: "https://www.youtube.com/watch?v=SGDVEeVjCYs", channel: "Alisha Malik" },
         { title: "RICE Prioritization Framework | Product Management", url: "https://www.youtube.com/watch?v=efiQu5R644Y", channel: "Yash Thakker" },
-        { title: "ICE और RICE स्कोरिंग: एक ऐसा ढांचा जो वास्तव में कारगर है", url: "https://www.youtube.com/watch?v=YX4cPR6zxwY", channel: "Project Management Insights" },
       ],
       te: [
         { title: "RICE Prioritization Framework | Product Management", url: "https://www.youtube.com/watch?v=efiQu5R644Y", channel: "Yash Thakker" },
-        { title: "What is RICE Framework? #prioritization #productmanagement #framework", url: "https://www.youtube.com/watch?v=MHaFJaRX054", channel: "Product Initium" },
-        { title: "RICE Backlog Prioritization Framework Explained + Example in Jira", url: "https://www.youtube.com/watch?v=eKre8vi3ER8", channel: "Monday Coffee by Appfire" },
         { title: "Prioritize Product Features with RICE | Step-by-Step Guide to Scoring #productmanagement", url: "https://www.youtube.com/watch?v=ioBlaD_wVPw", channel: "Product Initium" },
       ],
       ta: [
-        { title: "What is the RICE Scoring Model?", url: "https://www.youtube.com/watch?v=pzyRafZJ-0M", channel: "ProductPlan" },
-        { title: "What is RICE Framework? #prioritization #productmanagement #framework", url: "https://www.youtube.com/watch?v=MHaFJaRX054", channel: "Product Initium" },
-        { title: "RICE Backlog Prioritization Framework Explained + Example in Jira", url: "https://www.youtube.com/watch?v=eKre8vi3ER8", channel: "Monday Coffee by Appfire" },
-        { title: "ICE Backlog Prioritization Framework - Explanation + Example in Jira", url: "https://www.youtube.com/watch?v=b_iXDDCqX_w", channel: "Monday Coffee by Appfire" },
       ],
     },
     articles: [
@@ -9510,7 +8750,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Network Effects Explained || Strategic Management Series", url: "https://www.youtube.com/watch?v=Z0GEe4B9AFE", channel: "FST Study" },
       ],
       hi: [
-        { title: "नेटवर्क प्रभाव क्या हैं? (स्टार्टअप मिनी-सीरीज़)", url: "https://www.youtube.com/watch?v=aoeal3ljnqw", channel: "NFX" },
         { title: "Network Effects In Startups Explained In Hindi", url: "https://www.youtube.com/watch?v=2LtQP0bu8C0", channel: "Educurve Hindi" },
         { title: "After Effects SaaS UI Animation Tutorial | Apple-Style Design & Motion From Scratch", url: "https://www.youtube.com/watch?v=hQCYaQKEXjY", channel: "Mhd Labs" },
         { title: "Network effects and why they are the biggest driver of business growth #startup #mentalmodels", url: "https://www.youtube.com/watch?v=KNYiR67LeE4", channel: "Anurag Pagaria" },
@@ -9518,7 +8757,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Networking Full Course in Telugu with Animations | మన తెలుగు లో", url: "https://www.youtube.com/watch?v=mERUdj0rDU8", channel: "ACEP Tech in Telugu" },
         { title: "How Google Ads Video Network Works Explanation in Telugu 2023 | Video Network Campaign Setup", url: "https://www.youtube.com/watch?v=_UdzgRM1phM", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "Network Effects Explained || Strategic Management Series", url: "https://www.youtube.com/watch?v=Z0GEe4B9AFE", channel: "FST Study" },
         { title: "A detailed note on VFX growth #vfx #telugu #aadhan #digitalmarketing", url: "https://www.youtube.com/watch?v=YSZbgGxaDdw", channel: "Digital vamsi" },
       ],
       ta: [
@@ -9554,19 +8792,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "#2 Growth Funnel & North Star Metric Explained in Hindi | A3R3 Framework", url: "https://www.youtube.com/watch?v=bm9TAXJ5Yic", channel: "Rahul Gowtham (The Usual media)" },
-        { title: "Topic 31. North Star Metrics for AI Products - How to Measure Growth,  Product Value", url: "https://www.youtube.com/watch?v=MWR-sF-YZvY", channel: "Jatin K" },
       ],
       te: [
-        { title: "Topic 31. North Star Metrics for AI Products - How to Measure Growth,  Product Value", url: "https://www.youtube.com/watch?v=MWR-sF-YZvY", channel: "Jatin K" },
-        { title: "How to Set a Great North Star Metric", url: "https://www.youtube.com/watch?v=ZwrRJlhJBrE", channel: "Exponent" },
-        { title: "What is a North Star Metric and how to Identify it", url: "https://www.youtube.com/watch?v=uAS4VHEcY3E", channel: "Rapido - Open Source Accelerator" },
-        { title: "What is Ubers North Star Metric | Startup | Sarthak Ahuja", url: "https://www.youtube.com/watch?v=ht21iQu1Cyg", channel: "Sarthak Ahuja" },
       ],
       ta: [
-        { title: "Topic 31. North Star Metrics for AI Products - How to Measure Growth,  Product Value", url: "https://www.youtube.com/watch?v=MWR-sF-YZvY", channel: "Jatin K" },
         { title: "DAY #60 - Choose your north star metric | Business automation & finance", url: "https://www.youtube.com/watch?v=mkgJKenT4AQ", channel: "CA Gokulakrishnan" },
-        { title: "How to Set a Great North Star Metric", url: "https://www.youtube.com/watch?v=ZwrRJlhJBrE", channel: "Exponent" },
-        { title: "What is a North Star Metric and how to Identify it", url: "https://www.youtube.com/watch?v=uAS4VHEcY3E", channel: "Rapido - Open Source Accelerator" },
       ],
     },
     articles: [
@@ -9595,9 +8825,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "UX Design Tutorial: User Onboarding Best Practices That Actually Work (Notion Case Study) | Lyssna", url: "https://www.youtube.com/watch?v=Ug_EMizZaGk", channel: "Lyssna" },
       ],
       hi: [
-        { title: "ऐप ऑनबोर्डिंग के रहस्य जो रूपांतरण करते हैं (सिद्ध रणनीतियाँ)", url: "https://www.youtube.com/watch?v=QMo2T5apdYw", channel: "Adam Lyttle" },
         { title: "ऑनबोर्डिंग प्रक्रिया की व्याख्या | ऑनबोर्डिंग बनाम ओरिएंटेशन #ऑनबोर्डिंग #रोज़गार #स्किलडेक #शॉर्ट्स", url: "https://www.youtube.com/watch?v=_nr6HB-0SyQ", channel: "SkillDeck" },
-        { title: "Mobile app Onboarding secrets that convert", url: "https://www.youtube.com/watch?v=zCtwBQYD18U", channel: "notJust․dev" },
         { title: "Candidate Onboarding Flow in Zoho People 5.0 | Help Videos | Zoho People", url: "https://www.youtube.com/watch?v=F-F6cWK3KI0", channel: "Zoho People" },
       ],
       te: [
@@ -9609,8 +8837,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "தமிழில்| What is ONBOARDING PROCESS? in IT JOBS | IT NEWS in Tamil | JOB INTERVIEW TIPS", url: "https://www.youtube.com/watch?v=g4ONVcsxtnw", channel: "Programming Tutor Tamil" },
         { title: "IT project onboarding process step by step | Tamil", url: "https://www.youtube.com/watch?v=Ma0NkdxJjqU", channel: "Skylena Info Technology" },
-        { title: "Mobile app Onboarding secrets that convert", url: "https://www.youtube.com/watch?v=zCtwBQYD18U", channel: "notJust․dev" },
-        { title: "The app onboarding secrets that convert (proven strategies)", url: "https://www.youtube.com/watch?v=QMo2T5apdYw", channel: "Adam Lyttle" },
       ],
     },
     articles: [
@@ -9639,22 +8865,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is Product-Led Growth? A 30-minute guide to PLG", url: "https://www.youtube.com/watch?v=LQ2eyBztSAs", channel: "Funnel" },
       ],
       hi: [
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
         { title: "What is Product Led Growth or PLG?", url: "https://www.youtube.com/watch?v=bnDdqpQAN8Y", channel: "Young Urban Project" },
         { title: "What is product-led growth? EXPLAINED #shorts #marketing #growthx", url: "https://www.youtube.com/watch?v=NZcLUTdseeU", channel: "GrowthX" },
         { title: "What is Product Led Growth and Why PMF is not permanent | PLG Series with TPF", url: "https://www.youtube.com/watch?v=LPx6OYZOwH0", channel: "The Product Folks" },
       ],
       te: [
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
         { title: "What is product-led growth? (PLG)", url: "https://www.youtube.com/watch?v=RALGsXKOU8A", channel: "Blake Bartlett" },
-        { title: "Product Led Growth Framework Masterclass", url: "https://www.youtube.com/watch?v=jvOZMQYjYYY", channel: "ProductLed" },
       ],
       ta: [
         { title: "What is Go-To-Market Strategy(GTM) & Why Product-Led Growth(PLG) in Tamil", url: "https://www.youtube.com/watch?v=EmWfIowRa00", channel: "The Product Talks with Jerry" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
-        { title: "The Evolution of Product-Led Growth: PLG x AI", url: "https://www.youtube.com/watch?v=JSMvq9dXKxA", channel: "ProductLed" },
       ],
     },
     articles: [
@@ -9680,21 +8899,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Transitioning from Enterprise Sales to Product Led Growth", url: "https://www.youtube.com/watch?v=QfBQ8rK8O3s", channel: "ProductLed" },
       ],
       hi: [
-        { title: "Product-led vs sales-led vs market-led: Which one is right for you?", url: "https://www.youtube.com/watch?v=LB7cR6ABtSc", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "The Secret to Incorporating Product-Led Growth into Your Enterprise Sales Motion", url: "https://www.youtube.com/watch?v=86ovJ7T4NyQ", channel: "ProductLed" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
       ],
       te: [
-        { title: "Product-led vs sales-led vs market-led: Which one is right for you?", url: "https://www.youtube.com/watch?v=LB7cR6ABtSc", channel: "Product-Led Alliance | The Home of PLG" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
       ],
       ta: [
-        { title: "Product-led vs sales-led vs market-led: Which one is right for you?", url: "https://www.youtube.com/watch?v=LB7cR6ABtSc", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
         { title: "What is Go-To-Market Strategy(GTM) & Why Product-Led Growth(PLG) in Tamil", url: "https://www.youtube.com/watch?v=EmWfIowRa00", channel: "The Product Talks with Jerry" },
       ],
     },
@@ -9767,22 +8976,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Mixpanel: Retention Report Complete Tutorial", url: "https://www.youtube.com/watch?v=3ucW4aJk0h4", channel: "Product Analytics Academy" },
       ],
       hi: [
-        { title: "What Is Customer Retention? | Customer Retention Cohort Analysis With Demo | Simplilearn", url: "https://www.youtube.com/watch?v=eieefQIVBR0", channel: "Simplilearn" },
         { title: "What is app retention? | How to segment cohorts?", url: "https://www.youtube.com/watch?v=n2Yla8_zSnk", channel: "CosX AI" },
-        { title: "Customer Retention & Cohort Analysis | How VCs Calculate Customer Retention", url: "https://www.youtube.com/watch?v=OwCATJh4lNg", channel: "Eric Andrews" },
-        { title: "Calculate Retention & Churn || Cohort Analysis || Data Analysis", url: "https://www.youtube.com/watch?v=EevV0x-ifjQ", channel: "YouExcel Tutorials" },
       ],
       te: [
         { title: "What is app retention? | How to segment cohorts?", url: "https://www.youtube.com/watch?v=n2Yla8_zSnk", channel: "CosX AI" },
-        { title: "What Is Customer Retention? | Customer Retention Cohort Analysis With Demo | Simplilearn", url: "https://www.youtube.com/watch?v=eieefQIVBR0", channel: "Simplilearn" },
-        { title: "Cohort Analysis Explained: Track Retention & Reduce Churn (Beginners Guide)", url: "https://www.youtube.com/watch?v=M7UEEKbET50", channel: "Explained Hub" },
-        { title: "How to Calculate Churn & Retention with Cohort Analysis (SQL + Google Sheets)", url: "https://www.youtube.com/watch?v=uAdCNVfbuFk", channel: "mackan.sql: Senior Data Analytics & Modeling" },
       ],
       ta: [
         { title: "What is app retention? | How to segment cohorts?", url: "https://www.youtube.com/watch?v=n2Yla8_zSnk", channel: "CosX AI" },
-        { title: "What Is Customer Retention? | Customer Retention Cohort Analysis With Demo | Simplilearn", url: "https://www.youtube.com/watch?v=eieefQIVBR0", channel: "Simplilearn" },
-        { title: "How to Calculate Churn & Retention with Cohort Analysis (SQL + Google Sheets)", url: "https://www.youtube.com/watch?v=uAdCNVfbuFk", channel: "mackan.sql: Senior Data Analytics & Modeling" },
-        { title: "Customer Retention & Cohort Analysis | How VCs Calculate Customer Retention", url: "https://www.youtube.com/watch?v=OwCATJh4lNg", channel: "Eric Andrews" },
       ],
     },
     articles: [
@@ -9851,20 +9051,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Convert Free Trials Into Paying Customers for Saas - Kyle Racki", url: "https://www.youtube.com/watch?v=JK-Hf-dniwk", channel: "Alex Harris (AlexDesigns)" },
       ],
       hi: [
-        { title: "5 Minutes With Your Data Ep3:  Free Trial to Paid Conversion", url: "https://www.youtube.com/watch?v=bDKrc9HQiwk", channel: "InnerTrends" },
-        { title: "increase FREE TRIAL TO PAID conversion rate in 18 minutes (mobile apps, saas, cro)", url: "https://www.youtube.com/watch?v=UnZ2RM2k7FM", channel: "Alim Charaniya | Apps, Startups & Investing" },
-        { title: "Converting Free Trials to Paid Customers", url: "https://www.youtube.com/watch?v=FBStFnK1J78", channel: "Flint McGlaughlin" },
         { title: "Reverse Engineering Convert trial version software to full version", url: "https://www.youtube.com/watch?v=t7JuAmdMTSc", channel: "Vinayak Salwan" },
       ],
       te: [
-        { title: "increase FREE TRIAL TO PAID conversion rate in 18 minutes (mobile apps, saas, cro)", url: "https://www.youtube.com/watch?v=UnZ2RM2k7FM", channel: "Alim Charaniya | Apps, Startups & Investing" },
-        { title: "5 Minutes With Your Data Ep3:  Free Trial to Paid Conversion", url: "https://www.youtube.com/watch?v=bDKrc9HQiwk", channel: "InnerTrends" },
-        { title: "Converting Free Trials to Paid Customers", url: "https://www.youtube.com/watch?v=FBStFnK1J78", channel: "Flint McGlaughlin" },
         { title: "How To Convert Free Trials Into Paying Customers", url: "https://www.youtube.com/watch?v=B7ehzTbGJ7c", channel: "Kyle Racki" },
       ],
       ta: [
-        { title: "increase FREE TRIAL TO PAID conversion rate in 18 minutes (mobile apps, saas, cro)", url: "https://www.youtube.com/watch?v=UnZ2RM2k7FM", channel: "Alim Charaniya | Apps, Startups & Investing" },
-        { title: "Converting Free Trials to Paid Customers", url: "https://www.youtube.com/watch?v=FBStFnK1J78", channel: "Flint McGlaughlin" },
         { title: "Android apks - modify apk premium using mt manager reverse engineering", url: "https://www.youtube.com/watch?v=OnYb-Q359Qc", channel: "Zextro Mods" },
         { title: "GPay Voucher விற்று பணம் 😱 Google Pay Voucher Sell Tamil | Gpay Voucher Convert to Cash | #shorts", url: "https://www.youtube.com/watch?v=uvn6n4vpv68", channel: "GOWTHAM TECH - கௌதம் டெக்" },
       ],
@@ -9895,10 +9087,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "a16z GP Jeff Jordan: The Ultimate Guide to Two-Sided Marketplaces | 20VC #966", url: "https://www.youtube.com/watch?v=DENlaOACoV8", channel: "20VC with Harry Stebbings" },
       ],
       hi: [
-        { title: "दो तरफा बाज़ार कैसे बनाएँ", url: "https://www.youtube.com/watch?v=fK4gPRxGpMY", channel: "Sharetribe" },
         { title: "Two Sided Marketplace Model Marketing Guide", url: "https://www.youtube.com/watch?v=yDnjGYou308", channel: "Online MENTOR" },
         { title: "मैं Etsy (नई दुकान) पर बेचकर ₹1,00,000/महीना कैसे कमाता हूँ?", url: "https://www.youtube.com/watch?v=SdbG28rBu8c", channel: "Rohit ville" },
-        { title: "Unit Economics Benchmarks for Two-Sided Marketplaces | From Idea to Exit", url: "https://www.youtube.com/watch?v=Vo3uLzm54-Y", channel: "Eric Andrews" },
       ],
       te: [
         { title: "How to build a 2 sided marketplace | Business Tips", url: "https://www.youtube.com/watch?v=GZkdGqio_Vw", channel: "Jim Huffman Growth" },
@@ -9909,7 +9099,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "How to build a 2 sided marketplace | Business Tips", url: "https://www.youtube.com/watch?v=GZkdGqio_Vw", channel: "Jim Huffman Growth" },
         { title: "Reality of Trading Parithabangal 😅💹 #trading #investing", url: "https://www.youtube.com/watch?v=U_zy8Ibn1Y8", channel: "Boss Wallah (Tamil)" },
-        { title: "The Ultimate Guide for Building a Two-Sided Marketplace | a16z's Jeff Jordan", url: "https://www.youtube.com/watch?v=27hC0034UbA", channel: "20VC with Harry Stebbings" },
         { title: "The #1 Mistake Founders Make in Two-Sided Marketplaces #marketplace #startup", url: "https://www.youtube.com/watch?v=b4nwMApDFTA", channel: "The Tech Leader's Playbook" },
       ],
     },
@@ -9937,22 +9126,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Wind Load Calculation by Force Coefficient Methods By Advance Excel #shorts #viral", url: "https://www.youtube.com/watch?v=fXoDGcAIvI4", channel: "Civil Technical" },
       ],
       hi: [
-        { title: "How to understand the virality coefficient or K factor?", url: "https://www.youtube.com/watch?v=ncHMS_M8FaM", channel: "Business Decoder" },
-        { title: "Unlocking the Viral Vault: Mastering Word-of-Mouth Measurement with Youssuf Bhaijee", url: "https://www.youtube.com/watch?v=vWQsN0tS2wQ", channel: "Reforge" },
-        { title: "How Virality Coefficient Can Boost Your Content Growth 🚀 | Social Media Growth Tips", url: "https://www.youtube.com/watch?v=0RdHAjvv4TE", channel: "Rohit Saluunke | Ingenious Academy" },
         { title: "What is K factor and how does it help in tracking business growth?", url: "https://www.youtube.com/watch?v=bOfMp3ltePM", channel: "𝗔𝗦𝗖𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝗻𝗰𝘆 | 𝗕𝘂𝘀𝗶𝗻𝗲𝘀𝘀 𝗚𝗿𝗼𝘄𝘁𝗵 𝗖𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝗻𝗰𝘆" },
       ],
       te: [
         { title: "What is Moment Marketing? 🤔| How to Use It for Viral Reach 🚀", url: "https://www.youtube.com/watch?v=Y_dVmYO-Gm0", channel: "Emblix Academy Digital Marketing  in Telugu" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
         { title: "Sales, marketing #skills #sales #salestips #telugu #tips #development #ai #money #passiveincome", url: "https://www.youtube.com/watch?v=A9DW2cknhnA", channel: "Karthikeyan Srinivasan" },
-        { title: "How to Calculate Viral Coefficient and Viral Growth", url: "https://www.youtube.com/watch?v=9rmf_cMPaA0", channel: "Asghar Ali" },
       ],
       ta: [
-        { title: "How to Calculate Viral Coefficient and Viral Growth", url: "https://www.youtube.com/watch?v=9rmf_cMPaA0", channel: "Asghar Ali" },
-        { title: "Unlocking the Viral Vault: Mastering Word-of-Mouth Measurement with Youssuf Bhaijee", url: "https://www.youtube.com/watch?v=vWQsN0tS2wQ", channel: "Reforge" },
-        { title: "How to understand the virality coefficient or K factor?", url: "https://www.youtube.com/watch?v=ncHMS_M8FaM", channel: "Business Decoder" },
-        { title: "Wind Load Calculation by Force Coefficient Methods By Advance Excel #shorts #viral", url: "https://www.youtube.com/watch?v=fXoDGcAIvI4", channel: "Civil Technical" },
       ],
     },
     articles: [
@@ -9980,10 +9161,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The Ultimate Growth Marketing Guide | How to Become a Growth Marketer", url: "https://www.youtube.com/watch?v=8Vap8Dbn-hM", channel: "Rish from Mapplinks" },
       ],
       hi: [
-        { title: "Performance Vs Growth Marketing Explained by Umar Tazkeer", url: "https://www.youtube.com/watch?v=cbCs0F-4W1o", channel: "Umar Tazkeer" },
         { title: "Growth Marketing Career I What is Growth Marketing I Growth Marketing vs Growth Hacking I Hindi I", url: "https://www.youtube.com/watch?v=w0B9w4GCFb4", channel: "Digital Direction Germany" },
         { title: "Learn Growth Marketing Strategies | What is Growth Hacking", url: "https://www.youtube.com/watch?v=oYNN9jA6YA8", channel: "Amit Tiwari" },
-        { title: "What is Growth Marketing? EVERYTHING You Need To Know", url: "https://www.youtube.com/watch?v=CRwUhYKbK38", channel: "GrowthX" },
       ],
       te: [
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
@@ -9994,7 +9173,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Growth Marketing. Search Analyst Sasikumar Talks. (Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=PnRwEa_Z8XQ", channel: "Sasikumar Talks (Training Academy)" },
         { title: "How to Do Marketing for your Business Tamil | Building a Story Brand Book Summary |almost everything", url: "https://www.youtube.com/watch?v=sw6J4-NGGxA", channel: "Almost Everything" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
-        { title: "What is Growth Marketing? How to become a Growth Marketer", url: "https://www.youtube.com/watch?v=MKO_CjDZDUQ", channel: "Growth Tribe" },
       ],
     },
     articles: [
@@ -10024,18 +9202,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How to Make Ad Copy | Ad Level Options Explained | Facebook Ads Course in Hindi #30", url: "https://www.youtube.com/watch?v=U-sD3xI_6y8", channel: "My Online Master" },
-        { title: "ChatGPT Hacks for Perfect Ad Copy (Crazy Method)| Umar Tazkeer", url: "https://www.youtube.com/watch?v=vtKQXY2FICM", channel: "Umar Tazkeer" },
         { title: "How To Write Google Ads Copy With AI | Chat GPT Prompt Formula for AD Copy | #adcopy #googleads2026", url: "https://www.youtube.com/watch?v=MxNn58ZlaMo", channel: "Marketing Fundas" },
         { title: "Step by Step VIRAL Ad Framework for Your Edtech Business in 2026 (The ₹1Cr Ad Copy Formula)", url: "https://www.youtube.com/watch?v=aqosw55ZjFE", channel: "Sachin Dahiya" },
       ],
       te: [
         { title: "AI Course in Telugu - How to Write Best Content Using Ai | Blogs, Website Content and Ad Copies", url: "https://www.youtube.com/watch?v=UO9e1dTgHNU", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "How to write High converting Ad copy for Facebook ads? || Ad Copy Frameworks || AIDA, HSO, PBO", url: "https://www.youtube.com/watch?v=Rm_3hy9LEQ0", channel: "Sai Teja Challapalli" },
-        { title: "LinkedIn Ads Mastery | Lesson 4: Writing High-Converting Ad Copy & Creatives (Proven Frameworks) ✍️🚀", url: "https://www.youtube.com/watch?v=bZg_NOWx3iM", channel: "Amit Vijayvergia" },
         { title: "Copywriting Mastery Course Explained in Telugu | Learn Copywriting from Scratch | SDM Classes", url: "https://www.youtube.com/watch?v=xLJhPFIE_DM", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "LinkedIn Ads Mastery | Lesson 4: Writing High-Converting Ad Copy & Creatives (Proven Frameworks) ✍️🚀", url: "https://www.youtube.com/watch?v=bZg_NOWx3iM", channel: "Amit Vijayvergia" },
         { title: "The Secret to Writing Ads That Convert!", url: "https://www.youtube.com/watch?v=NKBoiE4I-CA", channel: "Sangeetha S Abishek" },
         { title: "Digital Marketing for Business Owners in Tamil | Full Beginner Roadmap", url: "https://www.youtube.com/watch?v=ju6C-Q89QUo", channel: "Sangeetha S Abishek" },
         { title: "5 Copywriting Frameworks That’ll 10x Your Ad Performance in 2026", url: "https://www.youtube.com/watch?v=TJHYnUuYJho", channel: "Mohanad Anan" },
@@ -10063,9 +9238,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AI Max for Search Campaigns", url: "https://www.youtube.com/watch?v=Rvx_-dnwIUU", channel: "Google Ads" },
       ],
       hi: [
-        { title: "Google Killed Broad Match with Phrase Match + AI Max", url: "https://www.youtube.com/watch?v=N4gPv7R9Bwo", channel: "Andrew Lolk Talks PPC" },
         { title: "Google Ads AI Max Search Campaign Full Tutorial in Hindi 2026 | #aimax #googleads2026", url: "https://www.youtube.com/watch?v=k6G5PXkm56M", channel: "Marketing Fundas" },
-        { title: "How to Set Up AI Max in Google Ads (3-Min Guide + My Honest Thoughts)", url: "https://www.youtube.com/watch?v=mTKiulFzrGQ", channel: "Josiah Roche — Google Ads + SEO Training" },
         { title: "Google Ads AI Max Campaign Tutorial 2026 (Step-by-Step Setup for Beginners)", url: "https://www.youtube.com/watch?v=elgPwoxExjw", channel: "Anil Prajapati" },
       ],
       te: [
@@ -10076,8 +9249,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "Google Ads AI Max Search Tutorial 2025 - How To Setup AI Max Campaign", url: "https://www.youtube.com/watch?v=RVXFpWYZNjc", channel: "Anand Iyer" },
-        { title: "How to Enable AI Max in Google Ads (Step-by-Step Guide for Better Results)", url: "https://www.youtube.com/watch?v=Udl61idLpho", channel: "Digital Growth Tutor" },
-        { title: "How to Set Up AI Max in Google Ads (3-Min Guide + My Honest Thoughts)", url: "https://www.youtube.com/watch?v=mTKiulFzrGQ", channel: "Josiah Roche — Google Ads + SEO Training" },
         { title: "Google Ai mode update Tamil 🤑 How to rank in Ai mode on Google search #google #ai #tamil", url: "https://www.youtube.com/watch?v=GlJBWQq1SlA", channel: "Digiman" },
       ],
     },
@@ -10107,15 +9278,9 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Meta Ad Sets & Campaigns explained", url: "https://www.youtube.com/watch?v=3iZ1PRoGHfg", channel: "Learn With Shopify" },
       ],
       hi: [
-        { title: "Amazon PPC Guide 2026 - Amazon Advertising Strategy For Beginners", url: "https://www.youtube.com/watch?v=BSECHrEhZjE", channel: "Travis Marziani" },
-        { title: "How to Boost Your KDP Book's Sales - Amazon Ads Tutorial for KDP Authors", url: "https://www.youtube.com/watch?v=0T847jo6GgA", channel: "Website Learners" },
-        { title: "Amazon Ads Full Tutorial Masterclass 2025 | Sponsored Ads Part - 2", url: "https://www.youtube.com/watch?v=nm2wVDxR2zc", channel: "Alok Vasani" },
-        { title: "Amazon Ads Full Tutorial Masterclass 2025  Part - 3 | Amazon Brand Ads", url: "https://www.youtube.com/watch?v=DPoD8xJuENM", channel: "Alok Vasani" },
       ],
       te: [
         { title: "Amazon Advertising for Beginners In Telugu | By GK Bhanu #amazonads #amazonadvertisingtelugu", url: "https://www.youtube.com/watch?v=mseC1asQCmg", channel: "Bhanumurthy" },
-        { title: "How to Boost Your KDP Book's Sales - Amazon Ads Tutorial for KDP Authors", url: "https://www.youtube.com/watch?v=0T847jo6GgA", channel: "Website Learners" },
-        { title: "Amazon PPC Guide 2026 - Amazon Advertising Strategy For Beginners", url: "https://www.youtube.com/watch?v=BSECHrEhZjE", channel: "Travis Marziani" },
         { title: "Advance LEVEL Amazon Ad Strategies That Work in 2025 | LIVE Amazon Ads Workshop with PPC With Prachi", url: "https://www.youtube.com/watch?v=Y7neO6EIIYw", channel: "Prachi Shah - Amazon PPC Ads Expert" },
       ],
       ta: [
@@ -10154,19 +9319,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Apple Search Ads I What are types of Apple Search Ads I How to run Apple Search Ads I Hindi I Urdu", url: "https://www.youtube.com/watch?v=EKWgTgqyydk", channel: "Digital Direction Germany" },
-        { title: "How to Set Up an Apple Search Ads Campaign the Right Way #ASA", url: "https://www.youtube.com/watch?v=W6_bN3AZo_s", channel: "Ariel from Appfigures" },
         { title: "How To Run Apple Search Ads In 2024 (Part 1)", url: "https://www.youtube.com/watch?v=K1meqvXLGJg", channel: "Rahul Issar" },
         { title: "Apple Search Ads on a Budget 🤑", url: "https://www.youtube.com/watch?v=hbMrtExR5ro", channel: "Ariel from Appfigures" },
       ],
       te: [
-        { title: "How to Set Up an Apple Search Ads Campaign the Right Way #ASA", url: "https://www.youtube.com/watch?v=W6_bN3AZo_s", channel: "Ariel from Appfigures" },
-        { title: "Intro to Apple Search Ads - Setup Your First Campaign (Tutorial)", url: "https://www.youtube.com/watch?v=VUztqFol_FY", channel: "Sean Allen" },
         { title: "How to Create Apple Search Ads Campaign Effectively - App Store Search Ads", url: "https://www.youtube.com/watch?v=eQRb4RkVAkE", channel: "Learn Digital Marketing with Aynun Nipa" },
         { title: "Apple Search Ads: 4 Tips for App Installs📱 #appmarketing #mobileads", url: "https://www.youtube.com/watch?v=kc3kp8b2Tmw", channel: "AppsFlyer" },
       ],
       ta: [
-        { title: "Intro to Apple Search Ads - Setup Your First Campaign (Tutorial)", url: "https://www.youtube.com/watch?v=VUztqFol_FY", channel: "Sean Allen" },
-        { title: "How to Set Up an Apple Search Ads Campaign the Right Way #ASA", url: "https://www.youtube.com/watch?v=W6_bN3AZo_s", channel: "Ariel from Appfigures" },
         { title: "How to Create Apple Search Ads Campaign Effectively - App Store Search Ads", url: "https://www.youtube.com/watch?v=eQRb4RkVAkE", channel: "Learn Digital Marketing with Aynun Nipa" },
         { title: "Apple Search Ads: 4 Tips for App Installs📱 #appmarketing #mobileads", url: "https://www.youtube.com/watch?v=kc3kp8b2Tmw", channel: "AppsFlyer" },
       ],
@@ -10242,7 +9402,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The BEST Google Ads Bidding Strategies for 2026", url: "https://www.youtube.com/watch?v=NQCLCLR3NQU", channel: "Aaron Young  | Google Ads | Define Digital Academy" },
       ],
       hi: [
-        { title: "Mastering Meta Ads BID STRATEGIES in Just 5 Minutes", url: "https://www.youtube.com/watch?v=sq3TcTS_vCE", channel: "Dipak on Digital" },
         { title: "Best Google Ads Bidding Strategies 2025| Google Ads Bidding Strategies Kya Hai in Hindi", url: "https://www.youtube.com/watch?v=9GCmMXk1ntE", channel: "Digital Praveen Mehta" },
         { title: "Google Target Impression Share Bid strategy | Hindi | Digital Gurmeet", url: "https://www.youtube.com/watch?v=ZR6DpFsEIEQ", channel: "Digital Gurmeet" },
         { title: "Learn To Use Bidding Strategies In Google Ads Hindi | Digital Seekho", url: "https://www.youtube.com/watch?v=MOB1kU6SbY0", channel: "Ads Mastery Hub" },
@@ -10284,7 +9443,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Meta Ads Creative Strategy in 2026: The Full System", url: "https://www.youtube.com/watch?v=vUbLw80KTpo", channel: "Blue Sense Digital" },
       ],
       hi: [
-        { title: "Updated Creative Testing Methods for Meta Ads After Andromeda", url: "https://www.youtube.com/watch?v=hjcp6STJc9I", channel: "Aazan Zahid" },
         { title: "Types of Software Testing | interview course tutorial #manualtesting #shots #ytshorts #selenium", url: "https://www.youtube.com/watch?v=7oyEz5K7Pqw", channel: "Bhau-Automation Lab" },
         { title: "सॉफ्टवेयर परीक्षण ट्यूटोरियल - सॉफ्टवेयर परीक्षण में परीक्षण योजना क्या है हिंदी में", url: "https://www.youtube.com/watch?v=tIQvMknt4c0", channel: "Fun Doo Testers" },
       ],
@@ -10327,22 +9485,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Product photography | product videography | ugc | ugc example videos | effects | edits|ideas | hooks", url: "https://www.youtube.com/watch?v=A3lhxjhIQIE", channel: "Dhenuka Reddy" },
       ],
       hi: [
-        { title: "ugc content | ugc faceless example | ugc creator | ugc | ugc example video | dot and key sunscreen", url: "https://www.youtube.com/watch?v=47o0CeBFWXc", channel: "Sumaiya" },
         { title: "Create Viral UGC Ads for FREE (No Experience Needed)", url: "https://www.youtube.com/watch?v=yUIixZCkaEk", channel: "Website Learners" },
-        { title: "Creating UGC Ads is Now SUPER EASY with This AI Tools #headswap #ugc #aiwebsite #lipsync #ugccreator", url: "https://www.youtube.com/watch?v=0VMl7b2Ttng", channel: "BrowseBetter" },
         { title: "Creatify.ai: Instantly Create UGC Ads for FREE | Best AI Video Tool 2025@QuibusTrainings", url: "https://www.youtube.com/watch?v=Pifv7SbF8kE", channel: "Quibus Trainings Digital Marketing Institute" },
       ],
       te: [
-        { title: "ugc content | ugc faceless example | ugc creator | ugc | ugc example video | dot and key sunscreen", url: "https://www.youtube.com/watch?v=47o0CeBFWXc", channel: "Sumaiya" },
         { title: "Create Viral UGC Ads for FREE (No Experience Needed)", url: "https://www.youtube.com/watch?v=yUIixZCkaEk", channel: "Website Learners" },
-        { title: "Product photography | product videography | ugc | ugc example videos | effects | edits|ideas | hooks", url: "https://www.youtube.com/watch?v=A3lhxjhIQIE", channel: "Dhenuka Reddy" },
         { title: "I started with UGC!😍 #youtubeshorts #youtube #ytshorts #ugc #content creator #relatable", url: "https://www.youtube.com/watch?v=I-r7RsPNUXM", channel: "Ishika Didwania" },
       ],
       ta: [
         { title: "Create Viral UGC Ads for FREE (No Experience Needed)", url: "https://www.youtube.com/watch?v=yUIixZCkaEk", channel: "Website Learners" },
         { title: "Ai Ads for Just 2000 | Promote Your Brand with Ai Ads in Tamil | Veo 3 Tutorial in Tamil", url: "https://www.youtube.com/watch?v=LeJXa4PcSN4", channel: "Faceless Youtuber Tamil" },
         { title: "Power of Content Creation", url: "https://www.youtube.com/watch?v=sKzYGjQceP4", channel: "Explore with Epaphra" },
-        { title: "ugc content | ugc faceless example | ugc creator | ugc | ugc example video | dot and key sunscreen", url: "https://www.youtube.com/watch?v=47o0CeBFWXc", channel: "Sumaiya" },
       ],
     },
     articles: [
@@ -10371,18 +9524,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Why You Should Run Ads on Connected TV", url: "https://www.youtube.com/watch?v=2OR7Md2XVmU", channel: "IgniteVisibility" },
       ],
       hi: [
-        { title: "Connected TV (CTV) Advertising | How To Get Started", url: "https://www.youtube.com/watch?v=v7kIRWmR54Y", channel: "AppsFlyer" },
         { title: "Connected TV Advertising 101 | Beginners Guide", url: "https://www.youtube.com/watch?v=R8L_Qbsp8xI", channel: "Vikas Disale" },
-        { title: "Programmatic CTV explained: Demystifying streaming ads", url: "https://www.youtube.com/watch?v=Bt5okD00ODo", channel: "The Trade Desk" },
       ],
       te: [
-        { title: "Connected TV Advertising: CTV and OTT Basics EXPLAINED", url: "https://www.youtube.com/watch?v=Q8OkSoMyMns", channel: "WebFX" },
-        { title: "Connected TV (CTV) Advertising | How To Get Started", url: "https://www.youtube.com/watch?v=v7kIRWmR54Y", channel: "AppsFlyer" },
         { title: "Connected TV Advertising 101 | Beginners Guide", url: "https://www.youtube.com/watch?v=R8L_Qbsp8xI", channel: "Vikas Disale" },
       ],
       ta: [
-        { title: "Connected TV (CTV) Advertising | How To Get Started", url: "https://www.youtube.com/watch?v=v7kIRWmR54Y", channel: "AppsFlyer" },
-        { title: "Connected TV Advertising: CTV and OTT Basics EXPLAINED", url: "https://www.youtube.com/watch?v=Q8OkSoMyMns", channel: "WebFX" },
         { title: "Connected TV Advertising 101 | Beginners Guide", url: "https://www.youtube.com/watch?v=R8L_Qbsp8xI", channel: "Vikas Disale" },
       ],
     },
@@ -10424,7 +9571,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Digital Marketing in Telugu | Google Ads Demand Gen Campaign Explained | SDM Classes", url: "https://www.youtube.com/watch?v=1W75yULUmLg", channel: "Subbu Digital Marketer" },
         { title: "🔍 Google Ads లో Search Campaign ను సెటప్ చేయడం ఎలా? | Step-by-Step Guide in Telugu! 🚀", url: "https://www.youtube.com/watch?v=XsNzsI_M6FU", channel: "Subbu Digital Marketer" },
         { title: "Google Ads Performance Max Campaign Setup | Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=0-RqLsGFclE", channel: "Subbu Digital Marketer" },
-        { title: "Google Ads Campaign Funnel 2026 #ppc #googleads #googleadscampaign #pmax #demandgen", url: "https://www.youtube.com/watch?v=J_8xFspQ_II", channel: "Thomas Eccel - Google Ads Top 25 Expert 2026" },
       ],
       ta: [
         { title: "Google Ads Demand Gen Campaign in Tamil  | Google Ads Course in Tamil | #36", url: "https://www.youtube.com/watch?v=hJL00_0pxG8", channel: "Simplified E-learning" },
@@ -10460,22 +9606,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Set Up Enhanced Conversions in GA4 and Google Ads | Webinar Recording", url: "https://www.youtube.com/watch?v=J3Hr9ii6Ce4", channel: "Stape" },
       ],
       hi: [
-        { title: "Set up Facebook CAPI in 1 Hour | No-Code Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=THrammeVLDU", channel: "CustomerLabs 1P Data OPs" },
-        { title: "Setup Conversions API for Meta Ads | No-Code CAPI Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=tr751KjWUPg", channel: "CustomerLabs 1P Data OPs" },
-        { title: "GA4 Enhanced Conversions Update: Turn Off Collection of First Party (hashed) Data Now!", url: "https://www.youtube.com/watch?v=QJt1PjggqtI", channel: "Ate Keurentjes" },
         { title: "Fix and Set Up Google Ads Enhanced Conversion Tracking Issues - Needs Attention 2025", url: "https://www.youtube.com/watch?v=ZKykBll7RyY", channel: "Financial Freedom - Through Digital Marketing" },
       ],
       te: [
-        { title: "Set up Facebook CAPI in 1 Hour | No-Code Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=THrammeVLDU", channel: "CustomerLabs 1P Data OPs" },
-        { title: "Setup Conversions API for Meta Ads | No-Code CAPI Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=tr751KjWUPg", channel: "CustomerLabs 1P Data OPs" },
         { title: "Fix and Set Up Google Ads Enhanced Conversion Tracking Issues - Needs Attention 2025", url: "https://www.youtube.com/watch?v=ZKykBll7RyY", channel: "Financial Freedom - Through Digital Marketing" },
-        { title: "GA4 Enhanced Conversions Update: Turn Off Collection of First Party (hashed) Data Now!", url: "https://www.youtube.com/watch?v=QJt1PjggqtI", channel: "Ate Keurentjes" },
       ],
       ta: [
-        { title: "Set up Facebook CAPI in 1 Hour | No-Code Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=THrammeVLDU", channel: "CustomerLabs 1P Data OPs" },
-        { title: "Setup Conversions API for Meta Ads | No-Code CAPI Implementation | CustomerLabs First Party Data Ops", url: "https://www.youtube.com/watch?v=tr751KjWUPg", channel: "CustomerLabs 1P Data OPs" },
-        { title: "GA4 Enhanced Conversions Update: Turn Off Collection of First Party (hashed) Data Now!", url: "https://www.youtube.com/watch?v=QJt1PjggqtI", channel: "Ate Keurentjes" },
-        { title: "Understanding Enhanced Conversions in Google Ads | Setup Google Enhanced Conversions with 1PD OPs", url: "https://www.youtube.com/watch?v=6TpARX-2cBM", channel: "CustomerLabs 1P Data OPs" },
       ],
     },
     articles: [
@@ -10504,21 +9640,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Google Ads Search Campaign Set Up in 2025 | Step by Step Tutorial", url: "https://www.youtube.com/watch?v=hbM3befCOv4", channel: "Aaron Young  | Google Ads | Define Digital Academy" },
       ],
       hi: [
-        { title: "Google Ads Search Campaigns in 40 Minutes (Full Tutorial) - Umar Tazkeer", url: "https://www.youtube.com/watch?v=86xAHXIo8Js", channel: "Umar Tazkeer" },
         { title: "How To Run Google Ads In 2026 | Google Ads Tutorial For Beginners", url: "https://www.youtube.com/watch?v=kOFKt-WD-qI", channel: "Digital Marketing Guruji" },
         { title: "Google Ads Full Course 2026 (With AI) – Beginner to PRO in One Video", url: "https://www.youtube.com/watch?v=autzRHtt-RM", channel: "WsCube Tech" },
-        { title: "गूगल विज्ञापन का उपयोग कैसे करें | गूगल विज्ञापन ट्यूटोरियल 2026", url: "https://www.youtube.com/watch?v=sbOuzNm31Y8", channel: "Website Learners" },
       ],
       te: [
         { title: "How to Run Google Search Ads? | Class 3 | Step-by-Step Guide in Telugu", url: "https://www.youtube.com/watch?v=e0cPjzqhd4s", channel: "Blue Flash Media" },
         { title: "How to Use Google Ads (for Beginners) in 2025 | Full Course", url: "https://www.youtube.com/watch?v=0qY7Jq32fcs", channel: "VICKY TALKS" },
-        { title: "How To Use Google Ads | Google Ads Tutorial 2026", url: "https://www.youtube.com/watch?v=sbOuzNm31Y8", channel: "Website Learners" },
       ],
       ta: [
         { title: "Complete Google Ads Course 2026 | Google Ads Tutorial in Tamil (Beginners Guide)", url: "https://www.youtube.com/watch?v=Y1YyeZIvzv4", channel: "Digilyff" },
         { title: "Google Search Campaign In Tamil | Step-By-Step Guide #GoogleAds #SearchCampaign", url: "https://www.youtube.com/watch?v=WkJ9qV-6HeE", channel: "lookalikesolutions" },
         { title: "Google Ads Tutorial Tamil: First Campaign Setup from Scratch | Beginners Guide - 2025", url: "https://www.youtube.com/watch?v=ciQdxA6AGj0", channel: "Digital Sameem" },
-        { title: "கூகிள் விளம்பரங்களை எவ்வாறு பயன்படுத்துவது | கூகிள் விளம்பர பயிற்சி 2026", url: "https://www.youtube.com/watch?v=sbOuzNm31Y8", channel: "Website Learners" },
       ],
     },
     articles: [
@@ -10547,7 +9679,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How to Setup Performance Max Campaign in Google Ads? | Performance Max Campaign Tutorial in Hindi", url: "https://www.youtube.com/watch?v=5zp1NZefwbw", channel: "Umar Tazkeer" },
         { title: "How to Setup Performance Max Shopping Campaign in Google Ads? | Smart Shopping Campaign Tutorial", url: "https://www.youtube.com/watch?v=1GMYIHo4PWQ", channel: "My Online Master" },
-        { title: "How to Setup Performance Max Campaign in Google Ads & Get More Sales (Full Tutorial)", url: "https://www.youtube.com/watch?v=eVr9qcG5LFQ", channel: "WsCube Tech" },
         { title: "How to Setup Performance Max Campaign in Google Ads 2026 | Performance Max Tutorial Hindi", url: "https://www.youtube.com/watch?v=A0cLvlxeChw", channel: "Pranav Jindal" },
       ],
       te: [
@@ -10598,10 +9729,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "iOS 14 Hidden Features in Telugu", url: "https://www.youtube.com/watch?v=TcbGpmBofa8", channel: "iBytes" },
         { title: "తెలుగువాళ్ళ కోసం Apple iPhone లో అదిరిపోయే features రానున్నాయి || iOS 17 || #prasadtechintelugu", url: "https://www.youtube.com/watch?v=o0AgyXquYq0", channel: "Prasadtechintelugu" },
         { title: "iOS 14.3 New Features and Bug Fixes | In Telugu", url: "https://www.youtube.com/watch?v=uaTqKzUEi34", channel: "iBytes" },
-        { title: "How to remove Accessories and Scenes on Control Center | iOS14", url: "https://www.youtube.com/watch?v=bWj5SYQoMxg", channel: "TrapBoy: Highlights" },
       ],
       ta: [
-        { title: "How to remove Accessories and Scenes on Control Center | iOS14", url: "https://www.youtube.com/watch?v=bWj5SYQoMxg", channel: "TrapBoy: Highlights" },
         { title: "The BEST Settings for Apple Music #applemusic #exposed #truth", url: "https://www.youtube.com/watch?v=QdL8pvCO0SI", channel: "Sam Wimer" },
         { title: "IPHONE 14 PRO VOICE COMMAND SETTINGS #gadgets #iphone14pro #technology #iphone #online #trending", url: "https://www.youtube.com/watch?v=Wk4q3Gu7wTw", channel: "TECHNICAL AMRI" },
         { title: "iPhone 📲இன் தரமான Upgrade *Dynamic Island*🔥#Shorts #iPhone14Pro #Apple", url: "https://www.youtube.com/watch?v=RRHJtkn8uso", channel: "Tech Boss" },
@@ -10632,18 +9761,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "LinkedIn Insight Tag Setup Tutorial 2026 | LinkedIn Ads Tutorial for Beginners in Hindi", url: "https://www.youtube.com/watch?v=udaazQLKrts", channel: "Marketing Fundas" },
-        { title: "LinkedIn Ads Full Course 2026 | Complete Beginner to Advanced Tutorial", url: "https://www.youtube.com/watch?v=oq2UhH8BbRc", channel: "Social Masla" },
-        { title: "लिंक्डइन विज्ञापन ट्यूटोरियल 7 मिनट से कम समय में | 2025 चरण-दर-चरण मार्गदर्शिका", url: "https://www.youtube.com/watch?v=m2yt7tKJiv0", channel: "Ivan Mana" },
         { title: "How to Create, Setup & Run LinkedIn Ads in Just 15 Minutes (2026 Guide!)", url: "https://www.youtube.com/watch?v=Jhi2jinS9rQ", channel: "WsCube Tech" },
       ],
       te: [
         { title: "LinkedIn Ads Tutorial in Telugu | Digital Marketing Institute in Hyderabad | SDM Classes", url: "https://www.youtube.com/watch?v=gSni4NKauiY", channel: "Subbu Digital Marketer" },
         { title: "LinkedIn Ad Account Creation Fully Explained in Telugu | Digital Marketing in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=v7t6C4RunnQ", channel: "Subbu Digital Marketer" },
-        { title: "LinkedIn Ads Tutorial In UNDER 7 MINUTES | 2025 Step-by-Step Guide", url: "https://www.youtube.com/watch?v=m2yt7tKJiv0", channel: "Ivan Mana" },
         { title: "LinkedIn Account Setup & Optimization in Telugu | AI Performance Marketing Training in Telugu", url: "https://www.youtube.com/watch?v=P6QsFkQjl6Q", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "7 நிமிடங்களுக்குள் LinkedIn விளம்பர பயிற்சி | 2025 படிப்படியான வழிகாட்டி", url: "https://www.youtube.com/watch?v=m2yt7tKJiv0", channel: "Ivan Mana" },
         { title: "How to Create LinkedIn Ads in Tamil | Step-by-Step Beginner's Guide in Tamil | #01", url: "https://www.youtube.com/watch?v=F19JK1ZJMwY", channel: "Simplified E-learning" },
         { title: "LinkedIn Ads tutorial in Tamil |  Digital Marketing in Tamil | #10", url: "https://www.youtube.com/watch?v=hKG2eJGI9h4", channel: "Simplified E-learning" },
         { title: "LinkedIn B2B Marketing in Tamil | Sales Navigator | LinkedIn Ads | Sales Navigator", url: "https://www.youtube.com/watch?v=VBaW-Wqzbmo", channel: "Dinesh Ranganathan" },
@@ -10674,13 +9799,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The COMPLETE Meta Tutorial (Meta Ads, Meta Business Suite, Meta AI, Facebook Ads & More!)", url: "https://www.youtube.com/watch?v=OE4WimLYVGE", channel: "Learn With Shopify" },
       ],
       hi: [
-        { title: "How to run Facebook and Instagram(Meta) Ads for Indian eCommerce (2026)", url: "https://www.youtube.com/watch?v=EZvn__1b5os", channel: "Nishkarsh Sharma" },
         { title: "How to run low budget meta ads as beginner 🔥 | Read Description 📩Satyam Ads", url: "https://www.youtube.com/watch?v=uX8RoLn_Ink", channel: "Satyam Ads" },
         { title: "💡 How to Run Meta Ads 🔥 Complete Meta Ads Tutorial (Hindi)", url: "https://www.youtube.com/watch?v=BR9F2b-3raM", channel: "Digital Surjeet (Surjeet Verma)" },
         { title: "How To Setup Meta Ads Campaign Step By Step in Hindi 2026 | Facebook & Instagram Ads Tutorial", url: "https://www.youtube.com/watch?v=2OrlrYtgzZ0", channel: "Digital Surjeet (Surjeet Verma)" },
       ],
       te: [
-        { title: "Free Meta Ads Course - Get Started with Facebook & Instagram Ads in Telugu", url: "https://www.youtube.com/watch?v=PrxViN7dP38", channel: "VICKY TALKS" },
         { title: "What is Meta Ads? 🔥 Facebook & Instagram Ads A to Z in Telugu | Complete Beginner Guide 2026", url: "https://www.youtube.com/watch?v=RqK5C_G0iA8", channel: "Subbu Digital Marketer" },
         { title: "How to Run ADS on Facebook & Instagram (Meta) in 2026 | Complete Meta Ads Campaign Guide 2026", url: "https://www.youtube.com/watch?v=_azmcUt-tU4", channel: "Shazz Logan" },
         { title: "Meta Ads Tutorial In Telugu | Become a Freelance Meta Ads Specalist 🔥", url: "https://www.youtube.com/watch?v=vAQVOWcuYzM", channel: "Unfiltered Growth Telugu" },
@@ -10718,22 +9841,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "MMM vs. MTA: When and Why to Use Marketing Mix Modeling", url: "https://www.youtube.com/watch?v=Dg-6sqS7y-s", channel: "Rockerbox" },
       ],
       hi: [
-        { title: "मार्केटिंग मिक्स मॉडलिंग (MMM) क्या है और यह क्यों महत्वपूर्ण है?", url: "https://www.youtube.com/watch?v=Xnq_q_b5l8U", channel: "Google Ads" },
         { title: "#shorts | Jaqvar FLUSH VALVE REGLAR 32mm SIZE || #myworldtamiltech", url: "https://www.youtube.com/watch?v=Gvkt1CBNedo", channel: "MY world tamil tech" },
-        { title: "Budget Optimization Using MMM | MMM vs MTA | CVXPY vs SCIPY", url: "https://www.youtube.com/watch?v=VWrnsFpoSBI", channel: "Marketing Analytics With Kisholoy" },
         { title: "MTA Course Syllabus in Hindi", url: "https://www.youtube.com/watch?v=cY0vNTdrssA", channel: "A2IT InternEdge" },
       ],
       te: [
-        { title: "MMM vs. MTA in Marketing (Explained)", url: "https://www.youtube.com/watch?v=lYXgTfo7qPU", channel: "Zaryn Sidhu" },
         { title: "MMM vs MTA: Which Marketing Attribution Model Is Right for You?", url: "https://www.youtube.com/watch?v=4LaklaIEK_A", channel: "OptiMix" },
-        { title: "Budget Optimization Using MMM | MMM vs MTA | CVXPY vs SCIPY", url: "https://www.youtube.com/watch?v=VWrnsFpoSBI", channel: "Marketing Analytics With Kisholoy" },
         { title: "MTA vs MMM vs Incrementality: Ultimate Marketing Measurement Guide | The Performance Pod EP 19", url: "https://www.youtube.com/watch?v=NBuNqsboH-k", channel: "APIDM" },
       ],
       ta: [
-        { title: "MMM vs. MTA in Marketing (Explained)", url: "https://www.youtube.com/watch?v=lYXgTfo7qPU", channel: "Zaryn Sidhu" },
-        { title: "What is Marketing Mix Modeling (MMM) and Why is it Important?", url: "https://www.youtube.com/watch?v=Xnq_q_b5l8U", channel: "Google Ads" },
         { title: "MMM vs MTA: Which Marketing Attribution Model Is Right for You?", url: "https://www.youtube.com/watch?v=4LaklaIEK_A", channel: "OptiMix" },
-        { title: "Budget Optimization Using MMM | MMM vs MTA | CVXPY vs SCIPY", url: "https://www.youtube.com/watch?v=VWrnsFpoSBI", channel: "Marketing Analytics With Kisholoy" },
       ],
     },
     articles: [
@@ -10763,7 +9879,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Native Ads Master Class   for Affiliate Marketing in Hindi | Step by Step | MGID-2024", url: "https://www.youtube.com/watch?v=AYQMwzRiils", channel: "Earning By Skill" },
-        { title: "What is Native Advertising? Everything You Need to Know - Umar Tazkeer", url: "https://www.youtube.com/watch?v=E43hAIYupSk", channel: "Umar Tazkeer" },
         { title: "Native Ads! Proven Steps For Affiliate Marketing (Hindi)", url: "https://www.youtube.com/watch?v=5kJQZvEbVnw", channel: "Affiliate Master" },
         { title: "What is Native Advertising? | Web page |", url: "https://www.youtube.com/watch?v=mQjf53mpOUo", channel: "Marketing with Sachin" },
       ],
@@ -10776,7 +9891,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "SEO Class 39: Sasikumar Talks: \"Understanding Taboola and Outbrain for Native Advertising (in Tamil)", url: "https://www.youtube.com/watch?v=xtqBaOHiiZY", channel: "Sasikumar Talks (Training Academy)" },
         { title: "SEO Class 40.6: Native Ads, In-Page Ads, Push Ads, Pop Under Ads, Direct Click & Interstitial Ads", url: "https://www.youtube.com/watch?v=3fnJcXsh6xA", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "What is Native Advertising? | Types of Native Ads", url: "https://www.youtube.com/watch?v=3aKIyCi06Cs", channel: "Setupad Team" },
         { title: "LinkedIn Ads tutorial in Tamil |  Digital Marketing in Tamil | #10", url: "https://www.youtube.com/watch?v=hKG2eJGI9h4", channel: "Simplified E-learning" },
       ],
     },
@@ -10817,7 +9931,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "🔴 Class 1 - Google Ads Basics in Tamil 🔥 | Ad Placements, Paid vs Organic | Digital Marketing Course", url: "https://www.youtube.com/watch?v=s97vimb-rV8", channel: "Sundar Digital Marketer" },
         { title: "Facebook Lead Generation Campaign In Tamil | Meta Lead Generation Campaign Explained In Tamil", url: "https://www.youtube.com/watch?v=EXir5CNq6qs", channel: "Consult Us Now Digital Marketing Agency, Chennai" },
-        { title: "How to Run Meta Ads For Beginners (Meta Ads Tutorial 2026)", url: "https://www.youtube.com/watch?v=t-6c16BH-0U", channel: "Hostinger Academy" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
       ],
     },
@@ -10885,22 +9998,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Programmatic Advertising Secrets Every Marketer Must Know", url: "https://www.youtube.com/watch?v=UFahYzBzs_s", channel: "BizatWeb" },
       ],
       hi: [
-        { title: "प्रोग्रामेटिक विज्ञापन को 5 मिनट में समझाया गया", url: "https://www.youtube.com/watch?v=YuZkfShzQ1k", channel: "Refinery89" },
-        { title: "केवल 5 मिनट में प्रोग्रामेटिक विज्ञापन सीखें ⏰", url: "https://www.youtube.com/watch?v=2WHdPMp8wzQ", channel: "AppsFlyer" },
         { title: "DV360 Programmatic Ads Interview Questions and Answers | Display & Video 360 Interview Preparation", url: "https://www.youtube.com/watch?v=IUuj5Eca4yc", channel: "Digital Marketing with Gaurav" },
         { title: "Video 1: Your First Step to Understanding Programmatic Advertising", url: "https://www.youtube.com/watch?v=lueSKXWpVQQ", channel: "Rishul Sethi" },
       ],
       te: [
         { title: "Introduction | PART 1 | Programmatic Advertising for Beginners in Telugu | Free Course", url: "https://www.youtube.com/watch?v=mR2OO3zHauE", channel: "Learner Search Telugu" },
-        { title: "Programmatic Advertising. Clearly Explained", url: "https://www.youtube.com/watch?v=GPz_jVAQPq4", channel: "Senator We Run Ads" },
         { title: "Earn ₹30 Lakhs/Year | Career in Programmatic Advertising | Start To Getting Job Abroad! All Revealed", url: "https://www.youtube.com/watch?v=tf6yB_JTyBM", channel: "DIVYANSHOW" },
-        { title: "Programmatic Advertising Explained in 5 Minutes", url: "https://www.youtube.com/watch?v=YuZkfShzQ1k", channel: "Refinery89" },
       ],
       ta: [
         { title: "Programmatic Advertising. What Is it? How Does It Work? Sasikumar Talks (in Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=qkkYATXOTk0", channel: "Sasikumar Talks (Training Academy)" },
         { title: "Programmatic Advertising in Tamil | How Programmatic Ads work in Tamil | DSP Ads in Tamil", url: "https://www.youtube.com/watch?v=LEnA_bDpZz4", channel: "Senthil Chandran" },
-        { title: "Programmatic Advertising. Clearly Explained", url: "https://www.youtube.com/watch?v=GPz_jVAQPq4", channel: "Senator We Run Ads" },
-        { title: "5 நிமிடங்களில் விளக்கப்பட்ட நிரல் விளம்பரம்", url: "https://www.youtube.com/watch?v=YuZkfShzQ1k", channel: "Refinery89" },
       ],
     },
     articles: [
@@ -10926,8 +10033,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Google Ads AD Rank and Quality Score Explained | Google Ads Course with AI in Hindi 2026", url: "https://www.youtube.com/watch?v=JLI7eYmI4L8", channel: "Marketing Fundas" },
-        { title: "Ad Rank & Quality Score in Google Ads Explained", url: "https://www.youtube.com/watch?v=93uDuxOL-DM", channel: "My Online Master" },
-        { title: "Google Ads में क्वालिटी स्कोर और ऐड रैंक क्या है? फुल ट्यूटोरियल 2025 | #qualityscore #adrank", url: "https://www.youtube.com/watch?v=dYFM2KIUn8Y", channel: "Marketing Fundas Global" },
         { title: "Ad Rank and Quality Score explained in Google Ads | Concept of Ad Rank | What is Quality Score? #28", url: "https://www.youtube.com/watch?v=B0lH9AxUDuQ", channel: "My Online Master" },
       ],
       te: [
@@ -10969,21 +10074,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How To Setup Reddit Ads Campaign From Scratch 2021 | Affiliate marketing With Reddit Ads 2021", url: "https://www.youtube.com/watch?v=Z6hystCeM3E", channel: "Technical Berwal" },
-        { title: "लाभदायक Reddit विज्ञापन अभियान बनाने का रहस्य तुरंत अनलॉक करें", url: "https://www.youtube.com/watch?v=oHxqad9qI5o", channel: "Anil Prajapati" },
         { title: "The Reddit Traffic Formula: Rank Every Post On Top!", url: "https://www.youtube.com/watch?v=o2dFCTcAFB8", channel: "Technical Berwal" },
-        { title: "2026 में रेडिट विज्ञापन कैसे चलाएं (चरण-दर-चरण मार्गदर्शिका)", url: "https://www.youtube.com/watch?v=HTugVfePzBQ", channel: "ZoCo Marketing" },
       ],
       te: [
-        { title: "How to Run Ads on Reddit 2026 | Reddit Marketing Course | Reddit Ads Campaign Setup | Reddit Ads", url: "https://www.youtube.com/watch?v=cuD76mUTR8Q", channel: "Hamid Khan - Marketing" },
-        { title: "Unlock The SECRET to Creating Profitable Reddit Ads Campaigns Quickly", url: "https://www.youtube.com/watch?v=oHxqad9qI5o", channel: "Anil Prajapati" },
-        { title: "How to Run Reddit Ads in 2026 (Step-by-Step Guide)", url: "https://www.youtube.com/watch?v=HTugVfePzBQ", channel: "ZoCo Marketing" },
         { title: "What Is Reddit? How it Works Telugu || SanDeep360Tech || Reddit Social media network in Telugu", url: "https://www.youtube.com/watch?v=NZl4OB2EgVw", channel: "SanDeep 360 Tech" },
       ],
       ta: [
         { title: "SEO Class 30.2: The Power of Reddit - Digital Marketer Sasikumar (Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=tlfYonw2GL4", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Unlock The SECRET to Creating Profitable Reddit Ads Campaigns Quickly", url: "https://www.youtube.com/watch?v=oHxqad9qI5o", channel: "Anil Prajapati" },
-        { title: "How to Run Reddit Ads in 2026 (Step-by-Step Guide)", url: "https://www.youtube.com/watch?v=HTugVfePzBQ", channel: "ZoCo Marketing" },
-        { title: "How to Run Ads on Reddit 2026 | Reddit Marketing Course | Reddit Ads Campaign Setup | Reddit Ads", url: "https://www.youtube.com/watch?v=cuD76mUTR8Q", channel: "Hamid Khan - Marketing" },
       ],
     },
     articles: [
@@ -11014,21 +10111,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Retail Media Networks: What Makes Successful Retailers Stand Out?", url: "https://www.youtube.com/watch?v=NJuSJvGowkE", channel: "OOH Insider" },
       ],
       hi: [
-        { title: "Retail Media Explained: 101 - What It Is, Why It Matters, and How It’s Changing Digital Advertising", url: "https://www.youtube.com/watch?v=Abr74W38tJU", channel: "Retail Media Partners" },
-        { title: "Retail Media Networks 101: What Marketers Need to Know", url: "https://www.youtube.com/watch?v=akXfCeIwYp4", channel: "Grippi Media" },
         { title: "What Are Retail Media & Retail Media Networks?", url: "https://www.youtube.com/watch?v=XQcQq6lUAQg", channel: "DaVinci Commerce AI" },
         { title: "Basic Networking : 5. Network Media : CCC Tutorial in Hindi", url: "https://www.youtube.com/watch?v=nZ-FMfLF7c4", channel: "Simplify CCC" },
       ],
       te: [
-        { title: "Retail Media Networks Explained | Retail Dogma", url: "https://www.youtube.com/watch?v=7ZLlq_K9KrA", channel: "Retail Dogma" },
-        { title: "Retail Media Explained: 101 - What It Is, Why It Matters, and How It’s Changing Digital Advertising", url: "https://www.youtube.com/watch?v=Abr74W38tJU", channel: "Retail Media Partners" },
         { title: "Why Retail Media Networks Are Losing Their Biggest Advertisers | Andrew Covato on Measurement", url: "https://www.youtube.com/watch?v=rejKezfyQZc", channel: "Kevel: The Retail Media Cloud®" },
-        { title: "Retail Media Networks 101: What Marketers Need to Know", url: "https://www.youtube.com/watch?v=akXfCeIwYp4", channel: "Grippi Media" },
       ],
       ta: [
-        { title: "Retail Media Networks Explained | Retail Dogma", url: "https://www.youtube.com/watch?v=7ZLlq_K9KrA", channel: "Retail Dogma" },
-        { title: "Retail Media Explained: 101 - What It Is, Why It Matters, and How It’s Changing Digital Advertising", url: "https://www.youtube.com/watch?v=Abr74W38tJU", channel: "Retail Media Partners" },
-        { title: "Retail Media Networks 101: What Marketers Need to Know", url: "https://www.youtube.com/watch?v=akXfCeIwYp4", channel: "Grippi Media" },
         { title: "What is Retail Media? The Fast-Growing Digital Marketing Trend", url: "https://www.youtube.com/watch?v=naQt4j6LEro", channel: "Rithum Commerce" },
       ],
     },
@@ -11057,7 +10146,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Retarget With Facebook Ads And Boost Your Online Sales | Complete Tutorial 😉", url: "https://www.youtube.com/watch?v=LPTvsUOP-dI", channel: "Damini Tripathi" },
       ],
       hi: [
-        { title: "फेसबुक विज्ञापनों के साथ री-टारगेटिंग कैसे करें और अपनी ऑनलाइन बिक्री कैसे बढ़ाएं | संपूर्ण ट्यूट...", url: "https://www.youtube.com/watch?v=LPTvsUOP-dI", channel: "Damini Tripathi" },
         { title: "How to Create Retargeting Ads in Meta Ads", url: "https://www.youtube.com/watch?v=5cmN8Am-QUE", channel: "My Online Master" },
         { title: "Full Facebook Ads Course in Hindi 2026 | Beginners to Advanced Meta Ads Tutorial", url: "https://www.youtube.com/watch?v=9cjJwTy7aM4", channel: "Pre Tutorials - AI Marketing" },
         { title: "How to Use Facebook Ads for Retargeting and Get More Sales (Full Tutorial with Strategy)", url: "https://www.youtube.com/watch?v=gD3xlc206bs", channel: "WsCube Tech" },
@@ -11101,7 +10189,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Snapchat Ads Tutorial 2026: Ultimate Guide for Beginners (HINDI)", url: "https://www.youtube.com/watch?v=b2SqNsb7c8w", channel: "Metics Media | Hindi" },
-        { title: "Easily Track Your Ad Launches Across Meta, TikTok, Snapchat, Pinterest & AppLovin", url: "https://www.youtube.com/watch?v=i-uqUAXE7OA", channel: "AdManage AI - Bulk Upload Ads To Meta & TikTok" },
         { title: "Snapchat Ads Crash Course 2026: Free Beginner’s Guide!", url: "https://www.youtube.com/watch?v=IfveszqIFu8", channel: "WsCube Tech" },
         { title: "How to Set Up Snapchat Ads Account (Step by Step)? | Snapchat Ads Course #1", url: "https://www.youtube.com/watch?v=emvaq-U2Ri8", channel: "Umar Tazkeer" },
       ],
@@ -11114,8 +10201,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "Pinterest Ads Tutorial | Everything You Need to Know", url: "https://www.youtube.com/watch?v=y99wDcOxCTc", channel: "Rajshekar Doddamani" },
         { title: "Make money by selling kids book #amazonkdp #makemoneytamil", url: "https://www.youtube.com/watch?v=gtHuwPKXTiE", channel: "iamkeerthy" },
-        { title: "Easily Track Your Ad Launches Across Meta, TikTok, Snapchat, Pinterest & AppLovin", url: "https://www.youtube.com/watch?v=i-uqUAXE7OA", channel: "AdManage AI - Bulk Upload Ads To Meta & TikTok" },
-        { title: "Snapchat Ads Tutorial 2026: Ultimate Guide for Beginners", url: "https://www.youtube.com/watch?v=svmmcRYKBCk", channel: "Metics Media" },
       ],
     },
     articles: [
@@ -11147,19 +10232,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Tiktok Ads Full Course || How To Run TikTok Ads For Shopify Ecommerce", url: "https://www.youtube.com/watch?v=BA1SfFp1HyM", channel: "Chasmish Tech" },
         { title: "Tiktok Ads / Marketing Full Course for Beginners | How to Run Tiktok Ads in Pakistan 2026", url: "https://www.youtube.com/watch?v=e96FVF71Y-4", channel: "Kashif Majeed and M Asim Tech" },
         { title: "TikTok Ads Complete Course 2026 | Beginner to Pro (Step by Step)", url: "https://www.youtube.com/watch?v=OlfpzXoeliE", channel: "Huzaifa Haider" },
-        { title: "TikTok विज्ञापन कैसे इस्तेमाल करें | TikTok विज्ञापन ट्यूटोरियल (शुरुआती लोगों के लिए)", url: "https://www.youtube.com/watch?v=5fnz6l_jytA", channel: "ZoCo Marketing" },
       ],
       te: [
-        { title: "How To Use TikTok Ads | TikTok Ads Tutorial (FOR BEGINNERS)", url: "https://www.youtube.com/watch?v=5fnz6l_jytA", channel: "ZoCo Marketing" },
-        { title: "TikTok Ads Tutorial | Everything You Need to Know (Complete 2025 Guide for Beginners)", url: "https://www.youtube.com/watch?v=PScXauCKHiQ", channel: "Ivan Mana" },
-        { title: "The BEST TikTok Ads Tutorial for Beginners (2026 Complete Guide)", url: "https://www.youtube.com/watch?v=9SyAtuFqb0c", channel: "Nathan Nazareth" },
         { title: "Google Ads vs Meta Ads – Which One Actually Works Better? 🤯 | Marketing Tips 2025 | Techqilla", url: "https://www.youtube.com/watch?v=Mo9nesr9sfw", channel: "TechQilla" },
       ],
       ta: [
-        { title: "How To Use TikTok Ads | TikTok Ads Tutorial (FOR BEGINNERS)", url: "https://www.youtube.com/watch?v=5fnz6l_jytA", channel: "ZoCo Marketing" },
-        { title: "The FULL TikTok Ads Course (Learn TikTok Ads)", url: "https://www.youtube.com/watch?v=zktQAg14wdA", channel: "ZoCo Marketing" },
-        { title: "The BEST TikTok Ads Tutorial for Beginners (2026 Complete Guide)", url: "https://www.youtube.com/watch?v=9SyAtuFqb0c", channel: "Nathan Nazareth" },
-        { title: "TikTok Ads Tutorial | Everything You Need to Know (Complete 2025 Guide for Beginners)", url: "https://www.youtube.com/watch?v=PScXauCKHiQ", channel: "Ivan Mana" },
       ],
     },
     articles: [
@@ -11189,7 +10266,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Promote YouTube Video With Google Ads || Hindi 2026", url: "https://www.youtube.com/watch?v=GI9eli_3cfA", channel: "Digital Marketing Guruji" },
       ],
       hi: [
-        { title: "How to Run YouTube Ads with Strategy in 2026 - Full Tutorial", url: "https://www.youtube.com/watch?v=IsDuIW8XDr4", channel: "WsCube Tech" },
         { title: "How to Run YouTube Ads Step by Step (Full Guide)", url: "https://www.youtube.com/watch?v=d0J1d448_Go", channel: "Umar Tazkeer" },
         { title: "Youtube Ads Tutorial For Beginners Step by Step - How to Run YouTube Ads in 2026 (in Hindi)", url: "https://www.youtube.com/watch?v=kJGhqYvlbDM", channel: "Focus Locus" },
         { title: "Part 8 - How To Create YouTube Ads | Google Ads Complete Course", url: "https://www.youtube.com/watch?v=Uh3ue4qzSUc", channel: "Amit Tiwari" },
@@ -11232,19 +10308,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Build an AI Powered Social Media Automation Platform Using MERN Stack | AI Project Tutorial", url: "https://www.youtube.com/watch?v=L3OmeClSiQ0", channel: "GreatStack" },
       ],
       hi: [
-        { title: "AI Agents vs LLMs vs RAGs vs Agentic AI | Rakesh Gohel", url: "https://www.youtube.com/watch?v=YUNf24-QMzk", channel: "Rakesh Gohel" },
-        { title: "Roadmap to Become a Generative AI Expert for Beginners in 2025", url: "https://www.youtube.com/watch?v=39zbC_PrNQs", channel: "Analytics Vidhya" },
         { title: "AI Product Manager: Core Skill & Took Skill", url: "https://www.youtube.com/watch?v=_PsRT3Wkluk", channel: "codebasics" },
         { title: "Top AI Platform Recommendations", url: "https://www.youtube.com/watch?v=uhyZ9zHz4m8", channel: "Nikhil Kamath" },
       ],
       te: [
-        { title: "AI Agents vs LLMs vs RAGs vs Agentic AI | Rakesh Gohel", url: "https://www.youtube.com/watch?v=YUNf24-QMzk", channel: "Rakesh Gohel" },
         { title: "Top AI Tools in Telugu", url: "https://www.youtube.com/watch?v=x_T8mrI81rY", channel: "PythonLife" },
         { title: "AI Powered Digital Marketing Course in Hyderabad | Best Training Institute in Hyd with Placement", url: "https://www.youtube.com/watch?v=ZT-6xLLMboI", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "Ai Powered Digital Marketing Live Demo in Telugu | Digital Marketing Telugu Course | AIPDMA", url: "https://www.youtube.com/watch?v=ieMLEdGz4x8", channel: "Ai Powered Digital Marketing Training Academy" },
       ],
       ta: [
-        { title: "AI Agents vs LLMs vs RAGs vs Agentic AI | Rakesh Gohel", url: "https://www.youtube.com/watch?v=YUNf24-QMzk", channel: "Rakesh Gohel" },
         { title: "AI Powered Digital Marketing Masterclass in Tamil | Meta Ads, Google Ads, AI Tools | 50 Days Online", url: "https://www.youtube.com/watch?v=Uvw1zjocAqQ", channel: "Digital Saravanan" },
         { title: "Practical AI Learning Path in Tamil | Step by Step | AI Roadmap Simplified #aiintamil #aitamil", url: "https://www.youtube.com/watch?v=GU7wJR75S4w", channel: "Applied with AI - Tamil" },
         { title: "🔥 Build AI-Powered Products in Minutes | Tamil | VIBE Coding for Future Engineers 🚀", url: "https://www.youtube.com/watch?v=H3LyhPJ7Ou4", channel: "trainer senthil" },
@@ -11270,16 +10342,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "CCgroup webinar Mind the gap: What AR delivers, and what it’s asked for", url: "https://www.youtube.com/watch?v=5if8HMsyEpo", channel: "CCGroup, a Hoffman Agency" },
       ],
       hi: [
-        { title: "Analyst Relations 101", url: "https://www.youtube.com/watch?v=WrhPMLqX4wc", channel: "Suma Nair" },
-        { title: "Build an Analyst Relations engagement plan and win!", url: "https://www.youtube.com/watch?v=X2JucPmGEbg", channel: "Compass Bridge" },
-        { title: "EP 37: The Future of Analyst Relations: AI, Influence & Market Strategy in 2025", url: "https://www.youtube.com/watch?v=JBZZwYx_AK4", channel: "Revenue Beacon with Prasant" },
         { title: "What is Analyst Relations?A beginners video guide!", url: "https://www.youtube.com/watch?v=HOd6eO9xnHc", channel: "Aarti Innov Mark" },
       ],
       te: [
         { title: "Analyst Relations 101", url: "https://www.youtube.com/watch?v=FoP7pNZWdLM", channel: "Kira Tchernikovsky" },
         { title: "What’s the difference between analyst relations and analyst engagement?", url: "https://www.youtube.com/watch?v=4xEByqCipJI", channel: "The Skills Connection" },
         { title: "Ten truths on analyst relations for tech companies and startups, Ludovic Leforestier, IIAR", url: "https://www.youtube.com/watch?v=ziJvmEr82R0", channel: "TheIIAR" },
-        { title: "Analyst Relations Explained", url: "https://www.youtube.com/watch?v=abND8DUYOSs", channel: "Cloud Ratings" },
       ],
       ta: [
         { title: "𝐃𝐚𝐭𝐚 𝐀𝐧𝐚𝐥𝐲𝐬𝐭 𝐂𝐚𝐫𝐞𝐞𝐫 𝐏𝐚𝐭𝐡 – The Truth About This Job! 🎯in Tamil", url: "https://www.youtube.com/watch?v=6b-jrvjlw3I", channel: "Data Engineering" },
@@ -11314,18 +10382,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "what is Beta version? full information tutorial in hindi", url: "https://www.youtube.com/watch?v=xyapNwLdam4", channel: "Techno Theory" },
-        { title: "Leave All Beta Program On Playstore | Playstore Beta Program Setting #shorts #techfrack #playstore", url: "https://www.youtube.com/watch?v=W1ynE5roRZ0", channel: "Tech Frack" },
         { title: "alpha testing and beta testing in hindi || alpha testing and beta testing in software engineering", url: "https://www.youtube.com/watch?v=94n_SYONU7I", channel: "Programming languages by shuklaclasses" },
       ],
       te: [
         { title: "What is beta software ? Explained || In Telugu ||", url: "https://www.youtube.com/watch?v=9eoWjFfVjA0", channel: "VaasuTechVlogs" },
-        { title: "Leave All Beta Program On Playstore | Playstore Beta Program Setting #shorts #techfrack #playstore", url: "https://www.youtube.com/watch?v=W1ynE5roRZ0", channel: "Tech Frack" },
         { title: "what is BETA VERSION in telugu | Telugu | THE UG TECH", url: "https://www.youtube.com/watch?v=NAxuT5DYL0g", channel: "Tech Stuffer" },
         { title: "What Is Beta Testing In Telugu 😍 | Beta testing Defination | Software Testing | @techagent2.0 #beta", url: "https://www.youtube.com/watch?v=P7dcHM4itk4", channel: "Tech agent 2.0" },
       ],
       ta: [
         { title: "What is Beta Version? | Testing Phase Explained in Simple Words | Expertise Academy", url: "https://www.youtube.com/watch?v=Rp3DdzgZe3s", channel: "Expertisor Academy Tamil" },
-        { title: "Leave All Beta Program On Playstore | Playstore Beta Program Setting #shorts #techfrack #playstore", url: "https://www.youtube.com/watch?v=W1ynE5roRZ0", channel: "Tech Frack" },
         { title: "How To Fix Beta Programme Is Full / Join YouTube Beta Tester | TAMIL REK", url: "https://www.youtube.com/watch?v=nmOYs6URG1w", channel: "REK Tech World" },
         { title: "What is Beta Testing ? How to become A Beta Tester ? in tamil | TAMIL ASH", url: "https://www.youtube.com/watch?v=EP9Ztq50dyU", channel: "Mr. Black Mark" },
       ],
@@ -11369,7 +10434,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "GTM Tamil. Google Tag Manager Presentation with Live Example - Sasikumar Talks #SasikumarTalks", url: "https://www.youtube.com/watch?v=vM8Ot4k0VpE", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "The Right Way to Build Your GTM Playbooks", url: "https://www.youtube.com/watch?v=IAIWG6qW1_o", channel: "ZoomInfo" },
         { title: "BEST MARKETING STRATEGY ✅|#shorts #youtubeshorts #tamil", url: "https://www.youtube.com/watch?v=7s0DVdzDqi0", channel: "Cheran Academy" },
         { title: "8 Questions to ask before building D2C in India | Lessons from Building a INR 100+ Cr Brand Online", url: "https://www.youtube.com/watch?v=f1SdVoL4nmk", channel: "Mesa School of Business" },
       ],
@@ -11393,9 +10457,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Ep-1 of the series: How to start a #clothingbrand from scratch? | Craftera #bangalore #startupguide", url: "https://www.youtube.com/watch?v=mFTVGvbC990", channel: "Craftera" },
       ],
       hi: [
-        { title: "How to create category in WordPress site| #wordpress #blogging #bloggingtipsforbeginners", url: "https://www.youtube.com/watch?v=pwUUod4keZo", channel: "Gyan Hindi Technical" },
-        { title: "Category Creation: How to Build a Movement", url: "https://www.youtube.com/watch?v=8ZS-AdGVjhs", channel: "Metadata.io" },
-        { title: "2 SECRET strategies to build your BRAND!", url: "https://www.youtube.com/watch?v=OqvTAo9eOTM", channel: "Rajiv Talreja" },
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
       ],
       te: [
@@ -11405,7 +10466,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Instagram Professional Account Creation 🔥 Step by step | Telugu | How To Create Business Page", url: "https://www.youtube.com/watch?v=PjxVypzynRE", channel: "Adarsh TechLover" },
       ],
       ta: [
-        { title: "How to create category in WordPress site| #wordpress #blogging #bloggingtipsforbeginners", url: "https://www.youtube.com/watch?v=pwUUod4keZo", channel: "Gyan Hindi Technical" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
         { title: "WhatsApp Business Catalog Creation | Tamil | Step By Step Guide", url: "https://www.youtube.com/watch?v=2TdBpvLqGU0", channel: "Digital Marketing Edge Tamil" },
         { title: "How to choose niche for content creation ✨ #tamil", url: "https://www.youtube.com/watch?v=H6WUyQJOlpc", channel: "Profit Pencil" },
@@ -11482,14 +10542,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Panel: How to Build a Best-in-Class Customer Advisory Board", url: "https://www.youtube.com/watch?v=EpK3CFIBEHA", channel: "Catalyst Software" },
-        { title: "The Key Considerations for Creating a Customer Advisory Board", url: "https://www.youtube.com/watch?v=igGUTjlX04M", channel: "AdvisoryCloud" },
-        { title: "Build Your Advisory Board the Right Way", url: "https://www.youtube.com/watch?v=6F9c02tr-D8", channel: "Patrick Lonergan" },
         { title: "IT Quick Bites  - Change Advisory Board", url: "https://www.youtube.com/watch?v=7km1SkJqkzQ", channel: "DruVision - IT Consulting" },
       ],
       te: [
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
-        { title: "What is a customer advisory board and how can it help you grow your business?", url: "https://www.youtube.com/watch?v=tAYsXYe4WUI", channel: "AdvisoryCloud" },
         { title: "How to Build a Good Relationship with Customer? | TEAM RAJESHWARI | Real Estate Training in Telugu", url: "https://www.youtube.com/watch?v=Z3dOHiUxZ8w", channel: "Team Rajeshwari" },
       ],
       ta: [
@@ -11527,8 +10584,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "4 Types of Product Marketing Interview Questions (by an ex-Google PMM)", url: "https://www.youtube.com/watch?v=5RRMBCpk_b4", channel: "Henry Wang" },
       ],
       hi: [
-        { title: "Webinar: The Art of Conducting Customer Interviews by Microsoft Product Lead, Nirav Patel", url: "https://www.youtube.com/watch?v=f_ZqAMe5fXY", channel: "Product School" },
-        { title: "product marketing manager interview: questions & answers", url: "https://www.youtube.com/watch?v=DJGdXba9zKw", channel: "Ask Natalie Allison" },
         { title: "Product Marketing Manager Interview Questions & Answers | How to Pass the Interview", url: "https://www.youtube.com/watch?v=u6MjdHK7ELQ", channel: "CareerGuide" },
         { title: "The best answer to \"sell me this pen\" || #shorts", url: "https://www.youtube.com/watch?v=YtzEpY0TJmw", channel: "DrishtiSpeaks shorts" },
       ],
@@ -11539,9 +10594,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Sell Me This Pen Best Answer Telugu | Interview Question #sellmethispen #interview", url: "https://www.youtube.com/watch?v=yRALnbvdODM", channel: "Rajesh MKL" },
       ],
       ta: [
-        { title: "Webinar: The Art of Conducting Customer Interviews by Microsoft Product Lead, Nirav Patel", url: "https://www.youtube.com/watch?v=f_ZqAMe5fXY", channel: "Product School" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "product marketing manager interview: questions & answers", url: "https://www.youtube.com/watch?v=DJGdXba9zKw", channel: "Ask Natalie Allison" },
         { title: "How to Pull Customers for Your Business?! 🌐💼 | Tamil CEO Sidd Ahmed", url: "https://www.youtube.com/watch?v=OlL6Ozl60gU", channel: "Sidd Ahmed" },
       ],
     },
@@ -11571,10 +10624,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Developer relations versus developer marketing: Michael Ludden", url: "https://www.youtube.com/watch?v=w1IEKEjZeWU", channel: "Dev Rel" },
       ],
       hi: [
-        { title: "Technical Presentations in Developer Marketing: The Complete Guide", url: "https://www.youtube.com/watch?v=dmyXu9pJjew", channel: "PMXschool" },
         { title: "The Developer Marketing Guide: Community Projects & Retargeting", url: "https://www.youtube.com/watch?v=i8FmOq1sA60", channel: "Heavybit" },
         { title: "DevRel | Developer Advocate | Developer Relations - All in one video", url: "https://www.youtube.com/watch?v=G-QFgYUq-SM", channel: "Kubesimplify Hindi" },
-        { title: "Developer Marketing 101: Deepak (CEO, Doc‑E.ai) — Interviewing 100+ DevRels | Ep 4", url: "https://www.youtube.com/watch?v=BC96Na0bq3U", channel: "Vodcast with AK" },
       ],
       te: [
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
@@ -11586,7 +10637,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "BEST MARKETING STRATEGY ✅|#shorts #youtubeshorts #tamil", url: "https://www.youtube.com/watch?v=7s0DVdzDqi0", channel: "Cheran Academy" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
         { title: "Sales Vs Marketing Explained in Tamil", url: "https://www.youtube.com/watch?v=vJsaDo_pMvI", channel: "ZiBumbaa Marketing" },
-        { title: "Technical Presentations in Developer Marketing: The Complete Guide", url: "https://www.youtube.com/watch?v=dmyXu9pJjew", channel: "PMXschool" },
       ],
     },
     articles: [
@@ -11615,20 +10665,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Ultimate Guide to GTM Engineering for 2026", url: "https://www.youtube.com/watch?v=DoPx2vGYkoA", channel: "Salesforge" },
       ],
       hi: [
-        { title: "Complete GTM Engineer Roadmap (Step-by-Step Blueprint)", url: "https://www.youtube.com/watch?v=J_Lu_zVHC8s", channel: "Nishkarsh Agarwal" },
-        { title: "Master These 3 Skills to Become a GTM Engineer! 🚀", url: "https://www.youtube.com/watch?v=UFtW_vhIXTE", channel: "Everything in Between" },
-        { title: "What is a GTM Engineer? The Most Underrated Role in SaaS Growth (Explained Simply)", url: "https://www.youtube.com/watch?v=s5yLg96-234", channel: "Salesforge" },
         { title: "What is GTM REALLY?", url: "https://www.youtube.com/watch?v=6dReY5jPQ1A", channel: "GrowthX" },
       ],
       te: [
-        { title: "What is a GTM Engineer? The Most Underrated Role in SaaS Growth (Explained Simply)", url: "https://www.youtube.com/watch?v=s5yLg96-234", channel: "Salesforge" },
         { title: "How to become a GTM Engineer(Highest paying Tech job)", url: "https://www.youtube.com/watch?v=8M0gJGOQS24", channel: "Builders Central" },
-        { title: "Complete GTM Engineer Roadmap (Step-by-Step Blueprint)", url: "https://www.youtube.com/watch?v=J_Lu_zVHC8s", channel: "Nishkarsh Agarwal" },
         { title: "\"GTM Engineer\" is a new essential role for a sales team.  #businessleader #founder #GTM #Engineer", url: "https://www.youtube.com/watch?v=bCr6Dflti-s", channel: "Yasas Gunaratne" },
       ],
       ta: [
-        { title: "What is a GTM Engineer? The Most Underrated Role in SaaS Growth (Explained Simply)", url: "https://www.youtube.com/watch?v=s5yLg96-234", channel: "Salesforge" },
-        { title: "Complete GTM Engineer Roadmap (Step-by-Step Blueprint)", url: "https://www.youtube.com/watch?v=J_Lu_zVHC8s", channel: "Nishkarsh Agarwal" },
         { title: "How to become a GTM Engineer(Highest paying Tech job)", url: "https://www.youtube.com/watch?v=8M0gJGOQS24", channel: "Builders Central" },
         { title: "How I Replace 10 SDRs With Clay + AI (GTM Engineering)", url: "https://www.youtube.com/watch?v=T76QhEQ-aTI", channel: "Will Breton" },
       ],
@@ -11663,20 +10706,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Ideal Customer Profile (How Find a Great ICP In SaaS Sales?)- In Hindi", url: "https://www.youtube.com/watch?v=jILQOZAWh_g", channel: "Pratik Pandey" },
-        { title: "How to Create an Ideal Customer Profile with AI | How to Find the Right Prospect | Lead Generatio...", url: "https://www.youtube.com/watch?v=6NImv2Dmel0", channel: "IMDSE~Institute of Modern Direct Selling Education" },
         { title: "What Is Ideal Client Profile? | ICP क्या है? | In Hindi | SaaS Sales | Pratik Pandey", url: "https://www.youtube.com/watch?v=MFsmZMzgFIU", channel: "Pratik Pandey" },
-        { title: "अपना आदर्श ग्राहक प्रोफाइल (आईसीपी) कैसे बनाएं", url: "https://www.youtube.com/watch?v=hJHBpQN1AZA", channel: "The Science of Scaling" },
       ],
       te: [
         { title: "What is ICP ? - Ideal Customer Profile -  Explained under 2 minutes", url: "https://www.youtube.com/watch?v=XfhowSe3ff0", channel: "Sparkle" },
-        { title: "What is Ideal Customer Profile? How to Create ICP? #idealcustomerprofile", url: "https://www.youtube.com/watch?v=XBQHWX2HctQ", channel: "Saleshandy" },
-        { title: "How to Create Your Ideal Customer Profile | ICP Marketing", url: "https://www.youtube.com/watch?v=V7x_5WjVUiw", channel: "WebFX" },
         { title: "How to Define Your Ideal Customer Profile (ICP) in 4 Simple Steps", url: "https://www.youtube.com/watch?v=dQs7Z3qja_E", channel: "Business Edutainment" },
       ],
       ta: [
-        { title: "What is Ideal Customer Profile? How to Create ICP? #idealcustomerprofile", url: "https://www.youtube.com/watch?v=XBQHWX2HctQ", channel: "Saleshandy" },
         { title: "What is ICP ? - Ideal Customer Profile -  Explained under 2 minutes", url: "https://www.youtube.com/watch?v=XfhowSe3ff0", channel: "Sparkle" },
-        { title: "How to Create Your Ideal Customer Profile | ICP Marketing", url: "https://www.youtube.com/watch?v=V7x_5WjVUiw", channel: "WebFX" },
         { title: "How to Define Your Ideal Customer Profile (ICP) in 4 Simple Steps", url: "https://www.youtube.com/watch?v=dQs7Z3qja_E", channel: "Business Edutainment" },
       ],
     },
@@ -11706,14 +10743,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How I Brought My First Product to Market – Idea to Launch", url: "https://www.youtube.com/watch?v=5RJGSGTkpt0", channel: "Matthew Encina" },
       ],
       hi: [
-        { title: "FMCG New Product Launch Planning | FMCG Business | FMCG Sales | Sandeep Ray", url: "https://www.youtube.com/watch?v=q1q9fv2l0FE", channel: "SKILL TO WILL" },
         { title: "Create viral product Ads with AI: Step-by-step tutorial", url: "https://www.youtube.com/watch?v=5gxLUF4V1qI", channel: "Digit Hindi" },
         { title: "full tutorial |product advertisment |product animation | motion animation| animation| canva hindi", url: "https://www.youtube.com/watch?v=hoHj5Mcelq0", channel: "Chaya_graphics" },
         { title: "Product Design Using Photoshop. For Tutorial Subscribe #photoshopdesign #graphicdesign", url: "https://www.youtube.com/watch?v=m3A8LbQYj5I", channel: "Code With Arfat" },
       ],
       te: [
         { title: "Launch your first product online! | Chapter 6 | WooCommerce Telugu Tutorial", url: "https://www.youtube.com/watch?v=8rX5vtTJimA", channel: "Kailash Chandra - Telugu" },
-        { title: "FMCG New Product Launch Planning | FMCG Business | FMCG Sales | Sandeep Ray", url: "https://www.youtube.com/watch?v=q1q9fv2l0FE", channel: "SKILL TO WILL" },
         { title: "E-Commerce Business in Telugu | How to Set Up Amazon & Flipkart Store? | Amazon & Flipkart Tutorial", url: "https://www.youtube.com/watch?v=LTHhYJNM110", channel: "Boss Wallah Daily Telugu" },
         { title: "WooCommerce Tutorial in Telugu 2026 | Class - 4 | Simple,Variable, Affiliate & Downloadable Products", url: "https://www.youtube.com/watch?v=Y6RJHPz_yqc", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
       ],
@@ -11795,20 +10830,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Build a Successful GTM Strategy", url: "https://www.youtube.com/watch?v=Xx4hfiqrCE8", channel: "ZoomInfo" },
       ],
       hi: [
-        { title: "How to Build a Winning Go-To-Market (GTM) Strategy | Step-by-Step Guide for Product Managers", url: "https://www.youtube.com/watch?v=VEOQzdfv6qQ", channel: "Anoop in Canada" },
-        { title: "Demo Partner | Supercharge Your GTM Motion with a Team of Virtual Experts", url: "https://www.youtube.com/watch?v=RobvqrOMnoc", channel: "Demostack" },
         { title: "Go to Market Strategy Framework | How to Build Go to Market Strategy | GTM Strategy | Simplilearn", url: "https://www.youtube.com/watch?v=F4YuptMRMBY", channel: "Simplilearn" },
         { title: "Essentials of Building a GTM Function #Shorts", url: "https://www.youtube.com/watch?v=WDcjT0NHlZQ", channel: "The Startup Operator" },
       ],
       te: [
-        { title: "Build, Manage & Scale Partnerships", url: "https://www.youtube.com/watch?v=wwzLYDfpWzQ", channel: "Partner GTM Institute (PGTMI)" },
         { title: "GTM Setup Part 3 | Google Tag Manager Step by Step Setup in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=asR3RlXuxrg", channel: "Subbu Digital Marketer" },
         { title: "GTM Overview Part 1 | Google Tag Manager Explained in Detail Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=o5_CSutC5A0", channel: "Subbu Digital Marketer" },
         { title: "Go to Market Strategy Framework | How to Build Go to Market Strategy | GTM Strategy | Simplilearn", url: "https://www.youtube.com/watch?v=F4YuptMRMBY", channel: "Simplilearn" },
       ],
       ta: [
         { title: "Masterclass on Zero to GTM in 15 days", url: "https://www.youtube.com/watch?v=NGHUErlIRoI", channel: "Tamilpreneur" },
-        { title: "Demo Partner | Supercharge Your GTM Motion with a Team of Virtual Experts", url: "https://www.youtube.com/watch?v=RobvqrOMnoc", channel: "Demostack" },
         { title: "BEST MARKETING STRATEGY ✅|#shorts #youtubeshorts #tamil", url: "https://www.youtube.com/watch?v=7s0DVdzDqi0", channel: "Cheran Academy" },
         { title: "What is Go-To-Market Strategy(GTM) & Why Product-Led Growth(PLG) in Tamil", url: "https://www.youtube.com/watch?v=EmWfIowRa00", channel: "The Product Talks with Jerry" },
       ],
@@ -11834,22 +10865,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The ULTIMATE Product Marketing Blueprint You'll Ever Need", url: "https://www.youtube.com/watch?v=DZLca8Y8mhM", channel: "Visme" },
       ],
       hi: [
-        { title: "How to Become a Product Marketing Manager - PMM Career Roadmap", url: "https://www.youtube.com/watch?v=eluuNMbm9TY", channel: "Young Urban Project" },
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
-        { title: "Product Marketing 101 | Masterclass for Beginners", url: "https://www.youtube.com/watch?v=WcVpfuOdWm4", channel: "Visme" },
-        { title: "Product Marketing 101 with Google Product Marketing Manager", url: "https://www.youtube.com/watch?v=C7dNExgqd5A", channel: "Henry Wang" },
       ],
       te: [
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
-        { title: "How to Become a Product Marketing Manager - PMM Career Roadmap", url: "https://www.youtube.com/watch?v=eluuNMbm9TY", channel: "Young Urban Project" },
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
-        { title: "Product Marketing 101 with Google Product Marketing Manager", url: "https://www.youtube.com/watch?v=C7dNExgqd5A", channel: "Henry Wang" },
       ],
       ta: [
-        { title: "What Product Marketers ACTUALLY Do in Tech Companies!", url: "https://www.youtube.com/watch?v=NL-pmvydNe8", channel: "Jeff Su" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
-        { title: "Product Marketing 101 | Masterclass for Beginners", url: "https://www.youtube.com/watch?v=WcVpfuOdWm4", channel: "Visme" },
       ],
     },
     articles: [
@@ -11879,20 +10900,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is an HMI?", url: "https://www.youtube.com/watch?v=kujHQgK352o", channel: "RealPars" },
       ],
       hi: [
-        { title: "Cloud Deployment Models : Public, Private and Hybrid Cloud Explained in Hindi", url: "https://www.youtube.com/watch?v=5G0L7XCt6XQ", channel: "5 Minutes Engineering" },
-        { title: "What is Centralized Mail Flow in Exchange Hybrid | Exchange Hybrid email flow explained", url: "https://www.youtube.com/watch?v=5YcUdwdxzlQ", channel: "Office365Concepts" },
-        { title: "CI CD pipeline Demonstrated. #pipeline #jenkins", url: "https://www.youtube.com/watch?v=dHEssuWNkZw", channel: "JasPreet | DevOps & Backend" },
-        { title: "Hybrid Programming with MPI and OpenMP | Deepak Eachempati, University of Houston", url: "https://www.youtube.com/watch?v=sgrIUHml7hU", channel: "Argonne Meetings, Webinars, and Lectures" },
       ],
       te: [
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
         { title: "IDE Explained | Telugu | Integrated Development Environment", url: "https://www.youtube.com/watch?v=8nMr29pTaIc", channel: "Embedded Guide Telugu" },
-        { title: "CI CD pipeline Demonstrated. #pipeline #jenkins", url: "https://www.youtube.com/watch?v=dHEssuWNkZw", channel: "JasPreet | DevOps & Backend" },
         { title: "What is Federated Learning?", url: "https://www.youtube.com/watch?v=VrEQBlEVri0", channel: "codebasics" },
       ],
       ta: [
-        { title: "What is Cloud Computing? Learn How Cloud Works! #shorts #cloudcomputing", url: "https://www.youtube.com/watch?v=eXNvTjKcP_0", channel: "Error Makes Clever" },
-        { title: "CI CD pipeline Demonstrated. #pipeline #jenkins", url: "https://www.youtube.com/watch?v=dHEssuWNkZw", channel: "JasPreet | DevOps & Backend" },
         { title: "𝐌𝐨𝐝𝐞𝐥 𝐂𝐨𝐧𝐭𝐞𝐱𝐭 𝐏𝐫𝐨𝐭𝐨𝐜𝐨𝐥 (MCP) Explained from Scratch | Full Tutorial in Tamil", url: "https://www.youtube.com/watch?v=v-HyooPh30w", channel: "Data Engineering" },
       ],
     },
@@ -11922,22 +10936,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Product Management 101: Everything You Need to Know (Full Course)", url: "https://www.youtube.com/watch?v=5nAeyqNuZYU", channel: "Explained Hub" },
       ],
       hi: [
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
-        { title: "Brand Manager vs Product Marketing Manager (PMM) - Real Difference", url: "https://www.youtube.com/watch?v=-cKLwZgh7-4", channel: "Young Urban Project" },
-        { title: "How to Become a Product Marketing Manager - PMM Career Roadmap", url: "https://www.youtube.com/watch?v=eluuNMbm9TY", channel: "Young Urban Project" },
-        { title: "Product Marketing vs Digital Marketing - How are they different?", url: "https://www.youtube.com/watch?v=Zp1QOJJILSw", channel: "Young Urban Project" },
       ],
       te: [
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
-        { title: "Product Marketing vs Digital Marketing - How are they different?", url: "https://www.youtube.com/watch?v=Zp1QOJJILSw", channel: "Young Urban Project" },
         { title: "Digital Marketing vs Performance Marketing in Telugu | Difference Explained", url: "https://www.youtube.com/watch?v=XoyXue7DKIQ", channel: "Peram Pradeep" },
       ],
       ta: [
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "What does a Product Marketing Manager (PMM) do - Product Marketing Explained", url: "https://www.youtube.com/watch?v=M1PDvSqnfmg", channel: "Young Urban Project" },
         { title: "Marketing என்றால் என்ன? What is Marketing? (Tamil) #Marketing #WhatisMarketing #MarketingManagement", url: "https://www.youtube.com/watch?v=c7bPT_q87gM", channel: "Digital Marketing by Siddharth" },
-        { title: "Product Marketing vs Digital Marketing - How are they different?", url: "https://www.youtube.com/watch?v=Zp1QOJJILSw", channel: "Young Urban Project" },
       ],
     },
     articles: [
@@ -12014,12 +11020,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Pricing Strategies In Marketing - Price Skimming And Penetration Pricing In Hindi - Premium Pricing", url: "https://www.youtube.com/watch?v=-1kbLfJhcu4", channel: "Business Analytics by SkillArbitrage" },
         { title: "Pricing strategy to make you buy more | Nitin Joshi #pricingstrategy #businesscasestudies #business", url: "https://www.youtube.com/watch?v=ffwtHCkykJM", channel: "Nitin Joshi" },
         { title: "Branding Packaging and Pricing | MB202 | Marketing Management | Module-II Hindi", url: "https://www.youtube.com/watch?v=FiX403GGbzo", channel: "AIMTECH_Hindi" },
-        { title: "Step-by-Step guide to PRICE your products!", url: "https://www.youtube.com/watch?v=w1IEjxInYzU", channel: "Rajiv Talreja" },
       ],
       te: [
         { title: "How Much Should You Charge Clients? 💰 | Pricing Strategy | Ep 6", url: "https://www.youtube.com/watch?v=TUgz4ItPhYA", channel: "Ali | AI Automation Telugu" },
         { title: "Pricing Strategy💯 | Telugu Business Podcast | #shorts", url: "https://www.youtube.com/watch?v=__NB1d7Vmak", channel: "Telugu Connects - Growth Podcast" },
-        { title: "Step-by-Step guide to PRICE your products!", url: "https://www.youtube.com/watch?v=w1IEjxInYzU", channel: "Rajiv Talreja" },
         { title: "Pricing Strategies and programs in telugu", url: "https://www.youtube.com/watch?v=2PEeImbsMts", channel: "Commerce Tutorials" },
       ],
       ta: [
@@ -12057,20 +11061,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How to generate leads for free | #leadgeneration #bitzdigitech #leads #digitalmarketing", url: "https://www.youtube.com/watch?v=dfyhuQXc08M", channel: "Bitz Digitech" },
         { title: "Product-Led Storytelling: Ditch the MQL to Drive More Sales & Revenue w/ Mrig (Mrignayni) Pandey", url: "https://www.youtube.com/watch?v=WeecqOFLikQ", channel: "Optimist - Growth-Focused Content Marketing Agency" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
         { title: "How To Sell Anything", url: "https://www.youtube.com/watch?v=gAK5kuyPBNY", channel: "Saurabh Gandhi" },
       ],
       te: [
-        { title: "Product-led vs sales-led vs market-led: Which one is right for you?", url: "https://www.youtube.com/watch?v=LB7cR6ABtSc", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
-        { title: "Product Led Growth Framework Masterclass", url: "https://www.youtube.com/watch?v=jvOZMQYjYYY", channel: "ProductLed" },
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
       ],
       ta: [
-        { title: "Product-led vs sales-led vs market-led: Which one is right for you?", url: "https://www.youtube.com/watch?v=LB7cR6ABtSc", channel: "Product-Led Alliance | The Home of PLG" },
-        { title: "Notion Exec’s Best Advice On Product-Led Growth (PLG)", url: "https://www.youtube.com/watch?v=PNDUPt8anVA", channel: "Redpoint" },
         { title: "What is Go-To-Market Strategy(GTM) & Why Product-Led Growth(PLG) in Tamil", url: "https://www.youtube.com/watch?v=EmWfIowRa00", channel: "The Product Talks with Jerry" },
-        { title: "What is Product-Led Growth? PLG explained.", url: "https://www.youtube.com/watch?v=Rt6udR29b7g", channel: "Product-Led Alliance | The Home of PLG" },
       ],
     },
     articles: [
@@ -12096,21 +11093,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Sales Enablement: What It Is and Why It Matters | EP 17", url: "https://www.youtube.com/watch?v=Ah_zbjuCivU", channel: "Proposify" },
       ],
       hi: [
-        { title: "What Is Sales Enablement & How It Transforms Modern Sales Teams", url: "https://www.youtube.com/watch?v=BE95IA2DFm0", channel: "Eazybe" },
         { title: "How Do Sales Enablement Specialists Optimize Processes? - Find Sales Jobs", url: "https://www.youtube.com/watch?v=VfgZ04U0r4c", channel: "Find Sales Jobs" },
-        { title: "Everything you need to know about sales enablement in 5 minutes", url: "https://www.youtube.com/watch?v=GDcM2Cqx6CY", channel: "Sales Enablement Collective" },
         { title: "शुरुआती लोगों के लिए भूकंपीय ट्यूटोरियल | Seismic.com वैश्विक बिक्री सक्षमता प्लेटफ़ॉर्म अवलोकन", url: "https://www.youtube.com/watch?v=Lg5dZ1malSM", channel: "BizGuide" },
       ],
       te: [
         { title: "SALES PSYCHOLOGY -  Sales పెరగాలి అంటే కావాల్సింది Motivation కాదు | MVN Kasyap - Telugu", url: "https://www.youtube.com/watch?v=8PMhhB2WTV8", channel: "MVN Kasyap - Telugu" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
-        { title: "Sales Enablement 101", url: "https://www.youtube.com/watch?v=I7xsdS2meYg", channel: "Crayon Competitive Intelligence" },
         { title: "Sales, marketing #skills #sales #salestips #telugu #tips #development #ai #money #passiveincome", url: "https://www.youtube.com/watch?v=A9DW2cknhnA", channel: "Karthikeyan Srinivasan" },
       ],
       ta: [
         { title: "Golden rule of sales in Tamil |  Sales Tips", url: "https://www.youtube.com/watch?v=7yeaOkEgw1Y", channel: "Sangeetha S Abishek" },
         { title: "How to boost your sales by branding? #tamil", url: "https://www.youtube.com/watch?v=uDTQUHpAFxs", channel: "Nuke It" },
-        { title: "Everything you need to know about sales enablement in 5 minutes", url: "https://www.youtube.com/watch?v=GDcM2Cqx6CY", channel: "Sales Enablement Collective" },
         { title: "How to do sales effectively? Tamil motivation video- Madhu Bhaskaran", url: "https://www.youtube.com/watch?v=VjNRJArw4ag", channel: "Madhu Bhaskaran Tamil" },
       ],
     },
@@ -12141,7 +11134,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "SaaS में जीत-हार विश्लेषण क्या है? (अंग्रेजी में)", url: "https://www.youtube.com/watch?v=OSyUlDNMu1w", channel: "Pratik Pandey" },
-        { title: "How to Do Sales Win loss Analysis with Watson Analytics", url: "https://www.youtube.com/watch?v=28_Q9wu01i0", channel: "Sachin Lulla" },
         { title: "Power BI में सेल्स विन लॉस एनालिसिस KPI डैशबोर्ड कैसे बनाएं (सबसे आसान तरीका) (2026 गाइड)", url: "https://www.youtube.com/watch?v=4m_DDTHBNBA", channel: "How To with Alex" },
         { title: "What is win-loss analysis?", url: "https://www.youtube.com/watch?v=mrDaJH6r3pA", channel: "Clozd" },
       ],
@@ -12187,12 +11179,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Basic of anchoring || you know this before hosting any event #fastnet #windward #anchoringtips", url: "https://www.youtube.com/watch?v=MmO0Q4eHvSI", channel: "Anchor Kanisshka Golha" },
         { title: "Lesson 41 | What is Anchoring | NLP Coaching in Hindi | @LifeCoachDipaali", url: "https://www.youtube.com/watch?v=d-rF--JHxn0", channel: "Life Coach Dipaali" },
-        { title: "Tips for Anchoring & Framing Proposal in Negotiation", url: "https://www.youtube.com/watch?v=Np6MPVBaiG0", channel: "The Art of Negotiation" },
         { title: "How to do anchoring/how to learn stage management/How to do anchoring/how to learn anchoring @Dr....", url: "https://www.youtube.com/watch?v=SsVDtlli_VE", channel: "Class with Dr. Dharmen Verma" },
       ],
       te: [
         { title: "Anchoring Course Details at FTIH || FTIH FILM SCHOOL", url: "https://www.youtube.com/watch?v=QZ5m7oap1mE", channel: "FTIH Film School" },
-        { title: "Negotiation Tutorial - Anchoring and framing your request", url: "https://www.youtube.com/watch?v=P_HczmGAGFc", channel: "LinkedIn Learning" },
         { title: "How To Become Anchor In Telugu | Anchoring Tips Telugu | Anchoring Auditions Telugu | Telugu Movies", url: "https://www.youtube.com/watch?v=9rhyQ1wpADg", channel: "Vishnu Aerlaporla" },
         { title: "What is Anchor Text? Explained in Telugu", url: "https://www.youtube.com/watch?v=X5Sjf0WxuAY", channel: "Venkat Randa" },
       ],
@@ -12200,7 +11190,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "முதல் விலை முக்கியமானது The Anchoring Bias: Why The First Offer Matters | Tamil #learn #anchoring", url: "https://www.youtube.com/watch?v=1qs4uHp63_w", channel: "Sprouts தமிழ்" },
         { title: "Anchoring Effect #karkakasadara #psychology #bookanalysis #tamilbookreview", url: "https://www.youtube.com/watch?v=c9CRcdZtE6I", channel: "Karka Kasadara" },
         { title: "Anchoring Tips | Event Anchor Stage Training Session by Experts", url: "https://www.youtube.com/watch?v=K58Ub94A2sI", channel: "RK Films and Media Academy | RKFMA" },
-        { title: "Negotiation Tutorial - Anchoring and framing your request", url: "https://www.youtube.com/watch?v=P_HczmGAGFc", channel: "LinkedIn Learning" },
       ],
     },
     articles: [
@@ -12225,22 +11214,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Neural Mechanisms of Attention and Perception (PSY)", url: "https://www.youtube.com/watch?v=O5ulO0URn1s", channel: "Vidya-mitra" },
       ],
       hi: [
-        { title: "8.1. How to Intervene in Attention? Fundamentals of Cognitive Neuroscience Course, Session 8, Part 1", url: "https://www.youtube.com/watch?v=aoaL8Hk6Mag", channel: "Hamed Ekhtiari" },
-        { title: "Neural Mechanisms of Attention and Perception (PSY)", url: "https://www.youtube.com/watch?v=O5ulO0URn1s", channel: "Vidya-mitra" },
         { title: "How does your Attention system work? | Hindi", url: "https://www.youtube.com/watch?v=fxxMV--dzLE", channel: "The Perception Project" },
-        { title: "The Simple Neuroscience of Attention", url: "https://www.youtube.com/watch?v=PFaxe25sues", channel: "Untapped Learning" },
       ],
       te: [
-        { title: "8.1. How to Intervene in Attention? Fundamentals of Cognitive Neuroscience Course, Session 8, Part 1", url: "https://www.youtube.com/watch?v=aoaL8Hk6Mag", channel: "Hamed Ekhtiari" },
-        { title: "The Simple Neuroscience of Attention: Verified", url: "https://www.youtube.com/watch?v=FGYJhIa8S9Y", channel: "Untapped Learning" },
         { title: "15. RNN with Attention Mechanism Explained in Telugu | Part 1 | Deep Learning & NLP", url: "https://www.youtube.com/watch?v=iUtPFbajvOQ", channel: "Neuro Splash (Telugu)" },
         { title: "Using Brain BioAmp Band (2 Channels) to record EEG from Visual Cortex | DIY Neuroscience", url: "https://www.youtube.com/watch?v=FPGBLi5E_Do", channel: "Upside Down Labs" },
       ],
       ta: [
-        { title: "8.1. How to Intervene in Attention? Fundamentals of Cognitive Neuroscience Course, Session 8, Part 1", url: "https://www.youtube.com/watch?v=aoaL8Hk6Mag", channel: "Hamed Ekhtiari" },
-        { title: "The Simple Neuroscience of Attention: Verified", url: "https://www.youtube.com/watch?v=FGYJhIa8S9Y", channel: "Untapped Learning" },
         { title: "Using Brain BioAmp Band (2 Channels) to record EEG from Visual Cortex | DIY Neuroscience", url: "https://www.youtube.com/watch?v=FPGBLi5E_Do", channel: "Upside Down Labs" },
-        { title: "The Simple Neuroscience of Attention", url: "https://www.youtube.com/watch?v=PFaxe25sues", channel: "Untapped Learning" },
       ],
     },
     articles: [
@@ -12269,13 +11250,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Lecture 1: Introduction and Overview I (14.13 Psychology and Economics, Spring 2020)", url: "https://www.youtube.com/watch?v=j5XdY5wkVTA", channel: "MIT OpenCourseWare" },
       ],
       hi: [
-        { title: "Behavioural Economics, Nudging meaning, nudging example,  Choice Architecture behavioral economics", url: "https://www.youtube.com/watch?v=cIUfEtgh0AQ", channel: "DWIVEDI GUIDANCE" },
-        { title: "What is Behavioral Economics? - Psychology Explained", url: "https://www.youtube.com/watch?v=o1aRJeDe8j8", channel: "Simplified In Short" },
         { title: "Behavioural Economics In Hindi and Simple language", url: "https://www.youtube.com/watch?v=kfoH--7ZFz0", channel: "study with chanchal" },
         { title: "What is Behavioral Economics in Hindi | Primary characteristics of Behavioral Economics", url: "https://www.youtube.com/watch?v=L_-9i2md7mU", channel: "Mr. Nudge | The Brand Batti Consulting" },
       ],
       te: [
-        { title: "What is Behavioral Economics? - Psychology Explained", url: "https://www.youtube.com/watch?v=o1aRJeDe8j8", channel: "Simplified In Short" },
         { title: "Consumer Behaviour Theories Model shortnotes. #ugcnet #managementnotes #ugcnetmanagement #marketing", url: "https://www.youtube.com/watch?v=Ia60ue4qY6Y", channel: "Management Learning" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
         { title: "Business Marketing techniques in telugu - Marketing strategies in telugu - Figuring Out By jay", url: "https://www.youtube.com/watch?v=2OrG7lXdSJM", channel: "Figuring Out by Jay" },
@@ -12283,7 +11261,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "BEHAVIOURAL ECONOMICS EXPLAINED in தமிழ்", url: "https://www.youtube.com/watch?v=PQ2Rm2eCdMk", channel: "Inspire Economics" },
         { title: "Behavioral Economics | தினம் ஒரு தகவல்", url: "https://www.youtube.com/watch?v=GgHagrqlALs", channel: "DD Tamil" },
-        { title: "What is Behavioral Economics? - Psychology Explained", url: "https://www.youtube.com/watch?v=o1aRJeDe8j8", channel: "Simplified In Short" },
         { title: "Stop Buying Gifts After Watching This 😳 #tamil", url: "https://www.youtube.com/watch?v=YZdEbHQNh1o", channel: "Nuke It" },
       ],
     },
@@ -12309,8 +11286,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Behavioural Economics, Nudging meaning, nudging example,  Choice Architecture behavioral economics", url: "https://www.youtube.com/watch?v=cIUfEtgh0AQ", channel: "DWIVEDI GUIDANCE" },
       ],
       hi: [
-        { title: "Behavioural Economics, Nudging meaning, nudging example,  Choice Architecture behavioral economics", url: "https://www.youtube.com/watch?v=cIUfEtgh0AQ", channel: "DWIVEDI GUIDANCE" },
-        { title: "Choice Architecture: \"Nudge\" by Richard H. Thaler & Cass R. Sunstein #choicearchitecture", url: "https://www.youtube.com/watch?v=U302figEGjo", channel: "Motivate Time" },
         { title: "Nudge Theory | Meaning | Purpose | Practical Example | Implication", url: "https://www.youtube.com/watch?v=COPLAJitzdo", channel: "Dr Amit Lal" },
         { title: "व्यवहारिक अर्थशास्त्र क्या है? - मनोविज्ञान की व्याख्या", url: "https://www.youtube.com/watch?v=o1aRJeDe8j8", channel: "Simplified In Short" },
       ],
@@ -12318,13 +11293,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Role of nudges and choice architecture in guiding adolescents towards healthier food choices", url: "https://www.youtube.com/watch?v=_cUC4QfBz4Q", channel: "ICMR National Institute of Nutrition" },
         { title: "Nudging | How to make better decisions with a good choice architecture", url: "https://www.youtube.com/watch?v=AVM9c7AEYjQ", channel: "GREEN MINIMALIST LIFE" },
         { title: "Nudge Theory | Meaning | Purpose | Practical Example | Implication", url: "https://www.youtube.com/watch?v=COPLAJitzdo", channel: "Dr Amit Lal" },
-        { title: "Behavioural Economics, Nudging meaning, nudging example,  Choice Architecture behavioral economics", url: "https://www.youtube.com/watch?v=cIUfEtgh0AQ", channel: "DWIVEDI GUIDANCE" },
       ],
       ta: [
         { title: "Nudging | How to make better decisions with a good choice architecture", url: "https://www.youtube.com/watch?v=AVM9c7AEYjQ", channel: "GREEN MINIMALIST LIFE" },
         { title: "Power of Choice Architecture in UX | இந்த concept UX-ல unavoidable #uxdesign #ux #ui #figma #ux", url: "https://www.youtube.com/watch?v=pIaiyY54e8s", channel: "Designttalks" },
-        { title: "Structuring Complex Choices (Nudges and Behavioral Economics)", url: "https://www.youtube.com/watch?v=S1LsgKc3KLU", channel: "The Brainy Business" },
-        { title: "Choice Architecture: \"Nudge\" by Richard H. Thaler & Cass R. Sunstein #choicearchitecture", url: "https://www.youtube.com/watch?v=U302figEGjo", channel: "Motivate Time" },
       ],
     },
     articles: [
@@ -12349,20 +11321,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "6 Ways To Influence Anyone | Robert Cialdini's Animated Book Summary In Hindi", url: "https://www.youtube.com/watch?v=l4DhSEU0zEk", channel: "Veer Confidence" },
-        { title: "CRO – Robert Cialdini’s Principles of Persuasion", url: "https://www.youtube.com/watch?v=wNU3JtF8xDo", channel: "TutorialsPoint" },
-        { title: "Science Of Persuasion", url: "https://www.youtube.com/watch?v=cFdCzN7RYbw", channel: "Team Cialdini" },
         { title: "Principles of Influence (HINDI)", url: "https://www.youtube.com/watch?v=c2gFYwcoVM0", channel: "Dr. Ramnath Dixit" },
       ],
       te: [
-        { title: "Master Cialdini’s 6 Persuasion Principles in 60 Seconds!", url: "https://www.youtube.com/watch?v=y8rClNkMRok", channel: "Limitless Growth Mindset" },
         { title: "Influence: The Psychology of Persuasion by Robert Cialdini || Book Summary in 5 Minutes || Telugu", url: "https://www.youtube.com/watch?v=aNNS5eikI-4", channel: "Vybe Education Telugu" },
-        { title: "Science Of Persuasion", url: "https://www.youtube.com/watch?v=cFdCzN7RYbw", channel: "Team Cialdini" },
-        { title: "Cialdini's 6 Principles of Influence: How Persuasion Works (6-Minute Overview)", url: "https://www.youtube.com/watch?v=YPlXRRi07-o", channel: "The Business Learning Hub" },
       ],
       ta: [
         { title: "5 powerful tricks to influence anyone | Psychology of Persuasion by Robert Cialdini in tamil", url: "https://www.youtube.com/watch?v=K9SHoF4Oq_I", channel: "M 5 C" },
         { title: "Influence |The Psychology of Persuasion|Tamil Book Summary | Karka Kasadara", url: "https://www.youtube.com/watch?v=Zy9OfzoA9Lw", channel: "Karka Kasadara" },
-        { title: "Master Cialdini’s 6 Persuasion Principles in 60 Seconds!", url: "https://www.youtube.com/watch?v=y8rClNkMRok", channel: "Limitless Growth Mindset" },
         { title: "Brain-Hack & Win! 🧠 Influence Secrets UNLOCKED (Cialdini in Tamil)", url: "https://www.youtube.com/watch?v=YVx5C94MfUE", channel: "Every Think" },
       ],
     },
@@ -12389,21 +11355,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Use the Power of Cognitive Biases in Marketing", url: "https://www.youtube.com/watch?v=dsbazoY0Jz0", channel: "GiorgioGD Tutorials" },
       ],
       hi: [
-        { title: "10 संज्ञानात्मक पूर्वाग्रह जिनका उपयोग विपणक आपको धोखा देने के लिए करते हैं (और उन्हें कैसे पहचानें)", url: "https://www.youtube.com/watch?v=Q_8apTcLD4A", channel: "Mister Simplify" },
         { title: "Cognitive Bias Kya Hai? | Types of Biases Explained in Hindi | Episode 36 Psychology in Hindi", url: "https://www.youtube.com/watch?v=zitT7eEa7-c", channel: "Chetna Tripathi" },
         { title: "Self MBA Marketing Module - Cognitive Biases P02", url: "https://www.youtube.com/watch?v=9RPP8yMbsWs", channel: "mbaThinking by Abhishek Soni" },
         { title: "Human Biases In Marketing | Cognitive Biases | Sandeep Maheshwari Sir and Dreamex Ventures", url: "https://www.youtube.com/watch?v=SHtKe9Yfqk0", channel: "Dreamex Ventures by YUVRAJ" },
       ],
       te: [
-        { title: "10 Cognitive Biases Marketers Use to Trick You (And How to Spot Them)", url: "https://www.youtube.com/watch?v=Q_8apTcLD4A", channel: "Mister Simplify" },
-        { title: "12 Cognitive Biases Explained - How to Think Better and More Logically Removing Bias", url: "https://www.youtube.com/watch?v=wEwGBIr_RIw", channel: "Practical Psychology" },
         { title: "Cognitive Biases  kosam Interview lo yela cheppali @DesignhorizonsMeena#uiuxtelugu #uiuxdesign #uiux", url: "https://www.youtube.com/watch?v=rxWoQyF3058", channel: "Design Horizons" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
       ],
       ta: [
         { title: "Cognitive Bias |  Learning Purpose  | Tamil Language | UX Social", url: "https://www.youtube.com/watch?v=EmkELB3slrE", channel: "Birds View" },
         { title: "Cognitive Biases in Tamil : Part-1 | Influencing techniques", url: "https://www.youtube.com/watch?v=4KAhtDUg65Y", channel: "Kamal Coachversity" },
-        { title: "10 Cognitive Biases Marketers Use to Trick You (And How to Spot Them)", url: "https://www.youtube.com/watch?v=Q_8apTcLD4A", channel: "Mister Simplify" },
         { title: "Cognitive Biases in Tamil : Part-3 | Influencing techniques", url: "https://www.youtube.com/watch?v=ZtJ4wa7WP5A", channel: "Kamal Coachversity" },
       ],
     },
@@ -12433,8 +11395,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Episode 65 - Nudging and Default Bias: Impact on User Behavior and Marketing Strategies 🧠💡🎯", url: "https://www.youtube.com/watch?v=AMxLwY7tevQ", channel: "Amazon Ads Raw" },
       ],
       hi: [
-        { title: "10 Hidden Defaults That Quietly Shape Your Decisions", url: "https://www.youtube.com/watch?v=l7AVP8WbNOc", channel: "Nature's Bite MY" },
-        { title: "Pricing Psychology, Plans, and Default Bias (section 1)", url: "https://www.youtube.com/watch?v=n3p7Nv2E_FQ", channel: "StartApp School" },
         { title: "Unraveling Choice-Supportive Bias in Hindi | Master Psychology 🧠🔍🤔🔄 | Rishabh Gupta", url: "https://www.youtube.com/watch?v=JMcnZE_hGMk", channel: "Rishabh Gupta" },
         { title: "What is Daily Bias in Trading ? | Daily Bias Trading Strategy", url: "https://www.youtube.com/watch?v=SW4kxaqJ9QQ", channel: "Neeraj joshi" },
       ],
@@ -12477,7 +11437,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "What is Full Funnel Marketing 2026 (in Hindi)| Umar Tazkeer", url: "https://www.youtube.com/watch?v=7B3Wo23ev-0", channel: "Umar Tazkeer" },
         { title: "What is Marketing Plan ? #marketing #marketingplan #shorts", url: "https://www.youtube.com/watch?v=Ate5MYeBZ58", channel: "faixal_abbaci" },
-        { title: "The Secret Behind Weirdly Addictive Apps", url: "https://www.youtube.com/watch?v=Du2lkZ_cux8", channel: "Tim Gabe" },
         { title: "Uncertain rewards give MORE dopamine than guaranteed wins?", url: "https://www.youtube.com/watch?v=79jzFc5ObJs", channel: "The House Always Knows" },
       ],
       te: [
@@ -12519,7 +11478,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Master Your Emotions by Thibaut Meurisse Audiobook | Book Summary in Hindi", url: "https://www.youtube.com/watch?v=welYRjNftno", channel: "Readers Books Club" },
         { title: "Top 1% trader's mindset | #trading #tradingmindset #tradingpsychology #stockmarket", url: "https://www.youtube.com/watch?v=uRagMfnCgDs", channel: "$Plus trades" },
-        { title: "Critical Thinking Activity of Joining 9 Dots using 4 Straight Lines.", url: "https://www.youtube.com/watch?v=D3tAZR9zxLM", channel: "Principal Rasik Gupta" },
         { title: "How Emotions Are Made (Hindi/हिंदी में)", url: "https://www.youtube.com/watch?v=PvvHaab20-c", channel: "SyllabuswithRohit" },
       ],
       te: [
@@ -12556,9 +11514,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Turning \"off\" friction by removing the normal force during a free fall", url: "https://www.youtube.com/watch?v=qBAdyNVEi_c", channel: "phyphox" },
       ],
       hi: [
-        { title: "Teacher’s Static Friction Demo Be Like... #physics #science #shorts #viral", url: "https://www.youtube.com/watch?v=XdpmyidjEwg", channel: "VYAS EDIFICATION" },
         { title: "Friction क्या है? 🤔 #PW #DefenceWallah #Shorts", url: "https://www.youtube.com/watch?v=J6tw3fBt_0M", channel: "Defence Wallah" },
-        { title: "Unveiling the BIGGEST Difference: Static vs. Rolling Friction!", url: "https://www.youtube.com/watch?v=HLhj8vRL8yI", channel: "VYAS EDIFICATION" },
         { title: "Exercise  Therapy - Friction || Types || Uses in Physiotherapy", url: "https://www.youtube.com/watch?v=E0BMZnshYfM", channel: "Dr Saurav Sahni (Pt)" },
       ],
       te: [
@@ -12598,12 +11554,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "The 4 Steps to the Habit Loop in Atomic Habits by James Clear | Pramod Soni | in Hindi", url: "https://www.youtube.com/watch?v=k51g0WWZkh0", channel: "Pramod Soni" },
         { title: "Try the 2-Minute Rule for building new habits 🤯 #jamesclear #habits", url: "https://www.youtube.com/watch?v=kqQLQZ7vTcI", channel: "MasterClass" },
-        { title: "How do habits form in your brain? The cue to reward loop.", url: "https://www.youtube.com/watch?v=sJqKqF4B43g", channel: "Habit Seed" },
         { title: "Habit Loop | Cue | Routine | Reward", url: "https://www.youtube.com/watch?v=w62y2IkRy9E", channel: "PRAMOD TIDKE" },
       ],
       te: [
         { title: "రోజూ ఉదయం 8 కి ముందే చేయాల్సిన 7 పనులు | Morning Routine Telugu | Telugu Geeks", url: "https://www.youtube.com/watch?v=Oyf2X9ePshY", channel: "Telugu Geeks" },
-        { title: "How do habits form in your brain? The cue to reward loop.", url: "https://www.youtube.com/watch?v=sJqKqF4B43g", channel: "Habit Seed" },
         { title: "24 గంటలను మీ కంట్రోల్ లోకి తెచ్చుకోండి | Deep Work & Habit Loop | Mr AK Prime", url: "https://www.youtube.com/watch?v=Sj0GbTsGgL0", channel: "Mr AK Prime" },
         { title: "Try the 2-Minute Rule for building new habits 🤯 #jamesclear #habits", url: "https://www.youtube.com/watch?v=kqQLQZ7vTcI", channel: "MasterClass" },
       ],
@@ -12611,7 +11565,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "3 Steps to form a Habit | Dharaneetharan Tamil", url: "https://www.youtube.com/watch?v=3jeqFkDllj4", channel: "Dharaneetharan" },
         { title: "Try the 2-Minute Rule for building new habits 🤯 #jamesclear #habits", url: "https://www.youtube.com/watch?v=kqQLQZ7vTcI", channel: "MasterClass" },
         { title: "How to Use Habitica: Tamil Tutorial | Habits, Dailies, To-Dos, Parties & Challenges", url: "https://www.youtube.com/watch?v=q-aMOQH7DtQ", channel: "UyaralamVanga" },
-        { title: "How do habits form in your brain? The cue to reward loop.", url: "https://www.youtube.com/watch?v=sJqKqF4B43g", channel: "Habit Seed" },
       ],
     },
     articles: [
@@ -12638,13 +11591,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Ikea Effect (Hindi)", url: "https://www.youtube.com/watch?v=7xYCaGms7Vs", channel: "Pocket MBA" },
         { title: "The \" Ikea Effect Paradox \" in Hindi | Aditya chourasia", url: "https://www.youtube.com/watch?v=nBOt88WlWWU", channel: "Aditya Chourasia" },
         { title: "Economics of Ikea & Ikea Effect | Together We Learn - Hindi", url: "https://www.youtube.com/watch?v=WwfR2pb3xx8", channel: "Vittae Money" },
-        { title: "IKEA बिज़नेस केस स्टडी: फ़र्नीचर बेचकर हर साल 40 बिलियन डॉलर कैसे कमाएँ? (IKEA प्रभाव)", url: "https://www.youtube.com/watch?v=LNmhEp0kj5Q", channel: "Think School" },
       ],
       te: [
         { title: "IKEA effect in Telugu | Skill Nerchuko | Vivek Kandula | Marketing Strategies  #skillnerchuko#telugu", url: "https://www.youtube.com/watch?v=f6asyV1kd9k", channel: "Skill Nerchuko" },
         { title: "IKEA effect antey anto telusa ?", url: "https://www.youtube.com/watch?v=le9Y0yxqTmM", channel: "ab sollu theories" },
         { title: "The IKEA Effect", url: "https://www.youtube.com/watch?v=3sgpuzrLk-4", channel: "AI-generated ExplicitContent" },
-        { title: "The IKEA Effect | The Real Reason You Love Their Furniture", url: "https://www.youtube.com/watch?v=EKI_-yFbliY", channel: "MindfulThinks" },
       ],
       ta: [
         { title: "Labour leads to love | IKEA EFFECT in TAMIL @thislifeticket", url: "https://www.youtube.com/watch?v=jX_x8levSoM", channel: "This Life Ticket" },
@@ -12675,7 +11626,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Prospect Theory: An Overview", url: "https://www.youtube.com/watch?v=Sl-qgzF70IM", channel: "Ashley Hodgson" },
       ],
       hi: [
-        { title: "Loss Aversion Bias in Stock Market | Investor Psychology Ep:3 | #stockmarket #stockmarketpsychology", url: "https://www.youtube.com/watch?v=ZlcBeIwQuTM", channel: "Investing Indian" },
         { title: "Loss Aversion | Daniel Kahneman के अनुसार हम हारने से इतना डरते क्यों हैं? | Prospect Theory", url: "https://www.youtube.com/watch?v=_rn3a8h2G-M", channel: "the good life" },
         { title: "Loss Aversion in Trading EXPLAINED | Risk Management | TRADING PSYCHOLOGY - EP 1 | #trading", url: "https://www.youtube.com/watch?v=S0ZDqtutNDA", channel: "Blackswan Trading" },
         { title: "Trading में Loss Aversion का प्रभाव | Successful Trading Psychology | Trading Psychology | (Hindi)", url: "https://www.youtube.com/watch?v=J2L1KcLB98A", channel: "Fortune Talks Hindi" },
@@ -12684,7 +11634,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Loss Aversion Effect in Telugu | Skill Nerchuko | Vivek kandula |Marketing Strategies#skillnerchuko", url: "https://www.youtube.com/watch?v=fcTS6G_ZJzo", channel: "Skill Nerchuko" },
         { title: "Loss Aversion Bias in Telugu | Investor Psychology | Behavioural Economics", url: "https://www.youtube.com/watch?v=8IYKaPaWXB8", channel: "teluguinvestor" },
         { title: "తెలుగు- Psycology for Investors & Traders - Loss Aversion- Investing - Trading Knowledge", url: "https://www.youtube.com/watch?v=KzDkjuXKUII", channel: "Think Equity - మనీ మేటర్స్" },
-        { title: "Loss Aversion Effect: Why Hating Losses Makes You Lose Even More", url: "https://www.youtube.com/watch?v=rqea2nW5IMg", channel: "Quik Economics" },
       ],
       ta: [
         { title: "Loss Aversion|Vj Krish|Tamil", url: "https://www.youtube.com/watch?v=JGpL0YvJ-f8", channel: "Okey Machi" },
@@ -12720,20 +11669,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Maslow's hierarchy of needs| Marketing (Hindi)", url: "https://www.youtube.com/watch?v=u7FaZZeaesg", channel: "Commerce Gyaan" },
         { title: "Use Maslow Theory Of Motivation | To Design Your Marketing Strategy (in HINDI)", url: "https://www.youtube.com/watch?v=VRPbbdvrIpk", channel: "Curious Preetam" },
-        { title: "Maslow's Hierarchy of Needs", url: "https://www.youtube.com/watch?v=O-4ithG_07Q", channel: "Sprouts" },
         { title: "Theory of motivation | Maslow's hierarchy | Maslow's need hierarchy theory by himanshi singh", url: "https://www.youtube.com/watch?v=bKPLNZH_si4", channel: "Himanshi Singh MOTIVATION" },
       ],
       te: [
-        { title: "Maslow's Hierarchy of Needs Explained for Marketers", url: "https://www.youtube.com/watch?v=55RHlcJKvEo", channel: "Pie Growth Marketing" },
-        { title: "Maslow's Hierarchy of Needs", url: "https://www.youtube.com/watch?v=O-4ithG_07Q", channel: "Sprouts" },
-        { title: "Maslow's Hierarchy Of Needs In Consumer Behaviour 🤔🧠🔍", url: "https://www.youtube.com/watch?v=8fb71U8OMoc", channel: "Solve It Like A Marketer" },
-        { title: "Maslow's Theory of Motivation In marketing", url: "https://www.youtube.com/watch?v=djH0KtXfz14", channel: "Easy Marketing School" },
       ],
       ta: [
         { title: "MASLOW'S THEORY (Self Actualization)🔥🔥|Maslow Hierarchy of Needs| |TAMIL||B.ED-2019|", url: "https://www.youtube.com/watch?v=nqw81Leg7oQ", channel: "TAMIL WAY" },
-        { title: "Maslow's Hierarchy of Needs", url: "https://www.youtube.com/watch?v=O-4ithG_07Q", channel: "Sprouts" },
         { title: "Maslow Pyramid Theory of Motivation  (EP45) Basic Psychology in Tamil", url: "https://www.youtube.com/watch?v=607uc9dxG3o", channel: "Psychology in Tamil" },
-        { title: "Maslow's Theory of Motivation In marketing", url: "https://www.youtube.com/watch?v=djH0KtXfz14", channel: "Easy Marketing School" },
       ],
     },
     articles: [
@@ -12758,22 +11700,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What Is the Mere Exposure Effect? Why Does it Matter?", url: "https://www.youtube.com/watch?v=2EZzibXjs4Y", channel: "Marketing by Emma" },
       ],
       hi: [
-        { title: "The Mere Exposure Effect: The Science Behind Ads", url: "https://www.youtube.com/watch?v=L-2Vv4fTsyQ", channel: "Sprouts" },
-        { title: "The Mere Exposure Effect: Why Familiarity Wins! #psychologyfacts", url: "https://www.youtube.com/watch?v=eqLTbcDfqHY", channel: "Homo eXplainer" },
-        { title: "Mere Exposure Effect: Definition & Examples (Easy Explanation)", url: "https://www.youtube.com/watch?v=4wF5FNmQGFg", channel: "Social Science Explainer" },
-        { title: "The Mere Exposure Effect: Why Familiarity Breeds Liking #psychologyfacts  #marketingsecrets  #facts", url: "https://www.youtube.com/watch?v=8k9G0XwTM68", channel: "WisdomWave" },
       ],
       te: [
         { title: "Mere Exposure Effect in Telugu | Skill Nerchuko | Vivek Kandula | Telugu | Marketing Strategies", url: "https://www.youtube.com/watch?v=slC6NHcLtNI", channel: "Skill Nerchuko" },
         { title: "The Mere Exposure Effect: How Familiarity Shapes Preferences", url: "https://www.youtube.com/watch?v=oQSBqUUVXGY", channel: "Kitabhshala" },
-        { title: "Mere Exposure Effect: Definition & Examples (Easy Explanation)", url: "https://www.youtube.com/watch?v=4wF5FNmQGFg", channel: "Social Science Explainer" },
-        { title: "Unlock the Power 💥 of Familiarity: How the Mere Exposure Effect Impacts Your Buying Habits! 📈", url: "https://www.youtube.com/watch?v=UyQN4DlZy3Y", channel: "NextWaveDV" },
       ],
       ta: [
         { title: "How to use exposure effect in marketing? #shorts #tamil #trending #ashanthprajesh #entrepreneurx", url: "https://www.youtube.com/watch?v=3vIA008RWm4", channel: "Ashanth Prajesh" },
         { title: "Exposure Effect in Business Explained | Tamil #shorts", url: "https://www.youtube.com/watch?v=xvp16zwKx2Q", channel: "Nuke It" },
-        { title: "Mere Exposure Effect: Definition & Examples (Easy Explanation)", url: "https://www.youtube.com/watch?v=4wF5FNmQGFg", channel: "Social Science Explainer" },
-        { title: "The Mere Exposure Effect: Why Familiarity Wins! #psychologyfacts", url: "https://www.youtube.com/watch?v=eqLTbcDfqHY", channel: "Homo eXplainer" },
       ],
     },
     articles: [
@@ -12803,16 +11737,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "⏰ 60-Second Psychology: Parasocial Relationships - Trusting Your Friendly Neighborhood Influencer", url: "https://www.youtube.com/watch?v=4_hPuNQxpT0", channel: "Dr. Jennifer Andrews (Dr. Jen)" },
       ],
       hi: [
-        { title: "Parasocial Relationships: Why You're Closer to Influencers than Your Best Friends ft. #TimFerriss", url: "https://www.youtube.com/watch?v=mFX_0iH0qDc", channel: "KaikoMedia" },
         { title: "what are Parasocial relationships?🤔 #shortsindia #oneminutestory #relatable", url: "https://www.youtube.com/watch?v=KDnmMOIYT2E", channel: "VSF Productions" },
         { title: "Parasocial relationship?   🤯 Rebel Kid on prakhar ke pravachan #podcast #shorts #prakharkepravachan", url: "https://www.youtube.com/watch?v=bzv7Trm1-2g", channel: "HiBeRNaTe" },
-        { title: "Practicing Safe Parasocializing | Sarah Schreck | TEDxPointParkUniversity", url: "https://www.youtube.com/watch?v=MrM0KPqZ78I", channel: "TEDx Talks" },
       ],
       te: [
         { title: "Why We Form Parasocial Relationships with Creators", url: "https://www.youtube.com/watch?v=s2GRaA-42m4", channel: "Tech Topia21" },
         { title: "Parasocial relationships are basically one-sided connections that we form with social media person.", url: "https://www.youtube.com/watch?v=RikGZL-XeDs", channel: "Deepasri Saravanan" },
-        { title: "Why We Trust Influencers More Than Brands| Parasocial Relationships Explained | Marketing Psychology", url: "https://www.youtube.com/watch?v=PBfwY6vD7d4", channel: "The Storyteller's Lens" },
-        { title: "Parasocial Relationships: Why You're Closer to Influencers than Your Best Friends ft. #TimFerriss", url: "https://www.youtube.com/watch?v=mFX_0iH0qDc", channel: "KaikoMedia" },
       ],
       ta: [
         { title: "Parasocial relationships are basically one-sided connections that we form with social media person.", url: "https://www.youtube.com/watch?v=RikGZL-XeDs", channel: "Deepasri Saravanan" },
@@ -12847,21 +11777,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Master the Peak-End Rule: Design Unforgettable User Experiences | Class 16 | Urdu & Hindi", url: "https://www.youtube.com/watch?v=8m52B1KEZ5w", channel: "Tutorials Town" },
-        { title: "पीक एंड नियम: किसी अनुभव से आपको वास्तव में क्या याद रहता है", url: "https://www.youtube.com/watch?v=4n98_Cac4zU", channel: "Sprouts" },
         { title: "🧠 Shocking! Peak-End Rule: Dimaag Ka Sabse Bada Illusion | Yaadein Kaise Banti Hain?", url: "https://www.youtube.com/watch?v=rH9qsBk-OIA", channel: "Dimaag ki Baat" },
         { title: "#7 | PEAK-END RULE | UI/UX Principles | User interface | Design | Zomato", url: "https://www.youtube.com/watch?v=J67PAZnV8y8", channel: "Sanrachna Foundation" },
       ],
       te: [
         { title: "What The Peak-End Rule Can Teach You About Your Customer Experience!", url: "https://www.youtube.com/watch?v=NMkQC7pNE2g", channel: "Neil Patel" },
-        { title: "The Peak End Rule: What You Actually Remember From a Experience", url: "https://www.youtube.com/watch?v=4n98_Cac4zU", channel: "Sprouts" },
         { title: "The Peak-End Rule: Why You Only Remember Specific Moments", url: "https://www.youtube.com/watch?v=5YUCbAfppLY", channel: "Cogni" },
-        { title: "Peak End Rule Explained - Secrets And Usages", url: "https://www.youtube.com/watch?v=MVUAOSU1-OI", channel: "3-Minute Explanation" },
       ],
       ta: [
         { title: "Peak-end rule is a psychological bias… #mentalhealth #psychologytamil #tamil #tamilpsychology", url: "https://www.youtube.com/watch?v=X4J28TvVqpI", channel: "Avinash Dakshinamurthy" },
         { title: "உச்சக்கட்ட-முடிவு விதி The Peak End Rule: What You Actually Remember From a Experience  Tamil #learn", url: "https://www.youtube.com/watch?v=Gu0v-N1YDsc", channel: "Sprouts தமிழ்" },
-        { title: "Peak End Rule Explained - Secrets And Usages", url: "https://www.youtube.com/watch?v=MVUAOSU1-OI", channel: "3-Minute Explanation" },
-        { title: "The Peak End Rule: Daniel Kahneman & Barbara Frederickson: Animated Summary", url: "https://www.youtube.com/watch?v=uFIN0gwd0UI", channel: "BigIdeasGrowingMinds" },
       ],
     },
     articles: [
@@ -12886,14 +11811,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Neuromarketing: The new science of consumer decisions  | Terry Wu | TEDxBlaine", url: "https://www.youtube.com/watch?v=UEtE-el6KKs", channel: "TEDx Talks" },
       ],
       hi: [
-        { title: "How to Sell Anything To Anyone With Emotional Marketing !!!", url: "https://www.youtube.com/watch?v=OSZxDH-fGss", channel: "SeeKen" },
         { title: "How to Grow Psychology Practice in India | Digital Marketing Tips for Psychologist", url: "https://www.youtube.com/watch?v=A7EPw6CPfvU", channel: "Dr Neha Mehta" },
         { title: "Using Psychology in Marketing #MainBhiChowkidar", url: "https://www.youtube.com/watch?v=dReC4M4bNuU", channel: "Sahil Khanna" },
         { title: "Marketing Psychology Decoded by Suvodip| Hindi Book review , Booked investor, Book Summary in Hindi", url: "https://www.youtube.com/watch?v=m9XIa-7T7c8", channel: "Booked investor" },
       ],
       te: [
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
-        { title: "Color Psychology In Branding | Color Psychology In Marketing  #colorpsychology #branding #marketing", url: "https://www.youtube.com/watch?v=TCBYjX-8VuA", channel: "Social Geek" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
       ],
@@ -12927,11 +11850,8 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "30 दिन की Sales सिर्फ 1 दिन में कैसे करें? FOMO Sale Strategy | Flipkart | Zomato | Dr Vivek Bindra", url: "https://www.youtube.com/watch?v=l33IKUyu7ds", channel: "Dr. Vivek Bindra: Motivational Speaker" },
         { title: "FOMO Trading रोकने का सबसे आसान तरीका | Trading Psychology Masterclass | Stock Market Hindi", url: "https://www.youtube.com/watch?v=CP4nhwRc7i8", channel: "Cognito Trader" },
-        { title: "स्केर्सिटी इफेक्ट: 'लिमिटेड स्टॉक' देखकर आपका दिमाग क्यों घबरा जाता है! #ScarcityEffect #FOMO #मन...", url: "https://www.youtube.com/watch?v=KNWCaagIPuY", channel: "Aob Made Easy 🚀" },
-        { title: "Top 4 FOMO Marketing Strategies | Create Scarcity and Urgency on Online Store #ecommercemarketing", url: "https://www.youtube.com/watch?v=MpQ5KWPsIno", channel: "Amit Vidhate" },
       ],
       te: [
-        { title: "Top 4 FOMO Marketing Strategies | Create Scarcity and Urgency on Online Store #ecommercemarketing", url: "https://www.youtube.com/watch?v=MpQ5KWPsIno", channel: "Amit Vidhate" },
         { title: "FOMO - Fear of Missing Out | #telugu", url: "https://www.youtube.com/watch?v=jysM5b9Ec1I", channel: "TRADE ACHIEVERS TELUGU" },
         { title: "What is FOMO? | How do traders lose money due to FOMO? | Stock Market Psychology in Telugu", url: "https://www.youtube.com/watch?v=woOcqTc4l2s", channel: "Telugu Stock Channel" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
@@ -12939,8 +11859,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "FOMO in marketing explained in Tamil | Asif Sahib", url: "https://www.youtube.com/watch?v=1w5UYMlfP5M", channel: "Asif Sahib" },
         { title: "FOMO என்றால் என்ன? | Market Mind Voice | Shyam Sekhar | Muthaleetukalam", url: "https://www.youtube.com/watch?v=MuEa68WliO0", channel: "Muthaleetukalam | முதலீட்டுக்களம்" },
-        { title: "Top 4 FOMO Marketing Strategies | Create Scarcity and Urgency on Online Store #ecommercemarketing", url: "https://www.youtube.com/watch?v=MpQ5KWPsIno", channel: "Amit Vidhate" },
-        { title: "Scarcity Sells: The Power of FOMO in Marketing #PeterBoolkah #MarketingStrategy #FOMO", url: "https://www.youtube.com/watch?v=5k8qHDZ-dss", channel: "Peter Boolkah - The Transition Guy" },
       ],
     },
     articles: [
@@ -12974,10 +11892,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "आप बिना जाने भीड़ का अनुसरण क्यों करते हैं | सामाजिक प्रमाण मनोविज्ञान", url: "https://www.youtube.com/watch?v=X_LRHqYcPpo", channel: "Psyways" },
       ],
       te: [
-        { title: "What Is Social Proof - Psychological Concept Revealed #psychology #socialproof #shorts", url: "https://www.youtube.com/watch?v=H544kPi4ASk", channel: "PsychologyChats" },
-        { title: "The Social Proof Principle   The Six Principles of Influence", url: "https://www.youtube.com/watch?v=grxQa2o-jCg", channel: "365 Financial Analyst" },
         { title: "Social Proof Negotiating Technique", url: "https://www.youtube.com/watch?v=OPvnjgSpM9U", channel: "Tripur Chandra" },
-        { title: "Why We Follow the Crowd? Social-proof🔥#study#psychology#braintest", url: "https://www.youtube.com/watch?v=uEDGveUrkqc", channel: "ClassXplained" },
       ],
       ta: [
         { title: "Social Proof Bias | Interesting Psychological facts Tamil | The Art of Thinking Clearly", url: "https://www.youtube.com/watch?v=gcNR1JJXalQ", channel: "Beyond Limits" },
@@ -13089,14 +12004,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "What is Sunk Cost Fallacy? Stop Making Wrong Decisions | Life Changing Psychology Explained Hindi", url: "https://www.youtube.com/watch?v=8ZZGQ809yvM", channel: "GURUKHETRA" },
-        { title: "Sunk Cost Fallacy (Very Important!!) #jee2025 #jeemains", url: "https://www.youtube.com/watch?v=SiVG6KTk9BE", channel: "Nishant Jindal [IIT Delhi]" },
-        { title: "Sunk Cost Fallacy: Not Knowing When It’s Time to Stop", url: "https://www.youtube.com/watch?v=jJajz9n9Oi4", channel: "Sprouts" },
         { title: "What is sunk cost fallacy?", url: "https://www.youtube.com/watch?v=brdX6IiPW3k", channel: "Apna College" },
       ],
       te: [
         { title: "Loss midha Loss | The Mindset | The Sunk Cost Fallacy", url: "https://www.youtube.com/watch?v=hCLYO32FhMc", channel: "Give to Gain" },
         { title: "Trading Psychology: Sunk Cost Fallacy in Stock Market", url: "https://www.youtube.com/watch?v=kH3YMStn4iM", channel: "VRDNation" },
-        { title: "Sunk Cost Fallacy: Not Knowing When It’s Time to Stop", url: "https://www.youtube.com/watch?v=jJajz9n9Oi4", channel: "Sprouts" },
         { title: "Sunk Cost Fallacy Explained", url: "https://www.youtube.com/watch?v=wP_vfv13NUc", channel: "Curious Nikhil & Prudvi Show" },
       ],
       ta: [
@@ -13128,22 +12040,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "System 1 vs System 2 || Daniel Kahneman's Two Speed Brain", url: "https://www.youtube.com/watch?v=ok9UeuQMlXo", channel: "Inner Alchemy" },
       ],
       hi: [
-        { title: "System 1 and System 2 Thinking- Cognitive Biases- Psychology", url: "https://www.youtube.com/watch?v=qQstf_JZJT4", channel: "Sonia Anand- Psychologist" },
         { title: "2.  Different Tools used in Systems Thinking in Hindi", url: "https://www.youtube.com/watch?v=D8iP0cEfBAs", channel: "Sustainability Simply Put" },
-        { title: "तेज़ और धीमी सोच - सिस्टम 1 और सिस्टम 2", url: "https://www.youtube.com/watch?v=Cfd8z3l3TYk", channel: "HowtoDoit" },
         { title: "Thinking in Systems by Donella H. Meadows | Hindi Audiobook | Systems Thinking Explained", url: "https://www.youtube.com/watch?v=6cRzSw0Go2o", channel: "Audiobook Sagar" },
       ],
       te: [
         { title: "System 1 and System 2: Two ways of thinking", url: "https://www.youtube.com/watch?v=KzRAtXOKSnI", channel: "Rupesh Ghagi" },
-        { title: "System 1 and System 2 Thinking- Cognitive Biases- Psychology", url: "https://www.youtube.com/watch?v=qQstf_JZJT4", channel: "Sonia Anand- Psychologist" },
-        { title: "Thinking Fast and Slow - System 1 & System 2", url: "https://www.youtube.com/watch?v=Cfd8z3l3TYk", channel: "HowtoDoit" },
         { title: "Mastering Both Your Brains | System 1 vs System 2", url: "https://www.youtube.com/watch?v=DIVTMooO7o4", channel: "Future IQ" },
       ],
       ta: [
-        { title: "System 1 vs System 2 || Daniel Kahneman's Two Speed Brain", url: "https://www.youtube.com/watch?v=ok9UeuQMlXo", channel: "Inner Alchemy" },
         { title: "System 1 and System 2 Thinking 🧠", url: "https://www.youtube.com/watch?v=Q9uQBQ7qjGc", channel: "Riya Peruvelil" },
-        { title: "System 1 and System 2 Thinking- Cognitive Biases- Psychology", url: "https://www.youtube.com/watch?v=qQstf_JZJT4", channel: "Sonia Anand- Psychologist" },
-        { title: "Thinking Fast and Slow - System 1 & System 2", url: "https://www.youtube.com/watch?v=Cfd8z3l3TYk", channel: "HowtoDoit" },
       ],
     },
     articles: [
@@ -13213,13 +12118,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What Is Marketing In 3 Minutes | Marketing For Beginners", url: "https://www.youtube.com/watch?v=QusJ4fpWQwA", channel: "Shane Hummus" },
       ],
       hi: [
-        { title: "LinkedIn LIVE: Why Psychology Matters in Marketing", url: "https://www.youtube.com/watch?v=OJeTEadTUq0", channel: "The LinkedIn Lab" },
         { title: "Unique Marketing Psychology in हिन्दी |  #marketingstrategy #businessgrowth #marketingtips", url: "https://www.youtube.com/watch?v=xKoGjuFHOIY", channel: "Vedant Singh Thakur" },
-        { title: "15 Psychological Marketing Triggers to MAKE PEOPLE BUY From YOU!", url: "https://www.youtube.com/watch?v=hYZG8qnS2T4", channel: "Adam Erhart" },
         { title: "How to Sell Anything To Anyone With Emotional Marketing !!!", url: "https://www.youtube.com/watch?v=OSZxDH-fGss", channel: "SeeKen" },
       ],
       te: [
-        { title: "Color Psychology In Branding | Color Psychology In Marketing  #colorpsychology #branding #marketing", url: "https://www.youtube.com/watch?v=TCBYjX-8VuA", channel: "Social Geek" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
         { title: "What Are Psychology-Based Techniques in Copywriting? | Module 5 | Online SEO Training in Telugu", url: "https://www.youtube.com/watch?v=817GNGRmT9M", channel: "Subbu Digital Marketer" },
         { title: "Digital Marketing Truths Every Telugu Business Must Know – 2025 Strategy Guide | Telugu Podcast", url: "https://www.youtube.com/watch?v=NV8SPiPk7Vo", channel: "Voice of Mogasala | Telugu Podcast" },
@@ -13256,7 +12158,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How My 4 Articles Ranked in ChatGPT | Answer Engine Optimization (AEO) & GEO Tutorial Hindi", url: "https://www.youtube.com/watch?v=tOwQm7KJRGQ", channel: "Algo Mark | Digital Marketing & Online Earning" },
-        { title: "AEO Masterclass. 5 Steps to Make AI Answer Engines Recommend Your Brand.", url: "https://www.youtube.com/watch?v=nI3h7DfdASE", channel: "Apurv Singh" },
         { title: "Answer Engine Optimization ( AEO ) in Hindi | How to get more traffic using AEO", url: "https://www.youtube.com/watch?v=lLc8vuPUi30", channel: "Mayank Sahu SEO" },
         { title: "Introduction Answer Engine Optimization | Part 1 | Answer Engine Optimization Course In Hindi", url: "https://www.youtube.com/watch?v=OjEncTR4rrQ", channel: "Indis Academy" },
       ],
@@ -13264,13 +12165,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AEO (Answer Engine Optimization) Complete Guide in Telugu | Google, ChatGPT, Voice Search lo Rank", url: "https://www.youtube.com/watch?v=wx7hmp992vs", channel: "Digital Sam - Digital Marketing Telugu" },
         { title: "AEO అంటే ఏమిటి? | Answer Engine Optimization Explained in Telugu 🔍", url: "https://www.youtube.com/watch?v=LLZZiL9pZsM", channel: "Digital Sam - Digital Marketing Telugu" },
         { title: "1 Hour Complete Practical on AEO AIO GEO | SEO Training in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=4Ls2CBZoIHI", channel: "Subbu Digital Marketer" },
-        { title: "AEO Masterclass. 5 Steps to Make AI Answer Engines Recommend Your Brand.", url: "https://www.youtube.com/watch?v=nI3h7DfdASE", channel: "Apurv Singh" },
       ],
       ta: [
         { title: "What is AEO? | Answer Engine Optimization | Explained in Tamil", url: "https://www.youtube.com/watch?v=CaJHDy24PPI", channel: "Sundar Digital Marketer" },
         { title: "AEO Explained in Tamil | SEO vs AEO | How to Rank in AI Search Results", url: "https://www.youtube.com/watch?v=GjEK6_r7gN4", channel: "Business Automation Tamil" },
-        { title: "AEO Masterclass. 5 Steps to Make AI Answer Engines Recommend Your Brand.", url: "https://www.youtube.com/watch?v=nI3h7DfdASE", channel: "Apurv Singh" },
-        { title: "Answer Engine Optimization (AEO) Course by Ahrefs: What is AEO?", url: "https://www.youtube.com/watch?v=MLKgbeDeCxU", channel: "Ahrefs" },
       ],
     },
     articles: [
@@ -13299,19 +12197,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "5 Signs Your AI SEO Strategy Is About to Take Off", url: "https://www.youtube.com/watch?v=SxTuBggWU2w", channel: "Neil Patel" },
       ],
       hi: [
-        { title: "How to Rank in Google’s AI Overview | SEO in 2026 (Proven Strategies)", url: "https://www.youtube.com/watch?v=FC-6ePHxrwY", channel: "Website Learners" },
         { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
         { title: "How To Rank in Google AI Mode", url: "https://www.youtube.com/watch?v=U_yVPSULbyU", channel: "Amit Tiwari" },
         { title: "How to Rank on Google in 2026 (It's Not SEO Anymore)", url: "https://www.youtube.com/watch?v=S9J9yJbZu4I", channel: "WsCube Tech" },
       ],
       te: [
         { title: "What is Google AI Mode in Telugu - How to Rank Your Website for Chat GPT and Gemeni", url: "https://www.youtube.com/watch?v=buHNAFzk3SA", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "How to Rank in Google’s AI Overview | SEO in 2026 (Proven Strategies)", url: "https://www.youtube.com/watch?v=FC-6ePHxrwY", channel: "Website Learners" },
         { title: "AI Video Tutorial Guide in Telugu | Complete Google Flow, WHISK & AI Studio Course", url: "https://www.youtube.com/watch?v=6KepRbYZ-kU", channel: "Telugu Tech AI" },
         { title: "Google's Amazing AI Tool - AI Mode - AI Telugu", url: "https://www.youtube.com/watch?v=TgbDtq6fTYs", channel: "AI Telugu" },
       ],
       ta: [
-        { title: "How to Rank in Google’s AI Overview | SEO in 2026 (Proven Strategies)", url: "https://www.youtube.com/watch?v=FC-6ePHxrwY", channel: "Website Learners" },
         { title: "Google Confirms No Need for AEO or GEO | Here's What I Do to Rank in AI Results | SEO Tips in Tamil", url: "https://www.youtube.com/watch?v=67Q6n1s2Ixk", channel: "Sundar Digital Marketer" },
         { title: "What is GEO? | SEO vs GEO vs AEO Complete Guide 2026 | AI Search Optimization", url: "https://www.youtube.com/watch?v=LoBWvynF_Nw", channel: "Digital Marketing Edge Tamil" },
         { title: "What Is AI SEO In Tamil - How to Get Your Brand Mentioned in Google AI Mode", url: "https://www.youtube.com/watch?v=wyjbCdRMQjw", channel: "Genxure Learning" },
@@ -13351,15 +12246,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "1 Hour Complete Practical on AEO AIO GEO | SEO Training in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=4Ls2CBZoIHI", channel: "Subbu Digital Marketer" },
-        { title: "How to Rank in Google’s AI Overview | SEO in 2026 (Proven Strategies)", url: "https://www.youtube.com/watch?v=FC-6ePHxrwY", channel: "Website Learners" },
         { title: "Google Flow AI Full Course 🔥 Beginner to Expert in 40 Minutes | Complete Guide 2026", url: "https://www.youtube.com/watch?v=mDoI4R8b_ik", channel: "Prathap Varma" },
-        { title: "How to RANK in Google’s AI Overviews (Complete 2026 SEO Guide)", url: "https://www.youtube.com/watch?v=rtrLA42XRog", channel: "Surfer Academy" },
       ],
       ta: [
         { title: "What is GEO? | SEO vs GEO vs AEO Complete Guide 2026 | AI Search Optimization", url: "https://www.youtube.com/watch?v=LoBWvynF_Nw", channel: "Digital Marketing Edge Tamil" },
         { title: "🚀GEO in  தமிழ்🔥📌 Is GEO Important in 2025? | What is GEO (Generative Engine Optimization)? 💡", url: "https://www.youtube.com/watch?v=wkLJKrI2TBQ", channel: "Mr.Jabastin" },
         { title: "Generative 𝐀𝐈 (Gen AI)  ? in Tamil", url: "https://www.youtube.com/watch?v=c7yjHFyS3Tw", channel: "Data Engineering" },
-        { title: "How to Rank in Google’s AI Overview | SEO in 2026 (Proven Strategies)", url: "https://www.youtube.com/watch?v=FC-6ePHxrwY", channel: "Website Learners" },
       ],
     },
     articles: [
@@ -13388,22 +12280,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "SEO Tactics You’ll Need - Brand SERP Course", url: "https://www.youtube.com/watch?v=bOvyHIuGsLQ", channel: "Kalicube" },
       ],
       hi: [
-        { title: "Removing an Unwanted Negative Result from a Google Brand SERP - The Brand SERP Guy", url: "https://www.youtube.com/watch?v=FyqbTarHltU", channel: "Kalicube" },
-        { title: "How to Optimize Branded SERPs for Digital Dominance in 2026", url: "https://www.youtube.com/watch?v=44MZ_LsUKAE", channel: "Pearl Lemon SEO" },
         { title: "SEO Tutorial for Beginners 2025 | Rank #1 on Google | SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fj6V1vjqP-4", channel: "Saddam Kassim" },
         { title: "How to Rank No.1 on Google My Business 2026 Using AI | Google My Business seo | SEO For Beginners", url: "https://www.youtube.com/watch?v=Jx4mie3Vebs", channel: "Indian Digital Academy" },
       ],
       te: [
-        { title: "How to Optimize Branded SERPs for Digital Dominance in 2026", url: "https://www.youtube.com/watch?v=44MZ_LsUKAE", channel: "Pearl Lemon SEO" },
-        { title: "Brand SERP Guy: The Secrets to Dominating Google Rankings & SEO Mistakes to Avoid", url: "https://www.youtube.com/watch?v=ZhctP3uI_lY", channel: "GHA Marketing" },
         { title: "How Google Show SERP Results ( Know the Truth )", url: "https://www.youtube.com/watch?v=vF6FRZrHKwk", channel: "Digital Chandu Telugu" },
-        { title: "Removing an Unwanted Negative Result from a Google Brand SERP - The Brand SERP Guy", url: "https://www.youtube.com/watch?v=FyqbTarHltU", channel: "Kalicube" },
       ],
       ta: [
-        { title: "Removing an Unwanted Negative Result from a Google Brand SERP - The Brand SERP Guy", url: "https://www.youtube.com/watch?v=FyqbTarHltU", channel: "Kalicube" },
-        { title: "How to Optimize Branded SERPs for Digital Dominance in 2026", url: "https://www.youtube.com/watch?v=44MZ_LsUKAE", channel: "Pearl Lemon SEO" },
-        { title: "Brand SERP Guy: The Secrets to Dominating Google Rankings & SEO Mistakes to Avoid", url: "https://www.youtube.com/watch?v=ZhctP3uI_lY", channel: "GHA Marketing" },
-        { title: "How is Google Discover Linked to Brand SERP? - Kalicube Short Video", url: "https://www.youtube.com/watch?v=8Ko5atIb308", channel: "Kalicube" },
       ],
     },
     articles: [
@@ -13431,20 +12314,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "SEO Strategy: Topic Clusters and Pillar Pages Explained", url: "https://www.youtube.com/watch?v=LS2t-mKS1mU", channel: "Shaheryar" },
       ],
       hi: [
-        { title: "Concept of Topic Clusters & How can they help us | WsCube Tech", url: "https://www.youtube.com/watch?v=izpNOSPegoQ", channel: "WsCube Tech" },
         { title: "Pillar Pages and Cluster Content: SEO Strategies", url: "https://www.youtube.com/watch?v=wVQKTid2Qu0", channel: "Psychology with Shalini" },
-        { title: "SEO Strategy: Topic Clusters and Pillar Pages Explained", url: "https://www.youtube.com/watch?v=LS2t-mKS1mU", channel: "Shaheryar" },
         { title: "Make Keyword Cluster in 3 Minutes", url: "https://www.youtube.com/watch?v=L7wcNhtWfHA", channel: "Ghulam Ali SEO" },
       ],
       te: [
-        { title: "Create a Winning SEO Content Strategy using Topic Clusters", url: "https://www.youtube.com/watch?v=9TVDFEw98U4", channel: "Tuhin Banik" },
         { title: "Content on page SEO Telugu | Heading on-page SEO Telugu | Links on page SEO | Internal External Link", url: "https://www.youtube.com/watch?v=gJr6kqZYDyg", channel: "Ganesh Digital Marketing Telugu" },
-        { title: "Concept of Topic Clusters & How can they help us | WsCube Tech", url: "https://www.youtube.com/watch?v=izpNOSPegoQ", channel: "WsCube Tech" },
-        { title: "Pillar Pages and Topic Clusters Explained!", url: "https://www.youtube.com/watch?v=AzTutClzfs4", channel: "Marketing Explained" },
       ],
       ta: [
         { title: "Pillar Pages vs Topic Clusters: How I Build Topical Authority", url: "https://www.youtube.com/watch?v=4-uHnR2H32w", channel: "Matthew Zare" },
-        { title: "Pillar Pages and Topic Clusters Explained!", url: "https://www.youtube.com/watch?v=AzTutClzfs4", channel: "Marketing Explained" },
         { title: "What is Topic Cluster in SEO - Rank Multiple Keywords with One Topic Explained in Tamil", url: "https://www.youtube.com/watch?v=74_jWEM_n10", channel: "Genxure Learning" },
         { title: "Pillar Pages and Cluster Content: SEO Strategies", url: "https://www.youtube.com/watch?v=wVQKTid2Qu0", channel: "Psychology with Shalini" },
       ],
@@ -13476,21 +12353,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "SEO and Core Web Vitals in HTML | Sigma Web Development Course - Tutorial #6", url: "https://www.youtube.com/watch?v=CyRlWlaJnTY", channel: "CodeWithHarry" },
-        { title: "Class 27 - Core Web Vitals Part 1 - Advanced SEO Course 2026 - GEO Course", url: "https://www.youtube.com/watch?v=1bwvRBWbrAw", channel: "Amit Tiwari" },
         { title: "Core Web Vital : Analyzing Core Web Vitals of Your Website | Impact of Core Web Vital on SEO", url: "https://www.youtube.com/watch?v=VdKDRYVR0Us", channel: "My Online Master" },
         { title: "LiteSpeed Cache Full Advanced Setup (2026) | Speed Optimization, Core Web Vitals, 100% PageSpeed", url: "https://www.youtube.com/watch?v=JQDJwwB1xys", channel: "Zia Tech Digital" },
       ],
       te: [
         { title: "What are the Core Web Vitals in SEO? in telugu/Core web vitals Importance in SEO or  Website", url: "https://www.youtube.com/watch?v=SUAZqg-J0UE", channel: "onlinetutorialhub" },
-        { title: "Core web vitals Explained | Javascript interview questions and answers", url: "https://www.youtube.com/watch?v=MuefmwFmc20", channel: "Shubham Kulkarni | Coding and Interviews" },
-        { title: "Class 27 - Core Web Vitals Part 1 - Advanced SEO Course 2026 - GEO Course", url: "https://www.youtube.com/watch?v=1bwvRBWbrAw", channel: "Amit Tiwari" },
-        { title: "What are Core Web Vitals? | Core Web Vitals explained in 7 minutes", url: "https://www.youtube.com/watch?v=pTswmgVWSH8", channel: "Sematext" },
       ],
       ta: [
         { title: "Core Web Vitals: Essential metrics for a healthy site (Tamil with English subtitles)", url: "https://www.youtube.com/watch?v=UJ6YtvPLT8E", channel: "Chrome for Developers" },
         { title: "Core Web Vitals report - LCP | INP | CLS - Sasikumar Talks (in Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=rzYjbuBQ1Io", channel: "Sasikumar Talks (Training Academy)" },
         { title: "What is Core Web Vitals? | Increase Core Web Vitals performance - i Know Tamil", url: "https://www.youtube.com/watch?v=lknzUR85KbI", channel: "i Know Tamil" },
-        { title: "Core Web Vitals Explained: LCP, INP & CLS", url: "https://www.youtube.com/watch?v=cGiSr0MilsI", channel: "I Code It" },
       ],
     },
     articles: [
@@ -13518,9 +12390,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "EEAT in SEO: The Ultimate Beginner's Guide", url: "https://www.youtube.com/watch?v=iitX964Z0fE", channel: "Learn From Top Rated Freelancer" },
       ],
       hi: [
-        { title: "What Is Google E-E-A-T and Why Does It Matter for SEO Rankings? (Complete Tutorial in Hindi – 2026)", url: "https://www.youtube.com/watch?v=QhPEgVdv-4I", channel: "Sachin Pathania" },
         { title: "E-E-A-T in SEO: The Secret to Ranking #1 on Google", url: "https://www.youtube.com/watch?v=2ydlcwfe0TA", channel: "Nova Vision" },
-        { title: "What Is E.E.A.T In Google? E.E.A.T Kya Hai? How Does E.E.A.T Help In SEO? E.E.A.T For SEO Traffic 🚀", url: "https://www.youtube.com/watch?v=7BY9wL_9RiY", channel: "Kushal Arora" },
         { title: "What is EEAT? How to Improve Ranking with EEAT?", url: "https://www.youtube.com/watch?v=JTXxiWllICk", channel: "Robin Mehta" },
       ],
       te: [
@@ -13532,7 +12402,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "What is EEAT in Tamil - How to apply EEAT in an e-commerce website - Live example", url: "https://www.youtube.com/watch?v=5ozALb24IJ0", channel: "Genxure Learning" },
         { title: "What Is EAT? & EEAT? |Google LAtest Review Updates|Tamil| |Google2023|", url: "https://www.youtube.com/watch?v=iqNUcO9bydE", channel: "Vignesh G" },
-        { title: "Get 10x More AI Search Traffic with EEAT (How to Show E-E-A-T)", url: "https://www.youtube.com/watch?v=HoRJBuIBEc4", channel: "NERD UP" },
         { title: "Content Writing Tamil | ✅EEAT Optimised Content Writing in Tamil", url: "https://www.youtube.com/watch?v=xAN42wjj2oM", channel: "Bell Tamil solar" },
       ],
     },
@@ -13563,12 +12432,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Brief Introduction To Knowledge Graph In NLP", url: "https://www.youtube.com/watch?v=WZilmUNVm2U", channel: "Krish Naik" },
         { title: "Introducing Entity-Based SEO and how to adapt for Rankbrain", url: "https://www.youtube.com/watch?v=OoGsRaFWS7A", channel: "Tuhin Banik" },
-        { title: "Complete Session On Knowledge Graph and GraphDb With Langchain", url: "https://www.youtube.com/watch?v=hsOJhs3_UCM", channel: "Krish Naik" },
         { title: "What is Entity SEO? Rank #1 on Google Naturally | Lecture 8", url: "https://www.youtube.com/watch?v=g78EI_MhJZE", channel: "Kamlesh Singad" },
       ],
       te: [
         { title: "Brief Introduction To Knowledge Graph In NLP", url: "https://www.youtube.com/watch?v=WZilmUNVm2U", channel: "Krish Naik" },
-        { title: "Complete Session On Knowledge Graph and GraphDb With Langchain", url: "https://www.youtube.com/watch?v=hsOJhs3_UCM", channel: "Krish Naik" },
         { title: "Types of SEO in Telugu || Kotha Abhishek", url: "https://www.youtube.com/watch?v=lWf3IdbjtcI", channel: "Chintu Tutorials" },
         { title: "What is a Knowledge Graph?", url: "https://www.youtube.com/watch?v=y7sXDpffzQQ", channel: "IBM Technology" },
       ],
@@ -13606,7 +12473,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How Do Search Engines Work | Lesson 1/31", url: "https://www.youtube.com/watch?v=FWFdRSvWugM", channel: "Semrush" },
       ],
       hi: [
-        { title: "How Search Engine Works? Crawling, Indexing, and Ranking - Complete Explanation", url: "https://www.youtube.com/watch?v=9n4l491nuOI", channel: "WsCube Tech" },
         { title: "How Search Engine Works in Hindi | What is Crawling Indexing and Ranking in SEO | SEO Full Course", url: "https://www.youtube.com/watch?v=WIZTvC3n_Zk", channel: "Marketing Fundas" },
         { title: "Search Engine क्या है ? और कैसे काम करता है ? (हिंदी में) - Technical Recap", url: "https://www.youtube.com/watch?v=Nde5nY0bb5s", channel: "Technical Recap" },
         { title: "How Google Search Engine Works | Crawling Indexing and Ranking - Complete Explanation In Hindi 2023", url: "https://www.youtube.com/watch?v=Ia9o8ndIPxg", channel: "Digital Shiksha Abhiyan" },
@@ -13651,21 +12517,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Quick Guide to Internal Linking - Learn How to Build Your Internal Linking Strategy in 5 Minutes!", url: "https://www.youtube.com/watch?v=6SJAsGC2f2U", channel: "Surfer Academy" },
       ],
       hi: [
-        { title: "Internal Linking Done Right = Explosive SEO Growth - Umar Tazkeer", url: "https://www.youtube.com/watch?v=7AfQRT0cboI", channel: "Umar Tazkeer" },
         { title: "Internal & External Links: Why External and Internal Links are Important for SEO - Fully Explained", url: "https://www.youtube.com/watch?v=smSNFtM9vj4", channel: "WsCube Tech" },
         { title: "Internal linking kya hota hai | internal linking Kaise Karte han | internal linking SEO strategy", url: "https://www.youtube.com/watch?v=TLiwjFKs7vg", channel: "Digital UK07" },
         { title: "How to Do Internal Linking in Website that Helps in Ranking | Internal Linking SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=OP6_HwQUG80", channel: "Digital Hrithik" },
       ],
       te: [
         { title: "Internal Linking: How To Do Internal Linking In Blogger In Telugu | Internal Linking In Telugu Guide", url: "https://www.youtube.com/watch?v=IRrLLKYxelg", channel: "Telugu Fusion" },
-        { title: "Internal Linking Done Right = Explosive SEO Growth - Umar Tazkeer", url: "https://www.youtube.com/watch?v=7AfQRT0cboI", channel: "Umar Tazkeer" },
         { title: "How to Do Internal Linking in Telugu || Post Internal Linking for SEO", url: "https://www.youtube.com/watch?v=Zf4Y7s6TFy0", channel: "Kiran Samileti" },
       ],
       ta: [
         { title: "Hands On Internal Link Optimisation - தமிழில் | SEO Course/Tutorial In Tamil  | Chapter 19", url: "https://www.youtube.com/watch?v=pyooQE0syWc", channel: "Consult Us Now Digital Marketing Agency, Chennai" },
         { title: "How to Optimise Internal Links for SEO | SEO Tutorial in Tamil | #22", url: "https://www.youtube.com/watch?v=SkN9LYIQjbo", channel: "Simplified E-learning" },
-        { title: "Internal Linking Done Right = Explosive SEO Growth - Umar Tazkeer", url: "https://www.youtube.com/watch?v=7AfQRT0cboI", channel: "Umar Tazkeer" },
-        { title: "How AI Auto-Links 1000+ Posts in Minutes | WordPress Internal Linking Tutorial | AIWU Crosslinking", url: "https://www.youtube.com/watch?v=6LphNcLbeMA", channel: "AIWU - AI WordPress Plugin" },
       ],
     },
     articles: [
@@ -13696,12 +12558,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "International SEO Strategy in Hindi (Practically Explained with Settings) - Lesson 36", url: "https://www.youtube.com/watch?v=po5PxZE4GwM", channel: "Shashank Srivastava" },
-        { title: "What is International SEO & Why do we need that?  SEO Tutorial", url: "https://www.youtube.com/watch?v=qd7OuFaS3xo", channel: "WsCube Tech" },
         { title: "How To Do SEO For Website in Many Languages | International SEO | HREFLANG | WordCamp Delhi 2024", url: "https://www.youtube.com/watch?v=jByWVnZE98E", channel: "Amit Tiwari" },
         { title: "Full SEO Course and Tutorial in Hindi | SEO Course 2025  | Umar Tazkeer", url: "https://www.youtube.com/watch?v=83RXYrqRLeM", channel: "Umar Tazkeer" },
       ],
       te: [
-        { title: "International SEO for Beginners - How to do Global SEO", url: "https://www.youtube.com/watch?v=CWae3MtFgo4", channel: "Navneet Kaushal" },
         { title: "What SEO in Telugu | SEO Tutorial For Begginers in Telugu | Website & Blog SEO Telugu", url: "https://www.youtube.com/watch?v=6KA5uhf4dxU", channel: "Kiran Samileti" },
         { title: "🔥Salary of SEO Specialist | SEO Skills for 2026 #Shorts | Simplilearn", url: "https://www.youtube.com/watch?v=2AYjYIJwPQg", channel: "Simplilearn" },
         { title: "Types Of SEO In Digital Marketing | SEO Tutorial For Beginners In Telugu| On page Off Page Technical", url: "https://www.youtube.com/watch?v=KkITQtIXs7w", channel: "Digital Growth Telugu" },
@@ -13709,7 +12569,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "International SEO Tutorial For Beginners in Tamil | #43", url: "https://www.youtube.com/watch?v=im3NVfOh3Z8", channel: "Simplified E-learning" },
         { title: "International SEO in Tamil 2021| Global SEO in Tamil | Hreflang Tag implementation", url: "https://www.youtube.com/watch?v=qtjWcevzMQo", channel: "Senthil Chandran" },
-        { title: "International SEO for Beginners - How to do Global SEO", url: "https://www.youtube.com/watch?v=CWae3MtFgo4", channel: "Navneet Kaushal" },
         { title: "How To Do Guest Post Submission For Seo In Tamil | SEO Tutorial in Tamil | #51", url: "https://www.youtube.com/watch?v=q1wNxdraZxU", channel: "Simplified E-learning" },
       ],
     },
@@ -13747,7 +12606,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Keyword Research Trick In Telugu #keywordresearchtelugu #seointelugu #bloggingintelugu", url: "https://www.youtube.com/watch?v=mzKaWaeOiMo", channel: "Chakri Web" },
         { title: "Google Ads Keyword Research — Step by Step in Telugu | Right Keywords ఎలా Find చేయాలి? | SDM Classes", url: "https://www.youtube.com/watch?v=ENKLaBmnRjw", channel: "Subbu Digital Marketer" },
-        { title: "Keyword Research Tutorial: Best Strategies to Rank #1", url: "https://www.youtube.com/watch?v=NadiT0HYt4Y", channel: "Website Learners" },
         { title: "Google Keyword Planner Explained in Telugu 🔍 | Master Keyword Research for SEO & Ads", url: "https://www.youtube.com/watch?v=5V1Jz9khaLk", channel: "Digital Chandu Telugu" },
       ],
       ta: [
@@ -13781,9 +12639,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "25+ Profile Backlinks from High Authority Websites #backlinkseo  #linkbuilding #backlinks", url: "https://www.youtube.com/watch?v=1VsJvycswUc", channel: "Seo Smart Key" },
       ],
       hi: [
-        { title: "Lesson 7: Off-Page SEO & Backlinks (STEP BY STEP TUTORIAL)", url: "https://www.youtube.com/watch?v=hY9vfWbTruI", channel: "Digital Dhairya" },
-        { title: "25+ Profile Backlinks from High Authority Websites #backlinkseo  #linkbuilding #backlinks", url: "https://www.youtube.com/watch?v=1VsJvycswUc", channel: "Seo Smart Key" },
-        { title: "FRESH Website Backlinks Strategy ( Free DR90 Backlinks )", url: "https://www.youtube.com/watch?v=LZHSw1qqgwY", channel: "Ghulam Ali SEO" },
       ],
       te: [
         { title: "Off Page SEO Tutorial in Telugu || Link Building || Digital John || Lesson 13", url: "https://www.youtube.com/watch?v=anVfJmyEl3g", channel: "Digital Marketing Course in Telugu" },
@@ -13825,7 +12680,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "LLM.txt Secret Weapon to Rank in AI Overviews & LLM Models Semantic SEO Guide", url: "https://www.youtube.com/watch?v=AxuQkvILoh0", channel: "Faheem Bhatti SEO" },
-        { title: "What is LLMS.txt? & How to implement LLMS.txt? | Umar Tazkeer", url: "https://www.youtube.com/watch?v=3MB_gfkj7Q8", channel: "Umar Tazkeer" },
         { title: "SEO's New Craze -  LLM.TXT", url: "https://www.youtube.com/watch?v=UyqT3P-eqJc", channel: "Amit Tiwari" },
         { title: "एलएलएम फाइन ट्यूनिंग क्रैश कोर्स | एलएलएम फाइन ट्यूनिंग ट्यूटोरियल", url: "https://www.youtube.com/watch?v=IIvORO248Zs", channel: "codebasics" },
       ],
@@ -13871,7 +12725,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How to Rank on Google My Business Fast | Local SEO 2025 MASTERCLASS 🚀", url: "https://www.youtube.com/watch?v=gp0HAi57MME", channel: "Damini Tripathi" },
-        { title: "How to Do Local SEO Like a Pro: Google My Business + Growth Hacks 💡", url: "https://www.youtube.com/watch?v=IOuJS976gGY", channel: "WsCube Tech" },
         { title: "Complete SEO Course for Beginners in Hindi : Learn On Page SEO, Off Page SEO & Technical SEO", url: "https://www.youtube.com/watch?v=c7kDiKXnD7A", channel: "My Online Master" },
         { title: "How to Rank No.1 on Google My Business 2026 Using AI | Google My Business seo | SEO For Beginners", url: "https://www.youtube.com/watch?v=Jx4mie3Vebs", channel: "Indian Digital Academy" },
       ],
@@ -13914,7 +12767,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "On Page SEO Complete Tutorial For Beginners || Hindi", url: "https://www.youtube.com/watch?v=uASO6CVwB0A", channel: "Digital Marketing Guruji" },
-        { title: "SEO Tutorial for Beginners 2025 | Rank #1 on Google | SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fj6V1vjqP-4", channel: "Saddam Kassim" },
         { title: "On Page SEO Full Course with AI 2025 | Become On Page SEO Expert | #onpageseo #seowithai #seo", url: "https://www.youtube.com/watch?v=FnxwL3mY2aY", channel: "Marketing Fundas" },
       ],
       te: [
@@ -13923,7 +12775,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "On Page SEO Full Course in Telugu | Free Full Advanced Digital Marketing Course in Telugu 2026", url: "https://www.youtube.com/watch?v=7Z876ooKx88", channel: "BVR Alpha Community" },
       ],
       ta: [
-        { title: "On Page SEO Tutorial in Tamil | Digital Marketing Course in Tamil | #14", url: "https://www.youtube.com/watch?v=JsNR8-t-1ak", channel: "Simplified E-learning" },
         { title: "On Page SEO Tutorial for Beginners in Tamil 2025 | Digital Marketing Course Day 6 #digitalmarketing", url: "https://www.youtube.com/watch?v=G1j85kTE1xM", channel: "Elite Ashwin" },
         { title: "How to Rank Your Website on Google - WordPress SEO For Beginners", url: "https://www.youtube.com/watch?v=tu501rOVMGc", channel: "Website Learners" },
         { title: "SEO Course in Tamil | SEO Tutorial for Beginners Course #SEOTamil", url: "https://www.youtube.com/watch?v=Fu13hNmqt1k", channel: "AI Digital Marketing Tamil by Alston Antony" },
@@ -13955,7 +12806,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Programmatic SEO with Semantics, and Web Layout Optimization", url: "https://www.youtube.com/watch?v=FY1WQ_mCszI", channel: "Koray Tuğberk GÜBÜR" },
       ],
       hi: [
-        { title: "What is Programmatic SEO - Secret of High Traffic Websites | Umar Tazkeer", url: "https://www.youtube.com/watch?v=pZ2ChcZVTKE", channel: "Umar Tazkeer" },
         { title: "Programmatic SEO 2025 - Real Examples, Templates & Complete Breakdown | Robin Mehta", url: "https://www.youtube.com/watch?v=rX2PjWtc6gM", channel: "Robin Mehta" },
         { title: "Programmatic SEO in WordPress (2025) – 4 Practical Methods with WP All Import, MPG, Make.com, n8n", url: "https://www.youtube.com/watch?v=7Bd0mbw8Y64", channel: "UntalkedSEO" },
         { title: "Automation Websites से कमाए लाखो | Programmatic SEO Hacks ft. Abhishek Sood | @BeyondFameWithPayal", url: "https://www.youtube.com/watch?v=Iu-txTix8mQ", channel: "Beyond Fame With Payal" },
@@ -13968,7 +12818,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "The Power of Programmatic SEO: Trip Advisor and Yelp's Strategy | Sasikumar Talks (in Tamil)", url: "https://www.youtube.com/watch?v=7AzJa49MnOI", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "I Keep Getting Pitched On Programmatic SEO", url: "https://www.youtube.com/watch?v=7A7iU_-U50s", channel: "Neil Patel" },
         { title: "Local SEO in Tamil | Google Business Profile Full Guide 🔥 | Step by step Tutorial", url: "https://www.youtube.com/watch?v=jEKcHtb6RVQ", channel: "Cyberbuddy Tamil" },
         { title: "Programmatic Advertising in Tamil | How Programmatic Ads work in Tamil | DSP Ads in Tamil", url: "https://www.youtube.com/watch?v=LEnA_bDpZz4", channel: "Senthil Chandran" },
       ],
@@ -13998,20 +12847,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Parasite SEO Explained in 12 Minutes (2026 LIVE Examples: Reddit, Medium & Moz)", url: "https://www.youtube.com/watch?v=0ExO8eOzDxI", channel: "Abhinav Anand" },
       ],
       hi: [
-        { title: "Reddit SEO Guide Explained | Reddit SEO Explained", url: "https://www.youtube.com/watch?v=LVYa_Du8tQE", channel: "Amit Tiwari" },
-        { title: "SEO Basics Are Not Enough To Rank On Google Anymore…", url: "https://www.youtube.com/watch?v=QhSMsPoNxnU", channel: "Neil Patel" },
         { title: "Does AI Content Still Rank In 2026? Reddit Marketing Strategy ft. Vaibhav Sharda! Aged Domains SEO", url: "https://www.youtube.com/watch?v=1lQkkWkG9GY", channel: "Kushal Arora" },
         { title: "Still Doing SEO in 2025? 😒 Is it Worth it? 😱🤔", url: "https://www.youtube.com/watch?v=CxPLEvgSqhI", channel: "Focus Locus" },
       ],
       te: [
         { title: "Lecture 54 SEO | Digital Marketing Course in Telugu | About Forum Link Building P1 | OffPage SEO 30", url: "https://www.youtube.com/watch?v=Z0hAzlN2mPY", channel: "BVR Alpha Community" },
-        { title: "Reddit SEO Guide Explained | Reddit SEO Explained", url: "https://www.youtube.com/watch?v=LVYa_Du8tQE", channel: "Amit Tiwari" },
-        { title: "SEO Basics Are Not Enough To Rank On Google Anymore…", url: "https://www.youtube.com/watch?v=QhSMsPoNxnU", channel: "Neil Patel" },
         { title: "🔥Salary of SEO Specialist | SEO Skills for 2026 #Shorts | Simplilearn", url: "https://www.youtube.com/watch?v=2AYjYIJwPQg", channel: "Simplilearn" },
       ],
       ta: [
         { title: "SEO in Tamil | SEO Tutorial for Beginners in Tamil | Rank #1 on Google (2026 Guide)", url: "https://www.youtube.com/watch?v=t3_JvcaS3MI", channel: "Tutusfunny tamil" },
-        { title: "How to Use Reddit - Complete Beginner's Guide", url: "https://www.youtube.com/watch?v=0FeEdmYRmeE", channel: "Howfinity" },
         { title: "🚀 SEO Masterclass for Beginners — Rank on Google in 2026 | Complete Step-by-Step Guide", url: "https://www.youtube.com/watch?v=_ZzGvbxPGTM", channel: "Digital Marketing Edge Tamil" },
         { title: "Reddit SEO Strategy for AI Rankings Tamil | Get Featured in ChatGPT, Gemini & Google AI", url: "https://www.youtube.com/watch?v=Rc6dh6KU8oA", channel: "Genxure Learning" },
       ],
@@ -14046,8 +12890,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to do Digital Marketing for SAAS Products? | SAAS Marketing | Marketing Strategy for IT Company", url: "https://www.youtube.com/watch?v=FhdfeLW3ETs", channel: "Alok kumar Badatia" },
       ],
       te: [
-        { title: "SaaS Competitor Comparison Pages: Why you NEED to Build them", url: "https://www.youtube.com/watch?v=DXrqf5Xqpd4", channel: "Justin Berg - Rock The Rankings: SaaS SEO & GEO" },
-        { title: "Build Your First SaaS Product with Google Gemini AI", url: "https://www.youtube.com/watch?v=gRPaq_54ouM", channel: "Komal Bhojani" },
         { title: "Curated showcase of SaaS product pages and dashboards  #uiux #saas #inspiration #fyp #design", url: "https://www.youtube.com/watch?v=26w1LrOgU90", channel: "Library For Design" },
         { title: "How I Built a Money‑Making App Without Coding", url: "https://www.youtube.com/watch?v=UCob7m1Co2g", channel: "Abhinay resu" },
       ],
@@ -14078,14 +12920,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Structured data for web developers", url: "https://www.youtube.com/watch?v=hUHjeDylhE8", channel: "Google Search Central" },
       ],
       hi: [
-        { title: "How to Generate Schema Markup using Plugin - Ecommerce Product Schema | SEO Course | #29", url: "https://www.youtube.com/watch?v=L8hUmVbBKc4", channel: "Umar Tazkeer" },
         { title: "Schema Markup Kya Hota Hai? | SEO Structured Data Explained | Hindi + English Tutorial", url: "https://www.youtube.com/watch?v=yzbkXuPfRxs", channel: "Skilled Peepal" },
         { title: "What is Schema Markup & Why It's Important for SEO | SEO Tutorial", url: "https://www.youtube.com/watch?v=hgmsc58dOMY", channel: "WsCube Tech" },
         { title: "Lec-5: What is Schema | How to define Schema | Database management system in Hindi", url: "https://www.youtube.com/watch?v=pDX4NR4eY3A", channel: "Gate Smashers" },
       ],
       te: [
         { title: "What are Rich Snippets | Schema Markup | Structured Data | SEO Tutorial | SEO Course | Seven Boats", url: "https://www.youtube.com/watch?v=oLB_DaJIPe0", channel: "Seven Boats" },
-        { title: "🚀 What is Schema Markup & How to Set It Up in WordPress | SEO Course Part 16 📊", url: "https://www.youtube.com/watch?v=UBGCTpaBUOE", channel: "The Manser" },
         { title: "Types of Schema Markup for SEO | Digital Marketing Tutorial in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=35Azvq4r3fc", channel: "Subbu Digital Marketer" },
         { title: "What is Schema Markup? | SEO Explained for Beginners in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=KH-aP78ifmo", channel: "Subbu Digital Marketer" },
       ],
@@ -14122,15 +12962,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is Search Intent in SEO with Examples - SEO Tutorials", url: "https://www.youtube.com/watch?v=BWcIGqp3sw4", channel: "WsCube Tech" },
       ],
       hi: [
-        { title: "What is Search Intent | How to Optimize for Search Intent | SEO Course | #22", url: "https://www.youtube.com/watch?v=P7PnAYB7Y_k", channel: "Umar Tazkeer" },
         { title: "What is Search Intent? | AI Blogging Mastery Course in Hindi 2026 | #searchintent #aiblogging", url: "https://www.youtube.com/watch?v=kzkYR97fhFo", channel: "Marketing Fundas" },
         { title: "What is Search Intent in Hindi 2025 - Complete Search Intent Guide by Clickcraft", url: "https://www.youtube.com/watch?v=7zEFRMeGdf8", channel: "ClickCraft" },
         { title: "Top 3 Search Intent Types in Hindi | Keyword Intent | Keyword Search Intent | Search Intent Kya Hai", url: "https://www.youtube.com/watch?v=bXtaBsdlNG4", channel: "FutureGenApps®" },
       ],
       te: [
-        { title: "Keyword Research Pt 1: How to Analyze Searcher Intent - 1.2. SEO Course by Ahrefs", url: "https://www.youtube.com/watch?v=zXPZ0L2cOw4", channel: "Ahrefs" },
         { title: "Google Ads Keyword Research — Step by Step in Telugu | Right Keywords ఎలా Find చేయాలి? | SDM Classes", url: "https://www.youtube.com/watch?v=ENKLaBmnRjw", channel: "Subbu Digital Marketer" },
-        { title: "What is Search Intent | How to Optimize for Search Intent | SEO Course | #22", url: "https://www.youtube.com/watch?v=P7PnAYB7Y_k", channel: "Umar Tazkeer" },
       ],
       ta: [
         { title: "🌐 Search Intent SEO Explained | Types of Search Intent | What is Search Intent", url: "https://www.youtube.com/watch?v=pkCOAqhwhRk", channel: "Kathiresh Tech" },
@@ -14165,20 +13002,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How I Rank #1 in ChatGPT, Claude & Perplexity (AI SEO Blog Agent)", url: "https://www.youtube.com/watch?v=vioiC5HHGRY", channel: "Max Mitcham" },
       ],
       hi: [
-        { title: "How to Rank #1 in ChatGPT, Perplexity, Google AI Overview (Proven Strategies)", url: "https://www.youtube.com/watch?v=7NNhaZvPohk", channel: "Damini Tripathi" },
         { title: "How to Rank #1 on ChatGPT, Perplexity & Gemini Using AI SEO", url: "https://www.youtube.com/watch?v=5ANXivPeMj0", channel: "WsCube Tech" },
-        { title: "Learn 80% of Perplexity in under 10 minutes!", url: "https://www.youtube.com/watch?v=YoWdogtZRw8", channel: "Jeff Su" },
         { title: "😱 How To Rank Your Website Using Claude AI", url: "https://www.youtube.com/watch?v=OUXPxw5f7p8", channel: "Shweta Rao" },
       ],
       te: [
-        { title: "AEO Masterclass: How to Get Cited in Perplexity & ChatGPT Search", url: "https://www.youtube.com/watch?v=RunC5XkGSwc", channel: "How to Digital" },
-        { title: "Track Your Brand's AI SEO on ChatGPT, Claude, and Perplexity (n8n AI AGENT)", url: "https://www.youtube.com/watch?v=Sx9j93mZsE8", channel: "Max Mitcham" },
-        { title: "This Method Gets You Cited by ChatGPT, Perplexity & Google AI", url: "https://www.youtube.com/watch?v=K-DX13vh1LM", channel: "Nico | AI Ranking" },
-        { title: "Learn 80% of Perplexity in under 10 minutes!", url: "https://www.youtube.com/watch?v=YoWdogtZRw8", channel: "Jeff Su" },
       ],
       ta: [
-        { title: "Learn 80% of Perplexity in under 10 minutes!", url: "https://www.youtube.com/watch?v=YoWdogtZRw8", channel: "Jeff Su" },
-        { title: "How I Rank #1 in ChatGPT, Claude & Perplexity (AI SEO Blog Agent)", url: "https://www.youtube.com/watch?v=vioiC5HHGRY", channel: "Max Mitcham" },
         { title: "How to Create AI-Friendly Content That Gets Cited by ChatGPT, Claude & Perplexity", url: "https://www.youtube.com/watch?v=a6tzBXHv6Tk", channel: "Scribble Network" },
         { title: "LLM SEO in Tamil: How to Rank in AI Search (ChatGPT, Gemini, Claude) - AI SEO Explained Step by Step", url: "https://www.youtube.com/watch?v=Mp-uMqN30RM", channel: "Genxure Learning" },
       ],
@@ -14253,10 +13082,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Rank Your Youtube Videos on TOP", url: "https://www.youtube.com/watch?v=rqWvlzdAtYQ", channel: "Drk Talks" },
       ],
       hi: [
-        { title: "AI Se YouTube Video Rank Kaise Kare (2026) | YouTube SEO 2026", url: "https://www.youtube.com/watch?v=pFfMU9A4THY", channel: "Technical Yogi" },
-        { title: "YouTube SEO 2026: How I Rank #1 on YouTube", url: "https://www.youtube.com/watch?v=kp5tuB99ByQ", channel: "Youri van Hofwegen" },
         { title: "How to Rank #1 on YouTube Search in 2026 (in Hindi)", url: "https://www.youtube.com/watch?v=FTk0J9_fU-A", channel: "Make Better Videos with Kunal" },
-        { title: "YouTube SEO Tool - Best YouTube  Tags generator - Rank YouTube  video #shorts #trending", url: "https://www.youtube.com/watch?v=usoMB_pE2rM", channel: "Shafaqat Tech" },
       ],
       te: [
         { title: "YouTube SEO 2026 Telugu 🔥 Rank #1 in Search | Full SEO Settings Before Upload | SEO 2026 Telugu", url: "https://www.youtube.com/watch?v=GQoIAma_UCI", channel: "Srinivas Tech Official" },
@@ -14295,7 +13121,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Introduction to Voice SEO - What is Voice Search and Voice SEO & How Does it Work?", url: "https://www.youtube.com/watch?v=_6sDaYnHgT8", channel: "WsCube Tech" },
       ],
       hi: [
-        { title: "Ultimate Voice Search SEO 2026 Guide", url: "https://www.youtube.com/watch?v=4VRw9lFSxdY", channel: "Navneet Kaushal" },
         { title: "YouTube Voice Search SEO 2023 अभी सीख लो Views बढ़ जायेंगे | Voice Search Optimization on YouTube", url: "https://www.youtube.com/watch?v=YmY1Zw08Tyc", channel: "Technical Yogi" },
         { title: "Voice search optmization overview in 2024 || SEO FULL COURSE || By Rajneesh Pathak in Hindi", url: "https://www.youtube.com/watch?v=1YE6gMk-IFY", channel: "Rajneesh Pathak" },
         { title: "Voice Search Optimization - How To Optimize Your Site For Voice Search? (10K/MONTH! )😮🔥", url: "https://www.youtube.com/watch?v=3CFTVYYK3H0", channel: "WsCube Tech" },
@@ -14304,7 +13129,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AEO (Answer Engine Optimization) Complete Guide in Telugu | Google, ChatGPT, Voice Search lo Rank", url: "https://www.youtube.com/watch?v=wx7hmp992vs", channel: "Digital Sam - Digital Marketing Telugu" },
         { title: "SEO ki Career Vunda? Can SEO Really Help Business Growth? (Telugu)", url: "https://www.youtube.com/watch?v=0ELhp_rXJbo", channel: "Voice of Mohan Telugu" },
         { title: "Voice Search Optimisation in Telugu", url: "https://www.youtube.com/watch?v=EpL8bQU0jbA", channel: "Digital Marketing Course in Telugu" },
-        { title: "How to Optimize for Voice Search (Get Found on Google & Siri)", url: "https://www.youtube.com/watch?v=_Fq11z580Pg", channel: "Proceed Innovative" },
       ],
       ta: [
         { title: "How To Optimize Your Site for Voice Search SEO in Tamil | SEO Tutorial in Tamil | #28", url: "https://www.youtube.com/watch?v=i3sig21QlOc", channel: "Simplified E-learning" },
@@ -14345,7 +13169,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "DDOS ATTACK.#coding #programming #ddos #cybersecurity #neet", url: "https://www.youtube.com/watch?v=KINXu_gWLqE", channel: "Neeraj Walia" },
       ],
       te: [
-        { title: "Zero Click Searches: Expert SEO Strategies to Compete in a Zero Click SEO World", url: "https://www.youtube.com/watch?v=LSo-kC2CVjY", channel: "Koozai" },
         { title: "Win Zero-Click Search: How to Rank in Google and ChatGPT with SEO 2.0", url: "https://www.youtube.com/watch?v=IvPSKB6ccEc", channel: "Virteom LLC" },
         { title: "Learn SEO Course in Telugu - 6 Hours Free Tutorial  | Complete Digital Marketing Course in Telugu", url: "https://www.youtube.com/watch?v=Mdk79zqghJo", channel: "Kiran Smart School" },
         { title: "Zero-Click Search Explained: Why Your Rankings Aren’t Driving Traffic", url: "https://www.youtube.com/watch?v=qj-Fuxl3Xs8", channel: "WSI Comandix Marketing Inc." },
@@ -14383,19 +13206,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How Social Media Algorithms Control Your Mind | Explained in Hindi", url: "https://www.youtube.com/watch?v=sMHNARkZzFA", channel: "InfoHouse" },
-        { title: "सोशल मीडिया एल्गोरिदम वास्तव में कैसे काम करते हैं (और उन्हें कैसे मात दी जाए)", url: "https://www.youtube.com/watch?v=8cQidXgtGmU", channel: "Kallaway" },
         { title: "How to Crack Social Media Algorithm?", url: "https://www.youtube.com/watch?v=9fnlehMuPgY", channel: "Sahil Khanna Clips" },
       ],
       te: [
-        { title: "How Instagram Algorithm works | How to grow on Instagram", url: "https://www.youtube.com/watch?v=b2GeZ73ilK4", channel: "Vanessa Lau" },
-        { title: "How Social Media Algorithms Actually Work (And How to Beat Them)", url: "https://www.youtube.com/watch?v=8cQidXgtGmU", channel: "Kallaway" },
         { title: "Social Media Marketing Explained in Telugu - From Process to Types of Channels Content and Hashtags", url: "https://www.youtube.com/watch?v=eI076o125Ow", channel: "Kiran Smart School" },
-        { title: "Everything you need to know about social media algorithms", url: "https://www.youtube.com/watch?v=7VC2a8mClTY", channel: "Learn With Shopify" },
       ],
       ta: [
         { title: "Instagram Algorithm 2025 | Eppadi Work Aagudhu? | Must-Learn for Growth! | Explanation in Tamil", url: "https://www.youtube.com/watch?v=FmE8kifH_SE", channel: "Tamil Entrepreneur Academy" },
-        { title: "How Social Media Algorithms Actually Work (And How to Beat Them)", url: "https://www.youtube.com/watch?v=8cQidXgtGmU", channel: "Kallaway" },
-        { title: "How Instagram Algorithm REALLY Works", url: "https://www.youtube.com/watch?v=3-eOwu52yL0", channel: "Stiles Productions" },
         { title: "Algorithms-னா என்னா? #learnprogramming #guvi #tamil #edutainment", url: "https://www.youtube.com/watch?v=O_dwiGTWA0I", channel: "HCL GUVI" },
       ],
     },
@@ -14427,22 +13244,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Bluesky Social Tutorial | How to Use Bluesky Social for Beginners (2025)", url: "https://www.youtube.com/watch?v=IAGCTXZ4c6w", channel: "AppWiz Tutorials" },
       ],
       hi: [
-        { title: "How to Create a Bluesky Social Account (Full Guide)", url: "https://www.youtube.com/watch?v=oOG3A5q8bcc", channel: "Tech Life Unity" },
-        { title: "How to use the Bluesky Social App: A Tutorial for Beginners | Posts | Starter Packs | Blocks | Feeds", url: "https://www.youtube.com/watch?v=N2jhITLhxcE", channel: "Cameron McKenzie" },
         { title: "How to Download Videos from Bluesky Social - Full Guide", url: "https://www.youtube.com/watch?v=YMZr9AB46no", channel: "Marcus Media" },
         { title: "Why Everyone's Leaving X For BlueSky Social | BlueSky Social Tutorial ✅️", url: "https://www.youtube.com/watch?v=NdEFFpJ-b-U", channel: "Tool Explore" },
       ],
       te: [
-        { title: "How to use the Bluesky Social App: A Tutorial for Beginners | Posts | Starter Packs | Blocks | Feeds", url: "https://www.youtube.com/watch?v=N2jhITLhxcE", channel: "Cameron McKenzie" },
-        { title: "How To Discover & Join New Feeds on BlueSky Social | Full Guide", url: "https://www.youtube.com/watch?v=Zz012Ak6IO8", channel: "SolveBase" },
         { title: "How To Find Your X / Threads Followers on BlueSky Social | Quick Guide", url: "https://www.youtube.com/watch?v=NAGjBZJKeiU", channel: "SolveBase" },
-        { title: "Bluesky Tutorial for Beginners: How to Get Started with the Basics", url: "https://www.youtube.com/watch?v=z5aInrQ1HkQ", channel: "Chupacabra Tutorials" },
       ],
       ta: [
-        { title: "How to Create a Bluesky Social Account (Full Guide)", url: "https://www.youtube.com/watch?v=oOG3A5q8bcc", channel: "Tech Life Unity" },
         { title: "The Shocking Truth About how Blue Sky Operates Social Media Platforms", url: "https://www.youtube.com/watch?v=aJfN1_RZdLQ", channel: "Tech Reels" },
-        { title: "How to use the Bluesky Social App: A Tutorial for Beginners | Posts | Starter Packs | Blocks | Feeds", url: "https://www.youtube.com/watch?v=N2jhITLhxcE", channel: "Cameron McKenzie" },
-        { title: "How To Discover & Join New Feeds on BlueSky Social | Full Guide", url: "https://www.youtube.com/watch?v=Zz012Ak6IO8", channel: "SolveBase" },
       ],
     },
     articles: [
@@ -14481,7 +13290,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Community Management in Telugu", url: "https://www.youtube.com/watch?v=p9jlNWKTOB8", channel: "Digital Marketing Course in Telugu" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
-        { title: "Build a community around your business and brand", url: "https://www.youtube.com/watch?v=4T40oAv09RE", channel: "Vanessa Lau" },
         { title: "First job story🥰 #shorts #shortsindia #telugu #teluguvlogs #resignation #trendingshorts #tcs #fyp", url: "https://www.youtube.com/watch?v=D0WeZMpvjMU", channel: "Shivani & Shashi" },
       ],
       ta: [
@@ -14520,20 +13328,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How to Create a Content Calendar for YouTube (Step-by-Step Growth Strategy 2026)", url: "https://www.youtube.com/watch?v=ZT4Hng7EeWs", channel: "Creator Guide and Technical Yogi" },
-        { title: "How To Create A 30-Day Content Calendar & Grow On Social Media #contentcreation #ai", url: "https://www.youtube.com/watch?v=scqAWkgLLKQ", channel: "Saptaparna Dhar" },
-        { title: "Easy CONTENT CALENDAR for Creators (using Google Sheet)", url: "https://www.youtube.com/watch?v=dJ2mksrr5oc", channel: "Create With Shivam" },
         { title: "How to Create Social Media Content Calendar | Understanding Calendar Practically #19", url: "https://www.youtube.com/watch?v=9pVwO4P1cQo", channel: "WsCube Tech" },
       ],
       te: [
         { title: "How to create a content Calendar #contentcreator #contentcalendar #contentcreation", url: "https://www.youtube.com/watch?v=DR_9SZzqBgk", channel: "Peace Shaibu" },
-        { title: "How To Create A 30-Day Content Calendar & Grow On Social Media #contentcreation #ai", url: "https://www.youtube.com/watch?v=scqAWkgLLKQ", channel: "Saptaparna Dhar" },
         { title: "How To Use Content Calendar | SocialMedia Content Calendar Google Sheets | Content Calendar Tutorial", url: "https://www.youtube.com/watch?v=251ejjxWPu0", channel: "Sravani Asuri -DiginomaD" },
         { title: "Social Media Content Calendar 2022 Free Download || Make Money |Grow Online| Digital Guru Sai Telugu", url: "https://www.youtube.com/watch?v=yFK8GfKdMSg", channel: "ThanksAI" },
       ],
       ta: [
         { title: "Day 7 - How to Build a Content Calendar from Scratch | Live Tamil Example | itsprakashhere", url: "https://www.youtube.com/watch?v=BPEyQuxxNf0", channel: "Prakash" },
         { title: "Create a 30-Day Content Calendar with AI – FAST & FREE! | Leads Logesh in Tamil", url: "https://www.youtube.com/watch?v=Njwn0FTGpY0", channel: "Leads Logesh" },
-        { title: "How To Create A 30-Day Content Calendar & Grow On Social Media #contentcreation #ai", url: "https://www.youtube.com/watch?v=scqAWkgLLKQ", channel: "Saptaparna Dhar" },
         { title: "How to Create Monthly Content Calendar & Generate Content Ideas as a Social Media Manager", url: "https://www.youtube.com/watch?v=QKKgGU-DOa8", channel: "Shara Obligar" },
       ],
     },
@@ -14568,7 +13372,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The Creator Economy 3.0: What’s Next After Influencer Marketing?", url: "https://www.youtube.com/watch?v=TWFg64YZHNM", channel: "Shreyan Shrimali" },
       ],
       te: [
-        { title: "The ENTIRE Creator Economy, Explained", url: "https://www.youtube.com/watch?v=dsP9jL_SJn8", channel: "Janis Mjartans" },
         { title: "How to EARN MONEY on YOUTUBE  In Telugu", url: "https://www.youtube.com/watch?v=gcGd3pVCyjw", channel: "Telugu Business Talks and Telugu Connects - Growth Podcast" },
         { title: "CONTENT MARKETING, YOUTUBE MARKETING, CREATOR ECONOMY - MASTERCLASS", url: "https://www.youtube.com/watch?v=URQmAjoW574", channel: "Sindhu Biswal" },
         { title: "NFTs & Creator Economy Explained (Beginner Friendly) | Telugu DAO LIVE Workshop", url: "https://www.youtube.com/watch?v=aMGleWiu-Dk", channel: "Telugu DAO" },
@@ -14610,13 +13413,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "7 Effective Social Media Marketing Strategies for 2026 (TIPS, TRICKS & TACTICS)", url: "https://www.youtube.com/watch?v=v2peLV3tges", channel: "Adam Erhart" },
       ],
       hi: [
-        { title: "Dark Social 101 #marketing #b2b #shorts", url: "https://www.youtube.com/watch?v=IQ4IaOssbrs", channel: "Chris Walker" },
-        { title: "Social Media Strategies That Always Work", url: "https://www.youtube.com/watch?v=-umDcO91vuE", channel: "Neil Patel" },
         { title: "Who Is A Performance Marketer And How Much they Earn? #shorts #simplilearn", url: "https://www.youtube.com/watch?v=eVL7qHjFZyI", channel: "Simplilearn" },
         { title: "7 steps to build your #socialmediamarketing strategy", url: "https://www.youtube.com/watch?v=LEtCGfHJWXM", channel: "Sprout Social" },
       ],
       te: [
-        { title: "Dark Social 101 #marketing #b2b #shorts", url: "https://www.youtube.com/watch?v=IQ4IaOssbrs", channel: "Chris Walker" },
         { title: "How to Get Leads for Your Business Using Digital Marketing  #telugutalkswithlk", url: "https://www.youtube.com/watch?v=fKBZ9DvOXTM", channel: "Telugu-Talks With LK" },
         { title: "Who Is A Performance Marketer And How Much they Earn? #shorts #simplilearn", url: "https://www.youtube.com/watch?v=eVL7qHjFZyI", channel: "Simplilearn" },
         { title: "Power of Content Creation", url: "https://www.youtube.com/watch?v=sKzYGjQceP4", channel: "Explore with Epaphra" },
@@ -14654,7 +13454,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Influencer Marketing Basics to Brand Deals | Free 5-Day Course", url: "https://www.youtube.com/watch?v=GzaCdmv_avg", channel: "Digital Marketing Wallah" },
-        { title: "How to Start a ₹10 Crore/Year Influencer Marketing Agency (Step by Step Guide)", url: "https://www.youtube.com/watch?v=gEbHTADGcpU", channel: "Ayush Shukla" },
         { title: "The Influencer Marketing Business Model Nobody Talks About", url: "https://www.youtube.com/watch?v=iTWpT_ssnQY", channel: "Tube Sensei" },
         { title: "How to Start Influencer Marketing Agency : Full Course 2026👨🏻‍💻", url: "https://www.youtube.com/watch?v=smTjEvzxLzc", channel: "Active Krishna" },
       ],
@@ -14742,22 +13541,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to show up as a thought leader on LinkedIn", url: "https://www.youtube.com/watch?v=oTaMRnOcEMY", channel: "Raise Your Visibility Online" },
       ],
       hi: [
-        { title: "How to become a Micro Thought Leader on LinkedIn", url: "https://www.youtube.com/watch?v=gpq28GPAxLo", channel: "Tim Queen" },
-        { title: "The Best LinkedIn Growth Strategy For 2025 (Full Course)", url: "https://www.youtube.com/watch?v=zBlvV0W4bDc", channel: "Neil Patel" },
         { title: "How to Become a Thought Leader on LinkedIn (Even Without a Huge Following)", url: "https://www.youtube.com/watch?v=Vi-DPWAY1C0", channel: "Executive Resume Writers" },
-        { title: "How to show up as a thought leader on LinkedIn", url: "https://www.youtube.com/watch?v=oTaMRnOcEMY", channel: "Raise Your Visibility Online" },
       ],
       te: [
-        { title: "How to become a Micro Thought Leader on LinkedIn", url: "https://www.youtube.com/watch?v=gpq28GPAxLo", channel: "Tim Queen" },
         { title: "LinkedIn Ads Executive Thought Leadership Strategies | The LinkedIn Ads Show", url: "https://www.youtube.com/watch?v=pILj7t-qQhs", channel: "LinkedIn Ads Show" },
-        { title: "From Expert to Impact: How to Build Real Thought Leadership on LinkedIn (Without the Fluff)", url: "https://www.youtube.com/watch?v=s0wOPmHvpWM", channel: "Impactable - B2B LinkedIn Ads Agency" },
         { title: "Webcast: How to Achieve Thought Leadership on LinkedIn", url: "https://www.youtube.com/watch?v=_PF9MqK7weQ", channel: "LinkedIn for Marketing" },
       ],
       ta: [
-        { title: "How to become a Micro Thought Leader on LinkedIn", url: "https://www.youtube.com/watch?v=gpq28GPAxLo", channel: "Tim Queen" },
-        { title: "From Expert to Impact: How to Build Real Thought Leadership on LinkedIn (Without the Fluff)", url: "https://www.youtube.com/watch?v=s0wOPmHvpWM", channel: "Impactable - B2B LinkedIn Ads Agency" },
         { title: "LinkedIn Masterclass in Tamil | Profile, Growth, Content & Monetization", url: "https://www.youtube.com/watch?v=okagk3Gv_nc", channel: "Data Engineering" },
-        { title: "How to show up as a thought leader on LinkedIn", url: "https://www.youtube.com/watch?v=oTaMRnOcEMY", channel: "Raise Your Visibility Online" },
       ],
     },
     articles: [
@@ -14787,9 +13578,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "LinkedIn Ads Tutorial In UNDER 7 MINUTES | 2025 Step-by-Step Guide", url: "https://www.youtube.com/watch?v=m2yt7tKJiv0", channel: "Ivan Mana" },
       ],
       hi: [
-        { title: "LinkedIn Marketing full Course 2026 | LinkedIn Ads Tutorial for Beginners Hindi | #linkedinmarketing", url: "https://www.youtube.com/watch?v=YS2EeeJOhaA", channel: "Marketing Fundas" },
         { title: "Complete LinkedIn Course For Beginners 2025 | Free Masterclass", url: "https://www.youtube.com/watch?v=oEjcoi-A6Ik", channel: "Shruti Rajput" },
-        { title: "LinkedIn Ads Full Course 2026 | Complete Beginner to Advanced Tutorial", url: "https://www.youtube.com/watch?v=oq2UhH8BbRc", channel: "Social Masla" },
       ],
       te: [
         { title: "LinkedIn Ads Tutorial in Telugu | Digital Marketing Institute in Hyderabad | SDM Classes", url: "https://www.youtube.com/watch?v=gSni4NKauiY", channel: "Subbu Digital Marketer" },
@@ -14829,22 +13618,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Master Paid Social Media Advertising Like A Pro", url: "https://www.youtube.com/watch?v=ol0v779BlAA", channel: "HubSpot Marketing" },
       ],
       hi: [
-        { title: "Organic vs Paid Marketing in Hindi | Which one is better and why? Facebook Marketing Tutorial", url: "https://www.youtube.com/watch?v=CLEa4CLVLh8", channel: "My Online Master" },
         { title: "Paid Ads VS Organic In Affiliate Marketing | Affiliate Marketing Tutorial For Beginners In Hindi", url: "https://www.youtube.com/watch?v=xa8uRsQ4trw", channel: "Kushal Konversations Clips" },
         { title: "Organic vs Paid Marketing – Kaunsa Better Hai?  | Paid vs Organic Marketing which is the best ?", url: "https://www.youtube.com/watch?v=HzEDbiPg9S0", channel: "MKV DIGITECH" },
-        { title: "Organic Marketing vs Paid Marketing | STS Digital Solutions", url: "https://www.youtube.com/watch?v=1e7r0yGxoLQ", channel: "STS Digital Solutions" },
       ],
       te: [
         { title: "Free Meta Ads Course - Get Started with Facebook & Instagram Ads in Telugu", url: "https://www.youtube.com/watch?v=PrxViN7dP38", channel: "VICKY TALKS" },
-        { title: "Organic Marketing vs Paid Marketing | STS Digital Solutions", url: "https://www.youtube.com/watch?v=1e7r0yGxoLQ", channel: "STS Digital Solutions" },
         { title: "Social Media Marketing Explained in Telugu - From Process to Types of Channels Content and Hashtags", url: "https://www.youtube.com/watch?v=eI076o125Ow", channel: "Kiran Smart School" },
-        { title: "Paid vs. Organic Social: A Complete Guide", url: "https://www.youtube.com/watch?v=cnioX8e_yKQ", channel: "Animoto" },
       ],
       ta: [
         { title: "What is PPC | Paid Vs Organic Explained in Tamil | Sponsored Ads", url: "https://www.youtube.com/watch?v=0jGXG5KfFeQ", channel: "Signmedia infotech" },
         { title: "🔴 Class 1 - Google Ads Basics in Tamil 🔥 | Ad Placements, Paid vs Organic | Digital Marketing Course", url: "https://www.youtube.com/watch?v=s97vimb-rV8", channel: "Sundar Digital Marketer" },
         { title: "Organic VS Paid Marketing | Digital Marketing in Tamil", url: "https://www.youtube.com/watch?v=PL3DNBIyeHw", channel: "Mohamed Ripsan" },
-        { title: "Organic Marketing vs Paid Marketing | STS Digital Solutions", url: "https://www.youtube.com/watch?v=1e7r0yGxoLQ", channel: "STS Digital Solutions" },
       ],
     },
     articles: [
@@ -14921,20 +13705,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Reddit Communities to make lakhs every month!! 🤑🔥 #sidehustle #financialadvisor", url: "https://www.youtube.com/watch?v=8bBq79XIERU", channel: "Ayushman Pandita" },
         { title: "The Reddit Traffic Formula: Rank Every Post On Top!", url: "https://www.youtube.com/watch?v=o2dFCTcAFB8", channel: "Technical Berwal" },
-        { title: "The Latest Reddit Marketing Strategy for Business (+ My 3-Month Blueprint)", url: "https://www.youtube.com/watch?v=7l7ZNAR9VjM", channel: "HubSpot Marketing" },
         { title: "Reddit SEO Guide Explained | Reddit SEO Explained", url: "https://www.youtube.com/watch?v=LVYa_Du8tQE", channel: "Amit Tiwari" },
       ],
       te: [
-        { title: "The Latest Reddit Marketing Strategy for Business (+ My 3-Month Blueprint)", url: "https://www.youtube.com/watch?v=7l7ZNAR9VjM", channel: "HubSpot Marketing" },
         { title: "What Is Reddit? How it Works Telugu || SanDeep360Tech || Reddit Social media network in Telugu", url: "https://www.youtube.com/watch?v=NZl4OB2EgVw", channel: "SanDeep 360 Tech" },
-        { title: "The ULTIMATE Reddit Marketing Strategy for Ecom", url: "https://www.youtube.com/watch?v=R0eX8NYkmpw", channel: "Ryan McKenzie" },
-        { title: "How to Run Successful Marketing Campaigns on Reddit | HubSpot", url: "https://www.youtube.com/watch?v=JrxoasTKemM", channel: "HubSpot Marketing" },
       ],
       ta: [
         { title: "SEO Class 30.2: The Power of Reddit - Digital Marketer Sasikumar (Tamil) #SasikumarTalks", url: "https://www.youtube.com/watch?v=tlfYonw2GL4", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "The Latest Reddit Marketing Strategy for Business (+ My 3-Month Blueprint)", url: "https://www.youtube.com/watch?v=7l7ZNAR9VjM", channel: "HubSpot Marketing" },
         { title: "Reddit SEO Strategy for AI Rankings Tamil | Get Featured in ChatGPT, Gemini & Google AI", url: "https://www.youtube.com/watch?v=Rc6dh6KU8oA", channel: "Genxure Learning" },
-        { title: "The Reddit SEO Strategy That Actually Works", url: "https://www.youtube.com/watch?v=BfPayCQHNcE", channel: "Marketing School - Daily Marketing Tips" },
       ],
     },
     articles: [
@@ -14965,22 +13743,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to make shorts that go viral every time", url: "https://www.youtube.com/watch?v=gEQ0BLyVJhY", channel: "LOGAN E. SMITH" },
       ],
       hi: [
-        { title: "TikTok Algorithm Explained In 30 SECONDS! ⏰", url: "https://www.youtube.com/watch?v=ix-J3myQdIg", channel: "Takumi Online" },
         { title: "How to edit shortform content | Learn Advance Video Editing", url: "https://www.youtube.com/watch?v=X-dltvH3dCk", channel: "Editise" },
-        { title: "How Social Media Algorithms Actually Work (And How to Beat Them)", url: "https://www.youtube.com/watch?v=8cQidXgtGmU", channel: "Kallaway" },
-        { title: "How To Create TRENDING Reels, Shorts & Tiktoks (Step-by-Step)", url: "https://www.youtube.com/watch?v=OoayDYJKkUs", channel: "Grow with Alex" },
       ],
       te: [
         { title: "Easiest way to Create VIRAL HOOKS for your videos", url: "https://www.youtube.com/watch?v=SLs6GbhIrnY", channel: "Pritam Dz" },
         { title: "Create Unlimited AI Videos for Free | Step-by-Step Guide 🚀", url: "https://www.youtube.com/watch?v=RRK4rEg0U-I", channel: "Hello Tejaa" },
         { title: "How to Get Animated grid background #capcut #videoediting #challenge #shorts", url: "https://www.youtube.com/watch?v=7Anxd9crW6A", channel: "Infyniteedits" },
-        { title: "TikTok Algorithm Explained In 30 SECONDS! ⏰", url: "https://www.youtube.com/watch?v=ix-J3myQdIg", channel: "Takumi Online" },
       ],
       ta: [
         { title: "How do Reels & Shorts change your brain? | Madan Gowri Tamil 🖖🏻", url: "https://www.youtube.com/watch?v=psurYGpKb4M", channel: "Madan Gowri Tamil" },
-        { title: "TikTok Algorithm Explained In 30 SECONDS! ⏰", url: "https://www.youtube.com/watch?v=ix-J3myQdIg", channel: "Takumi Online" },
         { title: "Viral Reels Editing | Step by Step Editing Tutorial | Capcut Mobile | Tamil", url: "https://www.youtube.com/watch?v=m6as-T4-qa8", channel: "Rio Spot" },
-        { title: "My SIMPLE process for writing short-form video scripts.", url: "https://www.youtube.com/watch?v=HpSuY4fd6wc", channel: "Alex Cattoni" },
       ],
     },
     articles: [],
@@ -15004,7 +13776,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Best Pinterest Marketing Technique | Pinterest SEO | Social Seller Academy", url: "https://www.youtube.com/watch?v=RIMosFGHFRs", channel: "Social Seller Academy" },
-        { title: "Social Commerce Explained - Selling on TikTok, FB, IG and  Pinterest", url: "https://www.youtube.com/watch?v=EQg2SlmFAPo", channel: "Coegi - A Digital Media Agency" },
         { title: "How to Sell Products on Instagram in 2026 | Step by Step Guide | Hindi", url: "https://www.youtube.com/watch?v=INPXyUdIzW4", channel: "The Digital School by Prakash" },
         { title: "Pinterest 💯 || #prashantkirad #motivation #exhubmotivation", url: "https://www.youtube.com/watch?v=plLILVmGeKk", channel: "Only Prashant kirad" },
       ],
@@ -15017,7 +13788,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ta: [
         { title: "Instagram-ல Sales எப்படி வரும்? 💰📈 | Instagram Marketing Full Guide 🔥 Tamil", url: "https://www.youtube.com/watch?v=a-HGGVds8ds", channel: "Mr.Jabastin" },
         { title: "Pinterest step by step Beginner's guide - How to use Pinterest for your business in Tamil - Part 1", url: "https://www.youtube.com/watch?v=0pPmLtC4MVQ", channel: "hustling minds" },
-        { title: "Social Commerce Explained - Selling on TikTok, FB, IG and  Pinterest", url: "https://www.youtube.com/watch?v=EQg2SlmFAPo", channel: "Coegi - A Digital Media Agency" },
         { title: "How To Get 1M Pinterest Views In 1 Week", url: "https://www.youtube.com/watch?v=geJoh28Lp3I", channel: "Shruti Pangtey" },
       ],
     },
@@ -15048,22 +13818,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Analyse Brand Mentions - Social Listening - SentiOne User Guide", url: "https://www.youtube.com/watch?v=JyxrVz_Y10U", channel: "SentiOne" },
       ],
       hi: [
-        { title: "How to Track Brand Mentions on Instagram & TikTok | Social Listening Tutorial", url: "https://www.youtube.com/watch?v=1XOwU-8_Cl4", channel: "Click Analytic" },
-        { title: "How Brand Mentions Help SEO (+ How to Find Yours with Social Listening Tools)", url: "https://www.youtube.com/watch?v=LHFi1eDnJpA", channel: "Phil Pallen" },
         { title: "The Power of Social Listening!", url: "https://www.youtube.com/watch?v=1ydQ6PVYGpo", channel: "HubSpot Marketing" },
-        { title: "Your COMPLETE GUIDE to Social Listening", url: "https://www.youtube.com/watch?v=pTD78bIbLdU", channel: "Delaware ShoutOut - LinkedIn Strategies" },
       ],
       te: [
         { title: "What is Social Listening and Sentimental Analysis | Tools for Social Listening  | ODMT", url: "https://www.youtube.com/watch?v=UgOhyErd9Gg", channel: "ODMT English" },
-        { title: "How to Track Brand Mentions on Instagram & TikTok | Social Listening Tutorial", url: "https://www.youtube.com/watch?v=1XOwU-8_Cl4", channel: "Click Analytic" },
         { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
         { title: "Pluggo Overview — AI Powered Social Listening That Actually Works", url: "https://www.youtube.com/watch?v=2P5euVomxh4", channel: "Pluggo" },
       ],
       ta: [
-        { title: "How to Track Brand Mentions on Instagram & TikTok | Social Listening Tutorial", url: "https://www.youtube.com/watch?v=1XOwU-8_Cl4", channel: "Click Analytic" },
-        { title: "How Brand Mentions Help SEO (+ How to Find Yours with Social Listening Tools)", url: "https://www.youtube.com/watch?v=LHFi1eDnJpA", channel: "Phil Pallen" },
         { title: "The Power of Social Listening 👂", url: "https://www.youtube.com/watch?v=65bPdYtj_Uw", channel: "imFORZA" },
-        { title: "Your COMPLETE GUIDE to Social Listening", url: "https://www.youtube.com/watch?v=pTD78bIbLdU", channel: "Delaware ShoutOut - LinkedIn Strategies" },
       ],
     },
     articles: [
@@ -15090,21 +13853,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "The Power of Social Listening!", url: "https://www.youtube.com/watch?v=1ydQ6PVYGpo", channel: "HubSpot Marketing" },
       ],
       hi: [
-        { title: "स्प्रिंकलर सोशल लिसनिंग ट्यूटोरियल (शुरुआती लोगों के लिए) (पूर्ण गाइड)", url: "https://www.youtube.com/watch?v=tguZy3Fs1tk", channel: "Chris Tech Guide" },
         { title: "Social Listening Vs Social Monitoring in Digital Marketing in Urdu/Hindi", url: "https://www.youtube.com/watch?v=pakbeYcQ_zc", channel: "Tourism&Business" },
         { title: "स्प्रिंकलर ट्यूटोरियल || स्प्रिंकलर सोशल लिसनिंग टूल का उपयोग कैसे करें (पूरी गाइड)", url: "https://www.youtube.com/watch?v=xrOqVpiPc5I", channel: "Charles Rivera" },
         { title: "Vista Social Review (2023) 🔥 - Social Media को Easily Manage करो 😎", url: "https://www.youtube.com/watch?v=CtBmIg3Jebg", channel: "Kripesh Adwani" },
       ],
       te: [
-        { title: "What Is Social Listening? (And 5 Questions You Can Answer With it)", url: "https://www.youtube.com/watch?v=lXJK6neMRi4", channel: "Sprout Social" },
-        { title: "Sprinklr Social Listening Tutorial for Beginners (Full Guide)", url: "https://www.youtube.com/watch?v=tguZy3Fs1tk", channel: "Chris Tech Guide" },
-        { title: "Social Listening Tutorial: How to get started in 3 steps", url: "https://www.youtube.com/watch?v=qCAKH9SaWnc", channel: "Hootsuite Labs" },
         { title: "How to Track Brand Mentions on Instagram & TikTok | Social Listening Tutorial", url: "https://www.youtube.com/watch?v=1XOwU-8_Cl4", channel: "Click Analytic" },
       ],
       ta: [
         { title: "Social Media Listening and Online Reputation in Tamil", url: "https://www.youtube.com/watch?v=6oSBM52mSEU", channel: "Avudaiappan Dharma" },
-        { title: "What Is Social Listening? (And 5 Questions You Can Answer With it)", url: "https://www.youtube.com/watch?v=lXJK6neMRi4", channel: "Sprout Social" },
-        { title: "Social Listening Tutorial: How to get started in 3 steps", url: "https://www.youtube.com/watch?v=qCAKH9SaWnc", channel: "Hootsuite Labs" },
         { title: "Social Media: Buffer and Hootsuite. SMO Tools. Social Media Analyst Sasikumar Talks, Tamil.", url: "https://www.youtube.com/watch?v=iGg6b_2DXWs", channel: "Sasikumar Talks (Training Academy)" },
       ],
     },
@@ -15177,20 +13934,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How To Use SubStack Notes | (2025) NEW UPDATED METHOD | Quick & Easy Full Guide!", url: "https://www.youtube.com/watch?v=SMxUmSDNRls", channel: "HowToLiterally" },
       ],
       hi: [
-        { title: "Substack for Beginners: The Complete 2026 Tutorial", url: "https://www.youtube.com/watch?v=Fm8FHHJzKTE", channel: "Sinem Günel" },
-        { title: "How to Use Substack Notes to Grow Your Audience - 13 Simple Strategies", url: "https://www.youtube.com/watch?v=KkCwksLWBpA", channel: "Sinem Günel" },
-        { title: "How I'd Use Substack Notes to Grow Faster (With No Audience)", url: "https://www.youtube.com/watch?v=M7G5kXlIxo4", channel: "Sinem Günel" },
       ],
       te: [
-        { title: "Substack for Beginners: The Complete 2026 Tutorial", url: "https://www.youtube.com/watch?v=Fm8FHHJzKTE", channel: "Sinem Günel" },
-        { title: "How to Use Substack Notes 2025 (QUICK & EASY)", url: "https://www.youtube.com/watch?v=mvqhlkG-UP4", channel: "How To Tutor" },
-        { title: "How to Use Substack Notes to Grow Your Audience - 13 Simple Strategies", url: "https://www.youtube.com/watch?v=KkCwksLWBpA", channel: "Sinem Günel" },
         { title: "How To Use Substack Notes - Step By Step (2026 Guide)", url: "https://www.youtube.com/watch?v=YmO-Qutlx3k", channel: "Shax Finds" },
       ],
       ta: [
-        { title: "Substack for Beginners: The Complete 2026 Tutorial", url: "https://www.youtube.com/watch?v=Fm8FHHJzKTE", channel: "Sinem Günel" },
-        { title: "How to Use Substack Notes 2025 (QUICK & EASY)", url: "https://www.youtube.com/watch?v=mvqhlkG-UP4", channel: "How To Tutor" },
-        { title: "How to Use Substack Notes to Grow Your Audience - 13 Simple Strategies", url: "https://www.youtube.com/watch?v=KkCwksLWBpA", channel: "Sinem Günel" },
       ],
     },
     articles: [
@@ -15308,19 +14056,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Start as a UGC Creator in 2025 | Beginners Guide to Paid Brand Deals 💰", url: "https://www.youtube.com/watch?v=hYHDps3lsX8", channel: "Saloni Alok Jain🧿" },
       ],
       hi: [
-        { title: "How to Start as a UGC Creator in 2025 | Beginners Guide to Paid Brand Deals 💰", url: "https://www.youtube.com/watch?v=hYHDps3lsX8", channel: "Saloni Alok Jain🧿" },
         { title: "Create Viral UGC Ads for FREE (No Experience Needed)", url: "https://www.youtube.com/watch?v=yUIixZCkaEk", channel: "Website Learners" },
         { title: "How to Become a UGC Creator in 2026 | Earn ₹1,000 to ₹1 Lakh Without Showing Your Face", url: "https://www.youtube.com/watch?v=t739JIpDWWI", channel: "Ugcbyriyu" },
-        { title: "How to Become a UGC Content Creator | Step By Step (FREE COURSE) Get Paid To Make VIDEOS", url: "https://www.youtube.com/watch?v=Tlv9FiGmmE8", channel: "Baddie In Business" },
       ],
       te: [
-        { title: "How to Become UGC Creator ?Complete Beginner Guide |Portfolio, Brand Deals & Earnings|Step by Step |", url: "https://www.youtube.com/watch?v=wt_BWDF8noc", channel: "Swathigowda" },
         { title: "UGC video example! Follow along for my UGC content creator journey 🤗", url: "https://www.youtube.com/watch?v=nQAmoq-Fx4I", channel: "Anhelina" },
         { title: "I started with UGC!😍 #youtubeshorts #youtube #ytshorts #ugc #content creator #relatable", url: "https://www.youtube.com/watch?v=I-r7RsPNUXM", channel: "Ishika Didwania" },
         { title: "How to set UGC rates as a beginner UGC creator in India?", url: "https://www.youtube.com/watch?v=Pf3J75WzJoY", channel: "ugcwithalishaaa" },
       ],
       ta: [
-        { title: "How to Become UGC Creator ?Complete Beginner Guide |Portfolio, Brand Deals & Earnings|Step by Step |", url: "https://www.youtube.com/watch?v=wt_BWDF8noc", channel: "Swathigowda" },
         { title: "How to set UGC rates as a beginner UGC creator in India?", url: "https://www.youtube.com/watch?v=Pf3J75WzJoY", channel: "ugcwithalishaaa" },
         { title: "Power of Content Creation", url: "https://www.youtube.com/watch?v=sKzYGjQceP4", channel: "Explore with Epaphra" },
         { title: "I started with UGC!😍 #youtubeshorts #youtube #ytshorts #ugc #content creator #relatable", url: "https://www.youtube.com/watch?v=I-r7RsPNUXM", channel: "Ishika Didwania" },
@@ -15355,14 +14099,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "How I Grow X (Twitter) In 7 Days😎", url: "https://www.youtube.com/watch?v=FyW-xT83YKI", channel: "Thunder Grow" },
         { title: "Day 28/60 - Twitter's Hidden Secret to Getting 5M Impressions in Just 90 Days", url: "https://www.youtube.com/watch?v=8KLoehVeag4", channel: "Ajay Yadav" },
-        { title: "Make your tweets go viral #shorts", url: "https://www.youtube.com/watch?v=sCylulbNDXM", channel: "MyCaptain" },
         { title: "How to use Twitter X | How to use Twitter X | How to use Twitter X | How to use Twitter X", url: "https://www.youtube.com/watch?v=5hN54daY4dg", channel: "All Time Star" },
       ],
       te: [
         { title: "How To Create Twitter X Account on Mobile 2025 in Telugu | How To Create x Account", url: "https://www.youtube.com/watch?v=TVtZ4DnpCbU", channel: "Jayakrishna Tech in Telugu" },
         { title: "How To Make Money On X/Twitter 💸🤯| Telugu | X/Twitter Monetization Rules 2025", url: "https://www.youtube.com/watch?v=ih5Ag1ZHq74", channel: "Adarsh TechLover" },
-        { title: "Make your tweets go viral #shorts", url: "https://www.youtube.com/watch?v=sCylulbNDXM", channel: "MyCaptain" },
-        { title: "How to Use X (Twitter) Beginners Guide in 2026", url: "https://www.youtube.com/watch?v=VTivhrGN4ss", channel: "Tech Life Unity" },
       ],
       ta: [
         { title: "How to Use X (Twitter) | How to use Twitter ads | How to use X for Space | How to get more followers", url: "https://www.youtube.com/watch?v=2Z1GHdq_5nw", channel: "Business Automation Tamil" },
@@ -15410,7 +14151,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to start youtube? #shorts #shortsindia #telugu #teluguvlogs #vlog #trend #shisha #explore #fyp", url: "https://www.youtube.com/watch?v=ZOXiNFtKnM0", channel: "Shivani & Shashi" },
       ],
       ta: [
-        { title: "The YouTube Playbook in 37 Minutes", url: "https://www.youtube.com/watch?v=8XSssH3B_Dk", channel: "Colin and Samir" },
         { title: "Record Professional VOICEOVER for YouTube Videos with Mobile in Tamil!", url: "https://www.youtube.com/watch?v=EwQO4I1Jz8U", channel: "Hari zone" },
         { title: "Earn : $9400 | How To Create Motivation Quotes Videos On Youtube Tamil | Make Money Youtube | 113", url: "https://www.youtube.com/watch?v=Z_vuQ15C3mc", channel: "Tamizharasan Raja" },
         { title: "HOW TO START A YOUTUBE CHANNEL IN 2026? Step by step TUTORIAL IN Tamil.", url: "https://www.youtube.com/watch?v=VXvmrvuImX8", channel: "Voice of Tamil" },
@@ -15443,9 +14183,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Ahref Vs Samrush कौन है BEST SEO TOOL किसको ख़रीदे - Complete Guide in Hindi", url: "https://www.youtube.com/watch?v=BCU6fUGDvMA", channel: "Soumya Help" },
-        { title: "Semrush vs Ahrefs ✅ Full Comparison: Features, Data & Pricing", url: "https://www.youtube.com/watch?v=LuL08xnRx58", channel: "Tutorial Stack" },
-        { title: "Ahrefs, Semrush, Reality. #shorts", url: "https://www.youtube.com/watch?v=0_7Druhmu2M", channel: "Income School" },
-        { title: "Ahrefs vs Semrush: Which SEO Tool Actually Delivers?", url: "https://www.youtube.com/watch?v=8msKJNE-mzs", channel: "Gareth Bull SEO" },
       ],
       te: [
         { title: "How to do Keyword Research Using Ahrefs SEO Tool", url: "https://www.youtube.com/watch?v=hPGop9b5uq4", channel: "Digital Marketing Course in Telugu" },
@@ -15455,7 +14192,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "Ahrefs vs SEMrush Which SEO Tool Wins in 2025 🔥 #seo #shorts", url: "https://www.youtube.com/watch?v=EpqbrygGnqk", channel: "Brand Investigation" },
-        { title: "Ahrefs vs Semrush: Which SEO Tool Actually Delivers?", url: "https://www.youtube.com/watch?v=8msKJNE-mzs", channel: "Gareth Bull SEO" },
         { title: "How To Use SEMrush For SEO And Keyword Research | SEMrush Tutorial", url: "https://www.youtube.com/watch?v=53ySngJYHBc", channel: "Website Learners" },
         { title: "How to do Competitor Analysis and SEO Site Audit using Ahrefs in Tamil | #39", url: "https://www.youtube.com/watch?v=i801eWe2FVw", channel: "Simplified E-learning" },
       ],
@@ -15483,7 +14219,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "🔥Stop Paying for AI! Use These Free Google AI Tools in 2026 | Intellipaat", url: "https://www.youtube.com/watch?v=4wlRzD8qFio", channel: "Intellipaat" },
       ],
       hi: [
-        { title: "Best PAID AI Tools Free Alternatives 2026 | #AITools #FreeAI #Productivity2026", url: "https://www.youtube.com/watch?v=mh0R8xbFdnE", channel: "AW-TECHNOLOGIES" },
         { title: "AI tools Landscape in 2026 | Free Tools vs Paid Tools", url: "https://www.youtube.com/watch?v=Ca-BkMeRJ74", channel: "codebasics" },
         { title: "Best AI Tools You Need to Know! (Free & Paid)", url: "https://www.youtube.com/watch?v=Z-JsPx8kJnU", channel: "Website Learners" },
         { title: "21 AI Tools That Can Make You a MILLIONAIRE in 2026", url: "https://www.youtube.com/watch?v=wLD6_5qMyyo", channel: "your free tutor" },
@@ -15496,7 +14231,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "The Only AI Tools You Need in 2026 | My Complete Workflow Stack | Tamil", url: "https://www.youtube.com/watch?v=WlGpbkrHJX0", channel: "Sanjeev NC | SaaS & AI Tamil" },
-        { title: "Best PAID AI Tools Free Alternatives 2026 | #AITools #FreeAI #Productivity2026", url: "https://www.youtube.com/watch?v=mh0R8xbFdnE", channel: "AW-TECHNOLOGIES" },
         { title: "AI Tools that can 10x Your Career in 2026 🔥", url: "https://www.youtube.com/watch?v=T9Y_IqwV80M", channel: "AI Coach John (Tamil)" },
         { title: "Pomelli Tutorial | Free AI Marketing Tool Explained (2026)", url: "https://www.youtube.com/watch?v=KXmO1AnrwOw", channel: "Business Automation Tamil" },
       ],
@@ -15569,7 +14303,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "TOP 6 FREE AI Tools For Digital Marketers 😱 (2024 Updated)", url: "https://www.youtube.com/watch?v=QZHjTPC6kfU", channel: "Damini Tripathi" },
-        { title: "50+ Best AI Tools for Productivity in 2025 (ChatGPT, Canva, Notion & More!)", url: "https://www.youtube.com/watch?v=yFU003t-cTg", channel: "Pynade Devs" },
         { title: "Best PAID AI Tools Free Alternatives 2025 | #AITools #FreeAI #Productivity2025", url: "https://www.youtube.com/watch?v=bFGayjPe7yA", channel: "AW-TECHNOLOGIES" },
         { title: "3 AI Tools Every Small Business Needs 🚀", url: "https://www.youtube.com/watch?v=TmXKqxGigJc", channel: "WsCube Tech" },
       ],
@@ -15659,7 +14392,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Top 5 Website Analytics Tools | Google Analytics, Mixpanel, Coding Tutorials In Telugu #softwarelife", url: "https://www.youtube.com/watch?v=BZw8gQI-W0Y", channel: "SoftwareSchool - Coding Tutorials In Telugu" },
         { title: "Data Analyst  Roadmap in Telugu", url: "https://www.youtube.com/watch?v=NiDddENVJ2w", channel: "PythonLife" },
-        { title: "Top 10 Data Analytics Tools 2023 | Best Tools for Data Analysis | Data Analytics Training | Edureka", url: "https://www.youtube.com/watch?v=Xf5-YWh0VDc", channel: "edureka!" },
         { title: "Top AI Tools in Telugu", url: "https://www.youtube.com/watch?v=x_T8mrI81rY", channel: "PythonLife" },
       ],
       ta: [
@@ -15694,16 +14426,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Canva vs Figma — Which is Better?", url: "https://www.youtube.com/watch?v=qNi0Ghz6L4s", channel: "Style Factory" },
       ],
       hi: [
-        { title: "Canva vs Photoshop vs Figma – Which Tool is Best for Your Career in 2026? | Graphic Design Reality", url: "https://www.youtube.com/watch?v=LpFIVaUKY3k", channel: "Digital Marketing Wallah" },
-        { title: "Canva vs Figma (it's a simple choice, but it's not what you think)", url: "https://www.youtube.com/watch?v=_VoSJQvfwwQ", channel: "Speak About Digital" },
         { title: "Canva Vs Photoshop Vs Figma !! #canva #figma #photoshop", url: "https://www.youtube.com/watch?v=SlfCDGFZHcM", channel: "Digital Marketing Wallah" },
-        { title: "Figma vs. Canva (2026) - Which one is better for you?", url: "https://www.youtube.com/watch?v=Ks4a4i-e5OI", channel: "magier and Maximilian Fleitmann" },
       ],
       te: [
-        { title: "Canva vs Figma (it's a simple choice, but it's not what you think)", url: "https://www.youtube.com/watch?v=_VoSJQvfwwQ", channel: "Speak About Digital" },
         { title: "Canva vs Photoshop | Tools to learn Graphic Designing Telugu", url: "https://www.youtube.com/watch?v=W7dTD3HMOwQ", channel: "Maneesh Studios" },
         { title: "Canva Tutorial in Telugu | Canva Tutorial for Beginners in Telugu | #canva #canvatutorial", url: "https://www.youtube.com/watch?v=_NrqLtwSqAo", channel: "BalaSagar Web Designer" },
-        { title: "Figma vs. Canva (2026) - Which one is better for you?", url: "https://www.youtube.com/watch?v=Ks4a4i-e5OI", channel: "magier and Maximilian Fleitmann" },
       ],
       ta: [
         { title: "HOW TO EARN MONEY WITH CANVA ON FIVERR | Freelancing for Beginners", url: "https://www.youtube.com/watch?v=f2LouMTIDtM", channel: "Ishan Sharma" },
@@ -15736,22 +14463,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Signals | Tool of the Week: Clay Unlocks Hidden GTM Data", url: "https://www.youtube.com/watch?v=F6vjk8r-h-M", channel: "LeanScale" },
       ],
       hi: [
-        { title: "Clay.com Beginner Walkthrough 2026 - Step-by-Step Guide", url: "https://www.youtube.com/watch?v=HqdvpIGiOz4", channel: "Matt Lucero" },
         { title: "How to use AI and Formula enrichment in Clay.com - Understanding AI models and basics (Urdu/Hindi)", url: "https://www.youtube.com/watch?v=xjjxem5aJQ8", channel: "GTM with Hamza" },
-        { title: "The ONLY Clay Tutorial You Need in 2025 (For Beginners)", url: "https://www.youtube.com/watch?v=kY5E4wl8wlA", channel: "Xavier Caffrey GTM" },
         { title: "Getting Started with Clay.com - Interface & Basics Explained (Hindi/Urdu)", url: "https://www.youtube.com/watch?v=F_PbPq650Xo", channel: "GTM with Hamza" },
       ],
       te: [
-        { title: "Clay.com Beginner Walkthrough 2026 - Step-by-Step Guide", url: "https://www.youtube.com/watch?v=HqdvpIGiOz4", channel: "Matt Lucero" },
-        { title: "Clay Waterfall enrichment explained. #clay #waterfallenrichment #prospecting #data #claytutorial", url: "https://www.youtube.com/watch?v=DjbfSOF_jU8", channel: "Outcome Driven HQ" },
-        { title: "The ONLY Clay Tutorial You Need in 2025 (For Beginners)", url: "https://www.youtube.com/watch?v=kY5E4wl8wlA", channel: "Xavier Caffrey GTM" },
         { title: "Clay Masterclass for 2026: The GTM Workflows That Actually Move Pipeline (30+ Examples)", url: "https://www.youtube.com/watch?v=rWxFZ4ADhqQ", channel: "SalesCaptain" },
       ],
       ta: [
-        { title: "Clay.com Beginner Walkthrough 2026 - Step-by-Step Guide", url: "https://www.youtube.com/watch?v=HqdvpIGiOz4", channel: "Matt Lucero" },
-        { title: "Clay Waterfall enrichment explained. #clay #waterfallenrichment #prospecting #data #claytutorial", url: "https://www.youtube.com/watch?v=DjbfSOF_jU8", channel: "Outcome Driven HQ" },
-        { title: "The ONLY Clay Tutorial You Need in 2025 (For Beginners)", url: "https://www.youtube.com/watch?v=kY5E4wl8wlA", channel: "Xavier Caffrey GTM" },
-        { title: "The Ultimate Beginner’s Guide to CLAY 😱", url: "https://www.youtube.com/watch?v=uKO1skHUckw", channel: "Ram Kumar" },
       ],
     },
     articles: [
@@ -15829,14 +14547,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       te: [
         { title: "What is CRM || #Why CRM || Telugu || Arun", url: "https://www.youtube.com/watch?v=7JQ1ySF-V8g", channel: "Salesforce with Arun" },
-        { title: "What Is CRM? | Introduction To CRM Software| CRM Projects For Beginners | CRM 2022 | Simplilearn", url: "https://www.youtube.com/watch?v=sQD7kaZ5h0s", channel: "Simplilearn" },
         { title: "Salesforce Course in 10 Hours | Salesforce Full Course in Telugu | Salesforce Tutorials in Telugu", url: "https://www.youtube.com/watch?v=WBLuB1lQ3zE", channel: "PythonLife" },
         { title: "Complete CRM Course for Beginners (Specially for Digital Marketers) | Umar Tazkeer", url: "https://www.youtube.com/watch?v=bqW8-TvWvqk", channel: "Umar Tazkeer" },
       ],
       ta: [
-        { title: "What Is CRM? | Introduction To CRM Software| CRM Projects For Beginners | CRM 2022 | Simplilearn", url: "https://www.youtube.com/watch?v=sQD7kaZ5h0s", channel: "Simplilearn" },
         { title: "What is CRM? | Best CRM Software | Understanding CRM in TAMIL | Best CRM for digital marketing | CRM", url: "https://www.youtube.com/watch?v=a8Mihtp_Y_A", channel: "Business Automation Tamil" },
-        { title: "What Is CRM? | CRM Course For Beginners | Customer Relationship Management | Simplilearn", url: "https://www.youtube.com/watch?v=Ci_qMjf8JRg", channel: "Simplilearn" },
         { title: "VIBE CODING Full Tutorial in Tamil 🔥🔥", url: "https://www.youtube.com/watch?v=rr6WH-ThXHE", channel: "Salman Cz - Tamil" },
       ],
     },
@@ -15865,22 +14580,12 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Types of Software Testing | interview course tutorial #manualtesting #shots #ytshorts #selenium", url: "https://www.youtube.com/watch?v=7oyEz5K7Pqw", channel: "Bhau-Automation Lab" },
       ],
       hi: [
-        { title: "How to check capacitor in CRO 30MHz . component test features in cathode ray #oscilloscope #cro .", url: "https://www.youtube.com/watch?v=wZTeW8cXios", channel: "SR Tech" },
-        { title: "Top Software Testing Tools Explained | QA Tools Chart for Automation, CI/CD & Test Management", url: "https://www.youtube.com/watch?v=DsEfxN8yHts", channel: "TechE" },
-        { title: "Top Automation Testing Tools in 2025 | Selenium vs Cypress vs Playwright & More", url: "https://www.youtube.com/watch?v=jhLziG8XQEs", channel: "TechE" },
         { title: "Tools For Automation Testing", url: "https://www.youtube.com/watch?v=EK8C5jl4Pnc", channel: "TheTestingAcademy Hindi" },
       ],
       te: [
-        { title: "Top 5 Automation Testing Tools 🔥🔥", url: "https://www.youtube.com/watch?v=_JhPtlNxrKo", channel: "Lucky Techzone" },
-        { title: "Top Automation Testing Tools in 2025 | Selenium vs Cypress vs Playwright & More", url: "https://www.youtube.com/watch?v=jhLziG8XQEs", channel: "TechE" },
-        { title: "How to check capacitor in CRO 30MHz . component test features in cathode ray #oscilloscope #cro .", url: "https://www.youtube.com/watch?v=wZTeW8cXios", channel: "SR Tech" },
-        { title: "Top Software Testing Tools Explained | QA Tools Chart for Automation, CI/CD & Test Management", url: "https://www.youtube.com/watch?v=DsEfxN8yHts", channel: "TechE" },
       ],
       ta: [
         { title: "How Agile Methodology Works Explained in 1 Minute!  #shorts #agilemethodology", url: "https://www.youtube.com/watch?v=k3nRY66zibY", channel: "Error Makes Clever" },
-        { title: "Top Automation Testing Tools in 2025 | Selenium vs Cypress vs Playwright & More", url: "https://www.youtube.com/watch?v=jhLziG8XQEs", channel: "TechE" },
-        { title: "Top Software Testing Tools Explained | QA Tools Chart for Automation, CI/CD & Test Management", url: "https://www.youtube.com/watch?v=DsEfxN8yHts", channel: "TechE" },
-        { title: "How to check capacitor in CRO 30MHz . component test features in cathode ray #oscilloscope #cro .", url: "https://www.youtube.com/watch?v=wZTeW8cXios", channel: "SR Tech" },
       ],
     },
     articles: [
@@ -15911,7 +14616,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "AI. और 2026 ग्राफिक डिज़ाइन रुझान - Ep1", url: "https://www.youtube.com/watch?v=b1pGaR5ouZo", channel: "Rajeev Mehta" },
         { title: "ग्राफिक डिज़ाइनरों के लिए 05 बेहद उपयोगी AI टूल | 2022 में ग्राफिक डिज़ाइनरों के लिए सर्वश्रेष्ठ टूल", url: "https://www.youtube.com/watch?v=3LbnKCI-V74", channel: "Nikhil Pawar" },
         { title: "TOP 6 FREE AI Tools For Digital Marketers 😱 (2024 Updated)", url: "https://www.youtube.com/watch?v=QZHjTPC6kfU", channel: "Damini Tripathi" },
-        { title: "उपयोग करने के लिए 5 अद्भुत AI उपकरण", url: "https://www.youtube.com/watch?v=7CEhMCwDVpE", channel: "Anik Jain" },
       ],
       te: [
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
@@ -15921,7 +14625,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "3 Useful tools for Digital Marketers | Digital Marketing Course in Tamil", url: "https://www.youtube.com/watch?v=mj_o3_pAP0Q", channel: "Entri Digital Marketing Tamil" },
-        { title: "Top 10 designer AI tools #ai #productivity #designer", url: "https://www.youtube.com/watch?v=GRlarIhf1Rw", channel: "SetupsAI" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
         { title: "Canva Full Course For Beginners in Tamil 2026 | Canva Beginner Tutorial  Free | #canvatutorial", url: "https://www.youtube.com/watch?v=-q5LoLMFMIc", channel: "Elite Ashwin" },
       ],
@@ -15952,22 +14655,11 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Best AI Chatbot Platforms: Tidio vs ManyChat vs Drift vs Intercom", url: "https://www.youtube.com/watch?v=qUmuH_LdK9o", channel: "Speak About Digital" },
       ],
       hi: [
-        { title: "Drift: Conversational Marketing and Sales Platform", url: "https://www.youtube.com/watch?v=z683qeNS5Kc", channel: "Explified Labs" },
-        { title: "3 Main Tools of Conversational Marketing", url: "https://www.youtube.com/watch?v=AzC7cW6eHxw", channel: "Dashly" },
-        { title: "How to Connect with Drift for Conversational Marketing - Quick Tutorial", url: "https://www.youtube.com/watch?v=vXF2uJna8GA", channel: "How&Tos Time" },
-        { title: "Intercom vs Drift - Which is Better?", url: "https://www.youtube.com/watch?v=2ElImMPOqWo", channel: "Wise Explainer" },
       ],
       te: [
-        { title: "Drift: Conversational Marketing and Sales Platform", url: "https://www.youtube.com/watch?v=z683qeNS5Kc", channel: "Explified Labs" },
-        { title: "Intercom vs Drift - Which is Better?", url: "https://www.youtube.com/watch?v=2ElImMPOqWo", channel: "Wise Explainer" },
-        { title: "How to Connect with Drift for Conversational Marketing - Quick Tutorial", url: "https://www.youtube.com/watch?v=vXF2uJna8GA", channel: "How&Tos Time" },
-        { title: "What Is Conversational Marketing? | Drift & Innovation Visual", url: "https://www.youtube.com/watch?v=LeBU3AWB8lo", channel: "Innovation Visual" },
       ],
       ta: [
         { title: "Marketing & Digital Course: Conversational Marketing Tamil - Sasikumar Talks #SasikumarTalks", url: "https://www.youtube.com/watch?v=bgWaLDfwYPw", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Drift: Conversational Marketing and Sales Platform", url: "https://www.youtube.com/watch?v=z683qeNS5Kc", channel: "Explified Labs" },
-        { title: "How to Connect with Drift for Conversational Marketing - Quick Tutorial", url: "https://www.youtube.com/watch?v=vXF2uJna8GA", channel: "How&Tos Time" },
-        { title: "3 Main Tools of Conversational Marketing", url: "https://www.youtube.com/watch?v=AzC7cW6eHxw", channel: "Dashly" },
       ],
     },
     articles: [
@@ -16006,12 +14698,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Email Marketing in 2026 | Free Full Advanced Digital Marketing Course in Telugu 2026 #seotelugu", url: "https://www.youtube.com/watch?v=GA-FN8pGysk", channel: "BVR Alpha Community" },
         { title: "Email Marketing Explained in  Telugu | #emailmarketingintelugu #emailmarketing #coldemailmarketing", url: "https://www.youtube.com/watch?v=GJtjAT71NdY", channel: "Lucky Studios" },
         { title: "Detailed Tutorial on Email Marketing using Mailchimp 2021 || Telugu", url: "https://www.youtube.com/watch?v=3rOxH7Y3Buw", channel: "Digiready-Digital Marketing" },
-        { title: "Best Email Marketing Tool | Send 50K Email Per Month", url: "https://www.youtube.com/watch?v=EaHPwsNoI88", channel: "Brand Investigation" },
       ],
       ta: [
         { title: "Email marketing hacks |#shorts #tamil", url: "https://www.youtube.com/watch?v=J80dgcAmLlM", channel: "Cheran Academy" },
         { title: "Free Email Marketing tool Marketing Automation Tool Tamil | Brevo | Best Email Marketing Platform", url: "https://www.youtube.com/watch?v=5zlbdH_OlQE", channel: "Marketing with Vijay" },
-        { title: "Best Email Marketing Tool | Send 50K Email Per Month", url: "https://www.youtube.com/watch?v=EaHPwsNoI88", channel: "Brand Investigation" },
         { title: "Email Marketing for Beginners | Email Marketing Tutorial in Tamil | Email Marketing Tools | 2024", url: "https://www.youtube.com/watch?v=Zc5RInVn60s", channel: "Business Automation Tamil" },
       ],
     },
@@ -16081,7 +14771,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Google Analytics Dashboard Explained for Beginners (GA4 Tutorial Step-by-Step)", url: "https://www.youtube.com/watch?v=WpzkNlSS0EM", channel: "Digital Growth Tutor" },
       ],
       hi: [
-        { title: "Google Analytics 4 Tutorial for Beginners | Complete 2 Hour Course", url: "https://www.youtube.com/watch?v=ErOLWks6BRs", channel: "WsCube Tech" },
         { title: "Google Analytics 4 | GA4 Tutorials | GA4 for Beginners", url: "https://www.youtube.com/watch?v=pVYFRYCz09c", channel: "Social Masla" },
         { title: "गूगल एनालिटिक्स - 4 सम्पूर्ण अवलोकन | वेबसाइट के लिए ट्रैफ़िक डेटा कैसे प्राप्त करें।", url: "https://www.youtube.com/watch?v=B4cqr2eX3Bc", channel: "MR VYAS" },
         { title: "Google Analytics 4 Tutorial | How To Create Custom Reports in GA4 -Library Method | GA4 Tutorial #20", url: "https://www.youtube.com/watch?v=pxMI14uBhuw", channel: "Robin Mehta" },
@@ -16089,7 +14778,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       te: [
         { title: "Google Analytics Telugu - GA4 Tutorial for Beginners -How to Set up Google Analytics to Your Website", url: "https://www.youtube.com/watch?v=zB5TGldcnvU", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "Google Analytics in Telugu | GA4 - Odmt Digital Marketing Training Course Hyderabad", url: "https://www.youtube.com/watch?v=r3GSbB41Cuw", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "Google Analytics 4 Tutorial for Beginners | Complete 2 Hour Course", url: "https://www.youtube.com/watch?v=ErOLWks6BRs", channel: "WsCube Tech" },
         { title: "Google Analytics 4 Explained | In Telugu", url: "https://www.youtube.com/watch?v=1LQ1zjx9N3A", channel: "Ai Powered Digital Marketing Training Academy" },
       ],
       ta: [
@@ -16125,10 +14813,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Top Python Libraries & Frameworks You NEED to Know! 🐍", url: "https://www.youtube.com/watch?v=n-8S90vzE5s", channel: "CydexCode" },
       ],
       hi: [
-        { title: "50+ Best AI Tools for Productivity in 2025 (ChatGPT, Canva, Notion & More!)", url: "https://www.youtube.com/watch?v=yFU003t-cTg", channel: "Pynade Devs" },
-        { title: "Best PAID AI Tools Free Alternatives 2025 | #AITools #FreeAI #Productivity2025", url: "https://www.youtube.com/watch?v=bFGayjPe7yA", channel: "AW-TECHNOLOGIES" },
-        { title: "5 AI Tools Every Student MUST-TRY", url: "https://www.youtube.com/watch?v=BKlXKpTkDqk", channel: "Ishan Sharma" },
-        { title: "🔥Top AI Tools You Need in 2025 | Best AI Tools to Learn | Intellipaat #shorts", url: "https://www.youtube.com/watch?v=nsJjSOeCbhs", channel: "Intellipaat" },
       ],
       te: [
         { title: "Top 3 AI Automation Tools to Learn in 2025 | Zapier vs Make vs n8n (in Telugu)", url: "https://www.youtube.com/watch?v=VP9g2cBo2uE", channel: "Ali | AI Automation Telugu" },
@@ -16138,7 +14822,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       ta: [
         { title: "The Only AI Tools You Need in 2026 | My Complete Workflow Stack | Tamil", url: "https://www.youtube.com/watch?v=WlGpbkrHJX0", channel: "Sanjeev NC | SaaS & AI Tamil" },
-        { title: "50+ Best AI Tools for Productivity in 2025 (ChatGPT, Canva, Notion & More!)", url: "https://www.youtube.com/watch?v=yFU003t-cTg", channel: "Pynade Devs" },
         { title: "Automate Anything! Claude Cowork Masterclass Part-1 (தமிழில்)", url: "https://www.youtube.com/watch?v=D61JR8jb3JE", channel: "The AI Dude - Tamil" },
         { title: "Become Top 0.1% on (CLAUDE Skills) in 31 Minutes (தமிழ்) 🔥", url: "https://www.youtube.com/watch?v=n5xGcIXM7c0", channel: "AI Coach John (Tamil)" },
       ],
@@ -16167,9 +14850,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "How to Set Up Google Search Console and Bing Webmaster Tools? | Live Masterclass 23", url: "https://www.youtube.com/watch?v=Cf7PHqArjWA", channel: "Mubashir Ahmad" },
-        { title: "Bing Webmaster Full Course", url: "https://www.youtube.com/watch?v=XIjVSMbtHJQ", channel: "Mohsin Qasim (Digital Moshh)" },
-        { title: "How to Import Google Search Console Data into Bing Webmaster Tools", url: "https://www.youtube.com/watch?v=FFJHczwDnv0", channel: "Unique Web School" },
-        { title: "How to Add Website in Bing Webmaster Tools | Bing Webmaster Tools Setup 2026-Submit & Index Website", url: "https://www.youtube.com/watch?v=D0L4aCSbNtw", channel: "Digital UK07" },
       ],
       te: [
         { title: "How to Configure Google Search Console for a Website in Telugu || Digital John", url: "https://www.youtube.com/watch?v=3I33KthNcGo", channel: "Digital Marketing Course in Telugu and Digital Badi" },
@@ -16211,22 +14891,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Hootsuite vs Buffer: Which Social Media Tool is Worth Your Money?", url: "https://www.youtube.com/watch?v=KVEe_blWzQI", channel: "Simple Online Business Development" },
       ],
       hi: [
-        { title: "Hootsuite vs Buffer | How they are winning the Customer of each other | Marketing Strategy", url: "https://www.youtube.com/watch?v=gGU4eZ0qN8A", channel: "TOTAL" },
-        { title: "Best FREE Social Media Management Tool for Beginners in Hindi | Hootsuite Metricool Vista Social", url: "https://www.youtube.com/watch?v=yJZZTgB_3lU", channel: "Sadanand Gunaga" },
-        { title: "How to Use Buffer Tool to Schedule Social Media Content | Digital Azadi #socialmediatools", url: "https://www.youtube.com/watch?v=4tX8hgpIwjA", channel: "Digital Azadi" },
-        { title: "Buffer Social Media Post Scheduler | Step by Step Tutorial for Beginners", url: "https://www.youtube.com/watch?v=XJ8XiDI2jck", channel: "Corporate Guy Turned YouTuber" },
       ],
       te: [
         { title: "Social Media Automation Tools - Buffer and Hootsuite 2021 || Telugu", url: "https://www.youtube.com/watch?v=q7mmyCMcjeg", channel: "Digiready-Digital Marketing" },
-        { title: "Buffer Social Media Post Scheduler | Step by Step Tutorial for Beginners", url: "https://www.youtube.com/watch?v=XJ8XiDI2jck", channel: "Corporate Guy Turned YouTuber" },
         { title: "Sravani Asuri: Buffer Ai Tool | he Smartest Tool for Social Media Management | SumanTV Money", url: "https://www.youtube.com/watch?v=RqdQYP6f-iI", channel: "SumanTV Money" },
         { title: "Detailed Tutorial on Social Media Management Tools - Buffer & Hootsuite 2021", url: "https://www.youtube.com/watch?v=sQHfR5nK_Hk", channel: "Digiready-Digital Marketing" },
       ],
       ta: [
         { title: "Social Media: Buffer and Hootsuite. SMO Tools. Social Media Analyst Sasikumar Talks, Tamil.", url: "https://www.youtube.com/watch?v=iGg6b_2DXWs", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Buffer Social Media Post Scheduler | Step by Step Tutorial for Beginners", url: "https://www.youtube.com/watch?v=XJ8XiDI2jck", channel: "Corporate Guy Turned YouTuber" },
         { title: "Metricool vs Hootsuite vs Buffer - Best Social Media Management Tool?", url: "https://www.youtube.com/watch?v=UbD48gx5-m8", channel: "Chris - That Tech Guy" },
-        { title: "Hootsuite vs Buffer | How they are winning the Customer of each other | Marketing Strategy", url: "https://www.youtube.com/watch?v=gGU4eZ0qN8A", channel: "TOTAL" },
       ],
     },
     articles: [
@@ -16256,20 +14929,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Analyze Online User Behavior: Hotjar, Mouseflow, and Microsoft Clarity.", url: "https://www.youtube.com/watch?v=Z4nvFTdZGqk", channel: "Business Skills" },
       ],
       hi: [
-        { title: "Heatmap for website | Hotjar & Microsoft Clarity installation tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fxg9JERboZg", channel: "Prashant Chauhan Digital Marketing" },
-        { title: "Microsoft Clarity vs Hotjar – Optimize Your Website for Free and Improve Conversions", url: "https://www.youtube.com/watch?v=5LKwdf8tzFA", channel: "Marketing Explained" },
         { title: "Microsoft Clarity Ka Full Use in 7 Features - Umar Tazkeer", url: "https://www.youtube.com/watch?v=aq27xGnFdUs", channel: "Umar Tazkeer" },
         { title: "How to check HeatMap Reports in Microsoft Clarity | CRO Course | #9", url: "https://www.youtube.com/watch?v=Sc9ctK-vJXc", channel: "Umar Tazkeer" },
       ],
       te: [
-        { title: "Microsoft Clarity vs Hotjar – Optimize Your Website for Free and Improve Conversions", url: "https://www.youtube.com/watch?v=5LKwdf8tzFA", channel: "Marketing Explained" },
-        { title: "Analyze Online User Behavior: Hotjar, Mouseflow, and Microsoft Clarity.", url: "https://www.youtube.com/watch?v=Z4nvFTdZGqk", channel: "Business Skills" },
-        { title: "HotJar vs Microsoft Clarity: Which is Better For Your Website? (2025)", url: "https://www.youtube.com/watch?v=BkhCVv3qzs8", channel: "Arsh Sanwarwala | ThrillX" },
         { title: "Microsoft Clarity tutorial and live demo", url: "https://www.youtube.com/watch?v=FboQ-xfKkP0", channel: "Senator We Run Ads" },
       ],
       ta: [
         { title: "Learn Microsoft Clarity Tutorial in Tamil | WordPress Microsoft Clarity Training |Getin Technologies", url: "https://www.youtube.com/watch?v=UUptaFoD_PA", channel: "Getin Technologies" },
-        { title: "Microsoft Clarity vs Hotjar – Optimize Your Website for Free and Improve Conversions", url: "https://www.youtube.com/watch?v=5LKwdf8tzFA", channel: "Marketing Explained" },
         { title: "How To Setup Microsoft Clarity in Tamil | Heatmaps & Session Recordings | #04", url: "https://www.youtube.com/watch?v=RofTXZ8klF4", channel: "Simplified E-learning" },
         { title: "Website Monitoring Tool | Hot jar explained in tamil | Data analytics in tamil | bk bharathi", url: "https://www.youtube.com/watch?v=xxMnqz2eAo0", channel: "BK Bharathi" },
       ],
@@ -16300,7 +14967,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "HubSpot Email Marketing Complete Tutorial For Beginners In Hindi | How To Use HubSpot | HubSpot CRM", url: "https://www.youtube.com/watch?v=JTA5hMJLKOI", channel: "Techlo Tanic" },
       ],
       hi: [
-        { title: "HubSpot Email Marketing Complete Tutorial For Beginners In Hindi | How To Use HubSpot | HubSpot CRM", url: "https://www.youtube.com/watch?v=JTA5hMJLKOI", channel: "Techlo Tanic" },
         { title: "HubSpot CRM Tutorial for Beginners (2025) | Learn HubSpot in 60 Minutes Step by Step", url: "https://www.youtube.com/watch?v=IWyr-hMPKJQ", channel: "Zain Entrepreneur" },
         { title: "HubSpot CRM Tutorial for Beginners (Updated 2026) In Hindi", url: "https://www.youtube.com/watch?v=Lq4ZzZapot8", channel: "Metics Media | Hindi" },
         { title: "HubSpot Tutorial for Beginners: Free HubSpot CRM Course, Marketing, Sales & Automation (in Hindi)", url: "https://www.youtube.com/watch?v=UveJWCQspAM", channel: "StartupWise हिंदी में" },
@@ -16312,9 +14978,7 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Create Account in HubSpot Step by Step | Online Digital Marketing Classes in Telugu", url: "https://www.youtube.com/watch?v=92hMZMAfPyc", channel: "Subbu Digital Marketer" },
       ],
       ta: [
-        { title: "HubSpot CRM Tutorial for Beginners 2026 (Step-by-Step)", url: "https://www.youtube.com/watch?v=t8QM5zunC44", channel: "Metics Media" },
         { title: "SEO Course: Hubspot. For SEO and Digital Marketers. Sasikumar Talks. Tamil. #SasikumarTalks", url: "https://www.youtube.com/watch?v=VnQZyqkC8UU", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Best HubSpot CRM Tutorial for BEGINNERS! (2025)", url: "https://www.youtube.com/watch?v=sLdbhx1V0uk", channel: "Mehta Media" },
         { title: "HubSpot Complete Guide for Beginners | Online Digital Marketing Course in Telugu | SDM Classes", url: "https://www.youtube.com/watch?v=EWD2ODXZr_I", channel: "Subbu Digital Marketer" },
       ],
     },
@@ -16343,22 +15007,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "What is Vidyard and why would you use it?", url: "https://www.youtube.com/watch?v=fNbiHyvkN9c", channel: "Avidly HubSpot Solutions" },
       ],
       hi: [
-        { title: "How to Sell With Videos (Vidyard/Loom)", url: "https://www.youtube.com/watch?v=LRJ2Btl3WpU", channel: "Sales Feed" },
-        { title: "Compare Loom Vidyard Sendspark video embedding features and FREE account features for creators", url: "https://www.youtube.com/watch?v=c_saJt0TAWY", channel: "Helpful Phil" },
         { title: "How do you prepare to record a Loom?", url: "https://www.youtube.com/watch?v=O3ebk98etAY", channel: "Parabol | Better Meetings, More Value" },
-        { title: "Vidyard for Salesloft", url: "https://www.youtube.com/watch?v=VRJpcUbG3i8", channel: "Vidyard" },
       ],
       te: [
-        { title: "How to Sell With Videos (Vidyard/Loom)", url: "https://www.youtube.com/watch?v=LRJ2Btl3WpU", channel: "Sales Feed" },
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
-        { title: "How To Send THOUSANDS of Personalized Videos With One Recording! (Loom Hack)", url: "https://www.youtube.com/watch?v=98IF3ifUwew", channel: "Nato Guajardo" },
         { title: "Sales Is All About 20% Skills - 80% Psychology || #marketingtips || #shorts || MVN Kasyap Telugu", url: "https://www.youtube.com/watch?v=y8dx1MLSpXk", channel: "MVN Kasyap - Telugu" },
       ],
       ta: [
-        { title: "How to Sell With Videos (Vidyard/Loom)", url: "https://www.youtube.com/watch?v=LRJ2Btl3WpU", channel: "Sales Feed" },
         { title: "Youtube Marketing - How to create videos and sell products online in Tamil | Retail Businesses", url: "https://www.youtube.com/watch?v=LTZQawR93eA", channel: "Sangeetha S Abishek" },
         { title: "How do you prepare to record a Loom?", url: "https://www.youtube.com/watch?v=O3ebk98etAY", channel: "Parabol | Better Meetings, More Value" },
-        { title: "Vidyard for Salesloft", url: "https://www.youtube.com/watch?v=VRJpcUbG3i8", channel: "Vidyard" },
       ],
     },
     articles: [
@@ -16386,21 +15043,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Is Klaviyo better than Mailchimp?", url: "https://www.youtube.com/watch?v=DUbUzu_ObfE", channel: "Flowium - eCommerce Email Marketing" },
       ],
       hi: [
-        { title: "Klaviyo vs Mailchimp 2025: Which Email Marketing Tool Is Right for You", url: "https://www.youtube.com/watch?v=fj1Y6iIyDCU", channel: "Food Tech Vlogs" },
-        { title: "Mailchimp vs Klaviyo | Which Email Platform Wins for Ecommerce?", url: "https://www.youtube.com/watch?v=xIdeqodXZRA", channel: "Consumer Research Studios" },
         { title: "Klaviyo Vs Mailchimp Comparison EmailMarketing Kalviyo vs Mailchimp Which Platform Best for Business", url: "https://www.youtube.com/watch?v=KQZ-z6fJwEU", channel: "Home Casa Italy" },
         { title: "Mailchimp vs Klaviyo for shopify– The BEST Email Platform for You", url: "https://www.youtube.com/watch?v=hJnRE7DOgS0", channel: "Food Tech Vlogs" },
       ],
       te: [
         { title: "Mailchimp VS Klaviyo Which is Best for Business?  Comparison Email Marketing Klaviyo Vs Mail-chimp", url: "https://www.youtube.com/watch?v=pQhBk1poZXs", channel: "Life style with Aisha" },
-        { title: "Klaviyo vs Mailchimp in 2026: Which One is Better For Ecommerce Brands", url: "https://www.youtube.com/watch?v=uGcHQov7HL4", channel: "Siv Rao" },
         { title: "Klaviyo Vs Mailchimp Comparison EmailMarketing Kalviyo vs Mailchimp Which Platform Best for Business", url: "https://www.youtube.com/watch?v=KQZ-z6fJwEU", channel: "Home Casa Italy" },
         { title: "Mailchimp vs Klaviyo for shopify– The BEST Email Platform for You", url: "https://www.youtube.com/watch?v=hJnRE7DOgS0", channel: "Food Tech Vlogs" },
       ],
       ta: [
-        { title: "Mailchimp vs Klaviyo | Which Email Platform Wins for Ecommerce?", url: "https://www.youtube.com/watch?v=xIdeqodXZRA", channel: "Consumer Research Studios" },
-        { title: "Mailchimp vs Klaviyo (2025) – Which Email Marketing Platform Is Better?", url: "https://www.youtube.com/watch?v=aV51j791syc", channel: "Digibase Media" },
-        { title: "Klaviyo vs Mailchimp 2025: Which Email Marketing Tool Is Right for You", url: "https://www.youtube.com/watch?v=fj1Y6iIyDCU", channel: "Food Tech Vlogs" },
         { title: "Klaviyo Vs Mailchimp Comparison EmailMarketing Kalviyo vs Mailchimp Which Platform Best for Business", url: "https://www.youtube.com/watch?v=KQZ-z6fJwEU", channel: "Home Casa Italy" },
       ],
     },
@@ -16431,14 +15082,10 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       hi: [
         { title: "Module 1: Modern Data Stack & dbt Masterclass | Analytics Engineering Complete Guide | Hindi", url: "https://www.youtube.com/watch?v=mXnOxTppPFU", channel: "QuickTechie Official" },
         { title: "React JS Full Course 2026 | Advanced Concepts for Beginners", url: "https://www.youtube.com/watch?v=lzF9GxGn7Bs", channel: "WsCube AI & Tech School" },
-        { title: "Roadmap to Becoming a Data Analyst in 2026 #roadmap", url: "https://www.youtube.com/watch?v=481lC6AeLIg", channel: "Co-Coder" },
-        { title: "🔥Salary of SEO Specialist | SEO Skills for 2026 #Shorts | Simplilearn", url: "https://www.youtube.com/watch?v=2AYjYIJwPQg", channel: "Simplilearn" },
       ],
       te: [
-        { title: "🔥Salary of SEO Specialist | SEO Skills for 2026 #Shorts | Simplilearn", url: "https://www.youtube.com/watch?v=2AYjYIJwPQg", channel: "Simplilearn" },
         { title: "Complete Digital Marketing Strategy for Clients in 2026 - Full Tutorial in Telugu", url: "https://www.youtube.com/watch?v=EoSuRKXnbUE", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
         { title: "Free Digital Marketing Full Course in Telugu 2026 🔥 | 50 Hours Classes | Step-by-Step Video Tutorial", url: "https://www.youtube.com/watch?v=ZkScfJLBbQs", channel: "ODMT Telugu ( Digital Marketing Course in Telugu )" },
-        { title: "Roadmap to Becoming a Data Analyst in 2026 #roadmap", url: "https://www.youtube.com/watch?v=481lC6AeLIg", channel: "Co-Coder" },
       ],
       ta: [
         { title: "Digital Marketing in 2026 | Top Marketing Trends & How to Improve Your Business", url: "https://www.youtube.com/watch?v=w---o1h5fIQ", channel: "Business Automation Tamil" },
@@ -16477,9 +15124,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Module 1: Modern Data Stack & dbt Masterclass | Analytics Engineering Complete Guide | Hindi", url: "https://www.youtube.com/watch?v=mXnOxTppPFU", channel: "QuickTechie Official" },
-        { title: "Speaking of Data | Episode 1: The Modern Marketing Technology Stack", url: "https://www.youtube.com/watch?v=Ncr8ciApV4c", channel: "Kellie Taylor" },
-        { title: "Introduction to Modern Marketing Analytics Stack | Marketing Analytics Masterclass with Gabi Steele", url: "https://www.youtube.com/watch?v=3hGERS05D_k", channel: "Hevo Data" },
-        { title: "What Is The Modern Data Stack - Intro To Data Infrastructure Part 1", url: "https://www.youtube.com/watch?v=-ClWgwC0Sbw", channel: "Seattle Data Guy" },
       ],
       te: [
         { title: "Digital Marketing in 5 Minutes | Digital Marketing for Beginners in Telugu", url: "https://www.youtube.com/watch?v=aJqPrtD8G1k", channel: "Digitech Praveen Here" },
@@ -16488,7 +15132,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Business Marketing techniques in telugu - Marketing strategies in telugu - Figuring Out By jay", url: "https://www.youtube.com/watch?v=2OrG7lXdSJM", channel: "Figuring Out by Jay" },
       ],
       ta: [
-        { title: "Why The Perfect #Martech Stack No Longer Exists In Modern Marketing", url: "https://www.youtube.com/watch?v=MDCEwlshbMw", channel: "Humans of Martech Podcast" },
         { title: "I started a Digital Marketing Company 😊 😁  | Madan Gowri | Tamil | MG", url: "https://www.youtube.com/watch?v=yQPo1GlW7Do", channel: "Madan Gowri" },
         { title: "Digital Marketing in 7 minutes For Beginners | Tamil", url: "https://www.youtube.com/watch?v=iEijDwVAdMM", channel: "ABHINDASX" },
         { title: "Digital Marketing Full Course in Tamil | 32 Hours | Digital Marketing for Beginners in Tamil", url: "https://www.youtube.com/watch?v=8-ySmWaIH54", channel: "Simplified E-learning" },
@@ -16517,22 +15160,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Webinar : How to Build Your New MarTech Stack", url: "https://www.youtube.com/watch?v=pSnWSM3sWwc", channel: "Real Story Group" },
       ],
       hi: [
-        { title: "WEBINAR: Building A MarTech Stack You Love", url: "https://www.youtube.com/watch?v=Q3JsfLnw0BQ", channel: "Phase2" },
-        { title: "Webinar: MarTech - How to Build a Marketing Technology Stack | Liminal", url: "https://www.youtube.com/watch?v=FxovjUd2xyg", channel: "Liminal - MarTech & Business Experts" },
         { title: "#IBS2023 | Building the Martech stack for Digital India", url: "https://www.youtube.com/watch?v=3ojXkOyXV5o", channel: "IndiantelevisionNewz" },
         { title: "What is a DAM Platform and Why You Need It for Your MarTech Stack In Hindi?", url: "https://www.youtube.com/watch?v=Y9nxCLJ7xsw", channel: "MakeAuthority हिंदी में" },
       ],
       te: [
-        { title: "How to Build a Martech Stack That Works for You", url: "https://www.youtube.com/watch?v=et2G0Ey7tj0", channel: "WebFX" },
-        { title: "Webinar: MarTech - How to Build a Marketing Technology Stack | Liminal", url: "https://www.youtube.com/watch?v=FxovjUd2xyg", channel: "Liminal - MarTech & Business Experts" },
         { title: "Your MarTech (Marketing Technology) Stack", url: "https://www.youtube.com/watch?v=UWUZbgcK9Pc", channel: "Fraser Hay" },
         { title: "What is MarTech or Marketing Technology?", url: "https://www.youtube.com/watch?v=s5-hiVni6Ic", channel: "Pickstack" },
       ],
       ta: [
         { title: "Martech 2019 - How to Architect Your Martech Stack for Intelligent Customer Data Activation", url: "https://www.youtube.com/watch?v=AU2_63iWtTk", channel: "Blueshift" },
         { title: "How I Built This App(Idea + Tech Stack + Build + Marketing Guide) in Tamil", url: "https://www.youtube.com/watch?v=7xoAjDSgJDI", channel: "Let Us Code Together" },
-        { title: "WEBINAR: Building A MarTech Stack You Love", url: "https://www.youtube.com/watch?v=Q3JsfLnw0BQ", channel: "Phase2" },
-        { title: "How to Build a Martech Stack That Works for You", url: "https://www.youtube.com/watch?v=et2G0Ey7tj0", channel: "WebFX" },
       ],
     },
     articles: [
@@ -16561,22 +15198,17 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "How to Automate ANYTHING with AI (N8N Tutorial)", url: "https://www.youtube.com/watch?v=OpUGl4gBHAU", channel: "Varun Mayya" },
       ],
       hi: [
-        { title: "Complete n8n Masterclass: Build Al Agents & Automate Workflows (Zero to Hero)", url: "https://www.youtube.com/watch?v=DkV7ztrhLh8", channel: "Mayank Aggarwal" },
         { title: "How to Use Zapier AI Automation Like a PRO (Better Than 99% People)", url: "https://www.youtube.com/watch?v=Fe9tOOlAlOc", channel: "WsCube Tech" },
         { title: "n8n Automation A–Z: Build AI Agents & Powerful Workflows from Scratch", url: "https://www.youtube.com/watch?v=QowxF3_wZwM", channel: "Manish Digital Academy and HalChal Tej" },
-        { title: "Zapier vs n8n: The Truth No One Tells You", url: "https://www.youtube.com/watch?v=6jbqfaFHs40", channel: "Kevin Stratvert" },
       ],
       te: [
         { title: "Top 3 AI Automation Tools to Learn in 2025 | Zapier vs Make vs n8n (in Telugu)", url: "https://www.youtube.com/watch?v=VP9g2cBo2uE", channel: "Ali | AI Automation Telugu" },
         { title: "Landed my dream role as an AI Automation Engineer, All with n8n & no-code tools—no coding needed!", url: "https://www.youtube.com/watch?v=Xm58sXYB19E", channel: "Ali | AI Automation Telugu" },
         { title: "🔥n8n Full Course in TELUGU - PART 1 🚀 | Beginner to Pro in AI Agents & Automations", url: "https://www.youtube.com/watch?v=vd7NJad_lJg", channel: "MOFI AI | AI Agents & Automations" },
-        { title: "Zapier vs n8n: The Truth No One Tells You", url: "https://www.youtube.com/watch?v=6jbqfaFHs40", channel: "Kevin Stratvert" },
       ],
       ta: [
         { title: "Create Your Own Automation With N8N - Complete Tutorial in Tamil | AI Coach John", url: "https://www.youtube.com/watch?v=B-c5k52z82k", channel: "AI Coach John (Tamil)" },
-        { title: "Zapier vs n8n: The Truth No One Tells You", url: "https://www.youtube.com/watch?v=6jbqfaFHs40", channel: "Kevin Stratvert" },
         { title: "Build a Whatsapp AI Agent for appointment handling (n8n Tutorial) #n8n #aiautomation", url: "https://www.youtube.com/watch?v=vcvRVlc_VFg", channel: "Ed Hill | AI Automation" },
-        { title: "The difference between Zapier, Make and n8n (2026)", url: "https://www.youtube.com/watch?v=syCqaV7N73s", channel: "Automate with Marc | AI Automation" },
       ],
     },
     articles: [
@@ -16609,7 +15241,6 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "What is LCNC (Low Code/No Code) Quickly Understand ( in Hindi)", url: "https://www.youtube.com/watch?v=XwNQc4a9vv0", channel: "PM DIGICLOUD - Master IT & AI" },
-        { title: "What is low-code? | Let's build a low-code app with Zoho Creator", url: "https://www.youtube.com/watch?v=COjozah5a2E", channel: "CodeWithHarry" },
         { title: "What Is Low Code No Code Development ? | Simply Explained In Hindi", url: "https://www.youtube.com/watch?v=U9zGeo5YxBo", channel: "TheSmartCoders" },
         { title: "Coding vs No-code/Low Code | Future of Coding | No code tools | no code apps | Synoriq", url: "https://www.youtube.com/watch?v=BNBQ9V4MmUk", channel: "Synoriq" },
       ],
@@ -16652,21 +15283,13 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Airtable vs. Notion (2024) – Best Customizable Database", url: "https://www.youtube.com/watch?v=Rj5AFxDmd4M", channel: "Whalesync" },
       ],
       hi: [
-        { title: "एयरटेबल बनाम नोशन: आपकी कंपनी के डेटा के प्रबंधन के लिए कौन सा ऐप बेहतर है?", url: "https://www.youtube.com/watch?v=TYBeTPuyB0c", channel: "Tom Nassr | XRAY" },
-        { title: "Why I switched our marketing team from Notion to Airtable", url: "https://www.youtube.com/watch?v=-Lg3JAX-nx8", channel: "Annika Helendi" },
-        { title: "नोशन बनाम एयरटेबल (2025) - कौन सा बेहतर है?", url: "https://www.youtube.com/watch?v=F_pkVDcbCVw", channel: "Marcus Media" },
         { title: "How to Update Airtable Records With New Notion Database Items (In Hindi) - Notion to Airtable", url: "https://www.youtube.com/watch?v=VQUqI4o1a8M", channel: "Pabbly Hindi" },
       ],
       te: [
-        { title: "Airtable vs. Notion: Which app is better for managing your company’s data?", url: "https://www.youtube.com/watch?v=TYBeTPuyB0c", channel: "Tom Nassr | XRAY" },
-        { title: "Notion vs Airtable (2025) - Which One is Better?", url: "https://www.youtube.com/watch?v=F_pkVDcbCVw", channel: "Marcus Media" },
         { title: "Notion Tutorial - FULL COURSE in Telugu 🔥 || How to Use Notion || How I Use Notion", url: "https://www.youtube.com/watch?v=qC1u45OsqoI", channel: "Subbu Budarapu" },
         { title: "Notion vs Airtable for Portfolio & Database - Which is Better?", url: "https://www.youtube.com/watch?v=kRz6uXIFcCY", channel: "Wise Explainer" },
       ],
       ta: [
-        { title: "Airtable vs. Notion: Which app is better for managing your company’s data?", url: "https://www.youtube.com/watch?v=TYBeTPuyB0c", channel: "Tom Nassr | XRAY" },
-        { title: "Why I switched our marketing team from Notion to Airtable", url: "https://www.youtube.com/watch?v=-Lg3JAX-nx8", channel: "Annika Helendi" },
-        { title: "Notion vs Airtable (2025) - Which One is Better?", url: "https://www.youtube.com/watch?v=F_pkVDcbCVw", channel: "Marcus Media" },
         { title: "Airtable vs Notion (2026) | Which One is actually Better?", url: "https://www.youtube.com/watch?v=mkDw3259x_o", channel: "Krause Media" },
       ],
     },
@@ -16697,21 +15320,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Optimizely Tutorial for Beginners | Master A/B Testing & Experimentation 2026", url: "https://www.youtube.com/watch?v=XZ_2V17GQl4", channel: "How to Simple" },
       ],
       hi: [
-        { title: "नया* ऑप्टिमाइज़ली बनाम VWO — ईकॉमर्स कन्वर्ज़न लिफ़्ट के लिए सर्वश्रेष्ठ A/B परीक्षण", url: "https://www.youtube.com/watch?v=gJfPya30VA4", channel: "How2Genius" },
         { title: "Optimizely User Group India  24th July on Optimizely CMS (SAAS) & Web Experiment.", url: "https://www.youtube.com/watch?v=QhYL8z_vGF0", channel: "Expert Tech Talk" },
         { title: "नए लोगों के लिए ऑप्टिमाइज़ली ट्यूटोरियल | डिजिटल एक्सपीरियंस प्लेटफ़ॉर्म डेमो", url: "https://www.youtube.com/watch?v=7zlk9ag9eJU", channel: "How to Hippo 🦛" },
         { title: "ऑप्टिमाइज़ली ट्यूटोरियल, समीक्षा और डेमो (2026) ऑप्टिमाइज़ली का उपयोग कैसे करें - अवलोकन", url: "https://www.youtube.com/watch?v=FUlfG1lcyJE", channel: "James And Jenna's Tutorials" },
       ],
       te: [
-        { title: "The Best Web AB Testing Software in 2025 | An alternative to VWO, Google Optimize and Optimizely", url: "https://www.youtube.com/watch?v=jmaZMvo82lU", channel: "Juan Chaher" },
-        { title: "Optimizely X Tutorial 2019 - How to Use Optimizely for A/B, MVT, Personalization, Program Management", url: "https://www.youtube.com/watch?v=zsSLDEL1chw", channel: "Testing Theory" },
-        { title: "Optimizely Tutorial for Beginners | Master A/B Testing & Experimentation 2026", url: "https://www.youtube.com/watch?v=XZ_2V17GQl4", channel: "How to Simple" },
-        { title: "VWO A/B Testing Tutorial For Beginners (2024 Guide)", url: "https://www.youtube.com/watch?v=Jpp5oWuMNUU", channel: "DeepLaughs" },
       ],
       ta: [
         { title: "Optimizely CMS - Learning by Doing : EP01", url: "https://www.youtube.com/watch?v=001KONca-YY", channel: "Tech Trails with Ratish" },
-        { title: "Optimizely X Tutorial 2019 - How to Use Optimizely for A/B, MVT, Personalization, Program Management", url: "https://www.youtube.com/watch?v=zsSLDEL1chw", channel: "Testing Theory" },
-        { title: "How To Create An A/B Test Using Optimizely Web", url: "https://www.youtube.com/watch?v=tHyH7rujZkw", channel: "jondjones" },
         { title: "Optimizely Honest Review - Watch Before Using", url: "https://www.youtube.com/watch?v=eV3B9YXUSes", channel: "Wise Explainer" },
       ],
     },
@@ -16786,22 +15402,16 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Conversation Intelligence Made Simple: Master Chorus for Better Sales Insights", url: "https://www.youtube.com/watch?v=kf8upgIKjLc", channel: "ZoomInfo" },
       ],
       hi: [
-        { title: "Clari Revenue Operations Platform in 2 Minutes", url: "https://www.youtube.com/watch?v=VS6C-nV0h3k", channel: "Clari" },
         { title: "✅ Gong AI vs Clari: Best Revenue Intelligence Tool for Tier-1 Companies 📊", url: "https://www.youtube.com/watch?v=QrvD1xomaRw", channel: "TechEdge Wave" },
-        { title: "Revenue Intelligence Tools: Scale Smart, Sell Better! 📊 | #LearnStartupTerms", url: "https://www.youtube.com/watch?v=F4zCRZQkUdM", channel: "Abhijjjjjeet" },
         { title: "Best Way to Learn Sales 🤑", url: "https://www.youtube.com/watch?v=98Wzhovsp7s", channel: "Desiring Bharat" },
       ],
       te: [
-        { title: "Clari Revenue Operations Platform in 2 Minutes", url: "https://www.youtube.com/watch?v=VS6C-nV0h3k", channel: "Clari" },
         { title: "✅ Gong AI vs Clari: Best Revenue Intelligence Tool for Tier-1 Companies 📊", url: "https://www.youtube.com/watch?v=QrvD1xomaRw", channel: "TechEdge Wave" },
-        { title: "5 Best Conversation Intelligence Software| Gong, Fathom, Chorus, Mindtickle, Salesken", url: "https://www.youtube.com/watch?v=8hFPJwScClA", channel: "SaasFinder" },
         { title: "Introducing Chorus by ZoomInfo | #ConversationIntelligence", url: "https://www.youtube.com/watch?v=ObDRcMm9Hlo", channel: "ZoomInfo" },
       ],
       ta: [
-        { title: "Clari Revenue Operations Platform in 2 Minutes", url: "https://www.youtube.com/watch?v=VS6C-nV0h3k", channel: "Clari" },
         { title: "✅ Gong AI vs Clari: Best Revenue Intelligence Tool for Tier-1 Companies 📊", url: "https://www.youtube.com/watch?v=QrvD1xomaRw", channel: "TechEdge Wave" },
         { title: "Check Sales Performance with Revenue Insights | Introduction to Revenue Intelligence for Sales Cloud", url: "https://www.youtube.com/watch?v=4DoY_bNQUuo", channel: "Jagdish Tech School" },
-        { title: "Revenue Intelligence Tools: Scale Smart, Sell Better! 📊 | #LearnStartupTerms", url: "https://www.youtube.com/watch?v=F4zCRZQkUdM", channel: "Abhijjjjjeet" },
       ],
     },
     articles: [
@@ -16828,19 +15438,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Best SEO Tools for 2025 (COMPLETE Guide)", url: "https://www.youtube.com/watch?v=XYanmJ-L1nQ", channel: "LearnWire" },
       ],
       hi: [
-        { title: "9 Best SEO Tools 2026: Want to Rank #1 on Google? Use These Tools Today", url: "https://www.youtube.com/watch?v=yu6vgvRI9Uo", channel: "Sachin Pathania" },
         { title: "🚀 Tool Website SEO Course 2025 | 🔍 Tool Website Ka SEO Kaise Kare? | 📈 Full Ranking Guide", url: "https://www.youtube.com/watch?v=_NFvazPGhN4", channel: "Web Rice Studio" },
         { title: "8 Best SEO Tools to Rank #1 on Google in 2026 (Most are FREE!)", url: "https://www.youtube.com/watch?v=lEdqKSHRtmM", channel: "WsCube Tech" },
         { title: "SEO Tutorial for Beginners 2025 | Rank #1 on Google | SEO Tutorial in Hindi", url: "https://www.youtube.com/watch?v=Fj6V1vjqP-4", channel: "Saddam Kassim" },
       ],
       te: [
         { title: "Most Useful SEO Tools Telugu | Best 25 Free SEO Chrome Extensions || Every Blogger || Digital Guru", url: "https://www.youtube.com/watch?v=CYevNqiaduM", channel: "ThanksAI" },
-        { title: "Best SEO Tools For 2025 #SEO #SEOtools #googlerankings", url: "https://www.youtube.com/watch?v=adQhWdS5h90", channel: "Kate Smoothy | Google & AI SEO Specialist" },
-        { title: "🔥 5 Best Tools For SEO | Top 5 SEO Tools For 2026 #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=CVyKcqWL8M0", channel: "Simplilearn" },
         { title: "Download 60 Best FREE SEO Tools || SEO Videos in Telugu", url: "https://www.youtube.com/watch?v=iHVZAlAM6vI", channel: "Digital Marketing Course in Telugu" },
       ],
       ta: [
-        { title: "🔥 5 Best Tools For SEO | Top 5 SEO Tools For 2026 #Shorts #simplilearn", url: "https://www.youtube.com/watch?v=CVyKcqWL8M0", channel: "Simplilearn" },
         { title: "What is SEO and how does it work in Tamil | Beginner Guide to SEO in 2025 | #digitalmarketing2025", url: "https://www.youtube.com/watch?v=flPsvv51-Wg", channel: "Elite Ashwin" },
         { title: "SEO tools in Tamil | Top 10 SEO tools in Tamil | Best SEO tools in Tamil", url: "https://www.youtube.com/watch?v=QgE2z5p5FEo", channel: "Tamil facts" },
         { title: "Master SEO Keyword Research in Tamil in Just 10 Minutes 🚀 SEO Tutorial In Tamil🚀 FIND keywords tamil", url: "https://www.youtube.com/watch?v=YfZeqGhkNOw", channel: "Digitell Kesavan and Digitell AI Blogging Academy Tamil" },
@@ -16911,22 +15517,15 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
         { title: "Navigating Your Path: The Software Development Roadmap", url: "https://www.youtube.com/watch?v=KPl9v7s9SyE", channel: "Tech with Ali Naqi" },
       ],
       hi: [
-        { title: "Full Stack Developer in 6 Months", url: "https://www.youtube.com/watch?v=aIy46jQsDLM", channel: "CareerRide" },
         { title: "Make your local website live 🌐💻! Learn to host your PC using ngrok. 🚀 Watch now for the full guide!🔥", url: "https://www.youtube.com/watch?v=hdbCwTwtgow", channel: "Aru Code" },
-        { title: "How to Become a Better Full Stack Developer (Tips & Tricks)", url: "https://www.youtube.com/watch?v=UuAbcgSECr4", channel: "Coding Inspiration" },
         { title: "Java tutorial beginner| Java interview questions | Java questions and answers | java syllabus #java", url: "https://www.youtube.com/watch?v=1ZmZU_12qIg", channel: "kuchh technical sikhate hai" },
       ],
       te: [
-        { title: "‼️Save these 3 AI Tools", url: "https://www.youtube.com/watch?v=Iyxv1Bq6CFY", channel: "Raw Talks With VK" },
         { title: "Don't Learn These Courses #telugushorts #course #shorts #itjobs", url: "https://www.youtube.com/watch?v=W5PZwYdjV5c", channel: "Lucky Techzone" },
-        { title: "Full Stack Developer in 6 Months", url: "https://www.youtube.com/watch?v=aIy46jQsDLM", channel: "CareerRide" },
         { title: "SRE Tools & Technologies | Telugu | @JoinDevOps-siva", url: "https://www.youtube.com/watch?v=7RRDiOPPulE", channel: "DevOps and Cloud with Siva" },
       ],
       ta: [
-        { title: "Full Stack Developer in 6 Months", url: "https://www.youtube.com/watch?v=aIy46jQsDLM", channel: "CareerRide" },
-        { title: "Tools u must know to b a frontend developer #javascript #frontend #webdeveloper #besanttechnologies", url: "https://www.youtube.com/watch?v=HUKqYFBnbwo", channel: "Besant Technologies BTM Layout" },
         { title: "Plan for Front End & Back End Developer | #frontend #backend #developer", url: "https://www.youtube.com/watch?v=HAnyeZP3VSU", channel: "Dotnet_Fullstack_Developer" },
-        { title: "How to Become a Better Full Stack Developer (Tips & Tricks)", url: "https://www.youtube.com/watch?v=UuAbcgSECr4", channel: "Coding Inspiration" },
       ],
     },
     articles: [
@@ -16953,19 +15552,14 @@ export const LESSON_RESOURCES: Record<string, LessonResourceData> = {
       ],
       hi: [
         { title: "Zapier Course For Beginners, Business Automation Using Zapier   اردو : हिंदी", url: "https://www.youtube.com/watch?v=GROysLTXkvA", channel: "Lets Uncover" },
-        { title: "How to Use Zapier AI Automation Like a PRO (Better Than 99% People)", url: "https://www.youtube.com/watch?v=Fe9tOOlAlOc", channel: "WsCube Tech" },
-        { title: "क्या आप जैपियर में नए हैं? इसे ज़रूर देखें!", url: "https://www.youtube.com/watch?v=f9cJCK4CxIw", channel: "Zapier" },
         { title: "Zapier Tutorial for Beginners | How to Use Zapier in Hindi | #zapier #digitalmarketingtools", url: "https://www.youtube.com/watch?v=RNAtSwfA0Q4", channel: "Marketing Fundas" },
       ],
       te: [
-        { title: "Zapier Beginner? Check This Out!", url: "https://www.youtube.com/watch?v=f9cJCK4CxIw", channel: "Zapier" },
-        { title: "Zapier Automation ⚙️ Post your content on multiple platforms", url: "https://www.youtube.com/watch?v=JxfRyuthSgs", channel: "Zapier" },
         { title: "This is What AI Automation Can Do for You! 😲🤯| Complete Automation Explained in Telugu | Zapier&make", url: "https://www.youtube.com/watch?v=8n6DQBofTFU", channel: "Teju Talks Tech" },
         { title: "Learn AI Automation WITHOUT Coding in 19 Minutes | Complete Beginner Guide (Telugu)", url: "https://www.youtube.com/watch?v=4AQrhdNbAVM", channel: "Lavin" },
       ],
       ta: [
         { title: "Marketing Automation in Tamil | SasikumarTalks: Automated Marketing & Tools like Zapier, Salesfor...", url: "https://www.youtube.com/watch?v=Vb5LGVwvepA", channel: "Sasikumar Talks (Training Academy)" },
-        { title: "Zapier Automation ⚙️ Post your content on multiple platforms", url: "https://www.youtube.com/watch?v=JxfRyuthSgs", channel: "Zapier" },
         { title: "Automate Viral LinkedIn Posts with 𝐀𝐈 using 𝐙𝐚𝐩𝐢𝐞𝐫 + 𝐎𝐩𝐞𝐧𝐀𝐈 | 𝐍𝐨 𝐂𝐨𝐝𝐞 Needed! in Tamil", url: "https://www.youtube.com/watch?v=BQHk3gyDG0E", channel: "Data Engineering" },
         { title: "INTRODUCTION TO ZAPIER AUTOMATION", url: "https://www.youtube.com/watch?v=-SU8ZhKtRdQ", channel: "learn and earn" },
       ],

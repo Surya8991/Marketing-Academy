@@ -199,7 +199,7 @@ export default function ProfileClient({
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
             <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)]">
-              Top disciplines
+              Top topics
             </p>
             <Link href="/skill-map" className="text-xs text-[var(--accent)] flex items-center gap-1 font-ui-sans">
               View skill map <ArrowUpRight size={12} />

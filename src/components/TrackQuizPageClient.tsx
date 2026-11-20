@@ -292,7 +292,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                     } else if (oi === userAnswer) {
                       border = "1px solid rgba(239,68,68,0.5)";
                       bg = "rgba(239,68,68,0.07)";
-                      color = "rgba(239,68,68,0.9)";
+                      color = "var(--danger)";
                     } else {
                       opacity = "0.4";
                     }
@@ -317,7 +317,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                         <CheckCircle2 size={14} className="inline ml-2 shrink-0" style={{ color: "rgb(22,163,74)" }} />
                       )}
                       {submitted && oi === userAnswer && oi !== q.correct && (
-                        <XCircle size={14} className="inline ml-2 shrink-0" style={{ color: "rgba(239,68,68,0.9)" }} />
+                        <XCircle size={14} className="inline ml-2 shrink-0" style={{ color: "var(--danger)" }} />
                       )}
                     </button>
                   );
@@ -427,7 +427,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                   style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)" }}
                 >
                   <p className="flex items-center gap-2 font-medium mb-2" style={{ color: "var(--foreground)" }}>
-                    <AlertCircle size={15} style={{ color: "rgb(202,138,4)" }} />
+                    <AlertCircle size={15} style={{ color: "var(--warning)" }} />
                     {heldBack.length} lesson{heldBack.length !== 1 ? "s" : ""} need more review
                   </p>
                   <p className="text-[var(--muted-foreground)] mb-2">

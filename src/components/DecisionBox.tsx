@@ -61,7 +61,7 @@ export default function DecisionBox({ decision }: Props) {
               <span className="font-data text-[var(--muted-foreground)]">{String.fromCharCode(65 + i)}.</span>
               <span className="flex-1">{opt.label}</span>
               {showResult && opt.correct && <CheckCircle2 size={15} className="shrink-0" style={{ color: "rgb(22 163 74)" }} />}
-              {showResult && isPicked && !opt.correct && <XCircle size={15} className="shrink-0" style={{ color: "rgba(239,68,68,0.9)" }} />}
+              {showResult && isPicked && !opt.correct && <XCircle size={15} className="shrink-0" style={{ color: "var(--danger)" }} />}
             </button>
           );
         })}

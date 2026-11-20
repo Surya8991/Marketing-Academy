@@ -261,7 +261,7 @@ export default async function LessonPage({ params }: Props) {
             />
 
             {/* MDX content */}
-            <article className="prose prose-slate max-w-none">
+            <article className="prose prose-slate max-w-none [&>h1:first-of-type]:hidden">
               <LessonContent />
             </article>
 

@@ -57,7 +57,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
             className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-colors text-sm"
           />
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex flex-wrap gap-2">
           {([
             { key: "all", label: "All Tracks", count: tracks.length },
             { key: "role", label: "Role-Based", count: roleTracks.length },
@@ -84,7 +84,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
               }}
             >
               {btn.label}
-              <span className="ml-1.5 text-xs opacity-70 font-data">
+              <span className="ml-1.5 text-xs font-data">
                 {btn.count}
               </span>
             </button>
@@ -95,9 +95,16 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
       {/* Results count */}
       {(search.trim() || filter !== "all") && (
         <p className="text-sm text-[var(--muted-foreground)] mb-4 font-ui-sans">
-          {filtered.length === 0
-            ? "No tracks match your search."
-            : `Showing ${filtered.length} of ${tracks.length} tracks`}
+          {filtered.length === 0 ? (
+            <>
+              No tracks match your search.{" "}
+              <button type="button" onClick={() => { setSearch(""); setFilter("all"); }} className="font-medium text-[var(--accent)] hover:underline">
+                Show all tracks
+              </button>
+            </>
+          ) : (
+            `Showing ${filtered.length} of ${tracks.length} tracks`
+          )}
         </p>
       )}
 
@@ -121,7 +128,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
                   color:
                     track.kind === "role"
                       ? "var(--accent)"
-                      : "rgb(202, 138, 4)",
+                      : "var(--warning)",
                   border:
                     track.kind === "role"
                       ? "1px solid rgba(99, 102, 241, 0.2)"

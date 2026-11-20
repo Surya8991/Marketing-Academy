@@ -3,6 +3,7 @@ import { TRACKS } from "@/lib/tracks";
 
 export const metadata = {
   title: "Certificates",
+  alternates: { canonical: "/certificates" },
   robots: { index: false, follow: true },
   description: "View and print your learning track certificates.",
 };
@@ -39,6 +40,7 @@ export default function CertificatesIndexPage() {
       <div
         style={{
           display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr)",
           gap: "1rem",
         }}
       >
@@ -51,12 +53,13 @@ export default function CertificatesIndexPage() {
               padding: "1.25rem 1.5rem",
               background: "var(--card)",
               display: "flex",
+              flexWrap: "wrap",
               alignItems: "center",
               gap: "1rem",
             }}
           >
             <span style={{ fontSize: "2rem", lineHeight: 1 }}>{track.emoji}</span>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: "1 1 12rem", minWidth: 0 }}>
               <div
                 style={{
                   fontWeight: 600,

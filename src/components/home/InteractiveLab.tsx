@@ -63,10 +63,10 @@ export default function InteractiveLab() {
   const [selectedDilemma, setSelectedDilemma] = useState<"A" | "B" | null>(null);
 
   return (
-    <section id="interactive-lab" className="py-20 sm:py-28 bg-[var(--background)]">
+    <section id="interactive-lab" className="py-14 sm:py-28 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-12 text-white border border-[#2e2d4d]"
+          className="relative overflow-hidden rounded-3xl p-4 sm:p-10 lg:p-12 text-white border border-[#2e2d4d]"
           style={{
             background: "#1d1c32",
             boxShadow: "0 25px 60px rgba(15, 14, 35, 0.45)",
@@ -83,30 +83,20 @@ export default function InteractiveLab() {
           {/* Lab Header */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6 mb-10 pb-8 border-b border-white/10">
             <div>
-              <div className="font-mono text-xs uppercase tracking-widest text-[#aaa5ff] mb-2">
-                Learn by doing
-              </div>
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tight font-serif text-white">
-                Theory is a start.<br />
-                <span className="font-normal italic text-[#c4bfff]">
-                  Experimentation is the edge.
-                </span>
+                Try the ideas yourself
               </h2>
               <p className="mt-3 max-w-xl text-sm sm:text-base text-[#b9b8c9] font-ui-sans leading-relaxed">
-                Step inside the Marketing Lab. Change assumptions, test hypotheses, and see how
-                acquisition math and behavioral psychology affect real business outcomes.
+                Drag a slider to see when an ad campaign stops paying for itself, score a headline,
+                or pick between two button labels.
               </p>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#4c8d6d]/60 bg-[#153424]/40 text-[#b6f0cf] font-mono text-xs">
-              <span className="h-2 w-2 rounded-full bg-[#36a66c] animate-pulse" />
-              <span>INTERACTIVE SANDBOX</span>
             </div>
           </div>
 
           {/* Interactive Shell Body */}
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Interactive Controls */}
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-white/[0.05] border border-white/[0.12] backdrop-blur-md">
+            <div className="lg:col-span-7 p-4 sm:p-6 rounded-2xl bg-white/[0.05] border border-white/[0.12] backdrop-blur-md">
               {/* Tab Selector Buttons */}
               <div
                 className="flex items-center gap-1.5 p-1.5 rounded-xl bg-white/[0.08] border border-white/[0.1] mb-6 w-full sm:w-fit"
@@ -313,7 +303,7 @@ export default function InteractiveLab() {
                     </strong>
                   </div>
                   <Link
-                    href="/learn/growth/cac-ltv-ratio"
+                    href="/learn/analytics/ltv-cac"
                     className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs text-white font-medium transition-colors"
                   >
                     <span>Deep dive</span>

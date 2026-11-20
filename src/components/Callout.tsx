@@ -5,8 +5,8 @@ type CalloutType = "info" | "warning" | "success" | "tip" | "example";
 
 const STYLES: Record<CalloutType, { ring: string; tint: string; iconColor: string; icon: React.ReactNode; label: string }> = {
   info:    { ring: "border-blue-500/40",   tint: "bg-blue-500/10",   iconColor: "text-blue-500",   icon: <Info size={16} />,          label: "Note" },
-  warning: { ring: "border-amber-500/40",  tint: "bg-amber-500/10",  iconColor: "text-amber-500",  icon: <AlertTriangle size={16} />, label: "Common Mistake" },
-  success: { ring: "border-green-500/40",  tint: "bg-green-500/10",  iconColor: "text-green-500",  icon: <CheckCircle size={16} />,   label: "Best Practice" },
+  warning: { ring: "border-amber-500/40",  tint: "bg-amber-500/10",  iconColor: "text-[var(--warning)]",  icon: <AlertTriangle size={16} />, label: "Common Mistake" },
+  success: { ring: "border-green-500/40",  tint: "bg-green-500/10",  iconColor: "text-[var(--success)]",  icon: <CheckCircle size={16} />,   label: "Best Practice" },
   tip:     { ring: "border-violet-500/40", tint: "bg-violet-500/10", iconColor: "text-violet-500", icon: <Lightbulb size={16} />,     label: "Pro Tip" },
   example: { ring: "border-orange-500/40", tint: "bg-orange-500/10", iconColor: "text-orange-500", icon: <Zap size={16} />,           label: "Real Example" },
 };

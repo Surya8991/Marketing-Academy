@@ -301,7 +301,7 @@ export const CATEGORIES: Category[] = [
     emoji: "📧",
     color: "from-cyan-500/15 to-blue-500/10",
     lessons: [
-      { slug: "email-marketing-101", title: "Email Marketing 101", level: "Beginner", summary: "Transactional vs. marketing, broadcast vs. automation." },
+      { slug: "email-marketing-101", title: "Email Marketing 101", level: "Beginner", summary: "How email marketing works, why it earns the highest ROI, and how to build your first campaign." },
       { slug: "email-101", title: "Email Marketing Foundations", level: "Beginner", summary: "The core vocab, channel mechanics, and mental model every email marketer needs before anything else." },
       { slug: "list-building", title: "List Building", level: "Beginner", summary: "Get permission, not just addresses." },
       { slug: "welcome-series", title: "The Welcome Series", level: "Beginner", summary: "The highest-engagement emails you'll ever send." },
@@ -489,7 +489,7 @@ export const CATEGORIES: Category[] = [
       { slug: "features-vs-benefits", title: "Features vs. Benefits", level: "Beginner", summary: "Customers buy outcomes, not specs. The translation rule." },
       { slug: "landing-page-copy", title: "Landing Page Copy", level: "Intermediate", summary: "The hierarchy of a page that converts, top to bottom." },
       { slug: "sales-letter-anatomy", title: "Long-Form Sales Letter Anatomy", level: "Intermediate", summary: "Why 5000-word sales pages still work in 2025." },
-      { slug: "email-copy", title: "Email Copywriting", level: "Intermediate", summary: "Subject line, preheader, body, CTA. Each carries different weight." },
+      { slug: "email-copy", title: "Email Copy That Converts", level: "Intermediate", summary: "Subject line, preheader, body, CTA. Each carries different weight." },
       { slug: "ad-copy", title: "Ad Copy (Search, Social, Display)", level: "Intermediate", summary: "Same principles, different word counts and constraints." },
       { slug: "microcopy", title: "Microcopy: Buttons, Forms, Empty States", level: "Intermediate", summary: "The tiny words that decide whether people finish what they started." },
       { slug: "value-prop-copy", title: "Writing the Value Prop", level: "Intermediate", summary: "The hardest 12 words you will ever write." },

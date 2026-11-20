@@ -6,85 +6,75 @@ import { ArrowRight } from "lucide-react";
 
 const WORLDS = [
   {
-    num: "WORLD / 01",
     icon: "✳",
     title: "Psychology & Language",
-    desc: "Understand people, sharpen your message, and build brands that mean something.",
+    desc: "Why people buy, and how to describe what you sell so it lands.",
     disciplines: "Copy · Brand · Behaviour",
     href: "/learn/psychology",
     theme: {
-      bg: "bg-[#eeedff]",
-      border: "border-[#e4e2ff]",
-      hoverBorder: "hover:border-[#c4bfff]",
+      bg: "bg-[var(--lav)]",
+      border: "border-[var(--border)]",
+      hoverBorder: "hover:border-[var(--accent)]",
       orbGradient: "linear-gradient(145deg, #b6afff, #6258e9)",
-      accentText: "text-[#4f46e5]",
+      accentText: "text-[var(--accent)]",
     },
   },
   {
-    num: "WORLD / 02",
     icon: "↗",
     title: "Acquisition & Economics",
-    desc: "Find demand, acquire customers, and master the unit economics behind scale.",
+    desc: "Get in front of buyers through search and ads, and know what each customer costs you.",
     disciplines: "SEO · Paid · CRO",
     href: "/learn/paid-ads",
     theme: {
-      bg: "bg-[#eaf3ff]",
-      border: "border-[#e0edff]",
+      bg: "bg-[var(--blue)]",
+      border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#b8daff]",
       orbGradient: "linear-gradient(145deg, #b7dcff, #448ee9)",
-      accentText: "text-[#2563eb]",
+      accentText: "text-[var(--accent)]",
     },
   },
   {
-    num: "WORLD / 03",
     icon: "⟲",
     title: "Retention & Flywheels",
-    desc: "Create sticky customer experiences that compound retention and drive word-of-mouth.",
+    desc: "Keep customers coming back, and turn the happy ones into referrals.",
     disciplines: "Lifecycle · PLG · Referral",
     href: "/learn/growth",
     theme: {
-      bg: "bg-[#eaf5ed]",
-      border: "border-[#dfefe4]",
+      bg: "bg-[var(--mint)]",
+      border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#bee3c9]",
       orbGradient: "linear-gradient(145deg, #b6e9c8, #4aa978)",
-      accentText: "text-[#16a34a]",
+      accentText: "text-[var(--success)]",
     },
   },
   {
-    num: "WORLD / 04",
     icon: "⌘",
-    title: "Agentic Intelligence",
-    desc: "Explore AI-powered discovery, autonomous workflows, and generative optimization.",
+    title: "AI in Marketing",
+    desc: "Use AI for research, writing and automation, and get your brand cited in AI answers.",
     disciplines: "GEO · Data · Agents",
     href: "/learn/ai-marketing",
     theme: {
-      bg: "bg-[#fff2df]",
-      border: "border-[#f8e9d0]",
+      bg: "bg-[var(--amber)]",
+      border: "border-[var(--border)]",
       hoverBorder: "hover:border-[#f4d4a3]",
       orbGradient: "linear-gradient(145deg, #ffdb9b, #ee9a3f)",
-      accentText: "text-[#d97706]",
+      accentText: "text-[var(--warning)]",
     },
   },
 ];
 
 export default function WorldGrid() {
   return (
-    <section className="py-20 sm:py-28 bg-[var(--background)]">
+    <section className="py-14 sm:py-28 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="font-mono text-xs uppercase tracking-widest text-[var(--accent)] mb-2">
-              Explore the universe
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif">
-              Every part of marketing.<br />
-              <span className="font-normal italic text-[var(--foreground)]">One place to explore.</span>
-            </h2>
-          </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif">
+            Pick a topic
+          </h2>
           <p className="max-w-md text-sm sm:text-base text-[var(--muted-foreground)] font-ui-sans leading-relaxed">
-            From understanding cognitive biases to constructing compounding acquisition engines,
-            discover the disciplines that shape how leading companies grow.
+            Start with whatever problem is in front of you. Each area is a set of short lessons
+            with real examples, ordered from beginner to advanced.
           </p>
         </div>
 
@@ -92,22 +82,19 @@ export default function WorldGrid() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {WORLDS.map((world) => (
             <Link
-              key={world.num}
+              key={world.title}
               href={world.href}
-              className={`group flex flex-col justify-between p-6 rounded-2xl border ${world.theme.border} ${world.theme.bg} ${world.theme.hoverBorder} hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 min-h-[350px]`}
+              className={`group flex flex-col justify-between p-6 rounded-2xl border ${world.theme.border} ${world.theme.bg} ${world.theme.hoverBorder} hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 sm:min-h-[350px]`}
             >
               {/* Card Top */}
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] text-[var(--muted-foreground)] tracking-wider">
-                  {world.num}
-                </span>
-                <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-white/70 backdrop-blur-xs text-base shadow-xs">
+              <div className="flex items-center justify-end">
+                <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-[var(--card)]/70 backdrop-blur-xs text-base shadow-xs">
                   {world.icon}
                 </span>
               </div>
 
               {/* Central Tactile 3D Orb Graphic */}
-              <div className="h-32 flex items-center justify-center my-4">
+              <div className="h-32 hidden sm:flex items-center justify-center my-4">
                 <div
                   className="w-24 h-24 rounded-3xl shadow-lg relative transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
                   style={{
@@ -125,7 +112,7 @@ export default function WorldGrid() {
                 <h3 className="text-xl font-bold text-[var(--foreground)] tracking-tight mb-2 group-hover:text-[var(--accent)] transition-colors">
                   {world.title}
                 </h3>
-                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed font-ui-sans min-h-[36px]">
+                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed font-ui-sans sm:min-h-[36px]">
                   {world.desc}
                 </p>
               </div>

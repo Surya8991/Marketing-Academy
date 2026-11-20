@@ -22,7 +22,7 @@ function StatusBanner({ status }: { status: Status }) {
       style={{
         marginTop: "0.5rem",
         fontSize: "0.875rem",
-        color: isError ? "rgba(220,38,38,0.9)" : "rgba(22,163,74,0.9)",
+        color: isError ? "var(--danger)" : "var(--success)",
         background: isError ? "rgba(220,38,38,0.08)" : "rgba(22,163,74,0.08)",
         border: `1px solid ${isError ? "rgba(220,38,38,0.25)" : "rgba(22,163,74,0.25)"}`,
         borderRadius: "0.375rem",
@@ -77,7 +77,7 @@ const primaryBtn: React.CSSProperties = {
 const dangerBtn: React.CSSProperties = {
   ...btnBase,
   background: "rgba(220,38,38,0.12)",
-  color: "rgba(220,38,38,0.95)",
+  color: "var(--danger)",
   border: "1px solid rgba(220,38,38,0.3)",
 };
 
@@ -559,7 +559,7 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
 
       {/* Reset */}
       <section style={cardStyle}>
-        <h2 style={{ ...headingStyle, color: "rgba(220,38,38,0.9)" }}>Reset Progress</h2>
+        <h2 style={{ ...headingStyle, color: "var(--danger)" }}>Reset Progress</h2>
         <p style={descStyle}>
           Permanently clear all completed lessons, bookmarks, XP, quiz passes, and notes. Cannot be undone.
         </p>

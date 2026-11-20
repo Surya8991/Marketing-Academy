@@ -272,7 +272,7 @@ export default function CommandPalette() {
                 fontSize: 14,
               }}
             >
-              No results for &ldquo;{query}&rdquo;
+              No results for &ldquo;{query}&rdquo;. Try a broader word, like &ldquo;SEO&rdquo; or &ldquo;email&rdquo;.
             </li>
           ) : (
             results.map((entry, i) => {

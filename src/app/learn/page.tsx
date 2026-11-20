@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "All Marketing Lessons",
   alternates: { canonical: "/learn" },
   description:
-    `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} disciplines: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
+    `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} topics: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
 };
 
 /** Stage 3.4: show only the first PREVIEW_COUNT lessons per category to keep
@@ -27,16 +27,15 @@ export default function LearnPage() {
     <>
       <PageMasthead
         left="Marketing Academy · Full Index"
-        right={`${CATEGORIES.length} disciplines · ${totalLessons} entries`}
+        right={`${CATEGORIES.length} topics · ${totalLessons} lessons`}
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-10 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">Every entry, by discipline</p>
             <h1 className="font-display font-semibold text-4xl mb-3">All Marketing Lessons</h1>
             <p className="text-[var(--muted-foreground)] text-lg max-w-2xl font-ui-sans">
-              {CATEGORIES.length} disciplines, Beginner to Advanced. Browse every category or use Ctrl+K to search.
+              {CATEGORIES.length} topics, each ordered from beginner to advanced. Open a topic to see every lesson in it.
             </p>
           </div>
           <SurpriseMeButton />
@@ -83,7 +82,7 @@ export default function LearnPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1 min-w-0 font-ui-sans">
-                      <p className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors truncate">{lesson.title}</p>
+                      <p className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors">{lesson.title}</p>
                       <p className="text-xs text-[var(--muted-foreground)] truncate">{lesson.summary}</p>
                     </div>
                     <LevelBadge level={lesson.level} className="shrink-0" />

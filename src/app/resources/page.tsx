@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 };
 
 const TIER_STYLES: Record<string, { bg: string; fg: string; label: string }> = {
-  daily: { bg: "rgb(239 68 68 / 0.12)", fg: "rgb(239 68 68)", label: "daily" },
+  daily: { bg: "rgb(239 68 68 / 0.12)", fg: "var(--danger)", label: "daily" },
   weekly: { bg: "var(--accent)", fg: "var(--accent-foreground)", label: "weekly" },
-  deep: { bg: "rgb(59 130 246 / 0.12)", fg: "rgb(59 130 246)", label: "deep" },
-  tool: { bg: "rgb(245 158 11 / 0.12)", fg: "rgb(245 158 11)", label: "tool" },
+  deep: { bg: "rgb(59 130 246 / 0.12)", fg: "var(--accent)", label: "deep" },
+  tool: { bg: "rgb(245 158 11 / 0.12)", fg: "var(--warning)", label: "tool" },
 };
 
 const COST_STYLES: Record<string, { bg: string; fg: string }> = {
-  free: { bg: "rgb(16 185 129 / 0.12)", fg: "rgb(16 185 129)" },
-  paid: { bg: "rgb(245 158 11 / 0.12)", fg: "rgb(245 158 11)" },
+  free: { bg: "rgb(16 185 129 / 0.12)", fg: "var(--success)" },
+  paid: { bg: "rgb(245 158 11 / 0.12)", fg: "var(--warning)" },
   freemium: { bg: "var(--muted)", fg: "var(--muted-foreground)" },
 };
 

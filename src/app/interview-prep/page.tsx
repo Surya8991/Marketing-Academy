@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/interview-prep" },
   title: "Marketing Interview Questions 2026",
   description:
-    "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
+    `Marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and ${INTERVIEW_SECTIONS.length} topics in all.`,
   openGraph: {
     title: "Marketing Interview Questions 2026 | Marketing Academy",
     description:
-      "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
+      `Marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and ${INTERVIEW_SECTIONS.length} topics in all.`,
     type: "website",
   },
 };
@@ -104,7 +104,7 @@ export default function InterviewPrepPage() {
           }}
         >
           Ace your next marketing interview with question-by-question prep across
-          16 disciplines. Each topic links to a full lesson so you can study, not
+          {INTERVIEW_SECTIONS.length} topics. Each topic links to a full lesson so you can study, not
           just memorize.
         </p>
         <div

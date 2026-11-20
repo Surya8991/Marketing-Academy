@@ -173,7 +173,10 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
         {/* Empty state */}
         {filtered.length === 0 ? (
           <div className="text-center py-16 text-[var(--muted-foreground)]">
-            No tools found for your filters. Try adjusting your search.
+            <p>No tools match these filters.</p>
+            <button type="button" onClick={() => { setSearch(""); setActiveCategory("All"); setActivePricing("All"); setPage(1); }} className="mt-3 text-sm font-medium text-[var(--accent)] hover:underline">
+              Clear filters
+            </button>
           </div>
         ) : (
           <>

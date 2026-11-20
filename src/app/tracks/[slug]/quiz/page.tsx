@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${track.title} Quiz`,
     description: `Test your knowledge across all ${track.lessons.length} lessons in the ${track.title}.`,
+    alternates: { canonical: `/tracks/${slug}/quiz` },
   };
 }
 

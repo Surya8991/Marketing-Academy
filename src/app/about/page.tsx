@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     // uniqueLessonCount() (642), not flatLessons().length (655, double-counts
     // the 13 cross-listed lessons), per AGENTS.md Rule 43 (Stage 2.1).
-    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${uniqueLessonCount()} lessons across ${CATEGORIES.length} disciplines, no paywalls, no email required.`,
+    `Marketing Academy is a free, structured marketing education site built by Surya L from Bangalore. ${uniqueLessonCount()} lessons across ${CATEGORIES.length} topics, no paywalls, no email required.`,
 };
 
 const hoverCSS = `

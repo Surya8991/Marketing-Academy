@@ -137,7 +137,7 @@ export default function ReviewPageClient() {
                     } else if (isPicked) {
                       border = "1px solid rgba(239,68,68,0.5)";
                       bg = "rgba(239,68,68,0.07)";
-                      color = "rgba(239,68,68,0.9)";
+                      color = "var(--danger)";
                     }
                   }
                   return (
@@ -156,7 +156,7 @@ export default function ReviewPageClient() {
                         <CheckCircle2 size={14} className="inline ml-2" style={{ color: "rgb(22,163,74)" }} />
                       )}
                       {selected !== null && isPicked && !isCorrectOpt && (
-                        <XCircle size={14} className="inline ml-2" style={{ color: "rgba(239,68,68,0.9)" }} />
+                        <XCircle size={14} className="inline ml-2" style={{ color: "var(--danger)" }} />
                       )}
                     </button>
                   );

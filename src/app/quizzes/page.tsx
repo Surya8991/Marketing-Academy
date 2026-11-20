@@ -4,13 +4,12 @@ import { QUIZZES } from "@/lib/quizzes";
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
 
+const QUESTION_COUNT = Object.values(QUIZZES).reduce((sum, q) => sum + q.length, 0);
+
 export const metadata: Metadata = {
   title: "Marketing Quizzes | Test Your Knowledge",
-  description:
-    "Test your marketing knowledge with 1,000+ quiz questions across 15 categories: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.",
-  alternates: {
-    canonical: "https://marketing-academy-roan.vercel.app/quizzes",
-  },
+  description: `Test your marketing knowledge with ${QUESTION_COUNT.toLocaleString("en-US")} quiz questions across ${CATEGORIES.length} topics: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.`,
+  alternates: { canonical: "/quizzes" },
 };
 
 const hoverCSS = `.quiz-cat-card { transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
@@ -68,7 +67,7 @@ export default function QuizzesPage() {
             Marketing Quizzes
           </h1>
           <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto mb-10">
-            Every lesson ends with a quiz. Get 100% to unlock &ldquo;Mark as Complete&rdquo; and prove you know your stuff.
+            Every lesson ends with a short quiz. Score 80% or more (4 of 5) to mark the lesson complete.
           </p>
 
           {/* Stats */}
@@ -76,7 +75,7 @@ export default function QuizzesPage() {
             {[
               { value: totalQuestions.toLocaleString(), label: "Total Questions" },
               { value: totalLessons, label: "Lessons with Quizzes" },
-              { value: totalCategories, label: "Categories" },
+              { value: totalCategories, label: "Topics" },
             ].map((s) => (
               <div
                 key={s.label}
@@ -96,7 +95,7 @@ export default function QuizzesPage() {
             {[
               { emoji: "📖", title: "Open a lesson", body: "Pick any category below and open a lesson." },
               { emoji: "📝", title: "Read the lesson", body: "Work through the content at your own pace." },
-              { emoji: "🏆", title: "Pass the quiz", body: "Score 100% on the quiz at the bottom to mark the lesson complete." },
+              { emoji: "🏆", title: "Pass the quiz", body: "Score 80% or more on the quiz at the bottom to mark the lesson complete." },
             ].map((s) => (
               <div key={s.title} className="flex gap-3">
                 <span className="text-2xl shrink-0">{s.emoji}</span>

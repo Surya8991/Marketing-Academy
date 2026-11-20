@@ -5,6 +5,7 @@ import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
   title: "My Portfolio",
+  alternates: { canonical: "/portfolio" },
   description:
     "Your completed practice projects, turned into portfolio-ready evidence for interviews: real deliverables, real companies, real concepts applied.",
   openGraph: {

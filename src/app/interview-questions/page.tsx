@@ -2,11 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 
+const QA_COUNT = INTERVIEW_SECTIONS.reduce((sum, s) => sum + s.conceptualQAs.length + s.scenarioQAs.length, 0);
+
 export const metadata: Metadata = {
   alternates: { canonical: "/interview-questions" },
   title: "Digital Marketing Interview Questions 2026",
   description:
-    "Ace your next marketing job interview with 150+ real digital marketing interview questions and answers across 16 categories: behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.",
+    `Ace your next marketing job interview with ${QA_COUNT} real digital marketing interview questions and answers across ${INTERVIEW_SECTIONS.length} topics: behavioral, SEO, paid ads, content, analytics, email, growth, AI marketing, social, copywriting, CRO, brand strategy, product marketing, psychology, and tools.`,
   keywords: [
     "digital marketing interview questions 2026",
     "marketing interview questions and answers 2026",
@@ -135,7 +137,7 @@ export default function InterviewQuestionsPage() {
             Digital Marketing Interview Questions 2026
           </h1>
           <p style={{ fontSize: "1.05rem", color: "var(--muted-foreground)", lineHeight: 1.7, maxWidth: "780px" }}>
-            {totalQuestions}+ real questions across all 15 marketing disciplines. Each category includes conceptual
+            {totalQuestions} real questions across {INTERVIEW_SECTIONS.length} marketing topics. Each category includes conceptual
             questions that test your knowledge and scenario-based questions that test your judgment. Pick a category to
             start.
           </p>
@@ -152,7 +154,7 @@ export default function InterviewQuestionsPage() {
         >
           {[
             { label: "Categories", value: String(INTERVIEW_SECTIONS.length) },
-            { label: "Total Questions", value: String(totalQuestions) + "+" },
+            { label: "Total Questions", value: String(totalQuestions) },
             { label: "Conceptual", value: String(INTERVIEW_SECTIONS.reduce((s, sec) => s + sec.conceptualQAs.length, 0)) },
             { label: "Scenario-Based", value: String(INTERVIEW_SECTIONS.reduce((s, sec) => s + sec.scenarioQAs.length, 0)) },
           ].map((stat) => (

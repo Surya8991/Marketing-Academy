@@ -123,7 +123,7 @@ export default function CompareSelector() {
         </div>
 
         {error && (
-          <p className="text-red-500 text-sm font-medium" role="alert">
+          <p className="text-[var(--danger)] text-sm font-medium" role="alert">
             {error}
           </p>
         )}
