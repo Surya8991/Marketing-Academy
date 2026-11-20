@@ -17,8 +17,8 @@
   --code-bg: #f4f4f5;
   --code-fg: #1f1f23;
   /* Status text colours: theme-aware so they pass contrast on light and dark cards */
-  --success: #15803d;
-  --warning: #b45309;
+  --success: #166534;
+  --warning: #92400e;
   --danger: #b91c1c;
 
   /* Editorial Lab Design Tokens */
@@ -278,6 +278,7 @@ body {
   font-weight: 500;
   font-size: 0.875em;
   border: 1px solid var(--border);
+  overflow-wrap: anywhere; /* long inline code (UTM strings, URLs) wraps instead of widening the page */
 }
 
 /* Code blocks */

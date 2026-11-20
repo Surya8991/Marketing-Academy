@@ -168,7 +168,7 @@ export default function ProjectStep({ step }: Props) {
         >
           <p
             className="text-xs font-semibold mb-1 flex items-center gap-1.5"
-            style={{ color: "rgb(22 163 74)" }}
+            style={{ color: "var(--success)" }}
           >
             <ThumbsUp size={13} aria-hidden="true" /> Healthy
           </p>
@@ -180,7 +180,7 @@ export default function ProjectStep({ step }: Props) {
         >
           <p
             className="text-xs font-semibold mb-1 flex items-center gap-1.5"
-            style={{ color: "rgb(220 38 38)" }}
+            style={{ color: "var(--danger)" }}
           >
             <ThumbsDown size={13} aria-hidden="true" /> Unhealthy
           </p>

@@ -78,7 +78,7 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
                       ? { color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 12%, transparent)" }
                       : lesson.level === "Intermediate"
                       ? { color: "var(--warning)", background: "color-mix(in srgb, var(--warning) 12%, transparent)" }
-                      : { color: "#7c3aed", background: "color-mix(in srgb, #7c3aed 12%, transparent)" }),
+                      : { color: "var(--danger)", background: "color-mix(in srgb, var(--danger) 12%, transparent)" }),
                   }}
                 >
                   {lesson.level}

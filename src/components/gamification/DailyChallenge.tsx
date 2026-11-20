@@ -181,7 +181,7 @@ export default function DailyChallenge() {
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 font-medium text-xs">
+        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-[var(--warning)] font-medium text-xs">
           <Flame size={14} className="animate-pulse" />
           <span>{streak} Day Streak</span>
         </div>

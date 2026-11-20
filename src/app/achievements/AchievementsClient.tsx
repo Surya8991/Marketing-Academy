@@ -131,12 +131,12 @@ export default function AchievementsClient() {
                     style={{
                       background: earned ? "rgba(99,102,241,0.08)" : "var(--muted)",
                       borderColor: earned ? "rgba(99,102,241,0.3)" : "var(--border)",
-                      opacity: earned ? 1 : 0.6,
                     }}
                   >
                     <span
                       className="text-[1.75rem] leading-none"
-                      style={{ filter: earned ? "none" : "grayscale(100%)" }}
+                      // Locked: dim only the icon; the "how to earn it" text must stay readable.
+                      style={{ filter: earned ? "none" : "grayscale(100%)", opacity: earned ? 1 : 0.5 }}
                     >
                       {a.emoji}
                     </span>

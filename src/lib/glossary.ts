@@ -1281,7 +1281,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
 
   // Analytics additions
   {
-    term: "Incrementality",
+    term: "Incrementality Testing",
     slug: "incrementality-testing",
     definition:
       "A testing method that measures the true causal lift of a marketing activity by comparing a group exposed to it against a holdout group that was not. Incrementality testing answers: did our ad actually cause this purchase, or would the person have bought anyway? It is the gold standard for measuring ad effectiveness.",

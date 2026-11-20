@@ -427,7 +427,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                   style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)" }}
                 >
                   <p className="flex items-center gap-2 font-medium mb-2" style={{ color: "var(--foreground)" }}>
-                    <AlertCircle size={15} style={{ color: "rgb(202,138,4)" }} />
+                    <AlertCircle size={15} style={{ color: "var(--warning)" }} />
                     {heldBack.length} lesson{heldBack.length !== 1 ? "s" : ""} need more review
                   </p>
                   <p className="text-[var(--muted-foreground)] mb-2">

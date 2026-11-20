@@ -84,7 +84,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
               }}
             >
               {btn.label}
-              <span className="ml-1.5 text-xs opacity-70 font-data">
+              <span className="ml-1.5 text-xs font-data">
                 {btn.count}
               </span>
             </button>
@@ -128,7 +128,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
                   color:
                     track.kind === "role"
                       ? "var(--accent)"
-                      : "rgb(202, 138, 4)",
+                      : "var(--warning)",
                   border:
                     track.kind === "role"
                       ? "1px solid rgba(99, 102, 241, 0.2)"
