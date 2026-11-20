@@ -6,10 +6,10 @@ import { ArrowRight } from "lucide-react";
 
 export default function CaseStudiesSection() {
   return (
-    <section className="py-20 sm:py-28 bg-[var(--background)] border-b border-[var(--border)]">
+    <section className="py-14 sm:py-28 bg-[var(--background)] border-b border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif text-balance">
             Three problems most marketers hit
           </h2>
@@ -21,7 +21,7 @@ export default function CaseStudiesSection() {
         {/* Case Studies Grid */}
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Main Feature Story */}
-          <article className="lg:col-span-7 relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-[var(--blue)] border border-[var(--border)] flex flex-col justify-between min-h-[380px] group hover:shadow-xl transition-all">
+          <article className="lg:col-span-7 relative overflow-hidden rounded-3xl p-6 sm:p-10 bg-[var(--blue)] border border-[var(--border)] flex flex-col justify-between sm:min-h-[380px] group hover:shadow-xl transition-all">
             {/* Giant watermark arrow */}
             <div
               className="pointer-events-none absolute -top-8 -right-4 font-serif text-[180px] font-bold text-[var(--accent)]/10 select-none group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500"
@@ -33,7 +33,7 @@ export default function CaseStudiesSection() {
               <span className="inline-block px-3 py-1 rounded-full bg-[var(--card)] text-[var(--accent)] text-xs font-semibold mb-6 shadow-xs">
                 Positioning
               </span>
-              <h3 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight leading-tight max-w-lg mb-4">
+              <h3 className="text-2xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight leading-tight max-w-lg mb-4">
                 Your product is good. So why don&apos;t people get it?
               </h3>
               <p className="text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed max-w-md font-ui-sans">
@@ -56,7 +56,7 @@ export default function CaseStudiesSection() {
           {/* Side Mini Stories */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             {/* Mini 1 */}
-            <article className="p-7 rounded-3xl bg-[var(--paper)] border border-[var(--border)] flex flex-col justify-between flex-1 group hover:border-[var(--accent)] hover:shadow-lg transition-all">
+            <article className="p-6 sm:p-7 rounded-3xl bg-[var(--paper)] border border-[var(--border)] flex flex-col justify-between flex-1 group hover:border-[var(--accent)] hover:shadow-lg transition-all">
               <div>
                 <span className="text-xs font-semibold text-[var(--accent)]">
                   Conversion
@@ -80,7 +80,7 @@ export default function CaseStudiesSection() {
             </article>
 
             {/* Mini 2 */}
-            <article className="p-7 rounded-3xl bg-[var(--paper)] border border-[var(--border)] flex flex-col justify-between flex-1 group hover:border-[var(--accent)] hover:shadow-lg transition-all">
+            <article className="p-6 sm:p-7 rounded-3xl bg-[var(--paper)] border border-[var(--border)] flex flex-col justify-between flex-1 group hover:border-[var(--accent)] hover:shadow-lg transition-all">
               <div>
                 <span className="text-xs font-semibold text-[var(--accent)]">
                   Retention

@@ -57,7 +57,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
             className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-colors text-sm"
           />
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex flex-wrap gap-2">
           {([
             { key: "all", label: "All Tracks", count: tracks.length },
             { key: "role", label: "Role-Based", count: roleTracks.length },

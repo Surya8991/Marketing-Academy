@@ -40,10 +40,10 @@ const PATHS = [
 
 export default function LearningPaths() {
   return (
-    <section className="py-20 sm:py-28 bg-[var(--muted)] border-t border-b border-[var(--border)]">
+    <section className="py-14 sm:py-28 bg-[var(--muted)] border-t border-b border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif max-w-xl">
             Not sure where to start? Follow a track.
           </h2>
@@ -70,11 +70,11 @@ export default function LearningPaths() {
             <Link
               key={path.slug}
               href={`/tracks/${path.slug}`}
-              className="group flex flex-col justify-between p-7 rounded-2xl bg-[var(--paper)] border border-[var(--border)] hover:border-[var(--accent)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 min-h-[340px]"
+              className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[var(--paper)] border border-[var(--border)] hover:border-[var(--accent)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 sm:min-h-[340px]"
             >
               <div>
                 {/* Tactile modern graphic */}
-                <div className="h-20 flex items-center gap-2 my-4">
+                <div className="h-20 hidden sm:flex items-center gap-2 my-4">
                   {path.shapes.map((s, idx) => (
                     <div
                       key={idx}

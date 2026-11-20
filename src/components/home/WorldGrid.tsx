@@ -65,10 +65,10 @@ const WORLDS = [
 
 export default function WorldGrid() {
   return (
-    <section className="py-20 sm:py-28 bg-[var(--background)]">
+    <section className="py-14 sm:py-28 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif">
             Pick a topic
           </h2>
@@ -84,7 +84,7 @@ export default function WorldGrid() {
             <Link
               key={world.title}
               href={world.href}
-              className={`group flex flex-col justify-between p-6 rounded-2xl border ${world.theme.border} ${world.theme.bg} ${world.theme.hoverBorder} hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 min-h-[350px]`}
+              className={`group flex flex-col justify-between p-6 rounded-2xl border ${world.theme.border} ${world.theme.bg} ${world.theme.hoverBorder} hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 sm:min-h-[350px]`}
             >
               {/* Card Top */}
               <div className="flex items-center justify-end">
@@ -94,7 +94,7 @@ export default function WorldGrid() {
               </div>
 
               {/* Central Tactile 3D Orb Graphic */}
-              <div className="h-32 flex items-center justify-center my-4">
+              <div className="h-32 hidden sm:flex items-center justify-center my-4">
                 <div
                   className="w-24 h-24 rounded-3xl shadow-lg relative transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
                   style={{
@@ -112,7 +112,7 @@ export default function WorldGrid() {
                 <h3 className="text-xl font-bold text-[var(--foreground)] tracking-tight mb-2 group-hover:text-[var(--accent)] transition-colors">
                   {world.title}
                 </h3>
-                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed font-ui-sans min-h-[36px]">
+                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed font-ui-sans sm:min-h-[36px]">
                   {world.desc}
                 </p>
               </div>

@@ -6,7 +6,7 @@ import { ArrowRight, BookOpen, Compass } from "lucide-react";
 
 export default function FinalCtaSection() {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28 bg-[#25224b] text-white">
+    <section className="relative overflow-hidden py-14 sm:py-28 bg-[#25224b] text-white">
       {/* Abstract geometric orbital rings in background */}
       <div
         className="pointer-events-none absolute -top-40 -right-20 w-[480px] h-[480px] rounded-full border border-white/10"

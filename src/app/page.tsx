@@ -135,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured / Start Here */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="flex items-end justify-between mb-8 pb-4 border-b border-[var(--border)]">
           <div>
             <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[var(--foreground)]">Good places to start</h2>
@@ -149,12 +149,13 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Phones: swipeable row with the next card peeking; sm+: grid */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0">
           {featuredLessons.map((f) => (
             <Link
               key={f.slug}
               href={`/learn/${f.category}/${f.slug}`}
-              className="group flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:-translate-y-1 hover:shadow-lg transition-all"
+              className="group flex flex-col shrink-0 w-[80%] snap-start sm:w-auto p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:-translate-y-1 hover:shadow-lg transition-all"
             >
               <div className="flex items-center mb-3">
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-bold font-ui-sans">
@@ -177,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* Categories: Complete Specimen Index */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-[var(--border)]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-[var(--border)]">
         <div className="mb-10">
           <h2 className="font-serif font-bold text-3xl sm:text-5xl mb-3 text-[var(--foreground)]">All topics</h2>
           <p className="text-[var(--muted-foreground)] max-w-xl font-ui-sans text-sm sm:text-base leading-relaxed">

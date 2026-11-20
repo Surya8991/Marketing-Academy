@@ -63,10 +63,10 @@ export default function InteractiveLab() {
   const [selectedDilemma, setSelectedDilemma] = useState<"A" | "B" | null>(null);
 
   return (
-    <section id="interactive-lab" className="py-20 sm:py-28 bg-[var(--background)]">
+    <section id="interactive-lab" className="py-14 sm:py-28 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-12 text-white border border-[#2e2d4d]"
+          className="relative overflow-hidden rounded-3xl p-4 sm:p-10 lg:p-12 text-white border border-[#2e2d4d]"
           style={{
             background: "#1d1c32",
             boxShadow: "0 25px 60px rgba(15, 14, 35, 0.45)",
@@ -96,7 +96,7 @@ export default function InteractiveLab() {
           {/* Interactive Shell Body */}
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Interactive Controls */}
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-white/[0.05] border border-white/[0.12] backdrop-blur-md">
+            <div className="lg:col-span-7 p-4 sm:p-6 rounded-2xl bg-white/[0.05] border border-white/[0.12] backdrop-blur-md">
               {/* Tab Selector Buttons */}
               <div
                 className="flex items-center gap-1.5 p-1.5 rounded-xl bg-white/[0.08] border border-white/[0.1] mb-6 w-full sm:w-fit"

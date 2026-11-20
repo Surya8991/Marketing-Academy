@@ -194,7 +194,7 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
           </div>
 
           {/* Right Column: 3D Animated Orbital Sphere Art */}
-          <div className="lg:col-span-5 flex justify-center">
+          <div className="lg:col-span-5 hidden sm:flex justify-center">
             <div
               ref={artRef}
               className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] flex items-center justify-center select-none"
