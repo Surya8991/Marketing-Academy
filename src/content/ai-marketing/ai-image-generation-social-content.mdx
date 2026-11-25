@@ -116,6 +116,24 @@ Write and lock the actual post copy before generating any image. The image exist
 
 **AI-generated text on an image is rendered, not typeset, so plan for a 2-4 character error rate on any 60-word slide, quote every exact string in your prompts, freeze a verbatim style block across a series, and always repair with a targeted edit instead of gambling on a full reroll.**
 
+## Frequently Asked Questions
+
+### Can AI image generators spell text correctly?
+
+Not reliably. Even the best text-rendering models run roughly 94 to 96% character accuracy, so a slide with 60 words of on-image text should be expected to contain 2 to 4 wrong characters. Treat a repair pass as a mandatory step.
+
+### How do I fix one wrong word in an AI image?
+
+Use a targeted edit instruction in the same session, asking to change only that word while keeping the layout, palette, icons and all other text identical. Do not reroll the image, because a full reroll risks a worse layout.
+
+### How do I keep a series of AI images looking like one brand?
+
+Perfect the first image, then paste a frozen style block verbatim into every prompt and attach the approved first image as a reference. Change only the content block, meaning the text and icons, between images.
+
+### How much text can I put on one AI-generated image?
+
+Cap any single image at roughly 60 to 80 words of on-image text. Beyond that, both layout coherence and text accuracy degrade, so use a tool that outputs real HTML and CSS for dense carousels.
+
 <ResourceList resources={[
   {
     title: "OpenAI, GPT Image Prompting Guide",
@@ -146,24 +164,24 @@ Write and lock the actual post copy before generating any image. The image exist
     free: true,
   },
   {
-    title: "WsCube Tech, AI Tools for Content Creation (Hindi)",
-    url: "https://www.youtube.com/@WsCubeTech",
+    title: "WsCube Tech, AI Image Generation for Social Content (Hindi)",
+    url: "https://www.youtube.com/@WsCubeTech/search?query=AI+Image+Generation+for+Social+Content",
     type: "video",
     lang: "hi",
     free: true,
     note: "Top Hindi digital marketing channel",
   },
   {
-    title: "Mr Digital Marketing Tamil, AI Content Creation Tools",
-    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw",
+    title: "Mr Digital Marketing Tamil, AI in Marketing",
+    url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw/search?query=AI+in+Marketing",
     type: "video",
     lang: "ta",
     free: true,
     note: "Tamil digital marketing tutorials",
   },
   {
-    title: "ODMT Telugu, AI Design Tools (Telugu)",
-    url: "https://www.youtube.com/@ODMTtelugu",
+    title: "ODMT Telugu, AI in Marketing",
+    url: "https://www.youtube.com/@ODMTtelugu/search?query=AI+in+Marketing",
     type: "video",
     lang: "te",
     free: true,

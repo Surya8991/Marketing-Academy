@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/site";
 /**
  * One branded HTML shell every transactional/engagement email renders
  * through (IMPROVEMENT_PLAN §D2). Email clients don't support CSS
@@ -29,7 +30,7 @@ export type EmailLayoutInput = {
   unsubscribeUrl?: string;
 };
 
-const BASE_URL = "https://marketing-academy-roan.vercel.app";
+const BASE_URL = SITE_URL;
 
 export function renderEmailLayout(input: EmailLayoutInput): { html: string; text: string } {
   const cta =
@@ -66,7 +67,7 @@ export function renderEmailLayout(input: EmailLayoutInput): { html: string; text
         <tr><td style="padding:20px 32px 28px;border-top:1px solid ${COLORS.border};margin-top:12px;">
           <div style="font-size:12px;color:${COLORS.mutedForeground};line-height:1.6;">
             ${footer}
-            <p style="margin:8px 0 0;"><a href="${BASE_URL}" style="color:${COLORS.mutedForeground};">marketing-academy-roan.vercel.app</a></p>
+            <p style="margin:8px 0 0;"><a href="${BASE_URL}" style="color:${COLORS.mutedForeground};">${new URL(BASE_URL).host}</a></p>
           </div>
         </td></tr>
       </table>

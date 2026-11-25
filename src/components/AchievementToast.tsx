@@ -21,6 +21,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { Award } from "lucide-react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { ACHIEVEMENTS } from "@/lib/achievements";
 import type { EngagementState } from "@/lib/engagement";
@@ -95,12 +96,14 @@ export default function AchievementToast() {
             animation: "ma-toast-in 0.3s ease",
           }}
         >
-          <span style={{ fontSize: "1.5rem", lineHeight: 1 }}>{t.emoji}</span>
+          <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--muted)] text-[var(--accent)] shrink-0">
+            <Award size={16} strokeWidth={1.5} />
+          </span>
           <div>
-            <div style={{ fontSize: "0.7rem", color: "var(--muted-foreground)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              Achievement Unlocked
+            <div style={{ fontSize: "0.75rem", color: "var(--muted-foreground)", fontWeight: 500 }}>
+              Achievement earned
             </div>
-            <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--foreground)" }}>
+            <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--foreground)" }}>
               {t.label}
             </div>
           </div>

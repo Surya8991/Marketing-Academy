@@ -182,6 +182,24 @@ You do not need to become a privacy lawyer. You do need to know that your analyt
 
 **The marketer who understands what "active user" actually means will always make better decisions than the one who trusts the big number at the top of the dashboard.**
 
+## Frequently Asked Questions
+
+### What is a session in Google Analytics 4?
+
+A session is a group of events from one user in one visit. It starts on the first event and ends after 30 minutes of inactivity, and GA4 does not start a new session when a user clicks a campaign link mid-visit.
+
+### What is the difference between users and active users in GA4?
+
+A user is a unique visitor identified by a client ID in a browser cookie. Active Users, the number GA4 shows by default, only counts users who had at least one engaged session, so it is not the same as the old Universal Analytics Users count.
+
+### What counts as an engaged session in GA4?
+
+A session is engaged if it lasted longer than 10 seconds, fired at least one key event, or had at least 2 page views. A visitor who lands and immediately hits the back button does not count as an engaged session.
+
+### What is the difference between vanity metrics and actionable metrics?
+
+Vanity metrics such as total pageviews or follower counts look good in a report but do not connect to revenue or decisions. Actionable metrics such as conversion rate, cost per acquisition and engagement rate tell you what to do next.
+
 <ResourceList resources={[
   { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true },
   { title: "GA4 Beginners Guide - Piwik PRO", url: "https://piwik.pro/blog/digital-marketing-analytics-beginners-guide/", type: "article", free: true },
@@ -191,7 +209,7 @@ You do not need to become a privacy lawyer. You do need to know that your analyt
   { title: "30 Marketing KPIs You Need to Monitor in 2025 (Setupad)", url: "https://setupad.com/blog/marketing-kpis/", type: "article", free: true },
   { title: "Google Analytics 4 Tutorial for Beginners - Loves Data (YouTube)", url: "https://www.youtube.com/c/LovesData", type: "video", free: true },
   { title: "HubSpot Academy - Marketing Analytics and Dashboards Certificate", url: "https://academy.hubspot.com/courses/marketing-analytics-and-dashboards", type: "course", free: true },
-  { title: "WsCube Tech - Analytics 101 (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
-  { title: "Mr Digital Marketing Tamil - Analytics 101", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - Analytics 101 (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+  { title: "WsCube Tech, Analytics 101 (Hindi)", url: "https://www.youtube.com/@WsCubeTech/search?query=Analytics+101", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Analytics & Attribution", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw/search?query=Analytics+%26+Attribution", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Analytics & Attribution", url: "https://www.youtube.com/@ODMTtelugu/search?query=Analytics+%26+Attribution", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />

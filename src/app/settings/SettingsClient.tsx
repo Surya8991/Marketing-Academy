@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
@@ -22,7 +23,7 @@ function StatusBanner({ status }: { status: Status }) {
       style={{
         marginTop: "0.5rem",
         fontSize: "0.875rem",
-        color: isError ? "rgba(220,38,38,0.9)" : "rgba(22,163,74,0.9)",
+        color: isError ? "var(--danger)" : "var(--success)",
         background: isError ? "rgba(220,38,38,0.08)" : "rgba(22,163,74,0.08)",
         border: `1px solid ${isError ? "rgba(220,38,38,0.25)" : "rgba(22,163,74,0.25)"}`,
         borderRadius: "0.375rem",
@@ -77,7 +78,7 @@ const primaryBtn: React.CSSProperties = {
 const dangerBtn: React.CSSProperties = {
   ...btnBase,
   background: "rgba(220,38,38,0.12)",
-  color: "rgba(220,38,38,0.95)",
+  color: "var(--danger)",
   border: "1px solid rgba(220,38,38,0.3)",
 };
 
@@ -316,9 +317,15 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
         background: "rgba(234, 179, 8, 0.08)",
         border: "1px solid rgba(234, 179, 8, 0.2)",
         lineHeight: 1.5,
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "0.5rem",
       }}>
-        ⚠️ Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
-        Use <strong>Export</strong> below to save a backup you can import later.
+        <AlertTriangle size={16} strokeWidth={1.5} style={{ flexShrink: 0, marginTop: "0.125rem" }} />
+        <span>
+          Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
+          Use <strong>Export</strong> below to save a backup you can import later.
+        </span>
       </p>
 
       {/* Profile Details */}
@@ -559,7 +566,7 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
 
       {/* Reset */}
       <section style={cardStyle}>
-        <h2 style={{ ...headingStyle, color: "rgba(220,38,38,0.9)" }}>Reset Progress</h2>
+        <h2 style={{ ...headingStyle, color: "var(--danger)" }}>Reset Progress</h2>
         <p style={descStyle}>
           Permanently clear all completed lessons, bookmarks, XP, quiz passes, and notes. Cannot be undone.
         </p>

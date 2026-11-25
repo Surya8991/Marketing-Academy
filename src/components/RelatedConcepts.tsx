@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCategory } from "@/lib/curriculum";
+import { getCategory, flatLessons } from "@/lib/curriculum";
 
 /**
  * Renders lessonMeta.relatedConcepts (curated same-category slugs, present on
@@ -21,22 +21,29 @@ export default function RelatedConcepts({
   const cat = getCategory(category);
   if (!cat) return null;
 
+  // Same category first; authors also cross-link lessons that live in another category.
+  const all = flatLessons();
   const concepts = slugs
-    .map((slug) => cat.lessons.find((l) => l.slug === slug))
+    .map((slug) => {
+      const own = cat.lessons.find((l) => l.slug === slug);
+      if (own) return { ...own, href: `/learn/${category}/${slug}` };
+      const other = all.find((l) => l.slug === slug);
+      return other ? { ...other, href: `/learn/${other.categorySlug}/${slug}` } : undefined;
+    })
     .filter((l): l is NonNullable<typeof l> => !!l);
 
   if (concepts.length === 0) return null;
 
   return (
     <section className="mt-10">
-      <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] font-semibold mb-3">
-        Related Concepts
+      <p className="text-xs text-[var(--muted-foreground)] font-semibold mb-3">
+        Related concepts
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {concepts.map((c) => (
           <Link
             key={c.slug}
-            href={`/learn/${category}/${c.slug}`}
+            href={c.href}
             target="_blank"
             rel="noopener noreferrer"
             className="block rounded-xl border border-[var(--border)] p-4 hover:border-[var(--accent)] transition-colors"

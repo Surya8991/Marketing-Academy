@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AlertTriangle, X } from "lucide-react";
 import { STORAGE_WRITE_FAILED } from "@/lib/events";
 
 /**
@@ -59,7 +60,7 @@ export default function StorageWarning() {
         gap: "0.5rem",
       }}
     >
-      <span style={{ flexShrink: 0, fontSize: "1.1rem" }}>⚠️</span>
+      <AlertTriangle size={16} strokeWidth={1.5} style={{ flexShrink: 0 }} />
       <span style={{ flex: 1 }}>
         Your progress couldn&apos;t be saved — your browser may be blocking site
         data. Check your privacy settings.
@@ -73,12 +74,11 @@ export default function StorageWarning() {
           color: "var(--muted-foreground)",
           cursor: "pointer",
           padding: "0.25rem",
-          fontSize: "1rem",
           lineHeight: 1,
           flexShrink: 0,
         }}
       >
-        ✕
+        <X size={16} strokeWidth={1.5} />
       </button>
     </div>
   );

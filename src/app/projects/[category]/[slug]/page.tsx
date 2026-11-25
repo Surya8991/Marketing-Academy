@@ -7,6 +7,7 @@ import { getProjectByCategoryAndId } from "@/lib/projects/lookup";
 import { getCategory } from "@/lib/curriculum";
 import PageMasthead from "@/components/PageMasthead";
 import ProjectCard from "@/components/ProjectCard";
+import { fitTitle, clip, shareImage, SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ category: string; slug: string }> };
 
@@ -24,22 +25,27 @@ export async function generateStaticParams() {
   return []; // prerender none at build; each page is generated on first request
 }
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
   const row = PROJECTS_INDEX.find((p) => p.category === category && p.id === slug);
   if (!row) return {};
 
-  const title = `${row.title} | Marketing Academy Projects`;
-  const description = `A hands-on ${row.archetype} project (~${row.timeMinutes} min) for the "${row.lessonTitle}" lesson.`;
+  // fitTitle drops the layout's "| Marketing Academy" suffix when it would push past 60 chars (Rule 79).
+  const socialTitle = `${row.title} | Marketing Academy Projects`;
+  const project = await getProjectByCategoryAndId(category, slug);
+  const description = clip(
+    project?.objective ?? `A hands-on ${row.archetype} project (~${row.timeMinutes} min) for the "${row.lessonTitle}" lesson.`,
+  );
+  const { images, twitter } = shareImage(row.title, getCategory(category)?.title, "Practice project");
 
   return {
-    title,
+    title: fitTitle(row.title),
     description,
     alternates: { canonical: `${BASE}/projects/${category}/${slug}` },
-    openGraph: { title, description, type: "article" },
-    twitter: { card: "summary", title, description },
+    openGraph: { title: socialTitle, description, type: "article", images },
+    twitter: { ...twitter, title: socialTitle, description },
   };
 }
 

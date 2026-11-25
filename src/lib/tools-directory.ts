@@ -416,6 +416,15 @@ export const TOOLS: MarketingTool[] = [
     popular: true,
   },
   {
+    name: "Ghost",
+    description: "Open-source publishing platform with built-in newsletters, memberships and paid subscriptions, self-hosted free or on Ghost(Pro).",
+    category: "Content Marketing",
+    pricing: "Open Source",
+    url: "https://ghost.org",
+    emoji: "👻",
+    tags: ["CMS", "newsletter", "memberships"],
+  },
+  {
     name: "Webflow",
     description: "No-code web design and CMS platform that gives designers full visual control without writing code.",
     category: "Content Marketing",

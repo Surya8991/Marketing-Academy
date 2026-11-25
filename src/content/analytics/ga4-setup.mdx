@@ -195,6 +195,24 @@ Two concrete numbers from post-migration research:
 
 **A broken GA4 install does not just give you bad data, it makes every budget decision, ad campaign, and growth report built on top of it wrong too.**
 
+## Frequently Asked Questions
+
+### What is GA4?
+
+GA4 is Google's event-based analytics platform, which replaced Universal Analytics on July 1, 2023. Every user action, such as a page view, click or purchase, is recorded as an event, with parameters that attach extra detail to it.
+
+### How long does GA4 keep my data?
+
+By default only 2 months. Go to Admin, then Data Settings, then Data Retention, and change it to 14 months, the maximum on the free tier, on day one so you can still show last year's funnel data later.
+
+### Should I install GA4 with Google Tag Manager or gtag?
+
+Use Google Tag Manager, with one GA4 Configuration tag firing on Initialization, All Pages. If you hardcode gtag and also use GTM, you will double-count every page view, so use one method only.
+
+### What is a key event in GA4?
+
+A key event is an event you flag as a meaningful business outcome, such as purchase, sign_up or generate_lead. In 2024 Google renamed conversions to key events, and they work the same way.
+
 <ResourceList resources={[
   { title: "Google Analytics 4 Official Documentation", url: "https://support.google.com/analytics/answer/10089681", type: "docs", free: true },
   { title: "Google Skillshop: GA4 Certification Course (Official)", url: "https://skillshop.docebosaas.com/learn/public/catalog/view/37", type: "course", free: true },
@@ -204,7 +222,7 @@ Two concrete numbers from post-migration research:
   { title: "Google Analytics Official YouTube Tutorial Playlist", url: "https://www.youtube.com/playlist?list=PLI5YfMzCfRtZ4bHJJDl_IJejxMwZFiBwz", type: "video", free: true },
   { title: "GA4 Event Tracking Checklist (MeasureSchool)", url: "https://measureschool.com/google-analytics-4-event-tracking/", type: "article", free: true },
   { title: "Google Tag Manager (free tool for installation)", url: "https://tagmanager.google.com/", type: "tool", free: true },
-  { title: "WsCube Tech - GA4 Setup and Events (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
-  { title: "Mr Digital Marketing Tamil - GA4 Setup and Events", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - GA4 Setup and Events (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+  { title: "WsCube Tech, GA4 Setup & Events (Hindi)", url: "https://www.youtube.com/@WsCubeTech/search?query=GA4+Setup+%26+Events", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Analytics & Attribution", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw/search?query=Analytics+%26+Attribution", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Analytics & Attribution", url: "https://www.youtube.com/@ODMTtelugu/search?query=Analytics+%26+Attribution", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />

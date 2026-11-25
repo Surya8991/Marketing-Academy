@@ -1,3 +1,4 @@
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CATEGORIES } from "@/lib/curriculum";
@@ -8,13 +9,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/interview-prep" },
   title: "Marketing Interview Questions 2026",
   description:
-    "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
+    `Marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and ${INTERVIEW_SECTIONS.length} topics in all.`,
   openGraph: {
     title: "Marketing Interview Questions 2026 | Marketing Academy",
     description:
-      "Comprehensive marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and all 16 marketing disciplines.",
+      `Marketing interview questions and answers covering SEO, paid ads, content marketing, analytics, brand strategy, and ${INTERVIEW_SECTIONS.length} topics in all.`,
     type: "website",
+    images: shareImage("Marketing Interview Questions").images,
   },
+  twitter: shareImage("Marketing Interview Questions").twitter,
 };
 
 const FAQS = [
@@ -86,7 +89,7 @@ export default function InterviewPrepPage() {
         <h1
           style={{
             fontSize: "clamp(2rem, 5vw, 3rem)",
-            fontWeight: 800,
+            fontWeight: 600,
             lineHeight: 1.15,
             marginBottom: "1rem",
             color: "var(--foreground)",
@@ -104,7 +107,7 @@ export default function InterviewPrepPage() {
           }}
         >
           Ace your next marketing interview with question-by-question prep across
-          16 disciplines. Each topic links to a full lesson so you can study, not
+          {INTERVIEW_SECTIONS.length} topics. Each topic links to a full lesson so you can study, not
           just memorize.
         </p>
         <div
@@ -186,7 +189,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}
@@ -227,9 +230,6 @@ export default function InterviewPrepPage() {
                       gap: "0.5rem",
                     }}
                   >
-                    <div style={{ fontSize: "1.75rem", lineHeight: 1 }}>
-                      {section.emoji}
-                    </div>
                     <div
                       style={{
                         fontWeight: 600,
@@ -267,7 +267,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "0.5rem",
               color: "var(--foreground)",
             }}
@@ -326,7 +326,7 @@ export default function InterviewPrepPage() {
                       color: "var(--muted-foreground)",
                     }}
                   >
-                    {category.emoji} {category.title}
+                    {category.title}
                   </div>
                   <Link
                     href={`/learn/${categorySlug}/${lessonSlug}`}
@@ -366,7 +366,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}
@@ -419,7 +419,7 @@ export default function InterviewPrepPage() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: "0.875rem",
                   }}
                 >
@@ -461,7 +461,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}

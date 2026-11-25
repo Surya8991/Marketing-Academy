@@ -4,36 +4,33 @@ import { GLOSSARY_TERMS } from "@/lib/glossary";
 import { TRACKS } from "@/lib/tracks";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 import { PROJECTS_INDEX } from "@/lib/projects-index";
+import { LESSON_DATES } from "@/lib/lesson-dates";
 import fs from "fs";
 import path from "path";
+import { SITE_URL } from "@/lib/site";
 
-const BASE = "https://marketing-academy-roan.vercel.app";
-// The site doesn't track per-page content-modification dates, so use the build
-// (deploy) date rather than a hardcoded constant, a frozen date told crawlers
-// every URL was stale. This refreshes lastmod on every deploy. If per-lesson
-// dates are ever tracked, prefer those over this build-wide fallback.
-const BUILD_DATE = new Date();
+const BASE = SITE_URL;
+// Only lessons carry a real lastmod (from git history, see scripts/lesson-dates.mjs).
+// Other pages omit it: a build-date lastmod that changes every deploy teaches
+// crawlers to ignore the field.
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE, priority: 1, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/learn`, priority: 0.9, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/search`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/about`, priority: 0.5, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/tools`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/tracks`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/glossary`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/cheat-sheets`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/interview-prep`, priority: 0.8, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/interview-questions`, priority: 0.9, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/digital-marketing-cheat-sheet`, priority: 0.9, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/certificates`, priority: 0.5, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/compare`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/quizzes`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/resources`, priority: 0.7, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/skill-map`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
-    { url: `${BASE}/projects`, priority: 0.8, changeFrequency: "weekly", lastModified: BUILD_DATE },
-    { url: `${BASE}/tools/geo-audit`, priority: 0.6, changeFrequency: "monthly", lastModified: BUILD_DATE },
+    { url: BASE, priority: 1, changeFrequency: "weekly" },
+    { url: `${BASE}/learn`, priority: 0.9, changeFrequency: "weekly" },
+    { url: `${BASE}/about`, priority: 0.5, changeFrequency: "monthly" },
+    { url: `${BASE}/tools`, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/tracks`, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/glossary`, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/cheat-sheets`, priority: 0.7, changeFrequency: "monthly" },
+    { url: `${BASE}/interview-prep`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/interview-questions`, priority: 0.9, changeFrequency: "monthly" },
+    { url: `${BASE}/digital-marketing-cheat-sheet`, priority: 0.9, changeFrequency: "monthly" },
+    { url: `${BASE}/compare`, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/quizzes`, priority: 0.7, changeFrequency: "monthly" },
+    { url: `${BASE}/resources`, priority: 0.7, changeFrequency: "monthly" },
+    { url: `${BASE}/projects`, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/tools/geo-audit`, priority: 0.6, changeFrequency: "monthly" },
   ];
 
   // Every practice project has its own statically-generated, indexable page.
@@ -41,49 +38,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/projects/${p.category}/${p.id}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${BASE}/learn/${cat.slug}`,
     priority: 0.8,
     changeFrequency: "weekly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   const trackRoutes: MetadataRoute.Sitemap = TRACKS.map((t) => ({
     url: `${BASE}/tracks/${t.slug}`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   const cheatSheetRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
     url: `${BASE}/cheat-sheets/${cat.slug}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
-  const certificateRoutes: MetadataRoute.Sitemap = TRACKS.map((t) => ({
-    url: `${BASE}/certificates/${t.slug}`,
-    priority: 0.5,
-    changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
-  }));
 
   const glossaryTermRoutes: MetadataRoute.Sitemap = GLOSSARY_TERMS.map((t) => ({
     url: `${BASE}/glossary/${t.slug}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   const interviewCategoryRoutes: MetadataRoute.Sitemap = INTERVIEW_SECTIONS.map((sec) => ({
     url: `${BASE}/interview-questions/${sec.id}`,
     priority: 0.8,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   // Only include lesson pages that actually have an MDX file.
@@ -98,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           url: `${BASE}/learn/${cat.slug}/${lesson.slug}`,
           priority: 0.7,
           changeFrequency: "monthly" as const,
-          lastModified: BUILD_DATE,
+          lastModified: LESSON_DATES[`${cat.slug}/${lesson.slug}`]?.[1],
         });
       }
     }
@@ -116,7 +101,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/compare/${slug}`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
-    lastModified: BUILD_DATE,
   }));
 
   return [
@@ -124,7 +108,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...categoryRoutes,
     ...trackRoutes,
     ...cheatSheetRoutes,
-    ...certificateRoutes,
     ...glossaryTermRoutes,
     ...interviewCategoryRoutes,
     ...lessonRoutes,

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, getCategory } from "@/lib/curriculum";
+import { CategoryIcon } from "@/lib/ui-icons";
 import PrintButton from "./PrintButton";
+import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ category: string }> };
@@ -15,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory(category);
   if (!cat) return {};
   return {
-    title: `${cat.title} Cheat Sheet`,
+    title: fitTitle(`${cat.title} Cheat Sheet`),
     description: `Printable quick reference for all ${cat.lessons.length} ${cat.title} lessons. Key concepts, frameworks, and tactics on one page.`,
     alternates: { canonical: `/cheat-sheets/${category}` },
   };
@@ -35,7 +37,7 @@ const printCSS = `
 }
 .cheat-sheet-card:hover {
   border-color: var(--accent) !important;
-  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  box-shadow: 0 4px 20px rgba(79,70,229,0.12);
   transform: translateY(-2px);
 }
 .cs-read-btn {
@@ -62,9 +64,9 @@ const printCSS = `
 `;
 
 const levelColor: Record<string, string> = {
-  Beginner: "#16a34a",
-  Intermediate: "#d97706",
-  Advanced: "#dc2626",
+  Beginner: "var(--success)",
+  Intermediate: "var(--warning)",
+  Advanced: "var(--danger)",
 };
 
 const levelBg: Record<string, string> = {
@@ -78,7 +80,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
   const cat = getCategory(category);
   if (!cat) notFound();
 
-  const CS_BASE = "https://marketing-academy-roan.vercel.app";
+  const CS_BASE = SITE_URL;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -107,13 +109,13 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
         >
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <span style={{ fontSize: "2.5rem", lineHeight: "1" }}>{cat.emoji}</span>
+              <CategoryIcon slug={cat.slug} size={32} className="text-[var(--accent)]" />
               <div>
                 <h1
                   style={{
                     margin: 0,
                     fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
-                    fontWeight: 800,
+                    fontWeight: 600,
                     color: "var(--foreground)",
                     lineHeight: 1.2,
                   }}
@@ -159,13 +161,12 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
                 style={{
                   display: "inline-flex",
                   alignSelf: "flex-start",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
                   color: levelColor[lesson.level] ?? "var(--muted-foreground)",
                   background: levelBg[lesson.level] ?? "transparent",
                   padding: "0.2rem 0.6rem",
                   borderRadius: "999px",
-                  textTransform: "uppercase",
                   letterSpacing: "0.06em",
                 }}
               >
@@ -179,7 +180,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
                 rel="noopener noreferrer"
                 style={{
                   fontSize: "1.05rem",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: "var(--foreground)",
                   textDecoration: "none",
                   lineHeight: 1.35,

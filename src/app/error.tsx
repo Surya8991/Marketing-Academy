@@ -24,7 +24,7 @@ export default function GlobalError({
           className="inline-flex items-center justify-center w-12 h-12 rounded-full border mb-4"
           style={{ background: "rgba(239,68,68,0.12)", borderColor: "rgba(239,68,68,0.35)" }}
         >
-          <AlertTriangle size={22} style={{ color: "#ef4444" }} />
+          <AlertTriangle size={22} style={{ color: "var(--danger)" }} />
         </div>
         <h2 className="font-semibold text-xl mb-2 text-[var(--foreground)]">Something went wrong</h2>
         <p className="text-sm text-[var(--muted-foreground)] mb-6 leading-relaxed">
@@ -46,7 +46,7 @@ export default function GlobalError({
           </Link>
         </div>
         {error.digest && (
-          <p className="mt-4 text-[11px] text-[var(--muted-foreground)] font-mono">
+          <p className="mt-4 text-xs text-[var(--muted-foreground)] font-mono">
             digest: {error.digest}
           </p>
         )}

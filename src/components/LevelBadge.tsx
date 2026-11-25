@@ -4,9 +4,9 @@ import type { Level } from "@/lib/curriculum";
 // rgba overlays instead of Tailwind color classes: dark mode needs CSS-variable-aware
 // colors, and `dark:` classes are a no-op in this project (AGENTS.md Rule 5/19).
 const COLORS: Record<Level, string> = {
-  Beginner: "#16a34a",
-  Intermediate: "#d97706",
-  Advanced: "#dc2626",
+  Beginner: "var(--success)",
+  Intermediate: "var(--warning)",
+  Advanced: "var(--danger)",
 };
 
 const BACKGROUNDS: Record<Level, string> = {

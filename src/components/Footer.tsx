@@ -19,6 +19,10 @@ const RESOURCE_LINKS = [
   { href: "/cheat-sheets",         label: "Cheat Sheets" },
   { href: "/tools",                label: "Tools Directory" },
   { href: "/compare",              label: "Compare Tools" },
+  { href: "/tools/geo-audit",      label: "GEO Auditor" },
+  { href: "/interview-prep",       label: "Interview Prep" },
+  { href: "/resources",            label: "Resources" },
+  { href: "/search",               label: "Search" },
   { href: "/about",                label: "About" },
 ];
 
@@ -53,7 +57,7 @@ export default function Footer() {
                 aria-label="GitHub"
                 className="flex items-center gap-1.5 p-2 rounded-lg text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors text-xs"
               >
-                <ExternalLink size={15} />
+                <ExternalLink size={16} strokeWidth={1.5} />
                 GitHub
               </a>
               <a
@@ -61,14 +65,14 @@ export default function Footer() {
                 aria-label="RSS Feed"
                 className="p-2 rounded-lg text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
               >
-                <Rss size={18} />
+                <Rss size={16} strokeWidth={1.5} />
               </a>
             </div>
           </div>
 
           {/* Learn */}
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4">
+            <p className="text-xs font-medium text-[var(--foreground)] mb-4">
               Learn
             </p>
             <ul className="space-y-2.5 text-sm">
@@ -87,7 +91,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4">
+            <p className="text-xs font-medium text-[var(--foreground)] mb-4">
               Resources
             </p>
             <ul className="space-y-2.5 text-sm">
@@ -106,7 +110,7 @@ export default function Footer() {
 
           {/* Topics, top 6 + browse-all (full 21-category browse already lives in the Nav mega menu) */}
           <div>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[var(--foreground)] mb-4">
+            <p className="text-xs font-medium text-[var(--foreground)] mb-4">
               Topics
             </p>
             <ul className="space-y-2.5 text-sm">
@@ -116,7 +120,7 @@ export default function Footer() {
                     href={`/learn/${cat.slug}`}
                     className="text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                   >
-                    {cat.emoji} {cat.title}
+                    {cat.title}
                   </Link>
                 </li>
               ))}

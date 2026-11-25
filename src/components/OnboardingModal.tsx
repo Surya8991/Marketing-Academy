@@ -2,19 +2,21 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { Sprout, Briefcase, Rocket, ShoppingCart, User, Cpu, PenTool, Smartphone } from "lucide-react";
 import { ONBOARDED_KEY as STORAGE_KEY, PROGRESS_CHANGED_EVENT } from "@/lib/events";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { setCertName } from "@/lib/cert-name";
 import { getProfile, saveProfile } from "@/lib/profile";
 
 const GOALS = [
-  { emoji: "🌱", label: "Totally new to marketing", href: "/learn" },
-  { emoji: "🚀", label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
-  { emoji: "🛒", label: "Scale an e-commerce store", href: "/tracks/ecommerce-growth" },
-  { emoji: "👤", label: "Market my own product/service", href: "/tracks/solo-founder" },
-  { emoji: "🤖", label: "Use AI in my marketing", href: "/tracks/ai-first-marketer" },
-  { emoji: "✍️", label: "Build a content audience", href: "/tracks/content-creator" },
-  { emoji: "📱", label: "Master social media", href: "/tracks/social-media-manager" },
+  { Icon: Sprout, label: "Totally new to marketing", href: "/tracks/marketing-foundations" },
+  { Icon: Briefcase, label: "Get my first marketing job", href: "/tracks/first-marketing-job" },
+  { Icon: Rocket, label: "Grow a B2B startup", href: "/tracks/b2b-marketer" },
+  { Icon: ShoppingCart, label: "Scale an e-commerce store", href: "/tracks/ecommerce-growth" },
+  { Icon: User, label: "Market my own product/service", href: "/tracks/solo-founder" },
+  { Icon: Cpu, label: "Use AI in my marketing", href: "/tracks/ai-first-marketer" },
+  { Icon: PenTool, label: "Build a content audience", href: "/tracks/content-creator" },
+  { Icon: Smartphone, label: "Master social media", href: "/tracks/social-media-manager" },
 ];
 
 export default function OnboardingModal() {
@@ -56,6 +58,9 @@ export default function OnboardingModal() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
+    // handleSkip intentionally omitted: the listener only needs to (re)bind
+    // when the modal opens/closes, not on every render that recreates it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   if (!mounted || !visible) return null;
@@ -119,6 +124,8 @@ export default function OnboardingModal() {
           color: "var(--foreground)",
           maxWidth: 480,
           width: "100%",
+          maxHeight: "100%",
+          overflowY: "auto",
           borderRadius: "1rem",
           padding: "2rem",
           border: "1px solid var(--border)",
@@ -130,7 +137,7 @@ export default function OnboardingModal() {
           style={{
             margin: "0 0 0.375rem",
             fontSize: "1.5rem",
-            fontWeight: 700,
+            fontWeight: 600,
             color: "var(--foreground)",
           }}
         >
@@ -172,7 +179,7 @@ export default function OnboardingModal() {
             gap: "0.75rem",
           }}
         >
-          {GOALS.map(({ emoji, label, href }) => (
+          {GOALS.map(({ Icon, label, href }) => (
             <button
               key={href}
               onClick={() => handleGoal(href, label)}
@@ -180,7 +187,7 @@ export default function OnboardingModal() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "0.375rem",
+                gap: "0.5rem",
                 padding: "0.875rem 1rem",
                 background: "var(--background)",
                 color: "var(--foreground)",
@@ -202,7 +209,7 @@ export default function OnboardingModal() {
                 (e.currentTarget as HTMLButtonElement).style.background = "var(--background)";
               }}
             >
-              <span style={{ fontSize: "1.375rem", lineHeight: 1 }}>{emoji}</span>
+              <Icon size={16} strokeWidth={1.5} style={{ color: "var(--muted-foreground)" }} />
               <span>{label}</span>
             </button>
           ))}

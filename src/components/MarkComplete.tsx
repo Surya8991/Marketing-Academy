@@ -42,7 +42,7 @@ function fireConfetti() {
   const ctx = canvas.getContext("2d");
   if (!ctx) { document.body.removeChild(canvas); return; }
 
-  const colors = ["#6366f1","#a855f7","#ec4899","#f59e0b","#10b981","#3b82f6"];
+  const colors = ["#4f46e5","#a855f7","#ec4899","#f59e0b","#10b981","#3b82f6"];
   const pieces = Array.from({ length: 120 }, () => ({
     x: Math.random() * canvas.width,
     y: -10 - Math.random() * 40,
@@ -175,7 +175,7 @@ export default function MarkComplete({
     <div className="flex flex-col gap-3">
       <button
         onClick={toggle}
-        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-all w-fit"
+        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit"
         style={
           done
             ? {

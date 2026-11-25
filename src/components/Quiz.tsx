@@ -330,8 +330,8 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
                   const isCorrectOpt = oi === q.correct;
                   const isUserPick = oi === userAnswer;
                   let color = "var(--muted-foreground)";
-                  if (isCorrectOpt) color = "#16a34a";
-                  else if (isUserPick) color = "#ef4444";
+                  if (isCorrectOpt) color = "var(--success)";
+                  else if (isUserPick) color = "var(--danger)";
                   return (
                     <div key={oi} className="flex items-center gap-1.5 text-sm" style={{ color }}>
                       <span className="font-medium">{String.fromCharCode(65 + oi)}.</span>
@@ -370,10 +370,10 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
             aria-live="polite"
           >
             <div className="flex justify-center mb-3">
-              <Trophy size={40} style={{ color: "#16a34a" }} />
+              <Trophy size={40} style={{ color: "var(--success)" }} />
             </div>
-            <div className="text-3xl font-bold mb-1" style={{ color: "#16a34a" }}>
-              {alreadyPassed ? "Already Passed!" : "Quiz Passed!"}
+            <div className="text-2xl font-medium mb-1" style={{ color: "var(--success)" }}>
+              {alreadyPassed ? "Already passed" : "Quiz passed"}
             </div>
             {!alreadyPassed && (
               <p className="text-sm text-[var(--muted-foreground)] mb-1">
@@ -404,7 +404,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
               <div className="flex justify-center mb-3 text-[var(--muted-foreground)]">
                 <XCircle size={36} style={{ color: "rgba(239,68,68,0.8)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1">
+              <div className="text-3xl font-semibold mb-1">
                 {score}/{totalQuestions}
               </div>
               <p className="text-[var(--muted-foreground)] mb-1">{pct}% correct</p>
@@ -554,7 +554,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
               key={i}
               onClick={() => handleSelect(i)}
               aria-pressed={isPicked}
-              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all cursor-pointer"
+              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-colors cursor-pointer"
               style={{
                 borderColor: isPicked ? "var(--accent)" : "var(--border)",
                 background: isPicked ? "color-mix(in srgb, var(--accent) 10%, transparent)" : "transparent",

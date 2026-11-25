@@ -93,7 +93,7 @@ export default function CompareSelector() {
               <option value="">-- Select Tool --</option>
               {filteredTools.map((t) => (
                 <option key={t.name} value={t.name}>
-                  {t.emoji} {t.name}
+                  {t.name}
                 </option>
               ))}
             </select>
@@ -115,7 +115,7 @@ export default function CompareSelector() {
               <option value="">-- Select Tool --</option>
               {filteredTools.map((t) => (
                 <option key={t.name} value={t.name}>
-                  {t.emoji} {t.name}
+                  {t.name}
                 </option>
               ))}
             </select>
@@ -123,7 +123,7 @@ export default function CompareSelector() {
         </div>
 
         {error && (
-          <p className="text-red-500 text-sm font-medium" role="alert">
+          <p className="text-[var(--danger)] text-sm font-medium" role="alert">
             {error}
           </p>
         )}

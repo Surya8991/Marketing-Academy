@@ -17,7 +17,7 @@ export default function RecentlyViewed() {
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-2">
       <div className="flex items-center gap-2 mb-3">
         <History size={14} className="text-[var(--muted-foreground)]" />
-        <span className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-[var(--muted-foreground)]">
           Continue where you left off
         </span>
       </div>
@@ -28,7 +28,7 @@ export default function RecentlyViewed() {
             href={`/learn/${l.categorySlug}/${l.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-all group"
+            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors group"
           >
             <span className="text-xs text-[var(--muted-foreground)]">{l.categoryTitle}</span>
             <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">

@@ -16,21 +16,21 @@ import type { SimulationLogEntry } from "./SimulationRunner";
 
 const VERDICT_META: Record<Verdict, { color: string; bg: string; border: string; icon: React.ReactNode; label: string }> = {
   optimal: {
-    color: "#16a34a",
+    color: "var(--success)",
     bg: "rgba(22,163,74,0.12)",
     border: "1px solid rgba(22,163,74,0.35)",
     icon: <CheckCircle2 size={15} />,
     label: "Optimal",
   },
   acceptable: {
-    color: "#d97706",
+    color: "var(--warning)",
     bg: "rgba(217,119,6,0.12)",
     border: "1px solid rgba(217,119,6,0.35)",
     icon: <AlertTriangle size={15} />,
     label: "Acceptable",
   },
   costly: {
-    color: "#ef4444",
+    color: "var(--danger)",
     bg: "rgba(239,68,68,0.12)",
     border: "1px solid rgba(239,68,68,0.35)",
     icon: <XCircle size={15} />,
@@ -101,7 +101,7 @@ export default function SimulationDebrief({ log, stages, onReplay }: Props) {
               <p className="text-sm text-[var(--muted-foreground)]">You chose: {option.label}</p>
               {/* Costly choices point back to the lesson section they contradicted */}
               {entry.verdict === "costly" && (
-                <p className="text-xs text-[var(--foreground)] italic mt-1">
+                <p className="text-xs text-[var(--foreground)] mt-1">
                   This contradicted &ldquo;{option.lessonRef}&rdquo; — worth a re-read before you try again.
                 </p>
               )}

@@ -1,3 +1,4 @@
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 import { PROJECTS_INDEX } from "@/lib/projects-index";
 import ProjectsClient from "./ProjectsClient";
@@ -5,6 +6,7 @@ import PageMasthead from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
   title: "Practice Projects",
+  alternates: { canonical: "/projects" },
   description:
     `Hands-on practice projects tied to real lessons: ${PROJECTS_INDEX.length}+ diagnostics, simulations, teardowns, and builds set against real, cited company case studies. Free-tool path on every one.`,
   openGraph: {
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
     description:
       `Hands-on practice projects tied to real lessons: ${PROJECTS_INDEX.length}+ diagnostics, simulations, teardowns, and builds set against real, cited company case studies.`,
     type: "website",
+    images: shareImage("Practice Projects").images,
   },
+  twitter: shareImage("Practice Projects").twitter,
 };
 
 export default function ProjectsPage() {
@@ -37,7 +41,7 @@ export default function ProjectsPage() {
 
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">Not reading — doing</p>
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">Not reading — doing</p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
           Practice Projects
         </h1>
@@ -54,7 +58,7 @@ export default function ProjectsPage() {
         <div className="border border-[var(--border)] grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-[var(--border)] max-w-2xl">
           {stats.map((s) => (
             <div key={s.label} className="p-4 font-ui-sans">
-              <p className="font-data text-[0.65rem] text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
+              <p className="font-data text-xs text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
               <p className="font-display font-semibold text-2xl text-[var(--foreground)]">{s.value}</p>
               <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{s.label}</p>
             </div>

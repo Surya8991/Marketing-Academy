@@ -62,7 +62,7 @@ export default function ReviewPageClient() {
       <PageMasthead left="Marketing Academy · Review" right="Spaced repetition" />
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 font-ui-sans">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">
           Mistakes, revisited
         </p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
@@ -137,7 +137,7 @@ export default function ReviewPageClient() {
                     } else if (isPicked) {
                       border = "1px solid rgba(239,68,68,0.5)";
                       bg = "rgba(239,68,68,0.07)";
-                      color = "rgba(239,68,68,0.9)";
+                      color = "var(--danger)";
                     }
                   }
                   return (
@@ -145,7 +145,7 @@ export default function ReviewPageClient() {
                       key={i}
                       onClick={() => pick(i)}
                       aria-disabled={selected !== null}
-                      className="w-full text-left px-4 py-3 rounded-lg text-sm transition-all"
+                      className="w-full text-left px-4 py-3 rounded-lg text-sm transition-colors"
                       style={{ border, background: bg, color, cursor: selected === null ? "pointer" : "default" }}
                     >
                       <span className="font-medium mr-2 text-[var(--muted-foreground)]">
@@ -156,7 +156,7 @@ export default function ReviewPageClient() {
                         <CheckCircle2 size={14} className="inline ml-2" style={{ color: "rgb(22,163,74)" }} />
                       )}
                       {selected !== null && isPicked && !isCorrectOpt && (
-                        <XCircle size={14} className="inline ml-2" style={{ color: "rgba(239,68,68,0.9)" }} />
+                        <XCircle size={14} className="inline ml-2" style={{ color: "var(--danger)" }} />
                       )}
                     </button>
                   );

@@ -10,6 +10,7 @@ import { buildUnsubscribeToken } from "@/lib/email/unsubscribe-token";
 import { uniqueLessonCount } from "@/lib/curriculum";
 import { COMPLETED_KEY } from "@/lib/progress";
 import type { EngagementState } from "@/lib/engagement";
+import { SITE_URL } from "@/lib/site";
 
 /** IMPROVEMENT_PLAN #28. Runs weekly (vercel.json), no date-equality gate
  *  needed, every opted-in user gets one every run regardless of activity
@@ -47,7 +48,7 @@ export async function GET(req: NextRequest) {
     const completed = new Set((snapshot[COMPLETED_KEY] as string[] | undefined) ?? []);
     const overallPct = totalLessons > 0 ? Math.round((completed.size / totalLessons) * 100) : 0;
 
-    const unsubscribeUrl = `https://marketing-academy-roan.vercel.app/api/email/unsubscribe?token=${buildUnsubscribeToken(row.id, "weeklyDigest")}`;
+    const unsubscribeUrl = `${SITE_URL}/api/email/unsubscribe?token=${buildUnsubscribeToken(row.id, "weeklyDigest")}`;
     const { subject, html, text } = weeklyDigestEmail({
       lessonsThisWeek,
       xpThisWeek,

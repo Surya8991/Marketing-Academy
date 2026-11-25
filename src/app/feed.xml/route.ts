@@ -1,7 +1,8 @@
 import { CATEGORIES } from "@/lib/curriculum";
 import { NextResponse } from "next/server";
+import { SITE_URL } from "@/lib/site";
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export async function GET() {
   const allLessons = CATEGORIES.flatMap((cat) =>

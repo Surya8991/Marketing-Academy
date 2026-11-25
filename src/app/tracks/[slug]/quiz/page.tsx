@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${track.title} Quiz`,
     description: `Test your knowledge across all ${track.lessons.length} lessons in the ${track.title}.`,
+    alternates: { canonical: `/tracks/${slug}/quiz` },
   };
 }
 
@@ -56,8 +57,7 @@ export default async function TrackQuizPage({ params }: Props) {
       </Link>
 
       <div className="mb-8">
-        <div className="text-4xl mb-3">{track.emoji}</div>
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">{track.title}: Knowledge Check</h1>
+        <h1 className="text-2xl sm:text-3xl font-semibold mb-2">{track.title}: Knowledge Check</h1>
         <p className="text-[var(--muted-foreground)]">
           {questions.length} questions across {track.lessons.length} lessons · pass 80% to mark all complete
         </p>

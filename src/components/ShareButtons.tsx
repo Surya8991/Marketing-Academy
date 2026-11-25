@@ -85,7 +85,7 @@ export default function ShareButtons({ title, url }: Props) {
       >
         <span
           style={{
-            fontWeight: 700,
+            fontWeight: 600,
             fontSize: "0.75rem",
             fontFamily: "serif",
             lineHeight: 1,
@@ -121,7 +121,7 @@ export default function ShareButtons({ title, url }: Props) {
         }}
         aria-label="Share on X (Twitter)"
       >
-        <span style={{ fontWeight: 700, fontSize: "0.875rem" }}>𝕏</span>
+        <span style={{ fontWeight: 600, fontSize: "0.875rem" }}>𝕏</span>
         Twitter
       </button>
 
@@ -142,8 +142,8 @@ export default function ShareButtons({ title, url }: Props) {
         }}
         aria-label="Copy link"
       >
-        {copied ? <Check size={12} /> : <Link2 size={12} />}
-        {copied ? "Copied!" : "Copy link"}
+        {copied ? <Check size={14} strokeWidth={1.5} /> : <Link2 size={14} strokeWidth={1.5} />}
+        {copied ? "Copied" : "Copy link"}
       </button>
     </div>
   );

@@ -19,13 +19,13 @@ export default function ReviewDueBadge() {
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
       <Link
         href="/review"
-        className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-all"
+        className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors"
       >
         <RotateCcw size={16} className="text-[var(--accent)] shrink-0" />
         <span className="text-sm text-[var(--foreground)]">
           <strong className="font-semibold">{dueCount}</strong> quiz question{dueCount !== 1 ? "s" : ""} due for review
         </span>
-        <ArrowRight size={14} className="ml-auto text-[var(--muted-foreground)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all" />
+        <ArrowRight size={14} className="ml-auto text-[var(--muted-foreground)] group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-[transform,opacity]" />
       </Link>
     </section>
   );

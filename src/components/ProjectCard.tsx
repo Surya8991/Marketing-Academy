@@ -105,7 +105,7 @@ function companyAvatar(name: string) {
         background: "var(--muted)",
         color: "var(--foreground)",
         fontSize: "0.85rem",
-        fontWeight: 700,
+        fontWeight: 600,
         flexShrink: 0,
         border: "1px solid var(--border)",
       }}
@@ -119,7 +119,7 @@ function companyAvatar(name: string) {
  *  else in the "field manual" identity (PageMasthead, homepage section labels). */
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-data text-[0.68rem] tracking-[0.08em] uppercase text-[var(--accent)] m-0">
+    <p className="font-data text-xs tracking-[0.04em] text-[var(--accent)] m-0">
       {children}
     </p>
   );
@@ -148,6 +148,8 @@ type Props = {
 };
 
 export default function ProjectCard({ project, id, category, variant = "preview" }: Props) {
+  // The dedicated project page has no other h1, so the full variant's title is the page heading.
+  const TitleTag = variant === "full" ? "h1" : "h3";
   // Initial false matches SSR output exactly (localStorage is client-only),
   // so no mount-guard is needed here, only the read is deferred to an effect.
   const [done, setDone] = useState(false);
@@ -200,9 +202,8 @@ export default function ProjectCard({ project, id, category, variant = "preview"
               style={{
                 padding: "0.2rem 0.6rem",
                 borderRadius: "999px",
-                fontSize: "0.68rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
+                fontSize: "0.75rem",
+                fontWeight: 600,
                 letterSpacing: "0.04em",
                 ...tierStyles[project.tier],
               }}
@@ -230,9 +231,9 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           </button>
         </div>
 
-        <h3 className="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--foreground)] m-0">
+        <TitleTag className="font-display font-semibold text-xl sm:text-2xl leading-tight text-[var(--foreground)] m-0">
           {project.title}
-        </h3>
+        </TitleTag>
 
         {company && (
           <div className="flex items-center gap-2">
@@ -253,12 +254,12 @@ export default function ProjectCard({ project, id, category, variant = "preview"
         {project.keyQuestion && (
           <div className="flex items-start gap-2 pl-3" style={{ borderLeft: "2px solid var(--accent)" }}>
             <HelpCircle size={15} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} aria-hidden="true" />
-            <p className="font-display italic text-base text-[var(--foreground)] m-0 leading-snug">{project.keyQuestion}</p>
+            <p className="font-display text-base text-[var(--foreground)] m-0 leading-snug">{project.keyQuestion}</p>
           </div>
         )}
 
         {project.skills && project.skills.length > 0 && (
-          <div className="flex flex-wrap gap-x-3 gap-y-1 font-data text-[0.7rem] tracking-[0.03em] text-[var(--muted-foreground)]">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 font-data text-xs tracking-[0.03em] text-[var(--muted-foreground)]">
             {project.skills.map((skill, i) => (
               <span key={skill}>
                 {skill}
@@ -325,7 +326,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
             <Section eyebrow="The process" title={`${stepCount} step${stepCount !== 1 ? "s" : ""}`}>
               {project.steps.map((s, i) => (
                 <div key={s.stepId} className="flex flex-col gap-2">
-                  <p className="font-data text-[0.7rem] tracking-[0.06em] uppercase text-[var(--muted-foreground)] m-0">
+                  <p className="font-data text-xs tracking-[0.06em] text-[var(--muted-foreground)] m-0">
                     Step {String(i + 1).padStart(2, "0")} of {String(stepCount).padStart(2, "0")}
                   </p>
                   <ProjectStep step={s} />
@@ -341,7 +342,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           )}
 
           {project.teardownItems && project.teardownItems.length > 0 && (
-            <Section eyebrow="The process" title="Specimens to review">
+            <Section eyebrow="The process" title="Examples to review">
               {project.teardownItems.map((item) => (
                 <TeardownItemCard key={item.itemId} item={item} />
               ))}
@@ -403,7 +404,7 @@ export default function ProjectCard({ project, id, category, variant = "preview"
           <Section eyebrow="Final deliverable">
             <p className="text-sm text-[var(--foreground)] leading-relaxed m-0">{project.deliverable}</p>
             <details>
-              <summary className="cursor-pointer font-data text-xs uppercase tracking-wide text-[var(--accent)]">
+              <summary className="cursor-pointer font-data text-xs text-[var(--accent)]">
                 See a reference example
               </summary>
               <div className="mt-2">

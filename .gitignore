@@ -48,6 +48,10 @@ next-env.d.ts
 data/*.db
 data/*.db-*
 
+# temporary export zips & bundles
+Marketing_Academy_Lab*
+*.zip
+
 # AI/editor scratch + tool dirs
 .augment/
 .clinerules/

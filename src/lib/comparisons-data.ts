@@ -188,7 +188,7 @@ export const CUSTOM_COMPARISONS: Record<string, CustomComparison> = {
     pricingBreakdown: "Buffer has a free tier and starts paid plans at $6/month per channel. Hootsuite has no free plan and starts paid tiers at $99/month, making it unsuitable for freelancers.",
     recommendedLesson: {
       title: "Social Media Strategy",
-      path: "/learn/social/social-media-strategy",
+      path: "/learn/social/social-strategy-basics",
     },
   },
   "optimizely-vs-vwo": {
@@ -222,7 +222,7 @@ export const CUSTOM_COMPARISONS: Record<string, CustomComparison> = {
     pricingBreakdown: "VWO offers free starter tiers and listed monthly plans. Optimizely requires annual contracts, typically starting in the tens of thousands of dollars, making it strictly enterprise-only.",
     recommendedLesson: {
       title: "A/B Testing Frameworks",
-      path: "/learn/cro/ab-testing",
+      path: "/learn/growth/ab-testing",
     },
   },
   "wordpress-vs-ghost": {
@@ -255,8 +255,8 @@ export const CUSTOM_COMPARISONS: Record<string, CustomComparison> = {
     ],
     pricingBreakdown: "Both offer open-source code that is free to self-host. For managed hosting, WordPress starts around $5/month, while managed Ghost hosting starts at $9/month.",
     recommendedLesson: {
-      title: "Content Marketing Hubs",
-      path: "/learn/content/content-hubs",
+      title: "Topic Clusters and Pillar Pages",
+      path: "/learn/content/topic-clusters",
     },
   },
 };

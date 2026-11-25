@@ -180,7 +180,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         const fg = css.getPropertyValue("--foreground").trim() || (isDark ? "#f4f4f5" : "#0a0a0a");
         const muted = css.getPropertyValue("--muted").trim() || (isDark ? "#18181b" : "#f5f5f5");
         const border = css.getPropertyValue("--border").trim() || (isDark ? "#2a2a30" : "#e5e7eb");
-        const accent = css.getPropertyValue("--accent").trim() || (isDark ? "#a5b4fc" : "#6366f1");
+        const accent = css.getPropertyValue("--accent").trim() || (isDark ? "#a5b4fc" : "#4f46e5");
 
         mermaid.initialize({
           startOnLoad: false,
@@ -351,7 +351,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
 
   if (error) {
     return (
-      <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm text-red-600">
+      <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm text-[var(--danger)]">
         <p className="font-medium">Diagram error</p>
         <pre className="mt-1 text-xs overflow-auto whitespace-pre-wrap">{error}</pre>
       </div>

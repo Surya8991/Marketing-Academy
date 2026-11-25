@@ -58,7 +58,7 @@ npm run build
 - [ ] `npm run build` prints `✓ Compiled successfully` **and** the full route
       table with no `Error occurred prerendering page` lines, this repo
       statically generates 1,700+ pages (642 lessons, 800+ projects, 155+
-      glossary terms, 24 tracks); a single bad prerender is easy to miss in
+      glossary terms, 26 tracks); a single bad prerender is easy to miss in
       a wall of successful ones, so actually scan for the word `Error`, don't
       just check the exit code
 - [ ] Run these **in this order**, a build can succeed on code that fails

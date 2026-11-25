@@ -1,16 +1,17 @@
 import Link from "next/link";
+import { BookOpen, FileText, Trophy } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
+import { CategoryIcon } from "@/lib/ui-icons";
 import { QUIZZES } from "@/lib/quizzes";
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
 
+const QUESTION_COUNT = Object.values(QUIZZES).reduce((sum, q) => sum + q.length, 0);
+
 export const metadata: Metadata = {
   title: "Marketing Quizzes | Test Your Knowledge",
-  description:
-    "Test your marketing knowledge with 1,000+ quiz questions across 15 categories: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.",
-  alternates: {
-    canonical: "https://marketing-academy-roan.vercel.app/quizzes",
-  },
+  description: `Test your marketing knowledge with ${QUESTION_COUNT.toLocaleString("en-US")} quiz questions across ${CATEGORIES.length} topics: SEO, Paid Ads, Growth, Email, Analytics, AI Marketing and more. Free interactive quizzes.`,
+  alternates: { canonical: "/quizzes" },
 };
 
 const hoverCSS = `.quiz-cat-card { transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
@@ -54,21 +55,14 @@ export default function QuizzesPage() {
 
         {/* Hero */}
         <div className="text-center mb-14">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
-            style={{
-              background: "rgba(99,102,241,0.12)",
-              color: "var(--accent)",
-              border: "1px solid rgba(99,102,241,0.25)",
-            }}
-          >
-            🧠 Test Your Knowledge
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          <p className="font-data text-xs text-[var(--accent)] mb-3">
+            Test your knowledge
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-medium font-serif tracking-tight mb-4">
             Marketing Quizzes
           </h1>
           <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto mb-10">
-            Every lesson ends with a quiz. Get 100% to unlock &ldquo;Mark as Complete&rdquo; and prove you know your stuff.
+            Every lesson ends with a short quiz. Score 80% or more (4 of 5) to mark the lesson complete.
           </p>
 
           {/* Stats */}
@@ -76,33 +70,33 @@ export default function QuizzesPage() {
             {[
               { value: totalQuestions.toLocaleString(), label: "Total Questions" },
               { value: totalLessons, label: "Lessons with Quizzes" },
-              { value: totalCategories, label: "Categories" },
+              { value: totalCategories, label: "Topics" },
             ].map((s) => (
               <div
                 key={s.label}
-                className="flex flex-col items-center px-6 py-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] min-w-[140px]"
+                className="flex flex-col items-center px-6 py-4 rounded-xl border border-[var(--border)] bg-[var(--card)] min-w-[144px]"
               >
-                <span className="text-3xl font-bold text-[var(--accent)]">{s.value}</span>
-                <span className="text-sm text-[var(--muted-foreground)] mt-1">{s.label}</span>
+                <span className="text-3xl font-medium font-display tabular-nums text-[var(--accent)]">{s.value}</span>
+                <span className="text-xs text-[var(--muted-foreground)] mt-1">{s.label}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* How it works banner */}
-        <div className="mb-12 p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)]">
-          <h2 className="text-base font-semibold mb-4">How quizzes work</h2>
+        <div className="mb-12 p-6 rounded-xl border border-[var(--border)] bg-[var(--card)]">
+          <h2 className="text-base font-medium mb-4">How quizzes work</h2>
           <div className="grid sm:grid-cols-3 gap-5">
             {[
-              { emoji: "📖", title: "Open a lesson", body: "Pick any category below and open a lesson." },
-              { emoji: "📝", title: "Read the lesson", body: "Work through the content at your own pace." },
-              { emoji: "🏆", title: "Pass the quiz", body: "Score 100% on the quiz at the bottom to mark the lesson complete." },
-            ].map((s) => (
-              <div key={s.title} className="flex gap-3">
-                <span className="text-2xl shrink-0">{s.emoji}</span>
+              { Icon: BookOpen, title: "Open a lesson", body: "Pick any category below and open a lesson." },
+              { Icon: FileText, title: "Read the lesson", body: "Work through the content at your own pace." },
+              { Icon: Trophy, title: "Pass the quiz", body: "Score 80% or more on the quiz at the bottom to mark the lesson complete." },
+            ].map(({ Icon, title, body }) => (
+              <div key={title} className="flex items-start gap-3">
+                <Icon size={18} strokeWidth={1.5} className="text-[var(--muted-foreground)] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-sm">{s.title}</div>
-                  <div className="text-sm text-[var(--muted-foreground)] mt-0.5">{s.body}</div>
+                  <div className="font-medium text-sm">{title}</div>
+                  <div className="text-sm text-[var(--muted-foreground)] mt-0.5">{body}</div>
                 </div>
               </div>
             ))}
@@ -110,7 +104,7 @@ export default function QuizzesPage() {
         </div>
 
         {/* Category cards grid */}
-        <h2 className="text-xl font-bold mb-6">Browse by Category</h2>
+        <h2 className="text-xl font-semibold mb-6">Browse by Category</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {categoryData.map((cat) => (
             <Link
@@ -122,10 +116,10 @@ export default function QuizzesPage() {
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex items-center gap-3">
                   <span
-                    className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl shrink-0"
-                    style={{ background: "rgba(99,102,241,0.08)" }}
+                    className="flex items-center justify-center w-12 h-12 rounded-xl shrink-0 text-[var(--accent)]"
+                    style={{ background: "rgba(79,70,229,0.08)" }}
                   >
-                    {cat.emoji}
+                    <CategoryIcon slug={cat.slug} size={22} />
                   </span>
                   <div>
                     <div className="font-semibold text-sm leading-snug">{cat.title}</div>
@@ -145,9 +139,9 @@ export default function QuizzesPage() {
                 <span
                   className="text-xs font-semibold px-2.5 py-1 rounded-full"
                   style={{
-                    background: "rgba(99,102,241,0.10)",
+                    background: "rgba(79,70,229,0.10)",
                     color: "var(--accent)",
-                    border: "1px solid rgba(99,102,241,0.2)",
+                    border: "1px solid rgba(79,70,229,0.2)",
                   }}
                 >
                   {cat.totalQuestions} questions
@@ -165,9 +159,9 @@ export default function QuizzesPage() {
         {/* Bottom CTA */}
         <div
           className="mt-16 text-center py-12 rounded-2xl border border-[var(--accent)]/30"
-          style={{ background: "rgba(99,102,241,0.04)" }}
+          style={{ background: "rgba(79,70,229,0.04)" }}
         >
-          <p className="text-2xl font-bold mb-2">Ready to start?</p>
+          <p className="text-2xl font-semibold mb-2">Ready to start?</p>
           <p className="text-[var(--muted-foreground)] mb-6 max-w-md mx-auto text-sm">
             Pick a category above, open any lesson, read it, then take the quiz at the bottom.
           </p>

@@ -40,21 +40,21 @@ const VERDICT_META: Record<Verdict, { bg: string; border: string; color: string;
   optimal: {
     bg: "rgba(22,163,74,0.12)",
     border: "1px solid rgba(22,163,74,0.35)",
-    color: "#16a34a",
+    color: "var(--success)",
     icon: <CheckCircle2 size={16} />,
     label: "Optimal",
   },
   acceptable: {
     bg: "rgba(217,119,6,0.12)",
     border: "1px solid rgba(217,119,6,0.35)",
-    color: "#d97706",
+    color: "var(--warning)",
     icon: <AlertTriangle size={16} />,
     label: "Acceptable",
   },
   costly: {
     bg: "rgba(239,68,68,0.12)",
     border: "1px solid rgba(239,68,68,0.35)",
-    color: "#ef4444",
+    color: "var(--danger)",
     icon: <XCircle size={16} />,
     label: "Costly",
   },
@@ -169,7 +169,7 @@ export default function SimulationRunner({ stages, liveTrack }: Props) {
                   onClick={() => handleChoose(option)}
                   aria-disabled={!!selectedOptionId}
                   aria-pressed={isPicked}
-                  className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all"
+                  className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-colors"
                   style={{
                     borderColor: isPicked ? "var(--accent)" : "var(--border)",
                     background: isPicked ? "color-mix(in srgb, var(--accent) 10%, transparent)" : "transparent",
@@ -201,7 +201,7 @@ export default function SimulationRunner({ stages, liveTrack }: Props) {
               </div>
               <p className="text-sm text-[var(--foreground)] leading-relaxed">{selectedOption.outcome}</p>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{selectedOption.why}</p>
-              <p className="text-xs text-[var(--muted-foreground)] italic">Related: {selectedOption.lessonRef}</p>
+              <p className="text-xs text-[var(--muted-foreground)]">Related: {selectedOption.lessonRef}</p>
             </div>
           )}
 

@@ -77,7 +77,7 @@ export default function LessonNotes({ category, slug }: { category: string; slug
           {text.trim() && !open && (
             <span
               style={{
-                fontSize: "0.7rem",
+                fontSize: "0.75rem",
                 fontWeight: 500,
                 color: "var(--accent)",
                 background: "color-mix(in srgb, var(--accent) 15%, transparent)",

@@ -11,7 +11,7 @@
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import { useSession } from "next-auth/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Flame } from "lucide-react";
 import PageMasthead from "@/components/PageMasthead";
 import StatsRow, { type StatTileData } from "@/components/StatsRow";
 import ActivityHeatmap from "@/components/ActivityHeatmap";
@@ -128,8 +128,11 @@ export default function ProfileClient({
               <p className="text-sm text-[var(--muted-foreground)] font-ui-sans mt-0.5">
                 {personaLine || "No role set yet"}
               </p>
-              <p className="text-xs text-[var(--muted-foreground)] font-ui-sans mt-1 flex items-center gap-3">
-                <span className="flex items-center gap-1">🔥 {stats.streak}-day streak</span>
+              <p className="text-xs text-[var(--muted-foreground)] font-ui-sans mt-1 flex items-center gap-3 tabular-nums">
+                <span className="flex items-center gap-1">
+                  <Flame size={14} strokeWidth={1.5} />
+                  {stats.streak}-day streak
+                </span>
                 <span>
                   Lv{stats.level} · {stats.levelTitle}
                 </span>
@@ -164,7 +167,7 @@ export default function ProfileClient({
         <StatsRow stats={analyticsStats} columns={4} className="mb-10" />
 
         <section className="mb-10">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)] mb-3">
+          <p className="font-data text-xs text-[var(--muted-foreground)] mb-3">
             Activity, last 18 weeks
           </p>
           <ActivityHeatmap xpByDay={stats.xpByDay} />
@@ -172,14 +175,14 @@ export default function ProfileClient({
 
         {stats.recentActivity.length > 0 && (
           <section className="mb-10">
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)] mb-3">
+            <p className="font-data text-xs text-[var(--muted-foreground)] mb-3">
               Recent activity
             </p>
             <ul className="divide-y divide-[var(--border)] border-t border-b border-[var(--border)] font-ui-sans text-sm">
               {(showAllActivity ? stats.recentActivity : stats.recentActivity.slice(0, 5)).map((a, i) => (
                 <li key={`${a.id}-${a.ts}-${i}`} className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-[var(--foreground)]">{activityLabel(a.action)}</span>
-                  <span className="text-[var(--muted-foreground)] text-xs whitespace-nowrap">+{a.xp} XP</span>
+                  <span className="text-[var(--muted-foreground)] text-xs whitespace-nowrap tabular-nums">+{a.xp} XP</span>
                 </li>
               ))}
             </ul>
@@ -198,21 +201,19 @@ export default function ProfileClient({
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)]">
-              Top disciplines
+            <p className="font-data text-xs text-[var(--muted-foreground)]">
+              Top topics
             </p>
             <Link href="/skill-map" className="text-xs text-[var(--accent)] flex items-center gap-1 font-ui-sans">
-              View skill map <ArrowUpRight size={12} />
+              View skill map <ArrowUpRight size={14} strokeWidth={1.5} />
             </Link>
           </div>
           <div className="space-y-3">
             {topCategories.map((c) => (
               <div key={c.slug} className="font-ui-sans">
                 <div className="flex justify-between text-sm mb-1">
-                  <span>
-                    {c.emoji} {c.title}
-                  </span>
-                  <span className="text-[var(--muted-foreground)]">
+                  <span>{c.title}</span>
+                  <span className="text-[var(--muted-foreground)] tabular-nums">
                     {c.completedLessons}/{c.totalLessons}
                   </span>
                 </div>
@@ -226,7 +227,7 @@ export default function ProfileClient({
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)]">Badges</p>
+            <p className="font-data text-xs text-[var(--muted-foreground)]">Badges</p>
             <Link href="/achievements" className="text-xs text-[var(--accent)] flex items-center gap-1 font-ui-sans">
               View all <ArrowUpRight size={12} />
             </Link>
@@ -239,7 +240,7 @@ export default function ProfileClient({
         <section className="mb-10 grid sm:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)]">
+              <p className="font-data text-xs text-[var(--muted-foreground)]">
                 Certificates
               </p>
               <Link href="/certificates" className="text-xs text-[var(--accent)] flex items-center gap-1 font-ui-sans">
@@ -250,7 +251,7 @@ export default function ProfileClient({
               <ul className="text-sm font-ui-sans space-y-1">
                 {stats.certificatesEarned.map((c) => (
                   <li key={c.trackSlug}>
-                    {c.emoji} {c.trackTitle}
+                    {c.trackTitle}
                   </li>
                 ))}
               </ul>
@@ -260,7 +261,7 @@ export default function ProfileClient({
           </div>
           <div>
             <div className="flex items-center justify-between mb-3">
-              <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)]">
+              <p className="font-data text-xs text-[var(--muted-foreground)]">
                 Portfolio
               </p>
               <Link href="/portfolio" className="text-xs text-[var(--accent)] flex items-center gap-1 font-ui-sans">
@@ -276,7 +277,7 @@ export default function ProfileClient({
 
         <section className="mb-10 grid sm:grid-cols-2 gap-8">
           <div>
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)] mb-2">
+            <p className="font-data text-xs text-[var(--muted-foreground)] mb-2">
               Bookmarks
             </p>
             <Link href="/bookmarks" className="text-sm font-ui-sans text-[var(--accent)] flex items-center gap-1">
@@ -284,7 +285,7 @@ export default function ProfileClient({
             </Link>
           </div>
           <div>
-            <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)] mb-2">
+            <p className="font-data text-xs text-[var(--muted-foreground)] mb-2">
               Review due
             </p>
             <Link href="/review" className="text-sm font-ui-sans text-[var(--accent)] flex items-center gap-1">

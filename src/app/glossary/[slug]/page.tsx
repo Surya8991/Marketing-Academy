@@ -1,3 +1,5 @@
+import { fitTitle, clip, SITE_URL } from "@/lib/site";
+import { getCategory } from "@/lib/curriculum";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,29 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const term = getTermBySlug(slug);
   if (!term) return {};
   return {
-    title: `${term.term}: Marketing Glossary`,
-    description: term.definition.slice(0, 155),
+    title: fitTitle(`${term.term}: Marketing Glossary`),
+    description: clip(term.definition),
     alternates: { canonical: `/glossary/${slug}` },
   };
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
-  Analytics: "from-indigo-500/15 to-violet-500/10",
-  "Paid Ads": "from-amber-500/15 to-yellow-500/10",
-  SEO: "from-emerald-500/15 to-teal-500/10",
-  Email: "from-cyan-500/15 to-blue-500/10",
-  Growth: "from-violet-500/15 to-fuchsia-500/10",
-  "Business Metrics": "from-rose-500/15 to-orange-500/10",
-  Strategy: "from-blue-500/15 to-indigo-500/10",
-  CRO: "from-lime-500/15 to-green-500/10",
-  Psychology: "from-purple-500/15 to-pink-500/10",
-  Content: "from-sky-500/15 to-blue-500/10",
-  Brand: "from-pink-500/15 to-rose-500/10",
-  Copywriting: "from-orange-500/15 to-amber-500/10",
-  "Social Media": "from-fuchsia-500/15 to-purple-500/10",
-};
-
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export default async function GlossaryTermPage({ params }: Props) {
   const { slug } = await params;
@@ -45,7 +31,11 @@ export default async function GlossaryTermPage({ params }: Props) {
   if (!term) notFound();
 
   const related = getRelatedTermObjects(term.relatedTerms);
-  const color = CATEGORY_COLORS[term.category] ?? "from-gray-500/15 to-slate-500/10";
+  const lessons = (term.lessons ?? []).flatMap((id) => {
+    const [cat, lessonSlug] = id.split("/");
+    const lesson = getCategory(cat)?.lessons.find((l) => l.slug === lessonSlug);
+    return lesson ? [{ href: `/learn/${id}`, title: lesson.title }] : [];
+  });
 
   // Find prev / next in sorted order
   const sorted = [...GLOSSARY_TERMS].sort((a, b) => a.term.localeCompare(b.term));
@@ -82,13 +72,11 @@ export default async function GlossaryTermPage({ params }: Props) {
       </Link>
 
       {/* Hero card */}
-      <div
-        className={`rounded-2xl border border-[var(--border)] overflow-hidden mb-8 bg-gradient-to-br ${color}`}
-      >
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] overflow-hidden mb-8">
         <div className="p-8">
           <div className="flex items-start justify-between gap-4 mb-4">
-            <h1 className="text-3xl sm:text-4xl font-bold">{term.term}</h1>
-            <span className="shrink-0 mt-1 text-xs px-3 py-1 rounded-full bg-[var(--background)]/60 border border-[var(--border)] text-[var(--muted-foreground)] font-medium">
+            <h1 className="text-3xl sm:text-4xl font-medium font-serif">{term.term}</h1>
+            <span className="shrink-0 mt-1 text-xs px-3 py-1 rounded-md bg-[var(--muted)] border border-[var(--border)] text-[var(--muted-foreground)] font-medium">
               {term.category}
             </span>
           </div>
@@ -98,10 +86,37 @@ export default async function GlossaryTermPage({ params }: Props) {
         </div>
       </div>
 
+      {term.whyItMatters && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-2">Why {term.term} matters</h2>
+          <p className="leading-relaxed text-[var(--foreground)]">{term.whyItMatters}</p>
+        </section>
+      )}
+      {term.example && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-2">Example</h2>
+          <p className="leading-relaxed text-[var(--foreground)]">{term.example}</p>
+        </section>
+      )}
+      {lessons.length > 0 && (
+        <section className="mb-10">
+          <h2 className="text-lg font-semibold mb-3">Learn it in a lesson</h2>
+          <ul className="space-y-2">
+            {lessons.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:underline">
+                  {l.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {/* Related terms */}
       {related.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-[var(--muted-foreground)] mb-3">
+          <h2 className="text-sm font-medium text-[var(--muted-foreground)] mb-3">
             Related Terms
           </h2>
           <div className="flex flex-wrap gap-2">

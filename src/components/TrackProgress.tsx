@@ -27,7 +27,7 @@ export default function TrackProgress({ lessons }: Props) {
     <div className="mt-3">
       <div className="w-full h-1.5 bg-[var(--muted)] rounded-full overflow-hidden">
         <div
-          className="h-full bg-[var(--accent)] rounded-full transition-all"
+          className="h-full bg-[var(--accent)] rounded-full transition-[width]"
           style={{ width: `${pct}%` }}
         />
       </div>

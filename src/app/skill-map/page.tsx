@@ -3,6 +3,7 @@ import SkillMapClient from "./SkillMapClient";
 
 export const metadata: Metadata = {
   title: "Skill Map",
+  alternates: { canonical: "/skill-map" },
   robots: { index: false, follow: true },
   description: "Track your progress across all 21 marketing disciplines.",
 };

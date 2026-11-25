@@ -8,8 +8,9 @@ import { sendMail } from "@/lib/email/transport";
 import { streakReminderEmail } from "@/lib/email/templates/streak-reminder";
 import { buildUnsubscribeToken } from "@/lib/email/unsubscribe-token";
 import type { EngagementState } from "@/lib/engagement";
+import { SITE_URL } from "@/lib/site";
 
-const BASE_URL = "https://marketing-academy-roan.vercel.app";
+const BASE_URL = SITE_URL;
 
 /**
  * IMPROVEMENT_PLAN #28. Fires once per lapsing streak: `lastActiveDay` in

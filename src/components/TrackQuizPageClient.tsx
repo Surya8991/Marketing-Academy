@@ -249,7 +249,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
         <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--muted)" }}>
           <div
-            className="h-full rounded-full transition-all duration-300"
+            className="h-full rounded-full transition-[width] duration-300"
             style={{
               width: `${total > 0 ? (answeredCount / total) * 100 : 0}%`,
               background: "var(--accent)",
@@ -292,7 +292,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                     } else if (oi === userAnswer) {
                       border = "1px solid rgba(239,68,68,0.5)";
                       bg = "rgba(239,68,68,0.07)";
-                      color = "rgba(239,68,68,0.9)";
+                      color = "var(--danger)";
                     } else {
                       opacity = "0.4";
                     }
@@ -306,7 +306,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                       key={oi}
                       onClick={() => pick(qi, oi)}
                       aria-disabled={submitted}
-                      className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all"
+                      className="w-full text-left px-4 py-3 rounded-xl text-sm transition-colors"
                       style={{ border, background: bg, color, opacity, cursor: submitted ? "default" : "pointer" }}
                     >
                       <span className="font-medium mr-2" style={{ color: submitted ? "inherit" : "var(--muted-foreground)" }}>
@@ -317,7 +317,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                         <CheckCircle2 size={14} className="inline ml-2 shrink-0" style={{ color: "rgb(22,163,74)" }} />
                       )}
                       {submitted && oi === userAnswer && oi !== q.correct && (
-                        <XCircle size={14} className="inline ml-2 shrink-0" style={{ color: "rgba(239,68,68,0.9)" }} />
+                        <XCircle size={14} className="inline ml-2 shrink-0" style={{ color: "var(--danger)" }} />
                       )}
                     </button>
                   );
@@ -389,7 +389,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
           <button
             onClick={submit}
             disabled={!allAnswered}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all shrink-0"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0"
             style={{
               background: allAnswered ? "var(--accent)" : "var(--muted)",
               color: allAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
@@ -413,11 +413,11 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <div className="flex justify-center mb-3">
                 <Trophy size={44} style={{ color: "rgb(22,163,74)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1" style={{ color: "rgb(22,163,74)" }}>
+              <div className="text-3xl font-semibold mb-1" style={{ color: "rgb(22,163,74)" }}>
                 {score}/{total}: {pct}%
               </div>
               <p className="text-[var(--muted-foreground)] mb-6">
-                You passed! {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
+                You passed. {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
               </p>
 
               {/* Stage 1.5: show which lessons will actually be marked complete */}
@@ -427,7 +427,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                   style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)" }}
                 >
                   <p className="flex items-center gap-2 font-medium mb-2" style={{ color: "var(--foreground)" }}>
-                    <AlertCircle size={15} style={{ color: "rgb(202,138,4)" }} />
+                    <AlertCircle size={15} style={{ color: "var(--warning)" }} />
                     {heldBack.length} lesson{heldBack.length !== 1 ? "s" : ""} need more review
                   </p>
                   <p className="text-[var(--muted-foreground)] mb-2">
@@ -452,7 +452,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <button
                 onClick={markAll}
                 disabled={marking || eligible.length === 0}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
                 style={{
                   background: marking || eligible.length === 0 ? "var(--muted)" : "var(--accent)",
                   color: marking || eligible.length === 0 ? "var(--muted-foreground)" : "var(--accent-foreground)",
@@ -471,7 +471,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <div className="flex justify-center mb-3">
                 <XCircle size={44} style={{ color: "rgba(239,68,68,0.8)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1">{score}/{total}: {pct}%</div>
+              <div className="text-3xl font-semibold mb-1">{score}/{total}: {pct}%</div>
               <p className="text-[var(--muted-foreground)] mb-2">
                 Need {Math.round(PASS_THRESHOLD * 100)}% to pass. Review the lessons and try again.
               </p>

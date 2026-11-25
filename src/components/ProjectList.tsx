@@ -50,7 +50,7 @@ export default function ProjectList({ projects, category }: { projects: Project[
         <div className="flex items-center gap-3 min-w-0">
           <ClipboardList size={18} className="shrink-0 text-[var(--accent)]" />
           <div className="min-w-0">
-            <h2 className="text-base font-bold text-[var(--foreground)] m-0">Practice Projects</h2>
+            <h2 className="text-base font-semibold text-[var(--foreground)] m-0">Practice Projects</h2>
             <p className="text-xs text-[var(--muted-foreground)] m-0 truncate">
               {projects.length} project{projects.length === 1 ? "" : "s"} · ~{totalMinutes} min total
               {overlapping.length > 0 && ` · reinforces ${overlapping[0]}`}
@@ -64,13 +64,13 @@ export default function ProjectList({ projects, category }: { projects: Project[
         )}
       </button>
 
-      {open && (
-        <div className="flex flex-col gap-4 mt-4">
-          {projects.map((p) => (
-            <ProjectCard project={p} category={category} key={p.id} id={`project-${p.id}`} />
-          ))}
-        </div>
-      )}
+      {/* Always rendered (hidden while collapsed) so each project's link is in the server HTML:
+          this list is the only internal link most project pages get. */}
+      <div className="flex flex-col gap-4 mt-4" hidden={!open}>
+        {projects.map((p) => (
+          <ProjectCard project={p} category={category} key={p.id} id={`project-${p.id}`} />
+        ))}
+      </div>
     </section>
   );
 }

@@ -15,7 +15,7 @@ export default function SurpriseMeButton() {
   return (
     <button
       onClick={goRandom}
-      className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] hover:border-[var(--accent)] transition-all text-sm font-medium text-[var(--foreground)] cursor-pointer"
+      className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] hover:border-[var(--accent)] transition-colors text-sm font-medium text-[var(--foreground)] cursor-pointer"
     >
       <Shuffle size={15} />
       Surprise me

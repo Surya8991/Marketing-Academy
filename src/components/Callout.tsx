@@ -1,14 +1,17 @@
-import { cn } from "@/lib/utils";
 import { Info, AlertTriangle, CheckCircle, Lightbulb, Zap } from "lucide-react";
 
 type CalloutType = "info" | "warning" | "success" | "tip" | "example";
 
-const STYLES: Record<CalloutType, { ring: string; tint: string; iconColor: string; icon: React.ReactNode; label: string }> = {
-  info:    { ring: "border-blue-500/40",   tint: "bg-blue-500/10",   iconColor: "text-blue-500",   icon: <Info size={16} />,          label: "Note" },
-  warning: { ring: "border-amber-500/40",  tint: "bg-amber-500/10",  iconColor: "text-amber-500",  icon: <AlertTriangle size={16} />, label: "Common Mistake" },
-  success: { ring: "border-green-500/40",  tint: "bg-green-500/10",  iconColor: "text-green-500",  icon: <CheckCircle size={16} />,   label: "Best Practice" },
-  tip:     { ring: "border-violet-500/40", tint: "bg-violet-500/10", iconColor: "text-violet-500", icon: <Lightbulb size={16} />,     label: "Pro Tip" },
-  example: { ring: "border-orange-500/40", tint: "bg-orange-500/10", iconColor: "text-orange-500", icon: <Zap size={16} />,           label: "Real Example" },
+// Quiet neutral box (DESIGN_GUIDE.md §5): the surface and border are neutral so a
+// lesson full of callouts doesn't read as a rainbow. Only the icon carries the
+// type colour — warning/success use the semantic tokens (Rule 82), the rest are
+// muted. Type is still conveyed by icon + label, never colour alone.
+const STYLES: Record<CalloutType, { iconColor: string; icon: React.ReactNode; label: string }> = {
+  info:    { iconColor: "text-[var(--muted-foreground)]", icon: <Info size={16} strokeWidth={1.5} />,          label: "Note" },
+  warning: { iconColor: "text-[var(--warning)]",          icon: <AlertTriangle size={16} strokeWidth={1.5} />, label: "Common mistake" },
+  success: { iconColor: "text-[var(--success)]",          icon: <CheckCircle size={16} strokeWidth={1.5} />,   label: "Best practice" },
+  tip:     { iconColor: "text-[var(--muted-foreground)]", icon: <Lightbulb size={16} strokeWidth={1.5} />,     label: "Tip" },
+  example: { iconColor: "text-[var(--muted-foreground)]", icon: <Zap size={16} strokeWidth={1.5} />,           label: "Real example" },
 };
 
 interface CalloutProps {
@@ -20,16 +23,12 @@ interface CalloutProps {
 export default function Callout({ type = "info", title, children }: CalloutProps) {
   const s = STYLES[type];
   return (
-    <div className={cn("not-prose my-6 rounded-lg border-l-4 px-4 py-3 text-[var(--foreground)]", s.ring, s.tint)}>
-      {/* Icon stays brand-colored (visual type coding); label uses --foreground
-          so it always meets WCAG AA, the -500 tints failed contrast on the
-          light /10 background (Rule 19 / a11y). Type is still conveyed by the
-          coloured icon + border + the text label itself, never colour alone. */}
-      <div className="flex items-center gap-1.5 font-semibold text-sm mb-1.5 text-[var(--foreground)]">
+    <div className="not-prose my-6 rounded-xl border border-[var(--border)] bg-[var(--muted)] px-4 py-3 text-[var(--foreground)]">
+      <div className="flex items-center gap-1.5 font-semibold text-sm mb-1.5">
         <span className={s.iconColor}>{s.icon}</span>
         <span>{title ?? s.label}</span>
       </div>
-      <div className="text-sm leading-relaxed text-[var(--foreground)]">{children}</div>
+      <div className="text-sm leading-relaxed">{children}</div>
     </div>
   );
 }

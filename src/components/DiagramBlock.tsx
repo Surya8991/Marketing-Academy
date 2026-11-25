@@ -180,7 +180,7 @@ function TimelineDiagram({ items }: { items: string[] }) {
               y={cy}
               textAnchor="middle"
               dominantBaseline="middle"
-              style={{ fill: "var(--accent-foreground)", fontSize: 12, fontWeight: 700 }}
+              style={{ fill: "var(--accent-foreground)", fontSize: 12, fontWeight: 600 }}
             >
               {i + 1}
             </text>
@@ -438,7 +438,7 @@ export default function DiagramBlock({
         <p
           style={{
             margin: "0 0 0.75rem 0",
-            fontWeight: 700,
+            fontWeight: 600,
             fontSize: "0.95rem",
             color: "var(--foreground)",
           }}

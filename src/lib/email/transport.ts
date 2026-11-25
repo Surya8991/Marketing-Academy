@@ -8,7 +8,8 @@ import { env } from "@/lib/env";
  * (mirrors the lazyProxy pattern in src/server/db/client.ts for the same
  * "must not crash on a fresh checkout with no env vars" reason).
  */
-let cached: ReturnType<typeof nodemailer.createTransport> | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let cached: any = null;
 
 function getTransport() {
   if (!env.EMAIL_SERVER) {

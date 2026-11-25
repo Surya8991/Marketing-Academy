@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 import { INTERVIEW_SECTIONS } from "@/lib/interview-questions";
 import CopyQuestionsButton from "./CopyQuestionsButton";
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!section) return {};
   const total = section.conceptualQAs.length + section.scenarioQAs.length;
   return {
-    title: `${section.title} 2026`,
+    title: fitTitle(`${section.title} 2026`),
     description: `${total} real ${section.categoryLabel} interview questions with detailed answers, ${section.conceptualQAs.length} conceptual and ${section.scenarioQAs.length} scenario-based questions for 2026.`,
     alternates: { canonical: `/interview-questions/${category}` },
   };
@@ -34,7 +35,7 @@ details:not([open]) summary .iq-minus { display: none; }
 }
 `;
 
-const BASE = "https://marketing-academy-roan.vercel.app";
+const BASE = SITE_URL;
 
 export default async function InterviewCategoryPage({ params }: Props) {
   const { category } = await params;
@@ -88,11 +89,10 @@ export default async function InterviewCategoryPage({ params }: Props) {
         {/* Header */}
         <div style={{ marginBottom: "2.5rem" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
-            <span style={{ fontSize: "2.5rem", lineHeight: 1 }}>{section.emoji}</span>
             <h1
               style={{
                 fontSize: "clamp(1.5rem, 4vw, 2.1rem)",
-                fontWeight: 800,
+                fontWeight: 600,
                 color: "var(--foreground)",
                 lineHeight: 1.2,
                 margin: 0,
@@ -113,9 +113,9 @@ export default async function InterviewCategoryPage({ params }: Props) {
                 fontWeight: 600,
                 padding: "0.3rem 0.75rem",
                 borderRadius: "999px",
-                background: "rgba(99,102,241,0.1)",
+                background: "rgba(79,70,229,0.1)",
                 color: "var(--foreground)",
-                border: "1px solid rgba(99,102,241,0.2)",
+                border: "1px solid rgba(79,70,229,0.2)",
               }}
             >
               {section.conceptualQAs.length} conceptual questions
@@ -146,7 +146,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
           <h2
             style={{
               fontSize: "1.25rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.25rem",
               paddingBottom: "0.5rem",
               borderBottom: "2px solid var(--border)",
@@ -189,16 +189,15 @@ export default async function InterviewCategoryPage({ params }: Props) {
                       style={{
                         display: "inline-block",
                         marginRight: "0.5rem",
-                        fontSize: "0.7rem",
-                        fontWeight: 700,
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
                         padding: "0.15rem 0.5rem",
                         borderRadius: "999px",
-                        background: "rgba(99,102,241,0.12)",
+                        background: "rgba(79,70,229,0.12)",
                         color: "var(--foreground)",
-                        border: "1px solid rgba(99,102,241,0.2)",
+                        border: "1px solid rgba(79,70,229,0.2)",
                         verticalAlign: "middle",
                         letterSpacing: "0.04em",
-                        textTransform: "uppercase",
                       }}
                     >
                       Q{i + 1}
@@ -233,7 +232,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
           <h2
             style={{
               fontSize: "1.25rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.25rem",
               paddingBottom: "0.5rem",
               borderBottom: "2px solid var(--border)",
@@ -276,14 +275,13 @@ export default async function InterviewCategoryPage({ params }: Props) {
                       style={{
                         display: "inline-block",
                         flexShrink: 0,
-                        fontSize: "0.7rem",
-                        fontWeight: 700,
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
                         padding: "0.15rem 0.55rem",
                         borderRadius: "999px",
                         background: "var(--accent)",
                         color: "var(--accent-foreground)",
                         letterSpacing: "0.05em",
-                        textTransform: "uppercase",
                         marginTop: "0.15rem",
                       }}
                     >
@@ -333,7 +331,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
           </span>
           <Link
             href={`/learn/${section.categorySlug}`}
-            style={{ color: "var(--accent-foreground)", fontWeight: 700, textDecoration: "underline" }}
+            style={{ color: "var(--accent-foreground)", fontWeight: 600, textDecoration: "underline" }}
           >
             Study {section.categoryLabel} lessons
           </Link>
@@ -365,8 +363,8 @@ export default async function InterviewCategoryPage({ params }: Props) {
               <span style={{ fontSize: "0.75rem", color: "var(--muted-foreground)", fontWeight: 500 }}>
                 &larr; Previous
               </span>
-              <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--foreground)" }}>
-                {prev.emoji} {prev.categoryLabel}
+              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--foreground)" }}>
+                {prev.categoryLabel}
               </span>
             </Link>
           )}
@@ -390,8 +388,8 @@ export default async function InterviewCategoryPage({ params }: Props) {
               <span style={{ fontSize: "0.75rem", color: "var(--muted-foreground)", fontWeight: 500 }}>
                 Next &rarr;
               </span>
-              <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--foreground)" }}>
-                {next.emoji} {next.categoryLabel}
+              <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--foreground)" }}>
+                {next.categoryLabel}
               </span>
             </Link>
           )}

@@ -42,7 +42,7 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
       <h2
         style={{
           fontSize: "1.25rem",
-          fontWeight: 700,
+          fontWeight: 600,
           marginBottom: "1rem",
           color: "var(--foreground)",
         }}
@@ -62,13 +62,13 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
               style={{ textDecoration: "none" }}
             >
               <div
-                className="border border-[var(--border)] rounded-xl p-4 hover:border-[var(--accent)] hover:bg-[var(--muted)]/30 transition-all"
+                className="border border-[var(--border)] rounded-xl p-4 hover:border-[var(--accent)] hover:bg-[var(--muted)]/30 transition-colors"
                 style={{ height: "100%", display: "flex", flexDirection: "column", gap: "0.5rem" }}
               >
                 <span
                   style={{
                     display: "inline-block",
-                    fontSize: "0.7rem",
+                    fontSize: "0.75rem",
                     fontWeight: 600,
                     letterSpacing: "0.05em",
                     padding: "0.15rem 0.5rem",
@@ -77,8 +77,8 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
                     ...(lesson.level === "Beginner"
                       ? { color: "var(--accent)", background: "color-mix(in srgb, var(--accent) 12%, transparent)" }
                       : lesson.level === "Intermediate"
-                      ? { color: "#d97706", background: "color-mix(in srgb, #d97706 12%, transparent)" }
-                      : { color: "#7c3aed", background: "color-mix(in srgb, #7c3aed 12%, transparent)" }),
+                      ? { color: "var(--warning)", background: "color-mix(in srgb, var(--warning) 12%, transparent)" }
+                      : { color: "var(--danger)", background: "color-mix(in srgb, var(--danger) 12%, transparent)" }),
                   }}
                 >
                   {lesson.level}

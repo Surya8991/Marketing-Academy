@@ -272,7 +272,7 @@ export default function CommandPalette() {
                 fontSize: 14,
               }}
             >
-              No results for &ldquo;{query}&rdquo;
+              No results for &ldquo;{query}&rdquo;. Try a broader word, like &ldquo;SEO&rdquo; or &ldquo;email&rdquo;.
             </li>
           ) : (
             results.map((entry, i) => {
@@ -304,7 +304,6 @@ export default function CommandPalette() {
                       fontWeight: 600,
                       padding: "2px 7px",
                       borderRadius: 999,
-                      textTransform: "uppercase",
                       letterSpacing: "0.05em",
                       flexShrink: 0,
                       whiteSpace: "nowrap",

@@ -58,6 +58,9 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
         setErr(error ?? "Failed to delete account");
         return;
       }
+      // Hard reload (not router.push): the account's session is now deleted,
+      // so a full navigation is needed to clear client auth state and re-fetch signed-out.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
       window.location.href = "/";
     });
   }
@@ -67,7 +70,7 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
       <h1 className="font-display font-semibold text-3xl mb-2">Account</h1>
       <p className="text-[var(--muted-foreground)] mb-8">{email}{isAdmin ? " · admin" : ""}</p>
 
-      {err ? <p className="mb-4 rounded-md bg-red-500/10 border border-red-500/30 px-3 py-2 text-sm text-red-600">{err}</p> : null}
+      {err ? <p className="mb-4 rounded-md bg-red-500/10 border border-red-500/30 px-3 py-2 text-sm text-[var(--danger)]">{err}</p> : null}
 
       <button
         onClick={() => void signOut({ callbackUrl: "/" })}
@@ -87,7 +90,7 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
                 <div>
                   <div className="font-mono text-xs flex items-center gap-2">
                     {s.tokenPreview}
-                    {s.isCurrent ? <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)]">this device</span> : null}
+                    {s.isCurrent ? <span className="text-xs px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)]">this device</span> : null}
                   </div>
                   <div className="text-xs text-[var(--muted-foreground)]">Expires {new Date(s.expires).toLocaleString()}</div>
                 </div>
@@ -104,7 +107,7 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
 
       {!isAdmin ? (
         <section className="border border-red-500/30 rounded-lg p-4">
-          <h2 className="flex items-center gap-2 font-display font-semibold text-lg text-red-600 mb-2">
+          <h2 className="flex items-center gap-2 font-display font-semibold text-lg text-[var(--danger)] mb-2">
             <ShieldAlert size={18} /> Delete account
           </h2>
           <p className="text-sm text-[var(--muted-foreground)] mb-3">

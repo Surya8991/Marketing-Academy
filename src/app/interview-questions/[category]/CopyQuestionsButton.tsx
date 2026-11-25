@@ -64,8 +64,8 @@ export default function CopyQuestionsButton({ title, conceptual, scenario }: Pro
         flexShrink: 0,
       }}
     >
-      {state === "copied" ? <Check size={13} /> : <Copy size={13} />}
-      {state === "copied" ? "Copied!" : "Copy as Markdown"}
+      {state === "copied" ? <Check size={14} strokeWidth={1.5} /> : <Copy size={14} strokeWidth={1.5} />}
+      {state === "copied" ? "Copied" : "Copy as Markdown"}
     </button>
   );
 }

@@ -1,4 +1,5 @@
 import GeoAuditClient from "./GeoAuditClient";
+import { shareImage } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
     description:
       "Score any URL for AI citability. Entity coverage, structured data, direct answers, and more - all the signals LLMs look for.",
     type: "website",
+    images: shareImage("GEO Auditor").images,
   },
+  twitter: shareImage("GEO Auditor").twitter,
 };
 
 export default function GeoAuditPage() {

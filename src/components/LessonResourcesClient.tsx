@@ -21,7 +21,7 @@ function ytId(url: string): string | null {
 
 function Badge({ n }: { n: number }) {
   return (
-    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold bg-[var(--surface-2)] text-[var(--muted-foreground)]">
+    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-xs font-semibold bg-[var(--muted)] text-[var(--muted-foreground)]">
       {n}
     </span>
   );
@@ -37,7 +37,7 @@ function VideoCard({ v }: { v: VideoLink }) {
       className="flex gap-3 p-3 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)] transition-colors group"
     >
       {id ? (
-        <div className="shrink-0 relative w-20 h-14 rounded overflow-hidden bg-[var(--surface-2)]">
+        <div className="shrink-0 relative w-20 h-14 rounded overflow-hidden bg-[var(--muted)]">
           <Image
             src={`https://img.youtube.com/vi/${id}/mqdefault.jpg`}
             alt=""
@@ -51,7 +51,7 @@ function VideoCard({ v }: { v: VideoLink }) {
           </div>
         </div>
       ) : (
-        <div className="shrink-0 w-20 h-14 rounded bg-[var(--surface-2)] flex items-center justify-center">
+        <div className="shrink-0 w-20 h-14 rounded bg-[var(--muted)] flex items-center justify-center">
           <Play size={16} className="text-[var(--muted-foreground)]" />
         </div>
       )}
@@ -106,7 +106,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
 
   return (
     <div className="not-prose mt-10 mb-2">
-      <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
+      <p className="text-xs font-medium text-[var(--muted-foreground)] mb-3">
         Free Resources
       </p>
 
@@ -160,7 +160,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
         <div className="space-y-2">
           {data.articles.length > 0 && (
             <>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">Articles</p>
+              <p className="text-xs font-medium text-[var(--muted-foreground)] mb-2">Articles</p>
               {data.articles.map((a, i) => (
                 <LinkRow key={i} item={a} icon={<FileText size={15} className="text-[var(--accent)]" />} />
               ))}
@@ -168,7 +168,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
           )}
           {data.docs.length > 0 && (
             <div className="mt-4">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">Official docs</p>
+              <p className="text-xs font-medium text-[var(--muted-foreground)] mb-2">Official docs</p>
               {data.docs.map((d, i) => (
                 <LinkRow key={i} item={d} icon={<BookOpen size={15} className="text-[var(--info)]" />} />
               ))}

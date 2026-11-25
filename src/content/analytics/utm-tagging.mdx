@@ -182,6 +182,24 @@ Here are the other mistakes that quietly destroy attribution:
 
 ---
 
+## Frequently Asked Questions
+
+### What is a UTM parameter?
+
+A UTM parameter is a piece of text you attach to a URL so your analytics tool, such as GA4, can record where a click came from. There are five: source, medium, campaign, content and term.
+
+### Which UTM parameters are required?
+
+GA4 needs source, medium and campaign together. If you send only one or two, it ignores them all and labels the visit Unassigned. Content and term are extras, with term used mainly for paid search ads.
+
+### Should I use UTM tags on links inside my own website?
+
+No. A UTM tagged internal link starts a new session in GA4 and credits it to your navigation instead of the original source, so the campaign attribution is lost. Use UTM tags only on external links such as social posts, emails and ads.
+
+### Does capitalization matter in UTM tags?
+
+Yes. All five parameters are case sensitive, so facebook and Facebook show up as two separate rows in GA4. Use lowercase, hyphens instead of spaces, and one shared list of approved values for your whole team.
+
 <ResourceList resources={[
   { title: "Google Campaign URL Builder", url: "https://ga-dev-tools.google/campaign-url-builder/", type: "tool", free: true },
   { title: "GA4 Campaign Reporting Reference (Official Docs)", url: "https://support.google.com/analytics/answer/10917952", type: "docs", free: true },
@@ -190,7 +208,7 @@ Here are the other mistakes that quietly destroy attribution:
   { title: "UTM Tracking 101 for Ad Campaigns (Northbeam)", url: "https://www.northbeam.io/blog/utm-tracking-parameters-for-ad-campaigns", type: "article", free: true },
   { title: "What Are UTM Parameters? Full 2025 Guide (Ortto)", url: "https://ortto.com/learn/what-are-utm-parameters/", type: "article", free: true },
   { title: "UTM Parameters Explained - Neil Patel (YouTube)", url: "https://www.youtube.com/watch?v=NQCG7Wl7JdA", type: "video", free: true },
-  { title: "WsCube Tech - UTM Tagging (Hindi)", url: "https://www.youtube.com/@WsCubeTech", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
-  { title: "Mr Digital Marketing Tamil - UTM Tagging", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
-  { title: "ODMT Telugu - UTM Tagging (Telugu)", url: "https://www.youtube.com/@ODMTtelugu", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
+  { title: "WsCube Tech, UTM Tagging (Hindi)", url: "https://www.youtube.com/@WsCubeTech/search?query=UTM+Tagging", type: "video", lang: "hi", free: true, note: "Top Hindi digital marketing channel" },
+  { title: "Mr Digital Marketing Tamil, Analytics & Attribution", url: "https://www.youtube.com/channel/UCQpgJad_YaHAW_CVFTBNyiw/search?query=Analytics+%26+Attribution", type: "video", lang: "ta", free: true, note: "Tamil digital marketing tutorials" },
+  { title: "ODMT Telugu, Analytics & Attribution", url: "https://www.youtube.com/@ODMTtelugu/search?query=Analytics+%26+Attribution", type: "video", lang: "te", free: true, note: "Telugu digital marketing training" },
 ]} />

@@ -20,8 +20,9 @@ Disciplines: Fundamentals, SEO, Paid Ads, Growth, Social Media, Content, Email &
 ## Features
 
 - **Lessons** — table of contents, reading progress, a quiz you pass to mark complete, and related-lesson suggestions
-- **24 learning tracks** — curated paths like Solo Founder, B2B Marketer, AI-First Marketer, and Technical SEO
+- **26 learning tracks** — curated paths like Marketing Foundations (for complete beginners), Your First Marketing Job, Solo Founder, B2B Marketer, AI-First Marketer, and Technical SEO
 - **800+ practice projects** — hands-on exercises tied to lessons, each on its own page
+- **Interactive labs** — live workbench for testing conversion rates (CAC/ROAS sensitivity), headline NLP scoring, and behavioral dilemma choice architecture
 - **Progress** — completion tracking, bookmarks, XP, daily streaks, achievements, and printable track certificates (saved in your browser)
 - **Search** — Cmd/Ctrl+K command palette and fuzzy search across lessons, tracks, glossary, and tools
 - **Reference** — a marketing glossary, a tools directory, printable cheat sheets, and interview Q&A
@@ -65,4 +66,6 @@ public/        Static assets, PWA manifest, service worker
 
 ## Deploy
 
-Pushes to `main` auto-deploy to Vercel. The core site needs no environment variables. Optional accounts and cross-device sync add a few — see `.env.example`.
+Pushes to `main` auto-deploy to Vercel. The core site needs no environment variables. Optional accounts and cross-device sync add a few — see `.env.example`. To serve the site from a custom domain, set `NEXT_PUBLIC_SITE_URL`: canonicals, the sitemap, structured data and email links all read it from `src/lib/site.ts`.
+
+After committing lesson edits, run `node scripts/lesson-dates.mjs` and commit the regenerated `src/lib/lesson-dates.ts`, so each lesson's published/updated dates stay real (Vercel's shallow clone can't compute them at build time).

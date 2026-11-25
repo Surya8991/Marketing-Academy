@@ -34,7 +34,7 @@ export default function TrackShareButton({ title, url }: { title: string; url: s
       ) : (
         <Share2 size={14} />
       )}
-      {copied ? "Link copied!" : "Share track"}
+      {copied ? "Link copied" : "Share track"}
     </button>
   );
 }

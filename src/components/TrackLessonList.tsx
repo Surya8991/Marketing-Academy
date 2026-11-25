@@ -113,7 +113,7 @@ export default function TrackLessonList({ track }: { track: Track }) {
         </div>
         <div className="h-2 rounded-full bg-[var(--muted)] overflow-hidden">
           <div
-            className="h-full rounded-full bg-[var(--accent)] transition-all duration-300"
+            className="h-full rounded-full bg-[var(--accent)] transition-[width] duration-300"
             style={{ width: mounted ? `${pct}%` : "0%" }}
           />
         </div>
@@ -161,7 +161,7 @@ export default function TrackLessonList({ track }: { track: Track }) {
                 title={locked ? "Take this lesson's quiz to unlock" : undefined}
                 className={`shrink-0 transition-colors ${
                   done
-                    ? "text-emerald-500"
+                    ? "text-[var(--success)]"
                     : "text-[var(--muted-foreground)] hover:text-[var(--accent)]"
                 }`}
               >
