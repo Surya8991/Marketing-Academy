@@ -58,6 +58,9 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
         setErr(error ?? "Failed to delete account");
         return;
       }
+      // Hard reload (not router.push): the account's session is now deleted,
+      // so a full navigation is needed to clear client auth state and re-fetch signed-out.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
       window.location.href = "/";
     });
   }
