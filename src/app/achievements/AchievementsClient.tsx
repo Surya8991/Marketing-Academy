@@ -7,6 +7,7 @@ import { ACHIEVEMENTS } from "@/lib/achievements";
 import type { EngagementState } from "@/lib/engagement";
 import PageMasthead from "@/components/PageMasthead";
 import StatsRow from "@/components/StatsRow";
+import { AchievementIcon } from "@/lib/ui-icons";
 
 // Groups badges for display only — ACHIEVEMENTS itself stays a flat array
 // (achievements.ts owns unlock logic, this is presentation grouping only,
@@ -128,22 +129,22 @@ export default function AchievementsClient() {
                     key={a.id}
                     className="flex items-start gap-3 p-4 rounded-xl border transition-opacity"
                     style={{
-                      background: earned ? "rgba(99,102,241,0.08)" : "var(--muted)",
-                      borderColor: earned ? "rgba(99,102,241,0.3)" : "var(--border)",
+                      background: earned ? "rgba(79,70,229,0.08)" : "var(--muted)",
+                      borderColor: earned ? "rgba(79,70,229,0.3)" : "var(--border)",
                     }}
                   >
                     <span
-                      className="text-[1.75rem] leading-none"
-                      // Locked: dim only the icon; the "how to earn it" text must stay readable.
-                      style={{ filter: earned ? "none" : "grayscale(100%)", opacity: earned ? 1 : 0.5 }}
+                      className="shrink-0 text-[var(--accent)]"
+                      // Locked achievements are dimmed; the "how to earn it" text stays readable.
+                      style={{ opacity: earned ? 1 : 0.4 }}
                     >
-                      {a.emoji}
+                      <AchievementIcon id={a.id} size={22} />
                     </span>
                     <div>
-                      <div className="text-[0.85rem] font-bold text-[var(--foreground)] mb-0.5">
+                      <div className="text-[0.85rem] font-semibold text-[var(--foreground)] mb-0.5">
                         {a.label}
                       </div>
-                      <div className="text-[0.75rem] text-[var(--muted-foreground)]">
+                      <div className="text-xs text-[var(--muted-foreground)]">
                         {a.description}
                       </div>
                     </div>

@@ -2,7 +2,7 @@
  * PageMasthead: the thin, tracked-out info strip used at the top of the
  * redesigned pages (Home, /learn, /tracks, /projects, /tools, /about).
  * A journal-masthead device rather than a generic hero eyebrow badge —
- * plain hairline rules top and bottom, uppercase small caps, no color
+ * plain hairline rules top and bottom, sentence-case mono text, no color
  * other than the existing site accent for the live-status dot.
  *
  * Colors are untouched from the original site (var(--border)/var(--muted-foreground)/

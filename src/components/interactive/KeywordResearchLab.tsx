@@ -199,7 +199,7 @@ export default function KeywordResearchLab() {
                 }}
               >
                 <span>{kw.k}</span>
-                <span className="font-data text-[0.65rem] text-[var(--muted-foreground)]">KD {kw.kd}</span>
+                <span className="font-data text-xs text-[var(--muted-foreground)]">KD {kw.kd}</span>
               </li>
             );
           })}
@@ -207,7 +207,7 @@ export default function KeywordResearchLab() {
       )}
 
       {step >= 3 && step <= 4 && (
-        <div className="mt-3 flex flex-wrap gap-2 font-data text-[0.65rem] text-[var(--muted-foreground)]">
+        <div className="mt-3 flex flex-wrap gap-2 font-data text-xs text-[var(--muted-foreground)]">
           {(Object.keys(INTENT_STYLE) as Intent[]).map((i) => (
             <span key={i} className="rounded px-1.5 py-0.5" style={INTENT_STYLE[i]}>{i}</span>
           ))}

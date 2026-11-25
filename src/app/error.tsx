@@ -46,7 +46,7 @@ export default function GlobalError({
           </Link>
         </div>
         {error.digest && (
-          <p className="mt-4 text-[11px] text-[var(--muted-foreground)] font-mono">
+          <p className="mt-4 text-xs text-[var(--muted-foreground)] font-mono">
             digest: {error.digest}
           </p>
         )}

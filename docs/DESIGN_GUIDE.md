@@ -1,6 +1,8 @@
 # Marketing Academy — Design Guide (Editorial Lab System)
 
-> Canonical design, layout, and UI-craft reference for Marketing Academy. Every new page, component, or redesign must follow this guide alongside `AGENTS.md` and `docs/UNSLOP_AUDIT.md`.
+> Canonical design, layout, and UI-craft reference for Marketing Academy. Every new page, component, or redesign must follow this guide alongside `AGENTS.md` and the latest unslop audit, `docs/UNSLOP_AUDIT_2026-11-25.md`.
+>
+> **This file supersedes `docs/DESIGN_SYSTEM_GUIDE.md`** (the earlier, pre-Editorial-Lab system notes). Where the two disagree, this guide wins. The current unslop audit and its fix log live in `docs/UNSLOP_AUDIT_2026-11-25.md`; the older `docs/UNSLOP_AUDIT.md` is kept only for history.
 
 ---
 
@@ -37,6 +39,8 @@ All colors are defined in `src/app/globals.css`. **Never use Tailwind `dark:` cl
 1. **No hue gradients, radial blurs, or colored glows** on UI surfaces, headings, or cards.
 2. **One accent (`--accent`) used sparingly:** Primary action, active tab/pill, key metric, or classification code.
 3. **Theme-aware badges (`AGENTS.md` Rule 19):** Use `rgba(...)` semi-transparent tints with `var(--foreground)` instead of hardcoded Tailwind `bg-green-100 text-green-800`.
+4. **Status *text* colors (`AGENTS.md` Rule 82):** Green/amber/red text (verdicts, deltas, quiz right/wrong, destructive actions) uses `var(--success)` / `var(--warning)` / `var(--danger)` — never a fixed hex (`#16a34a`) or Tailwind `text-red-600`, which fail contrast on the dark card. Canvas drawing (e.g. `MarkComplete` confetti) is the one exception, since a canvas can't resolve CSS variables.
+5. **One accent, and it is `#4f46e5` (dark `#a5b4fc`):** The off-brand indigo `#6366f1` / `rgba(99,102,241,…)` and the violet `#8b5cf6` / `#a855f7` are **not** the brand accent — use `var(--accent)` or `#4f46e5` tints (`rgba(79,70,229,…)`). No two-color gradients (certificates included).
 
 ---
 
@@ -47,6 +51,8 @@ Loaded in `src/app/layout.tsx`:
 - **UI & Body (`font-ui-sans` / `Public Sans`):** Navigation, cards, buttons, forms, and descriptions.
 - **Data & Meta (`font-data` / `IBM Plex Mono`):** Classification codes, lesson counts, read times, dates, and stat numbers. Always pair with `tabular-nums`.
 - **Lesson Prose (`font-sans` / `Geist Sans`):** Long-form MDX lesson body copy.
+
+> `layout.tsx` loads **five** `next/font` families, but only these **four** are part of the type system. The fifth, `Geist_Mono` (`--font-geist-mono`), is legacy from the pre-Editorial-Lab setup and is not a system role — use `font-data` (IBM Plex Mono) for all mono/data text, not Geist Mono. Don't add a new mono role without removing this one first.
 
 ### Type Rules
 - **Sentence case everywhere:** No `uppercase` + `tracking-wider`/`tracking-widest` on section kickers, table headers, or metadata.
@@ -77,6 +83,19 @@ Loaded in `src/app/layout.tsx`:
 - **Rule 9 (`lucide-react` v1.18):** Use `Play` instead of `Youtube`, `ExternalLink` instead of `Github`.
 - **Real visuals over filler:** Show working calculators, quiz specimens, `StatsRow` tiles, or `Mermaid` diagrams — never decorative orbs, rotated shapes, or giant watermarks.
 
+### Callout component (`src/components/Callout.tsx`)
+- **One quiet neutral box**, not five colored tints: surface `bg-[var(--muted)]`, hairline `border-[var(--border)]`. A lesson full of callouts must not read as a rainbow.
+- **Type is carried by icon + label, never by color alone.** Only the icon takes a type color: `warning` → `var(--warning)`, `success` → `var(--success)`; `info` / `tip` / `example` stay `var(--muted-foreground)`.
+- **Sentence-case labels:** `Note`, `Common mistake`, `Best practice`, `Tip`, `Real example`.
+
+### Badges & pills
+- Pill badges (tier, level, severity, type) use the theme-aware `rgba(...)` tint + `var(--foreground)` pattern, **sentence/Title-case text, no `uppercase` + `letter-spacing`**. For a single lowercase data value (e.g. severity `critical`) use `text-transform: capitalize`, not `uppercase`.
+- Reserve the solid `var(--accent)` fill for the one active/selected pill, primary CTA, or link — not for every tag in a row.
+
+### Type scale (quick reference)
+- Smallest on-screen text is **`text-xs` (12px)**. There is no `10px`/`11px`/`0.65rem`/`0.7rem` in the UI (`AGENTS.md` Rule 16 / §3 here).
+- Heaviest weight is **`font-semibold` (600)**. No `font-bold`/`extrabold`/`black` or inline `fontWeight: 700–900`; hierarchy comes from size + color.
+
 ---
 
 ## 6. Copy & Tone
@@ -91,7 +110,7 @@ Loaded in `src/app/layout.tsx`:
 ## 7. Motion & Interaction
 
 - **No infinite loops:** No `animate-pulse` on non-live status dots or badges (skeleton loaders only).
-- **No `transition-all` and no card lift/scale (`hover:-translate-y`, `hover:scale`)** — use `transition-colors`, `transition-opacity`, `transition-[width]`, or `transition-[transform,opacity]`.
+- **No `transition-all` and no card lift/scale (`hover:-translate-y`, `hover:scale`)** — use `transition-colors`, `transition-opacity`, or `transition-[transform,opacity]`. `transition-[width]` is **only** for a progress/meter fill whose `width` is genuinely the animated property; it triggers layout, so never use it for hover/entrance motion — animate `transform` there instead.
 - **Focus & Reduced Motion:** Global `:focus-visible` outline (`2px solid var(--accent)`) and `prefers-reduced-motion` are enforced in `src/app/globals.css`.
 
 ---

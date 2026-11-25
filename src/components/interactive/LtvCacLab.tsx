@@ -201,7 +201,7 @@ export default function LtvCacLab() {
 
       {step >= 3 && step <= 5 && (
         <div>
-          <div className="relative h-8 rounded-md overflow-hidden flex text-[0.6rem] font-data" aria-hidden>
+          <div className="relative h-8 rounded-md overflow-hidden flex text-xs font-data" aria-hidden>
             <div className="flex-[1] flex items-center justify-center" style={TONE.bad}>&lt;1</div>
             <div className="flex-[2] flex items-center justify-center" style={TONE.warn}>1-3</div>
             <div className="flex-[2] flex items-center justify-center" style={TONE.good}>3-5</div>
@@ -248,7 +248,7 @@ export default function LtvCacLab() {
               );
             })}
           </div>
-          <div className="mt-1 flex justify-between font-data text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="mt-1 flex justify-between font-data text-xs text-[var(--muted-foreground)]">
             <span>month 1</span>
             <span>red = still paying back the ${fmt(Math.round(cac))} CAC</span>
             <span>month {chartMonths}</span>

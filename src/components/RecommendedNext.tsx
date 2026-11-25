@@ -21,7 +21,7 @@ export default function RecommendedNext() {
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-2">
       <div className="flex items-center gap-2 mb-3">
         <Sparkles size={14} className="text-[var(--accent)]" />
-        <span className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-[var(--muted-foreground)]">
           Recommended for you
         </span>
       </div>
@@ -35,7 +35,6 @@ export default function RecommendedNext() {
             className="group flex flex-col p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors"
           >
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-base leading-none">{r.emoji}</span>
               <span className="text-xs text-[var(--muted-foreground)]">{r.categoryTitle}</span>
             </div>
             <p className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors mb-2 line-clamp-2">

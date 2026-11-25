@@ -24,7 +24,7 @@ const badgeStyle = (bg: string, color: string): React.CSSProperties => ({
   display: "inline-block",
   padding: "0.125rem 0.5rem",
   borderRadius: "9999px",
-  fontSize: "0.7rem",
+  fontSize: "0.75rem",
   fontWeight: 600,
   background: bg,
   color,
@@ -187,7 +187,7 @@ export default function AdminUsersClient() {
                   {r.isSuperAdmin ? (
                     <span style={badgeStyle("rgba(217,119,6,0.15)", "var(--foreground)")}>superadmin (env)</span>
                   ) : r.role === "admin" ? (
-                    <span style={badgeStyle("rgba(99,102,241,0.15)", "var(--foreground)")}>admin</span>
+                    <span style={badgeStyle("rgba(79,70,229,0.15)", "var(--foreground)")}>admin</span>
                   ) : (
                     <span style={badgeStyle("var(--muted)", "var(--muted-foreground)")}>user</span>
                   )}

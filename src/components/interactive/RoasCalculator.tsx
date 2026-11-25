@@ -147,26 +147,26 @@ export default function RoasCalculator() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
           <div className="text-xs text-[var(--muted-foreground)]">ROAS</div>
-          <div className="text-xl sm:text-2xl font-bold font-mono text-[var(--accent)]">
+          <div className="text-xl sm:text-2xl font-semibold font-mono text-[var(--accent)]">
             {roas}x
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">Revenue / Spend</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Revenue / Spend</div>
         </div>
 
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
           <div className="text-xs text-[var(--muted-foreground)]">Est. CAC</div>
-          <div className="text-xl sm:text-2xl font-bold font-mono">
+          <div className="text-xl sm:text-2xl font-semibold font-mono">
             ${cac.toLocaleString()}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">Cost per Customer</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Cost per Customer</div>
         </div>
 
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
           <div className="text-xs text-[var(--muted-foreground)]">Gross Revenue</div>
-          <div className="text-xl sm:text-2xl font-bold font-mono">
+          <div className="text-xl sm:text-2xl font-semibold font-mono">
             ${revenue.toLocaleString()}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {customers} customers
           </div>
         </div>
@@ -174,13 +174,13 @@ export default function RoasCalculator() {
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
           <div className="text-xs text-[var(--muted-foreground)]">Net Ad Margin</div>
           <div
-            className={`text-xl sm:text-2xl font-bold font-mono ${
+            className={`text-xl sm:text-2xl font-semibold font-mono ${
               profit >= 0 ? "text-[var(--success)]" : "text-[var(--danger)]"
             }`}
           >
             {profit >= 0 ? `+$${profit.toLocaleString()}` : `-$${Math.abs(profit).toLocaleString()}`}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">Revenue - Spend</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Revenue - Spend</div>
         </div>
       </div>
 

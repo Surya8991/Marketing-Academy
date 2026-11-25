@@ -107,7 +107,7 @@ export default function ComparePage() {
                   {comp.category}
                 </span>
               </div>
-              <h3 className="text-lg font-bold mb-2 group-hover:text-[var(--accent)] transition-colors">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-[var(--accent)] transition-colors">
                 {comp.title}
               </h3>
               <p className="text-sm text-[var(--muted-foreground)] flex-grow leading-relaxed mb-4">

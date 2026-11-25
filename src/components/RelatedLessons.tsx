@@ -42,7 +42,7 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
       <h2
         style={{
           fontSize: "1.25rem",
-          fontWeight: 700,
+          fontWeight: 600,
           marginBottom: "1rem",
           color: "var(--foreground)",
         }}
@@ -68,7 +68,7 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
                 <span
                   style={{
                     display: "inline-block",
-                    fontSize: "0.7rem",
+                    fontSize: "0.75rem",
                     fontWeight: 600,
                     letterSpacing: "0.05em",
                     padding: "0.15rem 0.5rem",

@@ -24,7 +24,7 @@ export default function HeroModern({ totalLessons, totalCategories }: HeroProps)
             </h1>
 
             <p className="font-ui-sans text-base text-[var(--muted-foreground)] max-w-[46ch] leading-relaxed">
-              {totalLessons} plain-English lessons paired with live calculators, A/B teardowns, and quizzes. Free, no account needed.
+              {totalLessons} plain-English lessons, each with a quiz. Plus interactive calculators and A/B teardowns for the numbers that matter. Free, no account needed.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">

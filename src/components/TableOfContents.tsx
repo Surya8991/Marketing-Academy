@@ -66,7 +66,7 @@ export function TableOfContentsDesktop({
 
   return (
     <aside className="hidden xl:block sticky top-24 self-start w-44 shrink-0">
-      <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] font-semibold mb-3">
+      <p className="text-xs text-[var(--muted-foreground)] font-semibold mb-3">
         On this page
       </p>
       <nav className="flex flex-col gap-0.5">

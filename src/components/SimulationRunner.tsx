@@ -201,7 +201,7 @@ export default function SimulationRunner({ stages, liveTrack }: Props) {
               </div>
               <p className="text-sm text-[var(--foreground)] leading-relaxed">{selectedOption.outcome}</p>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{selectedOption.why}</p>
-              <p className="text-xs text-[var(--muted-foreground)] italic">Related: {selectedOption.lessonRef}</p>
+              <p className="text-xs text-[var(--muted-foreground)]">Related: {selectedOption.lessonRef}</p>
             </div>
           )}
 

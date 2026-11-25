@@ -97,7 +97,7 @@ export default function SearchClient() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-[var(--foreground)] mb-2">Search Lessons</h1>
+      <h1 className="text-3xl font-semibold text-[var(--foreground)] mb-2">Search Lessons</h1>
       <p className="text-[var(--muted-foreground)] mb-8">
         Search across all {ALL_LESSONS.length} marketing lessons.
       </p>
@@ -206,7 +206,7 @@ export default function SearchClient() {
                     >
                       <div className="min-w-0">
                         <p className="text-[var(--foreground)] font-medium group-hover:text-[var(--accent)] transition-colors truncate">
-                          {item.track.emoji} {item.track.title}
+                          {item.track.title}
                         </p>
                         <p className="text-sm text-[var(--muted-foreground)] mt-0.5 line-clamp-1">
                           {item.track.description}

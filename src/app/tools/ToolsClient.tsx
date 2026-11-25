@@ -51,7 +51,7 @@ const toolCardCss = `
 }
 .tool-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  box-shadow: 0 4px 20px rgba(79,70,229,0.12);
   border-color: var(--accent) !important;
 }
 `;
@@ -204,7 +204,6 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                 >
                   {/* Top row */}
                   <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
-                    <span style={{ fontSize: "1.75rem", lineHeight: 1 }}>{tool.emoji}</span>
                     <span
                       className="font-display"
                       style={{
@@ -222,13 +221,12 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                         style={{
                           padding: "0.2rem 0.55rem",
                           borderRadius: "999px",
-                          fontSize: "0.68rem",
-                          fontWeight: 700,
+                          fontSize: "0.75rem",
+                          fontWeight: 600,
                           background: "rgba(234, 179, 8, 0.15)",
                           color: "var(--foreground)",
                           border: "1px solid rgba(234, 179, 8, 0.35)",
                           letterSpacing: "0.04em",
-                          textTransform: "uppercase",
                           flexShrink: 0,
                         }}
                       >
@@ -243,8 +241,8 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                       style={{
                         padding: "0.2rem 0.6rem",
                         borderRadius: "999px",
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
                         ...pricingStyles[tool.pricing],
                       }}
                     >
@@ -272,7 +270,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
 
                   {/* Optional note */}
                   {tool.note && (
-                    <p style={{ margin: 0, fontSize: "0.75rem", fontStyle: "italic", color: "var(--muted-foreground)" }}>
+                    <p style={{ margin: 0, fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
                       {tool.note}
                     </p>
                   )}
@@ -286,7 +284,7 @@ export default function ToolsClient({ tools, categories, pricingTiers }: ToolsCl
                           style={{
                             padding: "0.18rem 0.55rem",
                             borderRadius: "999px",
-                            fontSize: "0.7rem",
+                            fontSize: "0.75rem",
                             background: "var(--muted)",
                             color: "var(--muted-foreground)",
                           }}

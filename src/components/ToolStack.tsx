@@ -46,7 +46,7 @@ function letterAvatar(name: string) {
         background: "var(--accent)",
         color: "var(--accent-foreground)",
         fontSize: "0.85rem",
-        fontWeight: 700,
+        fontWeight: 600,
         flexShrink: 0,
       }}
     >
@@ -66,13 +66,7 @@ function ToolRow({ tool }: { tool: ToolRef }) {
       style={{ border: "1px solid var(--border)", background: "var(--card)" }}
     >
       <div className="flex items-center gap-2 sm:w-48 sm:shrink-0">
-        {matched ? (
-          <span style={{ fontSize: "1.4rem", lineHeight: 1 }} aria-hidden="true">
-            {matched.emoji}
-          </span>
-        ) : (
-          letterAvatar(tool.toolName)
-        )}
+        {letterAvatar(tool.toolName)}
         {href ? (
           <a
             href={href}
@@ -86,7 +80,7 @@ function ToolRow({ tool }: { tool: ToolRef }) {
           <span className="font-semibold text-sm text-[var(--foreground)]">{tool.toolName}</span>
         )}
         {!tool.required && (
-          <span className="text-[0.68rem] text-[var(--muted-foreground)]">(optional)</span>
+          <span className="text-xs text-[var(--muted-foreground)]">(optional)</span>
         )}
       </div>
 
@@ -97,8 +91,8 @@ function ToolRow({ tool }: { tool: ToolRef }) {
               style={{
                 padding: "0.15rem 0.55rem",
                 borderRadius: "999px",
-                fontSize: "0.68rem",
-                fontWeight: 700,
+                fontSize: "0.75rem",
+                fontWeight: 600,
                 ...pricingStyles[pricing],
               }}
             >
@@ -109,7 +103,7 @@ function ToolRow({ tool }: { tool: ToolRef }) {
         </div>
         <p className="text-xs text-[var(--muted-foreground)] leading-relaxed m-0">{tool.why}</p>
         {tool.fallback && (
-          <p className="text-[0.7rem] italic text-[var(--muted-foreground)] m-0">
+          <p className="text-xs text-[var(--muted-foreground)] m-0">
             No access? {tool.fallback}
           </p>
         )}
@@ -122,7 +116,7 @@ export default function ToolStack({ stack }: { stack: ToolStackType }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <h4 className="text-sm font-bold text-[var(--foreground)] m-0">
+        <h4 className="text-sm font-semibold text-[var(--foreground)] m-0">
           Free path <span className="font-normal text-[var(--muted-foreground)]">(everything below is enough to finish)</span>
         </h4>
         <div className="flex flex-col gap-2">
@@ -134,11 +128,11 @@ export default function ToolStack({ stack }: { stack: ToolStackType }) {
 
       {stack.paid.length > 0 && (
         <div className="flex flex-col gap-2">
-          <h4 className="text-sm font-bold text-[var(--foreground)] m-0">
+          <h4 className="text-sm font-semibold text-[var(--foreground)] m-0">
             Paid upgrades <span className="font-normal text-[var(--muted-foreground)]">(optional, faster/deeper)</span>
           </h4>
           {stack.paidUpgradeNote && (
-            <p className="text-xs text-[var(--muted-foreground)] italic m-0">{stack.paidUpgradeNote}</p>
+            <p className="text-xs text-[var(--muted-foreground)] m-0">{stack.paidUpgradeNote}</p>
           )}
           <div className="flex flex-col gap-2">
             {stack.paid.map((tool) => (

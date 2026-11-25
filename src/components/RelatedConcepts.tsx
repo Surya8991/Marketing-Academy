@@ -36,8 +36,8 @@ export default function RelatedConcepts({
 
   return (
     <section className="mt-10">
-      <p className="text-xs uppercase tracking-wider text-[var(--muted-foreground)] font-semibold mb-3">
-        Related Concepts
+      <p className="text-xs text-[var(--muted-foreground)] font-semibold mb-3">
+        Related concepts
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {concepts.map((c) => (

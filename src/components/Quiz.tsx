@@ -404,7 +404,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
               <div className="flex justify-center mb-3 text-[var(--muted-foreground)]">
                 <XCircle size={36} style={{ color: "rgba(239,68,68,0.8)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1">
+              <div className="text-3xl font-semibold mb-1">
                 {score}/{totalQuestions}
               </div>
               <p className="text-[var(--muted-foreground)] mb-1">{pct}% correct</p>

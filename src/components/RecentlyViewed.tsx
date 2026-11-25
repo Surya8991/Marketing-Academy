@@ -17,7 +17,7 @@ export default function RecentlyViewed() {
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-2">
       <div className="flex items-center gap-2 mb-3">
         <History size={14} className="text-[var(--muted-foreground)]" />
-        <span className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-[var(--muted-foreground)]">
           Continue where you left off
         </span>
       </div>

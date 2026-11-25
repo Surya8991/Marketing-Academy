@@ -50,7 +50,7 @@ export default function ProjectList({ projects, category }: { projects: Project[
         <div className="flex items-center gap-3 min-w-0">
           <ClipboardList size={18} className="shrink-0 text-[var(--accent)]" />
           <div className="min-w-0">
-            <h2 className="text-base font-bold text-[var(--foreground)] m-0">Practice Projects</h2>
+            <h2 className="text-base font-semibold text-[var(--foreground)] m-0">Practice Projects</h2>
             <p className="text-xs text-[var(--muted-foreground)] m-0 truncate">
               {projects.length} project{projects.length === 1 ? "" : "s"} · ~{totalMinutes} min total
               {overlapping.length > 0 && ` · reinforces ${overlapping[0]}`}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BookOpen, FileText, Trophy } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
+import { CategoryIcon } from "@/lib/ui-icons";
 import { QUIZZES } from "@/lib/quizzes";
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
@@ -103,7 +104,7 @@ export default function QuizzesPage() {
         </div>
 
         {/* Category cards grid */}
-        <h2 className="text-xl font-bold mb-6">Browse by Category</h2>
+        <h2 className="text-xl font-semibold mb-6">Browse by Category</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {categoryData.map((cat) => (
             <Link
@@ -115,10 +116,10 @@ export default function QuizzesPage() {
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex items-center gap-3">
                   <span
-                    className="flex items-center justify-center w-12 h-12 rounded-xl text-2xl shrink-0"
-                    style={{ background: "rgba(99,102,241,0.08)" }}
+                    className="flex items-center justify-center w-12 h-12 rounded-xl shrink-0 text-[var(--accent)]"
+                    style={{ background: "rgba(79,70,229,0.08)" }}
                   >
-                    {cat.emoji}
+                    <CategoryIcon slug={cat.slug} size={22} />
                   </span>
                   <div>
                     <div className="font-semibold text-sm leading-snug">{cat.title}</div>
@@ -138,9 +139,9 @@ export default function QuizzesPage() {
                 <span
                   className="text-xs font-semibold px-2.5 py-1 rounded-full"
                   style={{
-                    background: "rgba(99,102,241,0.10)",
+                    background: "rgba(79,70,229,0.10)",
                     color: "var(--accent)",
-                    border: "1px solid rgba(99,102,241,0.2)",
+                    border: "1px solid rgba(79,70,229,0.2)",
                   }}
                 >
                   {cat.totalQuestions} questions
@@ -158,9 +159,9 @@ export default function QuizzesPage() {
         {/* Bottom CTA */}
         <div
           className="mt-16 text-center py-12 rounded-2xl border border-[var(--accent)]/30"
-          style={{ background: "rgba(99,102,241,0.04)" }}
+          style={{ background: "rgba(79,70,229,0.04)" }}
         >
-          <p className="text-2xl font-bold mb-2">Ready to start?</p>
+          <p className="text-2xl font-semibold mb-2">Ready to start?</p>
           <p className="text-[var(--muted-foreground)] mb-6 max-w-md mx-auto text-sm">
             Pick a category above, open any lesson, read it, then take the quiz at the bottom.
           </p>

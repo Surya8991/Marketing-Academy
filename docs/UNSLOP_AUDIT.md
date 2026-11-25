@@ -1,5 +1,7 @@
 # Unslop Audit — Marketing Academy
 
+> **Superseded by `docs/UNSLOP_AUDIT_2026-11-25.md`** (2026-11-25), which carries the current fix list and its resolution log. This file is kept for history only.
+
 > Audit conducted using the **unslop** framework (created by Damir Sokolovsky, [@heydamir](https://x.com/heydamir), licensed under CC BY 4.0).
 
 ---

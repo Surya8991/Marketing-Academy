@@ -89,7 +89,7 @@ export default function InterviewPrepPage() {
         <h1
           style={{
             fontSize: "clamp(2rem, 5vw, 3rem)",
-            fontWeight: 800,
+            fontWeight: 600,
             lineHeight: 1.15,
             marginBottom: "1rem",
             color: "var(--foreground)",
@@ -189,7 +189,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}
@@ -230,9 +230,6 @@ export default function InterviewPrepPage() {
                       gap: "0.5rem",
                     }}
                   >
-                    <div style={{ fontSize: "1.75rem", lineHeight: 1 }}>
-                      {section.emoji}
-                    </div>
                     <div
                       style={{
                         fontWeight: 600,
@@ -270,7 +267,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "0.5rem",
               color: "var(--foreground)",
             }}
@@ -329,7 +326,7 @@ export default function InterviewPrepPage() {
                       color: "var(--muted-foreground)",
                     }}
                   >
-                    {category.emoji} {category.title}
+                    {category.title}
                   </div>
                   <Link
                     href={`/learn/${categorySlug}/${lessonSlug}`}
@@ -369,7 +366,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}
@@ -422,7 +419,7 @@ export default function InterviewPrepPage() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: "0.875rem",
                   }}
                 >
@@ -464,7 +461,7 @@ export default function InterviewPrepPage() {
           <h2
             style={{
               fontSize: "1.5rem",
-              fontWeight: 700,
+              fontWeight: 600,
               marginBottom: "1.5rem",
               color: "var(--foreground)",
             }}

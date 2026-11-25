@@ -117,13 +117,12 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
             className="group flex flex-col p-6 hover:bg-[var(--muted)] transition-colors"
           >
             <div className="flex items-start justify-between gap-4 mb-4">
-              <span className="text-4xl">{track.emoji}</span>
               <span
                 className="font-ui-sans text-xs px-2.5 py-1 rounded-full font-medium shrink-0"
                 style={{
                   background:
                     track.kind === "role"
-                      ? "rgba(99, 102, 241, 0.1)"
+                      ? "rgba(79, 70, 229, 0.1)"
                       : "rgba(234, 179, 8, 0.1)",
                   color:
                     track.kind === "role"
@@ -131,7 +130,7 @@ export default function TracksPageClient({ tracks }: { tracks: Track[] }) {
                       : "var(--warning)",
                   border:
                     track.kind === "role"
-                      ? "1px solid rgba(99, 102, 241, 0.2)"
+                      ? "1px solid rgba(79, 70, 229, 0.2)"
                       : "1px solid rgba(234, 179, 8, 0.25)",
                 }}
               >

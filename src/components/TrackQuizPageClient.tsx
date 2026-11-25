@@ -413,11 +413,11 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <div className="flex justify-center mb-3">
                 <Trophy size={44} style={{ color: "rgb(22,163,74)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1" style={{ color: "rgb(22,163,74)" }}>
+              <div className="text-3xl font-semibold mb-1" style={{ color: "rgb(22,163,74)" }}>
                 {score}/{total}: {pct}%
               </div>
               <p className="text-[var(--muted-foreground)] mb-6">
-                You passed! {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
+                You passed. {Math.round(PASS_THRESHOLD * 100)}% required · you scored {pct}%.
               </p>
 
               {/* Stage 1.5: show which lessons will actually be marked complete */}
@@ -471,7 +471,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <div className="flex justify-center mb-3">
                 <XCircle size={44} style={{ color: "rgba(239,68,68,0.8)" }} />
               </div>
-              <div className="text-3xl font-bold mb-1">{score}/{total}: {pct}%</div>
+              <div className="text-3xl font-semibold mb-1">{score}/{total}: {pct}%</div>
               <p className="text-[var(--muted-foreground)] mb-2">
                 Need {Math.round(PASS_THRESHOLD * 100)}% to pass. Review the lessons and try again.
               </p>

@@ -58,6 +58,9 @@ export default function OnboardingModal() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
+    // handleSkip intentionally omitted: the listener only needs to (re)bind
+    // when the modal opens/closes, not on every render that recreates it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   if (!mounted || !visible) return null;
@@ -134,7 +137,7 @@ export default function OnboardingModal() {
           style={{
             margin: "0 0 0.375rem",
             fontSize: "1.5rem",
-            fontWeight: 700,
+            fontWeight: 600,
             color: "var(--foreground)",
           }}
         >

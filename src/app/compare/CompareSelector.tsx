@@ -93,7 +93,7 @@ export default function CompareSelector() {
               <option value="">-- Select Tool --</option>
               {filteredTools.map((t) => (
                 <option key={t.name} value={t.name}>
-                  {t.emoji} {t.name}
+                  {t.name}
                 </option>
               ))}
             </select>
@@ -115,7 +115,7 @@ export default function CompareSelector() {
               <option value="">-- Select Tool --</option>
               {filteredTools.map((t) => (
                 <option key={t.name} value={t.name}>
-                  {t.emoji} {t.name}
+                  {t.name}
                 </option>
               ))}
             </select>

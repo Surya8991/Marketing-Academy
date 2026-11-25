@@ -60,7 +60,7 @@ const cardCss = `
 }
 .portfolio-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  box-shadow: 0 4px 20px rgba(79,70,229,0.12);
   border-color: var(--accent) !important;
 }
 `;
@@ -197,9 +197,8 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                     style={{
                       padding: "0.2rem 0.6rem",
                       borderRadius: "999px",
-                      fontSize: "0.68rem",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
                       letterSpacing: "0.04em",
                       ...TIER_STYLES[project.tier],
                     }}
@@ -239,7 +238,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                         style={{
                           padding: "0.18rem 0.55rem",
                           borderRadius: "999px",
-                          fontSize: "0.7rem",
+                          fontSize: "0.75rem",
                           background: "var(--muted)",
                           color: "var(--muted-foreground)",
                         }}

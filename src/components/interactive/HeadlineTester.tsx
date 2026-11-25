@@ -127,40 +127,40 @@ export default function HeadlineTester() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-xs text-[var(--muted-foreground)]">Word Count</div>
-          <div className="text-lg font-bold font-mono">
+          <div className="text-lg font-semibold font-mono">
             {wordCount} <span className="text-xs font-normal text-[var(--muted-foreground)]">words</span>
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {wordCount >= 6 && wordCount <= 13 ? "✓ Optimal (6-13)" : "Target: 6-13 words"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-xs text-[var(--muted-foreground)]">Power Words</div>
-          <div className="text-lg font-bold font-mono text-[var(--accent)]">
+          <div className="text-lg font-semibold font-mono text-[var(--accent)]">
             {matchedPowerWords.length}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)] truncate">
+          <div className="text-xs text-[var(--muted-foreground)] truncate">
             {matchedPowerWords.length > 0 ? matchedPowerWords.join(", ") : "None detected"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-xs text-[var(--muted-foreground)]">Curiosity Gap</div>
-          <div className={`text-lg font-bold font-mono ${hasCuriosity ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
+          <div className={`text-lg font-semibold font-mono ${hasCuriosity ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasCuriosity ? "High" : "Low"}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {hasCuriosity ? "✓ Hook trigger found" : "Add why / how / truth"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
           <div className="text-xs text-[var(--muted-foreground)]">Specificity</div>
-          <div className={`text-lg font-bold font-mono ${hasNumbers ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
+          <div className={`text-lg font-semibold font-mono ${hasNumbers ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasNumbers ? "Specific" : "Vague"}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {hasNumbers ? "✓ Metrics detected" : "Add numbers, $, or %"}
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function HeadlineTester() {
           {hasNumbers && hasCuriosity && matchedPowerWords.length >= 1 && (
             <li className="flex items-start gap-1.5 text-[var(--success)] font-medium">
               <CheckCircle size={13} className="shrink-0 mt-0.5" />
-              <span>Excellent balance! You have combined emotional tension, clear specificity, and an optimal reading length.</span>
+              <span>Excellent balance. You have combined emotional tension, clear specificity, and an optimal reading length.</span>
             </li>
           )}
         </ul>

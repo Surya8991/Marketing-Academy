@@ -115,7 +115,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
         <span className="text-xs px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium mb-3 inline-block">
           {toolA.category} Comparison
         </span>
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.2]">
+        <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight leading-[1.2]">
           {toolA.name} <span className="text-[var(--muted-foreground)] font-normal text-2xl sm:text-4xl">vs</span> {toolB.name}
         </h1>
       </div>
@@ -126,7 +126,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
           className="rounded-2xl p-6 mb-10 text-center"
           style={{ border: "1px solid rgba(217,119,6,0.3)", background: "rgba(217,119,6,0.05)" }}
         >
-          <h2 className="text-lg font-bold mb-2" style={{ color: "var(--warning)" }}>Category Mismatch</h2>
+          <h2 className="text-lg font-semibold mb-2" style={{ color: "var(--warning)" }}>Category Mismatch</h2>
           <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             Note: <strong>{toolA.name}</strong> ({toolA.category}) and <strong>{toolB.name}</strong> ({toolB.category}) belong to different marketing disciplines. Side-by-side comparison tables are optimized for tools in the same category.
           </p>
@@ -138,8 +138,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
         {/* Tool A Card */}
         <div className="flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)]">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-3xl">{toolA.emoji}</span>
-            <h2 className="text-xl font-bold">{toolA.name}</h2>
+            <h2 className="text-xl font-semibold">{toolA.name}</h2>
           </div>
           <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-6 flex-grow">
             {toolA.description}
@@ -160,7 +159,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               href={toolA.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-[var(--accent)] hover:underline"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--accent)] hover:underline"
             >
               Visit Website <ExternalLink size={12} />
             </a>
@@ -170,8 +169,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
         {/* Tool B Card */}
         <div className="flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)]">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-3xl">{toolB.emoji}</span>
-            <h2 className="text-xl font-bold">{toolB.name}</h2>
+            <h2 className="text-xl font-semibold">{toolB.name}</h2>
           </div>
           <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-6 flex-grow">
             {toolB.description}
@@ -192,7 +190,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               href={toolB.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-[var(--accent)] hover:underline"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--accent)] hover:underline"
             >
               Visit Website <ExternalLink size={12} />
             </a>
@@ -209,7 +207,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               <Award size={24} />
             </div>
             <div>
-              <h3 className="text-lg font-bold mb-1">Recommended Choice</h3>
+              <h3 className="text-lg font-semibold mb-1">Recommended Choice</h3>
               <p className="font-semibold text-[var(--accent)] mb-2">{customData.winner}</p>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
                 {customData.winnerReason}
@@ -219,7 +217,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
           {/* Detailed comparison table */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Core Feature Matrix</h3>
+            <h3 className="text-xl font-semibold mb-4">Core Feature Matrix</h3>
             <div className="overflow-x-auto border border-[var(--border)] rounded-xl bg-[var(--card)]">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
@@ -244,11 +242,11 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
           {/* Pros & Cons */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Pros & Cons</h3>
+            <h3 className="text-xl font-semibold mb-4">Pros & Cons</h3>
             <div className="grid sm:grid-cols-2 gap-6">
               {/* Tool A Pros/Cons */}
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
-                <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolA.name}</h4>
+                <h4 className="font-semibold border-b border-[var(--border)] pb-2 mb-3">{toolA.name}</h4>
                 <div className="space-y-3">
                   <h5 className="text-xs font-medium" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
@@ -273,7 +271,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
               {/* Tool B Pros/Cons */}
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
-                <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolB.name}</h4>
+                <h4 className="font-semibold border-b border-[var(--border)] pb-2 mb-3">{toolB.name}</h4>
                 <div className="space-y-3">
                   <h5 className="text-xs font-medium" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
@@ -300,7 +298,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
           {/* Pricing Verdict */}
           <div className="p-6 rounded-xl border border-[var(--border)] bg-[var(--card)]">
-            <h3 className="text-lg font-bold mb-2">Pricing Comparison</h3>
+            <h3 className="text-lg font-semibold mb-2">Pricing Comparison</h3>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
               {customData.pricingBreakdown}
             </p>
@@ -308,7 +306,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
           {/* Final Verdict */}
           <div className="p-6 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
-            <h3 className="text-lg font-bold mb-2">Final Verdict</h3>
+            <h3 className="text-lg font-semibold mb-2">Final Verdict</h3>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
               {customData.verdict}
             </p>
@@ -321,7 +319,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                 <BookOpen size={14} />
                 Related Academy Lesson
               </div>
-              <h4 className="font-bold text-base">{customData.recommendedLesson.title}</h4>
+              <h4 className="font-semibold text-base">{customData.recommendedLesson.title}</h4>
               <p className="text-xs text-[var(--muted-foreground)] mt-0.5">
                 Learn the strategic framework behind using these tools effectively.
               </p>
@@ -343,7 +341,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
             ℹ️ This side-by-side is compiled from our tools directory. For a hand-written deep dive, see our featured comparisons on the <Link href="/compare" style={{ color: "var(--accent)", textDecoration: "underline" }}>comparisons hub</Link>.
           </p>
           <div>
-            <h3 className="text-xl font-bold mb-4">Feature Comparison</h3>
+            <h3 className="text-xl font-semibold mb-4">Feature Comparison</h3>
             <div className="overflow-x-auto border border-[var(--border)] rounded-xl bg-[var(--card)]">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
@@ -387,7 +385,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
           {/* Pricing Comparison */}
           <div className="p-6 rounded-xl border border-[var(--border)] bg-[var(--card)]">
-            <h3 className="text-lg font-bold mb-2">Pricing Analysis</h3>
+            <h3 className="text-lg font-semibold mb-2">Pricing Analysis</h3>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
               <strong>{toolA.name}</strong> operates on a <strong>{toolA.pricing}</strong> model, while <strong>{toolB.name}</strong> uses a <strong>{toolB.pricing}</strong> tier. For startups, check if a Freemium or Open Source option exists to minimize overhead before moving to Paid plans.
             </p>
@@ -400,7 +398,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                 <BookOpen size={14} />
                 Explore the Curriculum
               </div>
-              <h4 className="font-bold text-base">Learn {toolA.category} Strategies</h4>
+              <h4 className="font-semibold text-base">Learn {toolA.category} Strategies</h4>
               <p className="text-xs text-[var(--muted-foreground)] mt-0.5">
                 Understand the tactical primitives and analytics rules behind these software types.
               </p>

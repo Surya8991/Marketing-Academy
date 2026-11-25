@@ -114,8 +114,7 @@ export default function CertificatePage() {
           textAlign: "center",
         }}
       >
-        <span style={{ fontSize: "2.5rem" }}>{track.emoji}</span>
-        <h1 style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
+        <h1 style={{ fontSize: "1.25rem", fontWeight: 600, margin: 0 }}>
           Not quite eligible yet
         </h1>
         <p style={{ color: "var(--muted-foreground)", margin: 0, maxWidth: 420 }}>
@@ -154,7 +153,7 @@ export default function CertificatePage() {
               height: 10,
               borderRadius: "999px",
               width: `${pct}%`,
-              background: "linear-gradient(90deg, #6366f1, #8b5cf6)",
+              background: "#4f46e5",
               transition: "width 0.4s ease",
             }}
           />
@@ -290,7 +289,7 @@ export default function CertificatePage() {
         .cert-progress-bar-fill {
           height: 10px;
           border-radius: 999px;
-          background: linear-gradient(90deg, #6366f1, #8b5cf6);
+          background: #4f46e5;
           transition: width 0.6s ease;
         }
 
@@ -406,7 +405,6 @@ export default function CertificatePage() {
 
         <h1 className="cert-title">Certificate of Completion</h1>
 
-        <span className="cert-track-emoji">{track.emoji}</span>
         <div className="cert-track-name">{track.title}</div>
 
         <div className="cert-awarded">Awarded to:</div>

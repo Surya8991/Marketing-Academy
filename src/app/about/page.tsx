@@ -107,9 +107,9 @@ export default function AboutPage() {
         <div className="border border-[var(--border)] grid grid-cols-3 sm:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-[var(--border)] mb-14">
           {STATS.map((s) => (
             <div key={s.label} className="stat-card p-3.5 text-center transition-colors font-ui-sans">
-              <p className="font-data text-[0.6rem] text-[var(--muted-foreground)] mb-1">{s.code}</p>
+              <p className="font-data text-xs text-[var(--muted-foreground)] mb-1">{s.code}</p>
               <p className="font-display font-semibold text-xl text-[var(--accent)]">{s.value}</p>
-              <p className="text-[0.68rem] text-[var(--muted-foreground)] mt-0.5 leading-tight">{s.label}</p>
+              <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-tight">{s.label}</p>
             </div>
           ))}
         </div>

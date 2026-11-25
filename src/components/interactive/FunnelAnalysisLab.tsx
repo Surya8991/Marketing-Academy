@@ -203,7 +203,7 @@ export default function FunnelAnalysisLab() {
             {i < STAGES.length - 1 && step >= 2 && (
               <div className="ml-24 pl-3 sm:ml-28">
                 <span
-                  className="inline-block rounded px-1.5 py-0.5 font-data text-[0.65rem] transition-colors"
+                  className="inline-block rounded px-1.5 py-0.5 font-data text-xs transition-colors"
                   style={i === worst ? TONE.bad : { color: "var(--muted-foreground)" }}
                 >
                   ↓ {dropPct(counts, i)}% drop off{i === worst ? " · biggest leak" : ""}

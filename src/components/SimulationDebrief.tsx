@@ -101,7 +101,7 @@ export default function SimulationDebrief({ log, stages, onReplay }: Props) {
               <p className="text-sm text-[var(--muted-foreground)]">You chose: {option.label}</p>
               {/* Costly choices point back to the lesson section they contradicted */}
               {entry.verdict === "costly" && (
-                <p className="text-xs text-[var(--foreground)] italic mt-1">
+                <p className="text-xs text-[var(--foreground)] mt-1">
                   This contradicted &ldquo;{option.lessonRef}&rdquo; — worth a re-read before you try again.
                 </p>
               )}

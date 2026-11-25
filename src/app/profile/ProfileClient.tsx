@@ -251,7 +251,7 @@ export default function ProfileClient({
               <ul className="text-sm font-ui-sans space-y-1">
                 {stats.certificatesEarned.map((c) => (
                   <li key={c.trackSlug}>
-                    {c.emoji} {c.trackTitle}
+                    {c.trackTitle}
                   </li>
                 ))}
               </ul>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, getCategory } from "@/lib/curriculum";
+import { CategoryIcon } from "@/lib/ui-icons";
 import PrintButton from "./PrintButton";
 import { fitTitle, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
@@ -36,7 +37,7 @@ const printCSS = `
 }
 .cheat-sheet-card:hover {
   border-color: var(--accent) !important;
-  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  box-shadow: 0 4px 20px rgba(79,70,229,0.12);
   transform: translateY(-2px);
 }
 .cs-read-btn {
@@ -108,13 +109,13 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
         >
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <span style={{ fontSize: "2.5rem", lineHeight: "1" }}>{cat.emoji}</span>
+              <CategoryIcon slug={cat.slug} size={32} className="text-[var(--accent)]" />
               <div>
                 <h1
                   style={{
                     margin: 0,
                     fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
-                    fontWeight: 800,
+                    fontWeight: 600,
                     color: "var(--foreground)",
                     lineHeight: 1.2,
                   }}
@@ -160,13 +161,12 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
                 style={{
                   display: "inline-flex",
                   alignSelf: "flex-start",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
                   color: levelColor[lesson.level] ?? "var(--muted-foreground)",
                   background: levelBg[lesson.level] ?? "transparent",
                   padding: "0.2rem 0.6rem",
                   borderRadius: "999px",
-                  textTransform: "uppercase",
                   letterSpacing: "0.06em",
                 }}
               >
@@ -180,7 +180,7 @@ export default async function CategoryCheatSheetPage({ params }: Props) {
                 rel="noopener noreferrer"
                 style={{
                   fontSize: "1.05rem",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: "var(--foreground)",
                   textDecoration: "none",
                   lineHeight: 1.35,

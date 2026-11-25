@@ -76,7 +76,6 @@ export default async function TrackDetailPage({ params }: Props) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero */}
         <div className="mb-10">
-          <div className="text-5xl mb-4">{track.emoji}</div>
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="text-xs px-2.5 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium">
               {track.audience}
@@ -89,7 +88,7 @@ export default async function TrackDetailPage({ params }: Props) {
             </span>
             <TrackShareButton title={track.title} url={`${BASE}/tracks/${slug}`} />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3">{track.title}</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold mb-3">{track.title}</h1>
           <p className="text-[var(--muted-foreground)] text-base leading-relaxed max-w-xl">
             {track.description}
           </p>

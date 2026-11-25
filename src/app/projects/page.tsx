@@ -58,7 +58,7 @@ export default function ProjectsPage() {
         <div className="border border-[var(--border)] grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-[var(--border)] max-w-2xl">
           {stats.map((s) => (
             <div key={s.label} className="p-4 font-ui-sans">
-              <p className="font-data text-[0.65rem] text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
+              <p className="font-data text-xs text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
               <p className="font-display font-semibold text-2xl text-[var(--foreground)]">{s.value}</p>
               <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{s.label}</p>
             </div>

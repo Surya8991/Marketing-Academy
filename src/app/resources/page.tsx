@@ -168,7 +168,7 @@ export default function ResourcesPage() {
                   Month {b.month}
                 </span>
               </div>
-              <h3 className="font-bold text-base leading-tight mb-1">{b.name}</h3>
+              <h3 className="font-semibold text-base leading-tight mb-1">{b.name}</h3>
               <p className="text-xs text-[var(--muted-foreground)] mb-2">by {b.author}</p>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{b.why}</p>
             </div>

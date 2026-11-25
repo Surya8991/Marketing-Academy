@@ -59,9 +59,9 @@ export default function InAction({
         <span
           className="text-xs font-medium px-2 py-0.5 rounded-full"
           style={{
-            background: "rgba(99, 102, 241, 0.12)",
+            background: "rgba(79, 70, 229, 0.12)",
             color: "var(--accent)",
-            border: "1px solid rgba(99, 102, 241, 0.3)",
+            border: "1px solid rgba(79, 70, 229, 0.3)",
           }}
         >
           In Action: {concept}

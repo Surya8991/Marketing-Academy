@@ -21,7 +21,7 @@ function ytId(url: string): string | null {
 
 function Badge({ n }: { n: number }) {
   return (
-    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-bold bg-[var(--muted)] text-[var(--muted-foreground)]">
+    <span className="ml-1.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-xs font-semibold bg-[var(--muted)] text-[var(--muted-foreground)]">
       {n}
     </span>
   );

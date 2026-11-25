@@ -197,7 +197,7 @@ export default function GeoAuditClient() {
             <div className="grid sm:grid-cols-2 gap-3">
               {scoreKeys.map((key) => (
                 <div key={key} className="flex items-start gap-2 text-sm">
-                  <span className="text-[var(--accent)] mt-0.5 shrink-0 font-bold">+</span>
+                  <span className="text-[var(--accent)] mt-0.5 shrink-0 font-semibold">+</span>
                   <div>
                     <span className="font-medium text-[var(--foreground)]">{SCORE_LABELS[key]}</span>
                     <span className="text-[var(--muted-foreground)]"> - {SCORE_TIPS[key]}</span>
@@ -232,7 +232,7 @@ export default function GeoAuditClient() {
                 className="flex flex-col items-center justify-center w-24 h-24 rounded-full border-4 shrink-0"
                 style={{ borderColor: gradeColor(result.grade) }}
               >
-                <span className="text-3xl font-bold" style={{ color: gradeColor(result.grade) }}>
+                <span className="text-3xl font-semibold" style={{ color: gradeColor(result.grade) }}>
                   {result.grade}
                 </span>
                 <span className="text-xs text-[var(--muted-foreground)]">{result.overall}/100</span>
@@ -305,12 +305,12 @@ export default function GeoAuditClient() {
                     <p className="text-sm text-[var(--foreground)] flex-1">{fix.action}</p>
                     <div className="flex items-center gap-1.5 shrink-0 flex-wrap justify-end">
                       <span
-                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium"
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
                         style={impactBadge(fix.impact)}
                       >
                         {fix.impact} impact
                       </span>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-[var(--border)] text-[var(--muted-foreground)]">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--border)] text-[var(--muted-foreground)]">
                         {fix.effort} effort
                       </span>
                     </div>

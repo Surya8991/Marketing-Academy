@@ -231,7 +231,7 @@ export default function AbTestLab() {
               );
             })}
           </div>
-          <div className="mt-1 flex justify-between font-data text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="mt-1 flex justify-between font-data text-xs text-[var(--muted-foreground)]">
             <span>day 1</span>
             <span>{plannedDays <= MAX_DAY ? `end date: day ${plannedDays} (marked)` : `end date: day ${plannedDays}, off the chart`}</span>
           </div>
