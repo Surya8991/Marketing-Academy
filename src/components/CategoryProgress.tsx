@@ -29,7 +29,7 @@ export default function CategoryProgress({
     <div className="flex items-center gap-3 mt-2">
       <div className="flex-1 h-1.5 rounded-full bg-[var(--muted)] overflow-hidden">
         <div
-          className="h-full rounded-full bg-[var(--accent)] transition-all"
+          className="h-full rounded-full bg-[var(--accent)] transition-[width]"
           style={{ width: `${pct}%` }}
         />
       </div>

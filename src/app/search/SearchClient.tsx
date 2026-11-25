@@ -131,11 +131,10 @@ export default function SearchClient() {
               active={activeCategory === cat.slug}
               onClick={() => setActiveCategory(cat.slug)}
             >
-              {cat.emoji} {cat.title}
+              {cat.title}
             </Chip>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[var(--background)] to-transparent" />
       </div>
 
       {/* Level filter chips */}
@@ -154,26 +153,27 @@ export default function SearchClient() {
             </Chip>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[var(--background)] to-transparent" />
       </div>
 
       {/* Empty state: show categories */}
       {showEmptyState ? (
         <div>
-          <p className="text-xs text-[var(--muted-foreground)] mb-4 font-medium uppercase tracking-wider">Browse by topic</p>
+          <p className="text-xs text-[var(--muted-foreground)] mb-4 font-data">Browse by topic</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {CATEGORIES.map((cat) => (
+            {CATEGORIES.map((cat, idx) => (
               <Link
                 key={cat.slug}
                 href={`/learn/${cat.slug}`}
-                className="flex items-center gap-3 p-3 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-sm transition-all group"
+                className="flex items-center gap-3 p-3 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors group"
               >
-                <span className="text-xl shrink-0">{cat.emoji}</span>
+                <span className="font-data text-xs text-[var(--muted-foreground)] tabular-nums shrink-0">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
                 <div className="min-w-0">
                   <p className="text-sm font-medium truncate group-hover:text-[var(--accent)] transition-colors">{cat.title}</p>
-                  <p className="text-xs text-[var(--muted-foreground)]">{cat.lessons.length} lessons</p>
+                  <p className="text-xs text-[var(--muted-foreground)] tabular-nums">{cat.lessons.length} lessons</p>
                 </div>
-                <ArrowRight size={12} className="shrink-0 text-[var(--muted-foreground)] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowRight size={14} strokeWidth={1.5} className="shrink-0 text-[var(--muted-foreground)] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
             ))}
           </div>
@@ -215,7 +215,7 @@ export default function SearchClient() {
                           {item.track.lessons.length}-lesson track
                         </p>
                       </div>
-                      <span className="shrink-0 mt-0.5 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full" style={{ background: "rgba(234, 88, 12, 0.15)", color: "rgba(234, 88, 12, 0.9)" }}>
+                      <span className="shrink-0 mt-0.5 inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: "rgba(234, 88, 12, 0.15)", color: "rgba(234, 88, 12, 0.9)" }}>
                         <Map size={10} /> Track
                       </span>
                     </Link>

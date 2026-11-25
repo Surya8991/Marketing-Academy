@@ -142,8 +142,8 @@ export default function ShareButtons({ title, url }: Props) {
         }}
         aria-label="Copy link"
       >
-        {copied ? <Check size={12} /> : <Link2 size={12} />}
-        {copied ? "Copied!" : "Copy link"}
+        {copied ? <Check size={14} strokeWidth={1.5} /> : <Link2 size={14} strokeWidth={1.5} />}
+        {copied ? "Copied" : "Copy link"}
       </button>
     </div>
   );

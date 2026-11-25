@@ -175,7 +175,7 @@ export default function MarkComplete({
     <div className="flex flex-col gap-3">
       <button
         onClick={toggle}
-        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-all w-fit"
+        className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg transition-colors w-fit"
         style={
           done
             ? {

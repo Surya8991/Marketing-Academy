@@ -257,7 +257,7 @@ export default function AdminUsersClient() {
         </div>
       </div>
 
-      <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--muted-foreground)] mb-3">
+      <p className="font-data text-xs text-[var(--muted-foreground)] mb-3">
         Audit log (last {audit.length})
       </p>
       <ul className="divide-y divide-[var(--border)] border-t border-b border-[var(--border)] text-sm">

@@ -28,7 +28,7 @@ export default function RecentlyViewed() {
             href={`/learn/${l.categorySlug}/${l.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-all group"
+            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors group"
           >
             <span className="text-xs text-[var(--muted-foreground)]">{l.categoryTitle}</span>
             <span className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">

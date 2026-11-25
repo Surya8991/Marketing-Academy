@@ -172,8 +172,8 @@ export default function DailyChallenge() {
             <Sparkles size={16} />
           </span>
           <div>
-            <div className="text-[0.7rem] uppercase tracking-wider font-semibold text-[var(--accent)]">
-              Daily 2-Min Teardown
+            <div className="text-xs font-medium text-[var(--accent)]">
+              Daily 2-min teardown
             </div>
             <div className="text-xs text-[var(--muted-foreground)]">
               {teardown.company} · {teardown.category}
@@ -181,14 +181,14 @@ export default function DailyChallenge() {
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-[var(--warning)] font-medium text-xs">
-          <Flame size={14} className="animate-pulse" />
-          <span>{streak} Day Streak</span>
+        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md border border-[var(--border)] bg-[var(--muted)] text-[var(--foreground)] font-data tabular-nums text-xs">
+          <Flame size={14} strokeWidth={1.5} className="text-[var(--muted-foreground)]" />
+          <span>{streak}d streak</span>
         </div>
       </div>
 
       {/* Challenge Title & Context */}
-      <h3 className="text-lg sm:text-xl font-semibold font-display mb-2 text-balance">
+      <h3 className="text-lg sm:text-xl font-medium font-display mb-2 text-balance">
         {teardown.headline}
       </h3>
       <p className="text-sm text-[var(--muted-foreground)] mb-5 leading-relaxed">
@@ -200,7 +200,7 @@ export default function DailyChallenge() {
         {teardown.options.map((opt) => {
           const isSelected = selectedOpt === opt.id;
           let btnClasses =
-            "w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3 relative text-sm ";
+            "w-full text-left p-4 rounded-xl border transition-colors flex items-start gap-3 relative text-sm ";
 
           if (!submitted) {
             btnClasses +=

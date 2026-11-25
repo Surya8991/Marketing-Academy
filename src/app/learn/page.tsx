@@ -1,13 +1,11 @@
-import Link from "next/link";
 import { CATEGORIES, uniqueLessonCount } from "@/lib/curriculum";
 import { classificationCode } from "@/lib/classificationCodes";
-import LevelBadge from "@/components/LevelBadge";
+import { TOPIC_GROUPS } from "@/lib/topic-groups";
 import SurpriseMeButton from "@/components/SurpriseMeButton";
 import PageMasthead from "@/components/PageMasthead";
-import { ArrowRight } from "lucide-react";
+import LearnCatalogClient, { type CatalogCategory } from "./LearnCatalogClient";
 import type { Metadata } from "next";
 
-// Stage 5.3: was hardcoded "393+ ... 15 disciplines"
 export const metadata: Metadata = {
   title: "All Marketing Lessons",
   alternates: { canonical: "/learn" },
@@ -15,13 +13,28 @@ export const metadata: Metadata = {
     `Browse all ${uniqueLessonCount()}+ marketing lessons across ${CATEGORIES.length} topics: SEO, paid ads, growth, email, analytics, AI marketing, copywriting, CRO, and more. Free, structured Beginner to Advanced.`,
 };
 
-/** Stage 3.4: show only the first PREVIEW_COUNT lessons per category to keep
- *  the HTML under ~250 KB (was 1.33 MB rendering all 655). Each category page
- *  already has the full listing; "View all →" links there. */
-const PREVIEW_COUNT = 5;
+const PREVIEW_COUNT = 3;
 
 export default function LearnPage() {
   const totalLessons = uniqueLessonCount();
+  const groupBySlug = new Map<string, string>();
+  for (const g of TOPIC_GROUPS) {
+    for (const s of g.slugs) groupBySlug.set(s, g.label);
+  }
+
+  const catalogCategories: CatalogCategory[] = CATEGORIES.map((cat) => ({
+    slug: cat.slug,
+    code: classificationCode(cat.slug),
+    title: cat.title,
+    tagline: cat.tagline,
+    group: groupBySlug.get(cat.slug) ?? TOPIC_GROUPS[0].label,
+    totalCount: cat.lessons.length,
+    preview: cat.lessons.slice(0, PREVIEW_COUNT).map((l) => ({
+      slug: l.slug,
+      title: l.title,
+      level: l.level,
+    })),
+  }));
 
   return (
     <>
@@ -30,77 +43,21 @@ export default function LearnPage() {
         right={`${CATEGORIES.length} topics · ${totalLessons} lessons`}
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-10 flex flex-wrap items-start justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <h1 className="font-display font-semibold text-4xl mb-3">All Marketing Lessons</h1>
+            <h1 className="font-serif font-medium text-4xl mb-3">All Marketing Lessons</h1>
             <p className="text-[var(--muted-foreground)] text-lg max-w-2xl font-ui-sans">
-              {CATEGORIES.length} topics, each ordered from beginner to advanced. Open a topic to see every lesson in it.
+              {CATEGORIES.length} topics, each ordered from beginner to advanced. Filter by area or open any topic to see every lesson.
             </p>
           </div>
           <SurpriseMeButton />
         </div>
 
-        <div className="flex flex-col gap-6">
-          {CATEGORIES.map((cat) => {
-            const preview = cat.lessons.slice(0, PREVIEW_COUNT);
-            const remaining = cat.lessons.length - PREVIEW_COUNT;
-            return (
-            <div key={cat.slug} className="border border-[var(--border)] rounded-lg overflow-hidden">
-              {/* Category header — classification code + serif title, no gradient band */}
-              <div className="border-b border-[var(--border)] bg-[var(--muted)]/40 p-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2.5 mb-1">
-                      <span className="font-data text-[0.7rem] tracking-[0.06em] text-[var(--accent)]">{classificationCode(cat.slug)}</span>
-                      <span className="text-lg">{cat.emoji}</span>
-                      <h2 className="font-display font-semibold text-xl">{cat.title}</h2>
-                    </div>
-                    <p className="text-sm text-[var(--muted-foreground)] font-ui-sans">{cat.tagline}</p>
-                  </div>
-                  <Link
-                    href={`/learn/${cat.slug}`}
-                    className="font-ui-sans shrink-0 flex items-center gap-1 text-sm font-medium text-[var(--accent)] hover:underline"
-                  >
-                    View all {cat.lessons.length} <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Lessons list — first PREVIEW_COUNT only. Numbering here is real:
-                  each category's lessons ARE meant to be read in this order. */}
-              <div className="divide-y divide-[var(--border)]">
-                {preview.map((lesson, i) => (
-                  <Link
-                    key={lesson.slug}
-                    href={`/learn/${cat.slug}/${lesson.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 px-5 py-3 hover:bg-[var(--muted)] transition-colors group"
-                  >
-                    <span className="shrink-0 w-6 font-data text-xs text-[var(--muted-foreground)] tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex-1 min-w-0 font-ui-sans">
-                      <p className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors">{lesson.title}</p>
-                      <p className="text-xs text-[var(--muted-foreground)] truncate">{lesson.summary}</p>
-                    </div>
-                    <LevelBadge level={lesson.level} className="shrink-0" />
-                  </Link>
-                ))}
-                {remaining > 0 && (
-                  <Link
-                    href={`/learn/${cat.slug}`}
-                    className="font-ui-sans flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-medium text-[var(--accent)] hover:bg-[var(--muted)] transition-colors"
-                  >
-                    +{remaining} more lesson{remaining !== 1 ? "s" : ""} <ArrowRight size={14} />
-                  </Link>
-                )}
-              </div>
-            </div>
-            );
-          })}
-        </div>
+        <LearnCatalogClient
+          categories={catalogCategories}
+          groups={TOPIC_GROUPS.map((g) => g.label)}
+        />
       </div>
     </>
   );

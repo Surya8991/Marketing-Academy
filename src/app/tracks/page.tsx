@@ -26,7 +26,7 @@ export default function TracksPage() {
       />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-10">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">Sequenced, not scattered</p>
+          <p className="font-data text-xs text-[var(--accent)] mb-1.5">Sequenced, not scattered</p>
           <h1 className="font-display font-semibold text-4xl mb-3">Learning Tracks</h1>
           <p className="text-[var(--muted-foreground)] text-lg max-w-2xl font-ui-sans">
             Pick the path that matches your role or the skill you want to master.

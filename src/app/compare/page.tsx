@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CompareSelector from "./CompareSelector";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tool Comparisons",
@@ -13,8 +13,6 @@ export const metadata: Metadata = {
 const hoverCSS = `
   .compare-link-card:hover {
     border-color: var(--accent) !important;
-    box-shadow: 0 4px 20px rgba(99,102,241,0.12);
-    transform: translateY(-2px);
   }
 `;
 
@@ -24,49 +22,42 @@ const POPULAR_COMPARISONS = [
     category: "SEO",
     description: "The two giants of search engine marketing. Compare backlink indexing, keyword volume accuracy, and technical auditing.",
     slug: "semrush-vs-ahrefs",
-    emojis: ["📊", "🕷️"],
   },
   {
     title: "Mailchimp vs Klaviyo",
     category: "Email & CRM",
     description: "Standard newsletter broadcasting vs. hyper-targeted behavioral automation. Discover which fits your business type.",
     slug: "mailchimp-vs-klaviyo",
-    emojis: ["🐵", "📧"],
   },
   {
     title: "GA4 vs Mixpanel",
     category: "Analytics",
     description: "Google's pageview tracking vs. event-based user cohort retention analysis. Learn when to use web analytics vs. product analytics.",
     slug: "google-analytics-4-vs-mixpanel",
-    emojis: ["📈", "📊"],
   },
   {
     title: "ChatGPT vs Claude",
     category: "AI Marketing",
     description: "Advanced text workflows, scripting, and multimodal tools. Compare OpenAI's GPT models vs. Anthropic's Claude.",
     slug: "chatgpt-vs-claude",
-    emojis: ["🤖", "🧠"],
   },
   {
     title: "Buffer vs Hootsuite",
     category: "Social Media",
     description: "Simple, budget-friendly multi-channel scheduler vs. enterprise-grade publishing and social listening hubs.",
     slug: "buffer-vs-hootsuite",
-    emojis: ["🗂️", "🦉"],
   },
   {
     title: "Optimizely vs VWO",
     category: "CRO & Testing",
     description: "Enterprise experimentation platforms for web personalization. Compare server-side split testing vs. client-side A/B runs.",
     slug: "optimizely-vs-vwo",
-    emojis: ["🧪", "🔍"],
   },
   {
     title: "WordPress vs Ghost",
     category: "Content Marketing",
     description: "The classic customizable open-source CMS vs. the modern, clean, lightning-fast publication engine built for newsletters.",
     slug: "wordpress-vs-ghost",
-    emojis: ["📝", "👻"],
   },
 ];
 
@@ -77,11 +68,10 @@ export default function ComparePage() {
 
       {/* Hero Header */}
       <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border)] bg-[var(--card)] text-sm text-[var(--muted-foreground)] mb-4 shadow-sm">
-          <Sparkles size={14} className="text-[var(--accent)]" />
-          Side-by-Side Comparison Engine
-        </div>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
+        <p className="font-data text-xs text-[var(--accent)] mb-3">
+          Side-by-side comparison
+        </p>
+        <h1 className="text-4xl sm:text-5xl font-medium font-serif tracking-tight leading-[1.1] mb-4">
           Compare Marketing Tools
         </h1>
         <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto leading-relaxed">
@@ -90,31 +80,30 @@ export default function ComparePage() {
       </div>
 
       {/* Interactive Form */}
-      <div className="mb-16 rounded-2xl border-2 border-[var(--accent)]/30 bg-[var(--accent)]/5 p-6 sm:p-8">
-        <p className="text-xs font-semibold text-[var(--accent)] uppercase tracking-wider mb-1">Custom Comparison</p>
-        <h2 className="text-xl font-bold mb-1">Compare any two tools</h2>
+      <div className="mb-16 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">
+        <p className="text-xs font-data text-[var(--accent)] mb-1">Custom comparison</p>
+        <h2 className="text-xl font-medium mb-1">Compare any two tools</h2>
         <p className="text-sm text-[var(--muted-foreground)] mb-6">Pick any two tools from our directory and get a side-by-side breakdown instantly.</p>
         <CompareSelector />
       </div>
 
       {/* Curated / Popular Grid */}
       <div>
-        <h2 className="text-2xl font-bold mb-6 text-center sm:text-left">
-          Popular Comparisons
+        <h2 className="text-2xl font-medium font-serif mb-6 text-center sm:text-left">
+          Popular comparisons
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {POPULAR_COMPARISONS.map((comp) => (
+          {POPULAR_COMPARISONS.map((comp, idx) => (
             <Link
               key={comp.slug}
               href={`/compare/${comp.slug}`}
-              className="compare-link-card group flex flex-col p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] transition-all duration-200"
+              className="compare-link-card group flex flex-col p-6 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-colors"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="flex gap-1">
-                  <span className="text-2xl">{comp.emojis[0]}</span>
-                  <span className="text-2xl -ml-2">{comp.emojis[1]}</span>
-                </div>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-semibold">
+                <span className="font-data text-xs text-[var(--muted-foreground)] tabular-nums">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <span className="text-xs font-data text-[var(--accent)]">
                   {comp.category}
                 </span>
               </div>

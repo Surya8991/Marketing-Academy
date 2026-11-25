@@ -67,7 +67,7 @@ export default function AchievementsClient() {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">
           Streak, XP, and badges
         </p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
@@ -105,10 +105,9 @@ export default function AchievementsClient() {
         {/* Empty-state nudge for first-time visitors */}
         {xp === 0 && achievements.length === 0 && (
           <div className="p-6 rounded-xl bg-[var(--muted)] border border-[var(--border)] mb-10 text-center">
-            <p className="text-2xl mb-2">🚀</p>
-            <p className="font-semibold text-[var(--foreground)] mb-1">No badges yet</p>
+            <p className="font-medium text-[var(--foreground)] mb-1">No badges yet</p>
             <p className="text-sm text-[var(--muted-foreground)]">
-              Complete lessons and pass quizzes to earn XP and unlock badges.{" "}
+              Complete lessons and pass quizzes to earn XP and badges.{" "}
               <Link href="/learn" className="text-[var(--accent)] underline">
                 Start your first lesson →
               </Link>

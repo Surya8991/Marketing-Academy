@@ -165,7 +165,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
           style={{ borderColor: "var(--border)", background: "var(--card)" }}
         >
           <div className="flex items-center justify-between gap-3 flex-wrap">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] m-0">
+            <h2 className="text-xs font-medium text-[var(--muted-foreground)] m-0">
               Filters
             </h2>
             {hasFilters && (

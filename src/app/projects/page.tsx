@@ -41,7 +41,7 @@ export default function ProjectsPage() {
 
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">Not reading — doing</p>
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">Not reading — doing</p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
           Practice Projects
         </h1>

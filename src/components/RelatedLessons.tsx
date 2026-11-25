@@ -62,7 +62,7 @@ export default function RelatedLessons({ currentCategory, currentSlug, level }: 
               style={{ textDecoration: "none" }}
             >
               <div
-                className="border border-[var(--border)] rounded-xl p-4 hover:border-[var(--accent)] hover:bg-[var(--muted)]/30 transition-all"
+                className="border border-[var(--border)] rounded-xl p-4 hover:border-[var(--accent)] hover:bg-[var(--muted)]/30 transition-colors"
                 style={{ height: "100%", display: "flex", flexDirection: "column", gap: "0.5rem" }}
               >
                 <span

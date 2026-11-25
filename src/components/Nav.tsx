@@ -203,7 +203,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
     return (
       <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(560px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
         {/* Sidebar: section tabs */}
-        <div className="w-[190px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
+        <div className="w-48 shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
           {sections.map((section) => {
             const TabIcon = section.tabIcon;
             const isActive = section.tabLabel === activeTab;
@@ -312,8 +312,8 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
         {openDrop === "topics" && (
           <div className="absolute left-4 sm:left-6 lg:left-8 top-full mt-2 w-[min(780px,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden flex">
             {/* Sidebar: discipline tabs */}
-            <div className="w-[210px] shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
-              <p className="px-2.5 pt-1.5 pb-2 text-[0.65rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold">
+            <div className="w-52 shrink-0 border-r border-[var(--border)] bg-[var(--muted)]/30 p-2">
+              <p className="px-2.5 pt-1.5 pb-2 text-xs text-[var(--muted-foreground)] font-semibold">
                 Browse
               </p>
               {TOPIC_GROUPS.map((group) => {
@@ -342,7 +342,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
 
             {/* Content: active group's topics */}
             <div className="flex-1 min-w-0 p-3.5">
-              <p className="px-1 pb-2 text-[0.65rem] uppercase tracking-wider text-[var(--muted-foreground)] font-semibold">
+              <p className="px-1 pb-2 text-xs text-[var(--muted-foreground)] font-semibold">
                 {activeGroup}
               </p>
               <div className="grid grid-cols-2 gap-x-2 gap-y-0.5">
@@ -442,7 +442,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
               <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-[var(--border)] bg-[var(--card)] shadow-2xl overflow-hidden py-1">
                 {signedIn && (
                   <div className="px-4 pt-2 pb-2.5 border-b border-[var(--border)] mb-1">
-                    <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)]">Signed in as</p>
+                    <p className="text-[0.7rem] font-medium text-[var(--muted-foreground)]">Signed in as</p>
                     <p className="text-sm font-medium truncate">{session?.user?.email}</p>
                   </div>
                 )}
@@ -520,7 +520,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
             <div className="pb-3">
               {TOPIC_GROUPS.map((group) => (
                 <div key={group.label} className="mb-3">
-                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
+                  <p className="text-[0.7rem] font-medium text-[var(--muted-foreground)] mb-1.5 px-1 font-semibold">
                     {group.label}
                   </p>
                   <div className="grid grid-cols-2 gap-1">
@@ -565,7 +565,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
             <div className="pb-2">
               {LEARN_SECTIONS.map((section) => (
                 <div key={section.tabLabel} className="mb-2">
-                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
+                  <p className="text-[0.7rem] font-medium text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
                     {section.tabLabel}
                   </p>
                   <div className="flex flex-col gap-0.5">
@@ -592,7 +592,7 @@ export default function Nav({ authConfigured = false }: { authConfigured?: boole
             <div className="pb-2">
               {RESOURCE_SECTIONS.map((section) => (
                 <div key={section.tabLabel} className="mb-2">
-                  <p className="text-[0.7rem] uppercase tracking-wider text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
+                  <p className="text-[0.7rem] font-medium text-[var(--muted-foreground)] mb-1 px-1 font-semibold">
                     {section.tabLabel}
                   </p>
                   <div className="flex flex-col gap-0.5">

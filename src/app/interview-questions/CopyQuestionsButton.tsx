@@ -51,12 +51,12 @@ export default function CopyQuestionsButton() {
         background: copied ? "rgba(16,185,129,0.12)" : "var(--card)",
         color: copied ? "#10b981" : "var(--muted-foreground)",
         cursor: "pointer",
-        transition: "all 0.2s",
+        transition: "color 0.15s, background 0.15s",
         marginBottom: "2rem",
       }}
     >
       {copied ? <Check size={14} /> : <Copy size={14} />}
-      {copied ? "Copied to clipboard!" : `Copy all ${totalQuestions}+ questions`}
+      {copied ? "Copied to clipboard" : `Copy all ${totalQuestions}+ questions`}
     </button>
   );
 }

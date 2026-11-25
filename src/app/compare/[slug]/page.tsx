@@ -112,7 +112,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
 
       {/* Header Cards (Side-by-Side comparison title) */}
       <div className="text-center mb-10">
-        <span className="text-xs px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-semibold uppercase tracking-wider mb-3 inline-block">
+        <span className="text-xs px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] font-medium mb-3 inline-block">
           {toolA.category} Comparison
         </span>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.2]">
@@ -250,7 +250,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
                 <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolA.name}</h4>
                 <div className="space-y-3">
-                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "var(--success)" }}>Pros</h5>
+                  <h5 className="text-xs font-medium" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.prosA.map((p, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
@@ -259,7 +259,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
-                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
+                  <h5 className="text-xs font-medium pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.consA.map((c, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
@@ -275,7 +275,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
                 <h4 className="font-bold border-b border-[var(--border)] pb-2 mb-3">{toolB.name}</h4>
                 <div className="space-y-3">
-                  <h5 className="text-xs uppercase font-semibold tracking-wider" style={{ color: "var(--success)" }}>Pros</h5>
+                  <h5 className="text-xs font-medium" style={{ color: "var(--success)" }}>Pros</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.prosB.map((p, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
@@ -284,7 +284,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
-                  <h5 className="text-xs uppercase font-semibold tracking-wider pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
+                  <h5 className="text-xs font-medium pt-3" style={{ color: "var(--danger)" }}>Cons</h5>
                   <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
                     {customData.consB.map((c, idx) => (
                       <li key={idx} className="flex gap-2 items-start">
@@ -315,7 +315,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
           </div>
 
           {/* Recommended lesson card */}
-          <div className="rounded-2xl border border-[var(--border)] p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-gradient-to-br from-[var(--accent)]/5 to-transparent">
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <div className="flex items-center gap-1.5 text-xs text-[var(--accent)] font-semibold mb-1">
                 <BookOpen size={14} />
@@ -394,7 +394,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
           </div>
 
           {/* Fallback recommendation */}
-          <div className="rounded-2xl border border-[var(--border)] p-6 bg-gradient-to-br from-[var(--accent)]/5 to-transparent flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <div className="flex items-center gap-1.5 text-xs text-[var(--accent)] font-semibold mb-1">
                 <BookOpen size={14} />

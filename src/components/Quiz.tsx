@@ -372,8 +372,8 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
             <div className="flex justify-center mb-3">
               <Trophy size={40} style={{ color: "var(--success)" }} />
             </div>
-            <div className="text-3xl font-bold mb-1" style={{ color: "var(--success)" }}>
-              {alreadyPassed ? "Already Passed!" : "Quiz Passed!"}
+            <div className="text-2xl font-medium mb-1" style={{ color: "var(--success)" }}>
+              {alreadyPassed ? "Already passed" : "Quiz passed"}
             </div>
             {!alreadyPassed && (
               <p className="text-sm text-[var(--muted-foreground)] mb-1">
@@ -554,7 +554,7 @@ export default function Quiz({ questions, category, slug, lessonTitle }: Props) 
               key={i}
               onClick={() => handleSelect(i)}
               aria-pressed={isPicked}
-              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all cursor-pointer"
+              className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-colors cursor-pointer"
               style={{
                 borderColor: isPicked ? "var(--accent)" : "var(--border)",
                 background: isPicked ? "color-mix(in srgb, var(--accent) 10%, transparent)" : "transparent",

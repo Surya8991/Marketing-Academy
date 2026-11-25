@@ -32,7 +32,7 @@ export default function RecommendedNext() {
             href={`/learn/${r.category}/${r.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-all"
+            className="group flex flex-col p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors"
           >
             <div className="flex items-center gap-2 mb-2">
               <span className="text-base leading-none">{r.emoji}</span>

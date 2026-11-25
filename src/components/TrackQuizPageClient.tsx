@@ -249,7 +249,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
         </div>
         <div className="h-2 rounded-full overflow-hidden" style={{ background: "var(--muted)" }}>
           <div
-            className="h-full rounded-full transition-all duration-300"
+            className="h-full rounded-full transition-[width] duration-300"
             style={{
               width: `${total > 0 ? (answeredCount / total) * 100 : 0}%`,
               background: "var(--accent)",
@@ -306,7 +306,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
                       key={oi}
                       onClick={() => pick(qi, oi)}
                       aria-disabled={submitted}
-                      className="w-full text-left px-4 py-3 rounded-xl text-sm transition-all"
+                      className="w-full text-left px-4 py-3 rounded-xl text-sm transition-colors"
                       style={{ border, background: bg, color, opacity, cursor: submitted ? "default" : "pointer" }}
                     >
                       <span className="font-medium mr-2" style={{ color: submitted ? "inherit" : "var(--muted-foreground)" }}>
@@ -389,7 +389,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
           <button
             onClick={submit}
             disabled={!allAnswered}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all shrink-0"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors shrink-0"
             style={{
               background: allAnswered ? "var(--accent)" : "var(--muted)",
               color: allAnswered ? "var(--accent-foreground)" : "var(--muted-foreground)",
@@ -452,7 +452,7 @@ export default function TrackQuizPageClient({ trackSlug, lessons, questions }: P
               <button
                 onClick={markAll}
                 disabled={marking || eligible.length === 0}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
                 style={{
                   background: marking || eligible.length === 0 ? "var(--muted)" : "var(--accent)",
                   color: marking || eligible.length === 0 ? "var(--muted-foreground)" : "var(--accent-foreground)",

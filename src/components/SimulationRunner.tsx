@@ -169,7 +169,7 @@ export default function SimulationRunner({ stages, liveTrack }: Props) {
                   onClick={() => handleChoose(option)}
                   aria-disabled={!!selectedOptionId}
                   aria-pressed={isPicked}
-                  className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-all"
+                  className="w-full text-left px-4 py-3 rounded-lg border text-sm transition-colors"
                   style={{
                     borderColor: isPicked ? "var(--accent)" : "var(--border)",
                     background: isPicked ? "color-mix(in srgb, var(--accent) 10%, transparent)" : "transparent",

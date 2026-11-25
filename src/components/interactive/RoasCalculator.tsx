@@ -55,7 +55,7 @@ export default function RoasCalculator() {
       {/* Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-6 border-b border-[var(--border)]">
         <div>
-          <div className="text-[0.68rem] font-semibold tracking-wider uppercase text-[var(--accent)]">
+          <div className="text-xs font-medium text-[var(--accent)]">
             Interactive Sandbox
           </div>
           <h4 className="text-lg font-semibold font-display">
@@ -146,7 +146,7 @@ export default function RoasCalculator() {
       {/* Computed Metrics Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
-          <div className="text-[0.7rem] text-[var(--muted-foreground)] uppercase">ROAS</div>
+          <div className="text-xs text-[var(--muted-foreground)]">ROAS</div>
           <div className="text-xl sm:text-2xl font-bold font-mono text-[var(--accent)]">
             {roas}x
           </div>
@@ -154,7 +154,7 @@ export default function RoasCalculator() {
         </div>
 
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
-          <div className="text-[0.7rem] text-[var(--muted-foreground)] uppercase">Est. CAC</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Est. CAC</div>
           <div className="text-xl sm:text-2xl font-bold font-mono">
             ${cac.toLocaleString()}
           </div>
@@ -162,7 +162,7 @@ export default function RoasCalculator() {
         </div>
 
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
-          <div className="text-[0.7rem] text-[var(--muted-foreground)] uppercase">Gross Revenue</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Gross Revenue</div>
           <div className="text-xl sm:text-2xl font-bold font-mono">
             ${revenue.toLocaleString()}
           </div>
@@ -172,7 +172,7 @@ export default function RoasCalculator() {
         </div>
 
         <div className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--muted)]/30">
-          <div className="text-[0.7rem] text-[var(--muted-foreground)] uppercase">Net Ad Margin</div>
+          <div className="text-xs text-[var(--muted-foreground)]">Net Ad Margin</div>
           <div
             className={`text-xl sm:text-2xl font-bold font-mono ${
               profit >= 0 ? "text-[var(--success)]" : "text-[var(--danger)]"

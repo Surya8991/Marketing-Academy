@@ -106,7 +106,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
 
   return (
     <div className="not-prose mt-10 mb-2">
-      <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
+      <p className="text-xs font-medium text-[var(--muted-foreground)] mb-3">
         Free Resources
       </p>
 
@@ -160,7 +160,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
         <div className="space-y-2">
           {data.articles.length > 0 && (
             <>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">Articles</p>
+              <p className="text-xs font-medium text-[var(--muted-foreground)] mb-2">Articles</p>
               {data.articles.map((a, i) => (
                 <LinkRow key={i} item={a} icon={<FileText size={15} className="text-[var(--accent)]" />} />
               ))}
@@ -168,7 +168,7 @@ export default function LessonResourcesClient({ data }: { data: LessonResourceDa
           )}
           {data.docs.length > 0 && (
             <div className="mt-4">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">Official docs</p>
+              <p className="text-xs font-medium text-[var(--muted-foreground)] mb-2">Official docs</p>
               {data.docs.map((d, i) => (
                 <LinkRow key={i} item={d} icon={<BookOpen size={15} className="text-[var(--info)]" />} />
               ))}

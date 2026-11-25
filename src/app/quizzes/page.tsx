@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookOpen, FileText, Trophy } from "lucide-react";
 import { CATEGORIES } from "@/lib/curriculum";
 import { QUIZZES } from "@/lib/quizzes";
 import type { Metadata } from "next";
@@ -53,17 +54,10 @@ export default function QuizzesPage() {
 
         {/* Hero */}
         <div className="text-center mb-14">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
-            style={{
-              background: "rgba(99,102,241,0.12)",
-              color: "var(--accent)",
-              border: "1px solid rgba(99,102,241,0.25)",
-            }}
-          >
-            🧠 Test Your Knowledge
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          <p className="font-data text-xs text-[var(--accent)] mb-3">
+            Test your knowledge
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-medium font-serif tracking-tight mb-4">
             Marketing Quizzes
           </h1>
           <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto mb-10">
@@ -79,29 +73,29 @@ export default function QuizzesPage() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="flex flex-col items-center px-6 py-4 rounded-2xl border border-[var(--border)] bg-[var(--card)] min-w-[140px]"
+                className="flex flex-col items-center px-6 py-4 rounded-xl border border-[var(--border)] bg-[var(--card)] min-w-[144px]"
               >
-                <span className="text-3xl font-bold text-[var(--accent)]">{s.value}</span>
-                <span className="text-sm text-[var(--muted-foreground)] mt-1">{s.label}</span>
+                <span className="text-3xl font-medium font-display tabular-nums text-[var(--accent)]">{s.value}</span>
+                <span className="text-xs text-[var(--muted-foreground)] mt-1">{s.label}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* How it works banner */}
-        <div className="mb-12 p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)]">
-          <h2 className="text-base font-semibold mb-4">How quizzes work</h2>
+        <div className="mb-12 p-6 rounded-xl border border-[var(--border)] bg-[var(--card)]">
+          <h2 className="text-base font-medium mb-4">How quizzes work</h2>
           <div className="grid sm:grid-cols-3 gap-5">
             {[
-              { emoji: "📖", title: "Open a lesson", body: "Pick any category below and open a lesson." },
-              { emoji: "📝", title: "Read the lesson", body: "Work through the content at your own pace." },
-              { emoji: "🏆", title: "Pass the quiz", body: "Score 80% or more on the quiz at the bottom to mark the lesson complete." },
-            ].map((s) => (
-              <div key={s.title} className="flex gap-3">
-                <span className="text-2xl shrink-0">{s.emoji}</span>
+              { Icon: BookOpen, title: "Open a lesson", body: "Pick any category below and open a lesson." },
+              { Icon: FileText, title: "Read the lesson", body: "Work through the content at your own pace." },
+              { Icon: Trophy, title: "Pass the quiz", body: "Score 80% or more on the quiz at the bottom to mark the lesson complete." },
+            ].map(({ Icon, title, body }) => (
+              <div key={title} className="flex items-start gap-3">
+                <Icon size={18} strokeWidth={1.5} className="text-[var(--muted-foreground)] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-medium text-sm">{s.title}</div>
-                  <div className="text-sm text-[var(--muted-foreground)] mt-0.5">{s.body}</div>
+                  <div className="font-medium text-sm">{title}</div>
+                  <div className="text-sm text-[var(--muted-foreground)] mt-0.5">{body}</div>
                 </div>
               </div>
             ))}
