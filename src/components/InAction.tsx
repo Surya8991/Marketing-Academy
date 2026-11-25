@@ -57,11 +57,11 @@ export default function InAction({
     <div className="not-prose my-6 rounded-lg border border-[var(--border)] bg-[var(--card)] px-5 py-4">
       <div className="flex items-center gap-2 mb-2">
         <span
-          className="text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full"
+          className="text-xs font-medium px-2 py-0.5 rounded-full"
           style={{
-            background: "rgba(99, 102, 241, 0.12)",
+            background: "rgba(79, 70, 229, 0.12)",
             color: "var(--accent)",
-            border: "1px solid rgba(99, 102, 241, 0.3)",
+            border: "1px solid rgba(79, 70, 229, 0.3)",
           }}
         >
           In Action: {concept}

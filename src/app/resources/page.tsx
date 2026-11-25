@@ -47,7 +47,7 @@ export default function ResourcesPage() {
 
       {/* Hero */}
       <div className="mb-14">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">
           No filler, no affiliate spam
         </p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-5 text-balance">
@@ -103,16 +103,16 @@ export default function ResourcesPage() {
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="res-row flex items-center gap-3 px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-all"
+                    className="res-row flex items-center gap-3 px-4 py-3 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-colors"
                   >
                     <span
-                      className="inline-flex items-center text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full shrink-0"
+                      className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full shrink-0"
                       style={{ background: tier.bg, color: tier.fg }}
                     >
                       {tier.label}
                     </span>
                     <span
-                      className="inline-flex items-center text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full shrink-0"
+                      className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full shrink-0"
                       style={{ background: cost.bg, color: cost.fg }}
                     >
                       {r.cost}
@@ -141,7 +141,7 @@ export default function ResourcesPage() {
 
       {/* Books */}
       <section className="mt-16 mb-14">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-2">
+        <p className="font-data text-xs text-[var(--accent)] mb-2">
           Reading list
         </p>
         <h2 className="font-display font-semibold text-2xl mb-1">Books (1 per month)</h2>
@@ -168,7 +168,7 @@ export default function ResourcesPage() {
                   Month {b.month}
                 </span>
               </div>
-              <h3 className="font-bold text-base leading-tight mb-1">{b.name}</h3>
+              <h3 className="font-semibold text-base leading-tight mb-1">{b.name}</h3>
               <p className="text-xs text-[var(--muted-foreground)] mb-2">by {b.author}</p>
               <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">{b.why}</p>
             </div>
@@ -178,7 +178,7 @@ export default function ResourcesPage() {
 
       {/* Communities */}
       <section className="mb-14">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-2">
+        <p className="font-data text-xs text-[var(--accent)] mb-2">
           Network
         </p>
         <h2 className="font-display font-semibold text-2xl mb-1">Communities</h2>
@@ -192,7 +192,7 @@ export default function ResourcesPage() {
               href={c.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="community-card flex items-start gap-3 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-all"
+              className="community-card flex items-start gap-3 p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-colors"
             >
               <div
                 className="inline-flex items-center justify-center w-9 h-9 rounded-md shrink-0"

@@ -36,7 +36,7 @@ const hoverCSS = `
 }
 .iq-card:hover {
   border-color: var(--accent) !important;
-  box-shadow: 0 4px 20px rgba(99,102,241,0.12);
+  box-shadow: 0 4px 20px rgba(79,70,229,0.12);
   transform: translateY(-2px);
 }
 .iq-view-btn {
@@ -128,7 +128,7 @@ export default function InterviewQuestionsPage() {
           <h1
             style={{
               fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
-              fontWeight: 800,
+              fontWeight: 600,
               color: "var(--foreground)",
               lineHeight: 1.2,
               marginBottom: "0.75rem",
@@ -168,7 +168,7 @@ export default function InterviewQuestionsPage() {
                 textAlign: "center",
               }}
             >
-              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--foreground)" }}>{stat.value}</div>
+              <div style={{ fontSize: "1.6rem", fontWeight: 600, color: "var(--foreground)" }}>{stat.value}</div>
               <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", marginTop: "0.2rem" }}>{stat.label}</div>
             </div>
           ))}
@@ -201,11 +201,10 @@ export default function InterviewQuestionsPage() {
               >
                 {/* Emoji + question count */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontSize: "2rem", lineHeight: 1 }}>{section.emoji}</span>
                   <span
                     style={{
-                      fontSize: "0.7rem",
-                      fontWeight: 700,
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
                       color: "var(--muted-foreground)",
                       background: "var(--muted)",
                       padding: "0.2rem 0.6rem",
@@ -222,7 +221,7 @@ export default function InterviewQuestionsPage() {
                   href={`/interview-questions/${section.id}`}
                   style={{
                     fontSize: "1.05rem",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     color: "var(--foreground)",
                     textDecoration: "none",
                     lineHeight: 1.35,
@@ -248,20 +247,20 @@ export default function InterviewQuestionsPage() {
                 <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
                   <span
                     style={{
-                      fontSize: "0.7rem",
+                      fontSize: "0.75rem",
                       fontWeight: 600,
                       padding: "0.2rem 0.55rem",
                       borderRadius: "999px",
-                      background: "rgba(99,102,241,0.1)",
+                      background: "rgba(79,70,229,0.1)",
                       color: "var(--foreground)",
-                      border: "1px solid rgba(99,102,241,0.2)",
+                      border: "1px solid rgba(79,70,229,0.2)",
                     }}
                   >
                     {section.conceptualQAs.length} conceptual
                   </span>
                   <span
                     style={{
-                      fontSize: "0.7rem",
+                      fontSize: "0.75rem",
                       fontWeight: 600,
                       padding: "0.2rem 0.55rem",
                       borderRadius: "999px",
@@ -293,7 +292,7 @@ export default function InterviewQuestionsPage() {
             textAlign: "center",
           }}
         >
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.75rem", color: "var(--foreground)" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 600, marginBottom: "0.75rem", color: "var(--foreground)" }}>
             Go beyond memorizing answers
           </h2>
           <p style={{ color: "var(--muted-foreground)", marginBottom: "1.5rem", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 1.5rem" }}>
@@ -308,7 +307,7 @@ export default function InterviewQuestionsPage() {
               background: "var(--foreground)",
               color: "var(--background)",
               borderRadius: "8px",
-              fontWeight: 700,
+              fontWeight: 600,
               fontSize: "1rem",
               textDecoration: "none",
             }}

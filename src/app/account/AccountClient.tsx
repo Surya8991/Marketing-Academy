@@ -87,7 +87,7 @@ export default function AccountClient({ email, isAdmin }: { email: string; isAdm
                 <div>
                   <div className="font-mono text-xs flex items-center gap-2">
                     {s.tokenPreview}
-                    {s.isCurrent ? <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)]">this device</span> : null}
+                    {s.isCurrent ? <span className="text-xs px-1.5 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)]">this device</span> : null}
                   </div>
                   <div className="text-xs text-[var(--muted-foreground)]">Expires {new Date(s.expires).toLocaleString()}</div>
                 </div>

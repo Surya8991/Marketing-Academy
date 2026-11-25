@@ -69,7 +69,7 @@ export default function HeadlineTester() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-5 border-b border-[var(--border)]">
         <div>
-          <div className="text-[0.68rem] font-semibold tracking-wider uppercase text-[var(--accent)] flex items-center gap-1.5">
+          <div className="text-xs font-medium text-[var(--accent)] flex items-center gap-1.5">
             <Zap size={13} /> Interactive Copywriting Sandbox
           </div>
           <h4 className="text-lg font-semibold font-display">
@@ -119,48 +119,48 @@ export default function HeadlineTester() {
             handleTest();
           }}
           placeholder="Type an H1, email subject line, or video hook..."
-          className="w-full p-3.5 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm sm:text-base font-medium focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-all resize-none"
+          className="w-full p-3.5 rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] text-sm sm:text-base font-medium focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)] transition-colors resize-none"
         />
       </div>
 
       {/* Metrics Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
-          <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Word Count</div>
-          <div className="text-lg font-bold font-mono">
+          <div className="text-xs text-[var(--muted-foreground)]">Word Count</div>
+          <div className="text-lg font-semibold font-mono">
             {wordCount} <span className="text-xs font-normal text-[var(--muted-foreground)]">words</span>
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {wordCount >= 6 && wordCount <= 13 ? "✓ Optimal (6-13)" : "Target: 6-13 words"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
-          <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Power Words</div>
-          <div className="text-lg font-bold font-mono text-[var(--accent)]">
+          <div className="text-xs text-[var(--muted-foreground)]">Power Words</div>
+          <div className="text-lg font-semibold font-mono text-[var(--accent)]">
             {matchedPowerWords.length}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)] truncate">
+          <div className="text-xs text-[var(--muted-foreground)] truncate">
             {matchedPowerWords.length > 0 ? matchedPowerWords.join(", ") : "None detected"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
-          <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Curiosity Gap</div>
-          <div className={`text-lg font-bold font-mono ${hasCuriosity ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
+          <div className="text-xs text-[var(--muted-foreground)]">Curiosity Gap</div>
+          <div className={`text-lg font-semibold font-mono ${hasCuriosity ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasCuriosity ? "High" : "Low"}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {hasCuriosity ? "✓ Hook trigger found" : "Add why / how / truth"}
           </div>
         </div>
 
         <div className="p-3 rounded-xl border border-[var(--border)] bg-[var(--muted)]/20">
-          <div className="text-[0.68rem] text-[var(--muted-foreground)] uppercase">Specificity</div>
-          <div className={`text-lg font-bold font-mono ${hasNumbers ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
+          <div className="text-xs text-[var(--muted-foreground)]">Specificity</div>
+          <div className={`text-lg font-semibold font-mono ${hasNumbers ? "text-[var(--success)]" : "text-[var(--muted-foreground)]"}`}>
             {hasNumbers ? "Specific" : "Vague"}
           </div>
-          <div className="text-[0.65rem] text-[var(--muted-foreground)]">
+          <div className="text-xs text-[var(--muted-foreground)]">
             {hasNumbers ? "✓ Metrics detected" : "Add numbers, $, or %"}
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function HeadlineTester() {
           {hasNumbers && hasCuriosity && matchedPowerWords.length >= 1 && (
             <li className="flex items-start gap-1.5 text-[var(--success)] font-medium">
               <CheckCircle size={13} className="shrink-0 mt-0.5" />
-              <span>Excellent balance! You have combined emotional tension, clear specificity, and an optimal reading length.</span>
+              <span>Excellent balance. You have combined emotional tension, clear specificity, and an optimal reading length.</span>
             </li>
           )}
         </ul>

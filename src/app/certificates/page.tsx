@@ -21,7 +21,7 @@ export default function CertificatesIndexPage() {
       <h1
         style={{
           fontSize: "2rem",
-          fontWeight: 700,
+          fontWeight: 600,
           marginBottom: "0.5rem",
         }}
       >
@@ -58,7 +58,6 @@ export default function CertificatesIndexPage() {
               gap: "1rem",
             }}
           >
-            <span style={{ fontSize: "2rem", lineHeight: 1 }}>{track.emoji}</span>
             <div style={{ flex: "1 1 12rem", minWidth: 0 }}>
               <div
                 style={{

@@ -134,11 +134,8 @@ export default async function CategoryPage({ params }: Props) {
       </Link>
 
       {/* Header */}
-      <div
-        className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${cat.color} border border-[var(--border)] p-8 sm:p-10 mb-12`}
-      >
-        <div className="text-5xl mb-4">{cat.emoji}</div>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+      <div className="rounded-2xl bg-[var(--card)] border border-[var(--border)] p-8 sm:p-10 mb-12">
+        <h1 className="text-3xl sm:text-4xl font-medium font-serif tracking-tight mb-3">
           {cat.title}
         </h1>
         <p className="text-[var(--muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
@@ -198,26 +195,27 @@ export default async function CategoryPage({ params }: Props) {
                   href={`/learn/${cat.slug}/${lesson.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-4 p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] hover:shadow-md hover:-translate-y-0.5 transition-all"
+                  className="group flex items-start gap-4 p-5 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--accent)] transition-colors"
                 >
-                  <span className="shrink-0 mt-0.5 w-8 h-8 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] text-sm font-semibold flex items-center justify-center group-hover:bg-[var(--accent)] group-hover:text-[var(--accent-foreground)] transition-colors">
-                    {i + 1}
+                  <span className="shrink-0 mt-0.5 w-8 h-8 rounded-lg bg-[var(--muted)] text-[var(--muted-foreground)] text-xs font-data tabular-nums font-medium flex items-center justify-center group-hover:bg-[var(--accent)] group-hover:text-[var(--accent-foreground)] transition-colors">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-base mb-1 group-hover:text-[var(--accent)] transition-colors">
+                    <h3 className="font-medium text-base mb-1 group-hover:text-[var(--accent)] transition-colors">
                       {lesson.title}
                     </h3>
                     <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 leading-relaxed mb-2">
                       {lesson.summary}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-xs text-[var(--muted-foreground)]">
-                      <Clock size={11} />
+                    <span className="inline-flex items-center gap-1 text-xs text-[var(--muted-foreground)] tabular-nums">
+                      <Clock size={12} strokeWidth={1.5} />
                       {lessonReadTime(cat.slug, lesson.slug)} min
                     </span>
                   </div>
                   <ArrowRight
                     size={16}
-                    className="shrink-0 mt-1 text-[var(--muted-foreground)] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                    strokeWidth={1.5}
+                    className="shrink-0 mt-1 text-[var(--muted-foreground)] opacity-0 group-hover:opacity-100 transition-opacity"
                   />
                 </Link>
               ))}

@@ -304,7 +304,6 @@ export default function CommandPalette() {
                       fontWeight: 600,
                       padding: "2px 7px",
                       borderRadius: 999,
-                      textTransform: "uppercase",
                       letterSpacing: "0.05em",
                       flexShrink: 0,
                       whiteSpace: "nowrap",

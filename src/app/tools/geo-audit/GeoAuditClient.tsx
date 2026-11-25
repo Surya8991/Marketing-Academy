@@ -85,7 +85,7 @@ function ScoreBar({ label, value, tip }: { label: string; value: number; tip: st
       </div>
       <div className="h-2 rounded-full bg-[var(--border)] overflow-hidden">
         <div
-          className="h-full rounded-full transition-all duration-500"
+          className="h-full rounded-full transition-[width] duration-500"
           style={{ width: `${value}%`, background: scoreColor(value) }}
         />
       </div>
@@ -140,11 +140,7 @@ export default function GeoAuditClient() {
             <ArrowLeft size={14} />
             Back to Tools
           </Link>
-          <div className="inline-flex items-center gap-2 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-semibold px-3 py-1 rounded-full mb-4">
-            <Zap size={12} />
-            AI-Powered
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-3">
+          <h1 className="text-3xl md:text-4xl font-medium font-serif text-[var(--foreground)] mb-3">
             GEO Auditor
           </h1>
           <p className="text-lg text-[var(--muted-foreground)] mb-8 leading-relaxed">
@@ -152,8 +148,8 @@ export default function GeoAuditClient() {
           </p>
 
           <div className="flex gap-3">
-            <div className="flex-1 flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 focus-within:border-[var(--accent)] focus-within:ring-2 focus-within:ring-[var(--accent)] transition-colors">
-              <Search size={16} className="text-[var(--muted-foreground)] shrink-0" />
+            <div className="flex-1 flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 focus-within:border-[var(--accent)] transition-colors">
+              <Search size={16} strokeWidth={1.5} className="text-[var(--muted-foreground)] shrink-0" />
               <input
                 type="url"
                 value={url}
@@ -164,16 +160,16 @@ export default function GeoAuditClient() {
               />
               {auditedUrl && (
                 <a href={auditedUrl} target="_blank" rel="noopener noreferrer" className="shrink-0 text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
-                  <ExternalLink size={14} />
+                  <ExternalLink size={16} strokeWidth={1.5} />
                 </a>
               )}
             </div>
             <button
               onClick={runAudit}
               disabled={loading || !url.trim()}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[var(--accent)] text-[var(--accent-foreground)] font-medium text-sm hover:opacity-90 disabled:opacity-50 transition-opacity"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)] font-medium text-sm hover:opacity-90 disabled:opacity-50 transition-opacity"
             >
-              <Zap size={15} className={loading ? "animate-pulse" : ""} />
+              <Zap size={16} strokeWidth={1.5} />
               {loading ? "Auditing..." : "Audit"}
             </button>
           </div>
@@ -201,7 +197,7 @@ export default function GeoAuditClient() {
             <div className="grid sm:grid-cols-2 gap-3">
               {scoreKeys.map((key) => (
                 <div key={key} className="flex items-start gap-2 text-sm">
-                  <span className="text-[var(--accent)] mt-0.5 shrink-0 font-bold">+</span>
+                  <span className="text-[var(--accent)] mt-0.5 shrink-0 font-semibold">+</span>
                   <div>
                     <span className="font-medium text-[var(--foreground)]">{SCORE_LABELS[key]}</span>
                     <span className="text-[var(--muted-foreground)]"> - {SCORE_TIPS[key]}</span>
@@ -236,7 +232,7 @@ export default function GeoAuditClient() {
                 className="flex flex-col items-center justify-center w-24 h-24 rounded-full border-4 shrink-0"
                 style={{ borderColor: gradeColor(result.grade) }}
               >
-                <span className="text-3xl font-bold" style={{ color: gradeColor(result.grade) }}>
+                <span className="text-3xl font-semibold" style={{ color: gradeColor(result.grade) }}>
                   {result.grade}
                 </span>
                 <span className="text-xs text-[var(--muted-foreground)]">{result.overall}/100</span>
@@ -309,12 +305,12 @@ export default function GeoAuditClient() {
                     <p className="text-sm text-[var(--foreground)] flex-1">{fix.action}</p>
                     <div className="flex items-center gap-1.5 shrink-0 flex-wrap justify-end">
                       <span
-                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium"
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
                         style={impactBadge(fix.impact)}
                       >
                         {fix.impact} impact
                       </span>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-[var(--border)] text-[var(--muted-foreground)]">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--border)] text-[var(--muted-foreground)]">
                         {fix.effort} effort
                       </span>
                     </div>

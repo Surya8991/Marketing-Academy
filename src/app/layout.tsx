@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#6366f1",
+  themeColor: "#4f46e5",
 };
 
 // Inline script runs before React hydration (no-flash theme detection).

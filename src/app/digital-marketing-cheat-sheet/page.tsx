@@ -32,7 +32,7 @@ const trEvenStyle: React.CSSProperties = {
 
 const sectionHeadingStyle: React.CSSProperties = {
   fontSize: "1.4rem",
-  fontWeight: 700,
+  fontWeight: 600,
   margin: "2.5rem 0 1rem",
   paddingBottom: "0.4rem",
   borderBottom: "2px solid var(--border)",
@@ -106,7 +106,7 @@ export default function CheatSheetPage() {
           <h1
             style={{
               fontSize: "2.25rem",
-              fontWeight: 700,
+              fontWeight: 600,
               lineHeight: 1.2,
               marginBottom: "0.5rem",
             }}
@@ -228,7 +228,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700, whiteSpace: "nowrap" }}>{row.metric}</td>
+                <td style={{ ...tdStyle, fontWeight: 600, whiteSpace: "nowrap" }}>{row.metric}</td>
                 <td style={tdStyle}>{row.name}</td>
                 <td
                   style={{
@@ -298,7 +298,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.stage}</td>
+                <td style={{ ...tdStyle, fontWeight: 600 }}>{row.stage}</td>
                 <td style={tdStyle}>{row.name}</td>
                 <td style={tdStyle}>{row.mindset}</td>
                 <td style={tdStyle}>{row.tactics}</td>
@@ -368,7 +368,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.category}</td>
+                <td style={{ ...tdStyle, fontWeight: 600 }}>{row.category}</td>
                 <td style={tdStyle}>{row.covers}</td>
                 <td style={tdStyle}>{row.actions}</td>
               </tr>
@@ -439,7 +439,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700, whiteSpace: "nowrap" }}>{row.term}</td>
+                <td style={{ ...tdStyle, fontWeight: 600, whiteSpace: "nowrap" }}>{row.term}</td>
                 <td style={tdStyle}>{row.def}</td>
                 <td style={tdStyle}>{row.use}</td>
               </tr>
@@ -631,7 +631,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.concept}</td>
+                <td style={{ ...tdStyle, fontWeight: 600 }}>{row.concept}</td>
                 <td style={tdStyle}>{row.what}</td>
                 <td style={tdStyle}>{row.action}</td>
               </tr>
@@ -717,7 +717,7 @@ export default function CheatSheetPage() {
               },
             ].map((row, i) => (
               <tr key={i} style={i % 2 === 0 ? trEvenStyle : {}}>
-                <td style={{ ...tdStyle, fontWeight: 700 }}>{row.platform}</td>
+                <td style={{ ...tdStyle, fontWeight: 600 }}>{row.platform}</td>
                 <td style={tdStyle}>{row.eng}</td>
                 <td style={tdStyle}>{row.format}</td>
                 <td style={{ ...tdStyle, fontSize: "0.88rem", color: "var(--muted-foreground)" }}>
@@ -748,7 +748,7 @@ export default function CheatSheetPage() {
           gap: "1rem",
         }}
       >
-        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, margin: 0 }}>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 600, margin: 0 }}>
           Want a cheat sheet for a specific topic?
         </h2>
         <p style={{ color: "var(--muted-foreground)", margin: 0, lineHeight: 1.6 }}>
@@ -765,7 +765,7 @@ export default function CheatSheetPage() {
               background: "var(--foreground)",
               color: "var(--background)",
               borderRadius: "8px",
-              fontWeight: 700,
+              fontWeight: 600,
               textDecoration: "none",
               fontSize: "0.95rem",
             }}

@@ -220,19 +220,16 @@ export default async function LessonPage({ params }: Props) {
                 href={`/learn/${category}`}
                 className="hover:text-[var(--foreground)] transition-colors"
               >
-                <span className="mr-1">{cat.emoji}</span>
                 {cat.title}
               </Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={14} strokeWidth={1.5} />
               <span className="text-[var(--foreground)] truncate">{lessonMeta?.title}</span>
             </nav>
 
             {/* Title block — docs-style single meta line instead of scattered
-                badges/pills. Mark Complete/Bookmark/Share moved back into the
-                header, right under the meta line (user feedback, Session 75
-                follow-up). */}
+                badges/pills. */}
             <header className="mb-8">
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1] mb-4">
                 {lessonMeta?.title}
               </h1>
               {lessonMeta?.summary && (
@@ -240,29 +237,29 @@ export default async function LessonPage({ params }: Props) {
                   {lessonMeta.summary}
                 </p>
               )}
-              <div className="flex items-center gap-2 flex-wrap font-data text-xs tracking-wide text-[var(--muted-foreground)]">
+              <div className="flex items-center gap-2 flex-wrap font-data text-xs tabular-nums text-[var(--muted-foreground)]">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                <span>{lessonMeta?.level?.toUpperCase()}</span>
+                <span>{lessonMeta?.level}</span>
                 <span>&middot;</span>
-                <span>{readTime} MIN READ</span>
+                <span>{readTime} min read</span>
                 {hasProjects && (
                   <>
                     <span>&middot;</span>
-                    <span>{lessonProjects.length} PROJECT{lessonProjects.length === 1 ? "" : "S"}</span>
+                    <span>{lessonProjects.length} project{lessonProjects.length === 1 ? "" : "s"}</span>
                   </>
                 )}
                 <span>&middot;</span>
-                <span>{cat.title.toUpperCase()}</span>
+                <span>{cat.title}</span>
                 {dateModified && (
                   <>
                     <span>&middot;</span>
                     <time dateTime={dateModified}>
-                      UPDATED {new Date(dateModified).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }).toUpperCase()}
+                      Updated {new Date(dateModified).toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" })}
                     </time>
                   </>
                 )}
               </div>
-              <div className="mt-5 flex flex-wrap items-center gap-3">
+              <div className="mt-5 flex lg:hidden flex-wrap items-center gap-3">
                 <MarkComplete
                   category={sourceCat}
                   slug={lesson}
@@ -329,17 +326,17 @@ export default async function LessonPage({ params }: Props) {
 
             {category === "tools" && (
               <div className="mt-10 p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition-colors">
-                <h3 className="font-semibold text-sm mb-1 flex items-center gap-2">
-                  <span>⚖️</span> Comparing platforms for your stack?
+                <h3 className="font-medium text-sm mb-1">
+                  Comparing platforms for your stack?
                 </h3>
                 <p className="text-xs text-[var(--muted-foreground)] mb-2">
                   Compare features, pricing, and pros/cons side-by-side.
                 </p>
                 <Link
                   href="/compare"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:underline"
                 >
-                  Compare Tools <ChevronRight size={14} />
+                  Compare Tools <ChevronRight size={14} strokeWidth={1.5} />
                 </Link>
               </div>
             )}
@@ -352,10 +349,10 @@ export default async function LessonPage({ params }: Props) {
                   href={`/learn/${prev.categorySlug}/${prev.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1"
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-colors col-span-1"
                 >
                   <span className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] mb-1">
-                    <ChevronLeft size={12} /> Previous
+                    <ChevronLeft size={14} strokeWidth={1.5} /> Previous
                   </span>
                   <span className="font-medium text-sm group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                     {prev.title}
@@ -369,7 +366,7 @@ export default async function LessonPage({ params }: Props) {
                   href={`/learn/${next.categorySlug}/${next.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-all col-span-1 text-right"
+                  className="lesson-nav-card group flex flex-col p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--muted)]/50 transition-colors col-span-1 text-right"
                 >
                   <span className="flex items-center justify-end gap-1 text-xs text-[var(--muted-foreground)] mb-1">
                     Next <ChevronRight size={12} />
@@ -383,6 +380,41 @@ export default async function LessonPage({ params }: Props) {
               )}
             </nav>
           </div>
+
+          {/* Sticky Right Study Rail (Desktop, A+B Hybrid) */}
+          <aside className="hidden lg:block lg:w-72 shrink-0">
+            <div className="sticky top-24 space-y-4">
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 space-y-4">
+                <p className="font-data text-xs text-[var(--accent)]">
+                  Study workspace
+                </p>
+                <div className="flex flex-col gap-2.5">
+                  <MarkComplete
+                    category={sourceCat}
+                    slug={lesson}
+                    nextHref={next ? `/learn/${next.categorySlug}/${next.slug}` : undefined}
+                    nextTitle={next?.title}
+                  />
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <BookmarkButton category={sourceCat} slug={lesson} title={lessonMeta?.title ?? lesson} />
+                    <ShareButtons title={lessonMeta?.title ?? lesson} url={`${BASE}/learn/${category}/${lesson}`} />
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-[var(--border)] space-y-1.5 text-xs font-ui-sans">
+                  {hasQuiz && (
+                    <a href="#quiz-accordion" className="block text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors">
+                      Jump to quiz (4/5 to pass) →
+                    </a>
+                  )}
+                  {hasProjects && (
+                    <a href="#projects-section" className="block text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors">
+                      Practice projects ({lessonProjects.length}) →
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </aside>
 
         </div>
       </div>

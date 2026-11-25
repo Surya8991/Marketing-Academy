@@ -7,6 +7,7 @@ import { ACHIEVEMENTS } from "@/lib/achievements";
 import type { EngagementState } from "@/lib/engagement";
 import PageMasthead from "@/components/PageMasthead";
 import StatsRow from "@/components/StatsRow";
+import { AchievementIcon } from "@/lib/ui-icons";
 
 // Groups badges for display only — ACHIEVEMENTS itself stays a flat array
 // (achievements.ts owns unlock logic, this is presentation grouping only,
@@ -67,7 +68,7 @@ export default function AchievementsClient() {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">
           Streak, XP, and badges
         </p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
@@ -105,10 +106,9 @@ export default function AchievementsClient() {
         {/* Empty-state nudge for first-time visitors */}
         {xp === 0 && achievements.length === 0 && (
           <div className="p-6 rounded-xl bg-[var(--muted)] border border-[var(--border)] mb-10 text-center">
-            <p className="text-2xl mb-2">🚀</p>
-            <p className="font-semibold text-[var(--foreground)] mb-1">No badges yet</p>
+            <p className="font-medium text-[var(--foreground)] mb-1">No badges yet</p>
             <p className="text-sm text-[var(--muted-foreground)]">
-              Complete lessons and pass quizzes to earn XP and unlock badges.{" "}
+              Complete lessons and pass quizzes to earn XP and badges.{" "}
               <Link href="/learn" className="text-[var(--accent)] underline">
                 Start your first lesson →
               </Link>
@@ -129,22 +129,22 @@ export default function AchievementsClient() {
                     key={a.id}
                     className="flex items-start gap-3 p-4 rounded-xl border transition-opacity"
                     style={{
-                      background: earned ? "rgba(99,102,241,0.08)" : "var(--muted)",
-                      borderColor: earned ? "rgba(99,102,241,0.3)" : "var(--border)",
+                      background: earned ? "rgba(79,70,229,0.08)" : "var(--muted)",
+                      borderColor: earned ? "rgba(79,70,229,0.3)" : "var(--border)",
                     }}
                   >
                     <span
-                      className="text-[1.75rem] leading-none"
-                      // Locked: dim only the icon; the "how to earn it" text must stay readable.
-                      style={{ filter: earned ? "none" : "grayscale(100%)", opacity: earned ? 1 : 0.5 }}
+                      className="shrink-0 text-[var(--accent)]"
+                      // Locked achievements are dimmed; the "how to earn it" text stays readable.
+                      style={{ opacity: earned ? 1 : 0.4 }}
                     >
-                      {a.emoji}
+                      <AchievementIcon id={a.id} size={22} />
                     </span>
                     <div>
-                      <div className="text-[0.85rem] font-bold text-[var(--foreground)] mb-0.5">
+                      <div className="text-[0.85rem] font-semibold text-[var(--foreground)] mb-0.5">
                         {a.label}
                       </div>
-                      <div className="text-[0.75rem] text-[var(--muted-foreground)]">
+                      <div className="text-xs text-[var(--muted-foreground)]">
                         {a.description}
                       </div>
                     </div>

@@ -1,5 +1,7 @@
 # Marketing Academy — Master Design System Guide (S-Tier Edition)
 
+> **⚠️ Superseded by `docs/DESIGN_GUIDE.md` (Editorial Lab System).** This older guide prescribes patterns the current design bans (`font-bold` headings, `uppercase tracking-widest` eyebrows, a rotating gradient blob). Do not follow it. It is kept for history only; where the two disagree, `DESIGN_GUIDE.md` wins.
+
 This document establishes the official visual language, cognitive architecture, and engineering tokens for **Marketing Academy**. Every page, lesson, article, and interactive element across the platform adheres to these specifications.
 
 ---

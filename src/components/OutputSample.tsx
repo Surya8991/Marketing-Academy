@@ -35,7 +35,7 @@ export default function OutputSample({ content }: Props) {
   return (
     <div className="rounded-lg border border-[var(--border)] overflow-hidden">
       <div className="flex items-center justify-between px-3 py-1.5 bg-[var(--muted)] border-b border-[var(--border)]">
-        <span className="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">
+        <span className="text-xs font-semibold text-[var(--muted-foreground)]">
           Sample output
         </span>
         <button

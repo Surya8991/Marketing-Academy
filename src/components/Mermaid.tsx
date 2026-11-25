@@ -180,7 +180,7 @@ export default function Mermaid({ chart, caption }: MermaidProps) {
         const fg = css.getPropertyValue("--foreground").trim() || (isDark ? "#f4f4f5" : "#0a0a0a");
         const muted = css.getPropertyValue("--muted").trim() || (isDark ? "#18181b" : "#f5f5f5");
         const border = css.getPropertyValue("--border").trim() || (isDark ? "#2a2a30" : "#e5e7eb");
-        const accent = css.getPropertyValue("--accent").trim() || (isDark ? "#a5b4fc" : "#6366f1");
+        const accent = css.getPropertyValue("--accent").trim() || (isDark ? "#a5b4fc" : "#4f46e5");
 
         mermaid.initialize({
           startOnLoad: false,

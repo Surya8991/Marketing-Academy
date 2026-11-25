@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Flame, Shield } from "lucide-react";
 import { getEngagement, ENGAGEMENT_EVENT, getCurrentLevel } from "@/lib/engagement";
 import type { EngagementState } from "@/lib/engagement";
 export default function StreakBadge() {
@@ -31,8 +32,9 @@ export default function StreakBadge() {
       title="Your achievements"
     >
       {streak >= 1 && (
-        <span className="text-sm font-semibold flex items-center gap-0.5" title={`${streak} day streak`}>
-          🔥<span className="text-xs">{streak}</span>
+        <span className="text-xs font-medium flex items-center gap-1 tabular-nums" title={`${streak} day streak`}>
+          <Flame size={14} strokeWidth={1.5} />
+          <span>{streak}</span>
         </span>
       )}
       {(state.streakFreezes ?? 0) > 0 && streak >= 1 && (
@@ -40,7 +42,7 @@ export default function StreakBadge() {
           className="text-xs text-[var(--accent)] flex items-center"
           title={`${state.streakFreezes} Streak Freeze equipped — your streak is protected`}
         >
-          🛡️
+          <Shield size={14} strokeWidth={1.5} />
         </span>
       )}
       <span className="text-xs font-medium">

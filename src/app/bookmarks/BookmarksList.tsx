@@ -8,7 +8,7 @@ import { BookmarkEntry, getBookmarks, saveBookmarks } from "@/lib/bookmarks";
 
 function getCategoryTitle(slug: string): string {
   const cat = CATEGORIES.find((c) => c.slug === slug);
-  return cat ? `${cat.emoji} ${cat.title}` : slug;
+  return cat ? cat.title : slug;
 }
 
 export default function BookmarksList() {
@@ -92,9 +92,8 @@ export default function BookmarksList() {
           <h2
             style={{
               fontSize: "0.8rem",
-              fontWeight: 700,
+              fontWeight: 600,
               letterSpacing: "0.08em",
-              textTransform: "uppercase",
               color: "var(--muted-foreground)",
               marginBottom: "12px",
             }}

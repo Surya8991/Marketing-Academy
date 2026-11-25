@@ -47,7 +47,7 @@ const DAILY_TEARDOWNS: DailyTeardown[] = [
         isWinner: true,
         communityPct: 38,
         explanation:
-          "Won with +102.5% higher conversion! Calling out the exact internal panic of the customer drives intense emotional resonance.",
+          "Won with +102.5% higher conversion. Calling out the exact internal panic of the customer drives intense emotional resonance.",
       },
     ],
     takeaway:
@@ -76,7 +76,7 @@ const DAILY_TEARDOWNS: DailyTeardown[] = [
         isWinner: true,
         communityPct: 29,
         explanation:
-          "Won with +18.4% higher resurrection rate! Reverse psychology and loss of connection triggered FOMO and guilt.",
+          "Won with +18.4% higher resurrection rate. Reverse psychology and loss of connection triggered FOMO and guilt.",
       },
     ],
     takeaway:
@@ -172,8 +172,8 @@ export default function DailyChallenge() {
             <Sparkles size={16} />
           </span>
           <div>
-            <div className="text-[0.7rem] uppercase tracking-wider font-semibold text-[var(--accent)]">
-              Daily 2-Min Teardown
+            <div className="text-xs font-medium text-[var(--accent)]">
+              Daily 2-min teardown
             </div>
             <div className="text-xs text-[var(--muted-foreground)]">
               {teardown.company} · {teardown.category}
@@ -181,14 +181,14 @@ export default function DailyChallenge() {
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-[var(--warning)] font-medium text-xs">
-          <Flame size={14} className="animate-pulse" />
-          <span>{streak} Day Streak</span>
+        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md border border-[var(--border)] bg-[var(--muted)] text-[var(--foreground)] font-data tabular-nums text-xs">
+          <Flame size={14} strokeWidth={1.5} className="text-[var(--muted-foreground)]" />
+          <span>{streak}d streak</span>
         </div>
       </div>
 
       {/* Challenge Title & Context */}
-      <h3 className="text-lg sm:text-xl font-semibold font-display mb-2 text-balance">
+      <h3 className="text-lg sm:text-xl font-medium font-display mb-2 text-balance">
         {teardown.headline}
       </h3>
       <p className="text-sm text-[var(--muted-foreground)] mb-5 leading-relaxed">
@@ -200,7 +200,7 @@ export default function DailyChallenge() {
         {teardown.options.map((opt) => {
           const isSelected = selectedOpt === opt.id;
           let btnClasses =
-            "w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3 relative text-sm ";
+            "w-full text-left p-4 rounded-xl border transition-colors flex items-start gap-3 relative text-sm ";
 
           if (!submitted) {
             btnClasses +=
@@ -261,11 +261,11 @@ export default function DailyChallenge() {
           <div className="flex items-center gap-2 font-semibold">
             {won ? (
               <span className="text-[var(--success)] flex items-center gap-1.5">
-                <CheckCircle2 size={16} /> Great instinct! You scored +25 XP
+                <CheckCircle2 size={16} /> Great instinct. You scored +25 XP
               </span>
             ) : (
               <span className="text-[var(--warning)] flex items-center gap-1.5">
-                <HelpCircle size={16} /> Counter-intuitive result! +20 XP
+                <HelpCircle size={16} /> Counter-intuitive result. +20 XP
               </span>
             )}
           </div>
@@ -281,7 +281,7 @@ export default function DailyChallenge() {
                 if (navigator.share) {
                   navigator.share({
                     title: "Marketing Academy Daily Teardown",
-                    text: `I just solved today's marketing case study on Marketing Academy! Current streak: ${streak} days.`,
+                    text: `I just solved today's marketing case study on Marketing Academy. Current streak: ${streak} days.`,
                     url: window.location.href,
                   });
                 }

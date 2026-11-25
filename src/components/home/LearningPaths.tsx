@@ -1,107 +1,118 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { TRACKS } from "@/lib/tracks";
 
-const PATHS = [
-  {
-    slug: "solo-founder",
-    desc: "Doing your own marketing? Learn your value proposition, the basic math, SEO, email and copy, in that order.",
-    level: "Beginner",
-    shapes: [
-      { w: "w-10", h: "h-10", bg: "bg-[var(--lav)]", rotate: "rotate-0" },
-      { w: "w-14", h: "h-14", bg: "bg-[var(--blue)]", rotate: "rotate-6" },
-      { w: "w-8", h: "h-8", bg: "bg-[var(--amber)]", rotate: "-rotate-12" },
-      { w: "w-6", h: "h-6", bg: "bg-[var(--mint)]", rotate: "rotate-3" },
-    ],
-  },
-  {
-    slug: "growth-marketing-mastery",
-    desc: "Activation, retention cohorts, referrals and A/B testing: how to find out what actually moves growth.",
-    level: "Intermediate",
-    shapes: [
-      { w: "w-10", h: "h-10", bg: "bg-[var(--mint)]", rotate: "rotate-6" },
-      { w: "w-14", h: "h-14", bg: "bg-[var(--blue)]", rotate: "-rotate-6" },
-      { w: "w-8", h: "h-8", bg: "bg-[var(--lav)]", rotate: "rotate-12" },
-      { w: "w-6", h: "h-6", bg: "bg-[var(--amber)]", rotate: "rotate-0" },
-    ],
-  },
-  {
-    slug: "ai-first-marketer",
-    desc: "Prompting, AI for content and analytics, AI agents, and how to show up in AI search answers.",
-    level: "Advanced",
-    shapes: [
-      { w: "w-10", h: "h-10", bg: "bg-[var(--amber)]", rotate: "-rotate-6" },
-      { w: "w-14", h: "h-14", bg: "bg-[var(--lav)]", rotate: "rotate-12" },
-      { w: "w-8", h: "h-8", bg: "bg-[var(--blue)]", rotate: "-rotate-3" },
-      { w: "w-6", h: "h-6", bg: "bg-[var(--mint)]", rotate: "rotate-6" },
-    ],
-  },
+const ROLE_OPTIONS = [
+  { label: "Solo Founder", slug: "solo-founder", level: "Beginner" },
+  { label: "Growth Marketer", slug: "growth-marketing-mastery", level: "Intermediate" },
+  { label: "SEO & Content", slug: "content-creator", level: "Beginner" },
+  { label: "Paid Ads & CRO", slug: "paid-ads-mastery", level: "Intermediate" },
+  { label: "AI-First Marketer", slug: "ai-first-marketer", level: "Advanced" },
 ];
 
 export default function LearningPaths() {
+  const [selectedSlug, setSelectedSlug] = useState(ROLE_OPTIONS[0].slug);
+  const activeOption = ROLE_OPTIONS.find((r) => r.slug === selectedSlug) ?? ROLE_OPTIONS[0];
+  const track = TRACKS.find((t) => t.slug === activeOption.slug) ?? TRACKS[0];
+  const firstFour = track.lessons.slice(0, 4);
+
   return (
-    <section className="py-14 sm:py-28 bg-[var(--muted)] border-t border-b border-[var(--border)]">
+    <section id="role-tracks" className="py-16 sm:py-24 bg-[var(--muted)] border-b border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)] font-serif max-w-xl">
-            Not sure where to start? Follow a track.
-          </h2>
-          <div className="flex flex-col items-start md:items-end gap-3">
-            <p className="max-w-md text-sm sm:text-base text-[var(--muted-foreground)] font-ui-sans leading-relaxed">
-              A track is an ordered list of lessons. Finish them, pass the track quiz, and you get a
-              certificate.
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <div>
+            <p className="font-data text-xs text-[var(--accent)] mb-2 tabular-nums">
+              Self-paced tracks · {TRACKS.length} paths
             </p>
-            <Link
-              href="/tracks"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] hover:underline"
-            >
-              <span>See all {TRACKS.length} tracks</span>
-              <ArrowRight size={13} />
-            </Link>
+            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-[var(--foreground)] font-serif max-w-xl">
+              Not sure where to start? Pick your role
+            </h2>
           </div>
+          <Link
+            href="/tracks"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent)] hover:underline shrink-0"
+          >
+            <span>See all {TRACKS.length} tracks</span>
+            <ArrowRight size={14} strokeWidth={1.5} />
+          </Link>
         </div>
 
-        {/* Path Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {PATHS.map((path) => {
-            const track = TRACKS.find((t) => t.slug === path.slug)!;
+        {/* Role Selector Pills */}
+        <div className="flex flex-wrap items-center gap-2 mb-8" role="tablist" aria-label="Choose your marketing role">
+          {ROLE_OPTIONS.map((opt) => {
+            const active = opt.slug === activeOption.slug;
             return (
-            <Link
-              key={path.slug}
-              href={`/tracks/${path.slug}`}
-              className="group flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[var(--paper)] border border-[var(--border)] hover:border-[var(--accent)] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 sm:min-h-[340px]"
-            >
-              <div>
-                {/* Tactile modern graphic */}
-                <div className="h-20 hidden sm:flex items-center gap-2 my-4">
-                  {path.shapes.map((s, idx) => (
-                    <div
-                      key={idx}
-                      className={`${s.w} ${s.h} ${s.bg} ${s.rotate} rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105`}
-                    />
-                  ))}
-                </div>
-
-                <h3 className="text-2xl font-bold text-[var(--foreground)] tracking-tight mb-2 group-hover:text-[var(--accent)] transition-colors">
-                  {track.title.replace(/ Track$/, "")}
-                </h3>
-                <p className="text-sm text-[var(--muted-foreground)] leading-relaxed font-ui-sans">
-                  {path.desc}
-                </p>
-              </div>
-
-              {/* Meta info footer */}
-              <div className="flex items-center justify-between pt-5 mt-6 border-t border-[var(--border)] text-xs font-mono text-[var(--muted-foreground)]">
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock size={12} className="text-[var(--accent)]" />
-                  {path.level}
-                </span>
-                <span>{track.lessons.length} lessons · {track.duration}</span>
-              </div>
-            </Link>
+              <button
+                key={opt.slug}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setSelectedSlug(opt.slug)}
+                className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
+                  active
+                    ? "bg-[var(--accent)] border-[var(--accent)] text-[var(--accent-foreground)]"
+                    : "bg-[var(--card)] border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)]"
+                }`}
+              >
+                {opt.label}
+              </button>
             );
           })}
+        </div>
+
+        {/* Active Track Summary + 4-Step Syllabus */}
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-2xl">
+            <div className="flex items-center gap-3 font-data text-xs text-[var(--muted-foreground)] tabular-nums">
+              <span className="text-[var(--accent)]">{activeOption.level}</span>
+              <span>·</span>
+              <span className="inline-flex items-center gap-1">
+                <Clock size={12} strokeWidth={1.5} />
+                {track.duration}
+              </span>
+              <span>·</span>
+              <span>{track.lessons.length} lessons</span>
+            </div>
+            <h3 className="text-xl font-medium text-[var(--foreground)]">
+              {track.title.replace(/ Track$/, "")}
+            </h3>
+            <p className="text-sm text-[var(--muted-foreground)] font-ui-sans leading-relaxed">
+              {track.description}
+            </p>
+          </div>
+          <Link
+            href={`/tracks/${track.slug}`}
+            className="shrink-0 inline-flex items-center justify-center gap-2 h-11 px-5 rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)] font-medium text-sm hover:opacity-90 transition-opacity"
+          >
+            <span>Start {activeOption.label} Track</span>
+            <ArrowRight size={16} strokeWidth={1.5} />
+          </Link>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {firstFour.map((lesson, idx) => (
+            <Link
+              key={`${lesson.category}-${lesson.slug}`}
+              href={`/learn/${lesson.category}/${lesson.slug}`}
+              className="group flex flex-col justify-between p-5 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
+            >
+              <div>
+                <span className="font-data text-xs text-[var(--accent)] tabular-nums block mb-2">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <h4 className="text-base font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors leading-snug mb-2">
+                  {lesson.title}
+                </h4>
+              </div>
+              <span className="font-data text-xs text-[var(--muted-foreground)] mt-3 block">
+                {lesson.category}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

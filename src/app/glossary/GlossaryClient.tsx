@@ -42,7 +42,7 @@ export default function GlossaryClient() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-3">Marketing Glossary</h1>
+        <h1 className="text-4xl font-semibold mb-3">Marketing Glossary</h1>
         <p className="text-[var(--muted-foreground)] text-lg max-w-2xl">
           Plain-English definitions for 150+ essential marketing terms, from CTR and ROAS to brand
           salience, copywriting frameworks, and social media strategy.
@@ -122,7 +122,7 @@ export default function GlossaryClient() {
         <div className="space-y-10">
           {grouped.map(([letter, terms]) => (
             <section key={letter} id={`letter-${letter}`}>
-              <h2 className="text-2xl font-bold mb-4 text-[var(--accent)]">{letter}</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-[var(--accent)]">{letter}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {terms.map((term) => (
                   <Link

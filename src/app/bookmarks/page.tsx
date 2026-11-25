@@ -22,7 +22,7 @@ export default function BookmarksPage() {
       <h1
         style={{
           fontSize: "2rem",
-          fontWeight: 700,
+          fontWeight: 600,
           marginBottom: "8px",
           color: "var(--foreground)",
         }}

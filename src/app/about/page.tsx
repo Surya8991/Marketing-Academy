@@ -91,7 +91,7 @@ export default function AboutPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         {/* Hero */}
         <div className="mb-12">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-3">
+          <p className="font-data text-xs text-[var(--accent)] mb-3">
             About
           </p>
           <h1 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight leading-[1.1] mb-5 text-balance">
@@ -107,16 +107,16 @@ export default function AboutPage() {
         <div className="border border-[var(--border)] grid grid-cols-3 sm:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-[var(--border)] mb-14">
           {STATS.map((s) => (
             <div key={s.label} className="stat-card p-3.5 text-center transition-colors font-ui-sans">
-              <p className="font-data text-[0.6rem] text-[var(--muted-foreground)] mb-1">{s.code}</p>
+              <p className="font-data text-xs text-[var(--muted-foreground)] mb-1">{s.code}</p>
               <p className="font-display font-semibold text-xl text-[var(--accent)]">{s.value}</p>
-              <p className="text-[0.68rem] text-[var(--muted-foreground)] mt-0.5 leading-tight">{s.label}</p>
+              <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-tight">{s.label}</p>
             </div>
           ))}
         </div>
 
         {/* Mission */}
         <section className="mb-14">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">§1</p>
+          <p className="font-data text-xs text-[var(--accent)] mb-1.5">§1</p>
           <h2 className="font-display font-semibold text-2xl mb-4">The Mission</h2>
           <div className="space-y-4 text-[var(--muted-foreground)] leading-relaxed font-ui-sans">
             <p>
@@ -139,7 +139,7 @@ export default function AboutPage() {
 
         {/* Builder */}
         <section className="mb-14">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">§2</p>
+          <p className="font-data text-xs text-[var(--accent)] mb-1.5">§2</p>
           <h2 className="font-display font-semibold text-2xl mb-6">Who Built This</h2>
           <div className="flex items-start gap-5 p-6 border border-[var(--border)] rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -195,7 +195,7 @@ export default function AboutPage() {
 
         {/* Tech stack */}
         <section className="mb-14 font-ui-sans">
-          <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">§3</p>
+          <p className="font-data text-xs text-[var(--accent)] mb-1.5">§3</p>
           <h2 className="font-display font-semibold text-2xl mb-4">Built With</h2>
           <div className="flex flex-wrap gap-2">
             {TECH.map((t) => (
@@ -226,7 +226,7 @@ export default function AboutPage() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-card flex items-center justify-between gap-4 px-4 py-3 border border-[var(--border)] rounded-lg transition-all"
+                className="project-card flex items-center justify-between gap-4 px-4 py-3 border border-[var(--border)] rounded-lg transition-colors"
               >
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="font-medium text-sm">{p.name}</span>

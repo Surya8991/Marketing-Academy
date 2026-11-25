@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { Map as MapIcon } from "lucide-react";
 import { useMemo, useEffect, useState } from "react";
 import { CATEGORIES, canonicalLessonId, uniqueLessonCount } from "@/lib/curriculum";
 import { getCompleted } from "@/lib/progress";
 import { TOPIC_GROUPS } from "@/lib/topic-groups";
 import PageMasthead from "@/components/PageMasthead";
+import { CategoryIcon } from "@/lib/ui-icons";
 
 type CategoryWithProgress = {
   slug: string;
@@ -81,7 +83,7 @@ export default function SkillMapClient() {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
-        <p className="font-data text-[0.65rem] tracking-[0.08em] uppercase text-[var(--accent)] mb-1.5">
+        <p className="font-data text-xs text-[var(--accent)] mb-1.5">
           Where you stand
         </p>
         <h1 className="font-display font-semibold text-4xl sm:text-5xl mb-4 max-w-2xl text-balance">
@@ -96,7 +98,7 @@ export default function SkillMapClient() {
         <div className="border border-[var(--border)] grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-[var(--border)] max-w-2xl">
           {stats.map((s) => (
             <div key={s.label} className="p-4 font-ui-sans">
-              <p className="font-data text-[0.65rem] text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
+              <p className="font-data text-xs text-[var(--muted-foreground)] mb-1.5">{s.code}</p>
               <p className="font-display font-semibold text-2xl text-[var(--foreground)]">
                 {mounted ? s.value : "—"}
               </p>
@@ -110,8 +112,10 @@ export default function SkillMapClient() {
         {/* Empty-state nudge for first-time visitors */}
         {mounted && completed.size === 0 && (
           <div className="p-6 rounded-xl bg-[var(--muted)] border border-[var(--border)] mb-10 text-center">
-            <p className="text-2xl mb-2">🗺️</p>
-            <p className="font-semibold text-[var(--foreground)] mb-1">
+            <div className="flex justify-center mb-2 text-[var(--muted-foreground)]">
+              <MapIcon size={20} strokeWidth={1.5} />
+            </div>
+            <p className="font-medium text-[var(--foreground)] mb-1">
               All {CATEGORIES.length} topics at 0%. Pick one to start.
             </p>
             <p className="text-sm text-[var(--muted-foreground)]">
@@ -138,7 +142,7 @@ export default function SkillMapClient() {
                     className="group block h-full box-border p-5 rounded-xl border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--accent)]"
                   >
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="text-2xl leading-none">{cat.emoji}</span>
+                      <CategoryIcon slug={cat.slug} size={20} className="text-[var(--muted-foreground)]" />
                       <span className="font-semibold text-[0.9375rem] text-[var(--foreground)] leading-tight">
                         {cat.title}
                       </span>

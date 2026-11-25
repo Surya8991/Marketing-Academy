@@ -134,7 +134,7 @@ export default function ProjectStep({ step }: Props) {
       </div>
 
       {/* Question, the prominent sub-heading a learner is answering with this step */}
-      <h4 className="text-lg font-bold leading-snug text-[var(--foreground)]">{step.question}</h4>
+      <h4 className="text-lg font-semibold leading-snug text-[var(--foreground)]">{step.question}</h4>
 
       {/* Tool + where inside it */}
       <div className="flex items-center gap-2 text-sm flex-wrap">
@@ -145,7 +145,7 @@ export default function ProjectStep({ step }: Props) {
 
       {/* Procedure */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)] mb-2 flex items-center gap-1.5">
+        <p className="text-xs font-semibold text-[var(--muted-foreground)] mb-2 flex items-center gap-1.5">
           <ListChecks size={13} aria-hidden="true" /> Procedure
         </p>
         <ol className="flex flex-col gap-1.5 list-decimal list-inside text-sm text-[var(--foreground)]">
@@ -201,7 +201,7 @@ export default function ProjectStep({ step }: Props) {
 
       {/* So what do I do about it */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)] mb-2">
+        <p className="text-xs font-semibold text-[var(--muted-foreground)] mb-2">
           So what do I do about it?
         </p>
         <div className="overflow-x-auto rounded-lg border border-[var(--border)]">

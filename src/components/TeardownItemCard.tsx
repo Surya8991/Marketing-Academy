@@ -59,7 +59,7 @@ export default function TeardownItemCard({ item }: { item: TeardownItem }) {
         <div className="flex flex-col gap-4 pt-2 border-t" style={{ borderColor: "var(--border)" }}>
           {item.answerKey.length > 0 ? (
             <div className="flex flex-col gap-3">
-              <h5 className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] m-0">
+              <h5 className="text-xs font-semibold text-[var(--muted-foreground)] m-0">
                 Real defects ({item.answerKey.length})
               </h5>
               {item.answerKey.map((d, i) => (
@@ -73,9 +73,9 @@ export default function TeardownItemCard({ item }: { item: TeardownItem }) {
                       style={{
                         padding: "0.15rem 0.5rem",
                         borderRadius: "999px",
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        textTransform: "capitalize",
                         letterSpacing: "0.03em",
                         whiteSpace: "nowrap",
                         ...severityStyles[d.severity],
@@ -103,7 +103,7 @@ export default function TeardownItemCard({ item }: { item: TeardownItem }) {
 
           {item.distractors.length > 0 && (
             <div className="flex flex-col gap-2">
-              <h5 className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] m-0 flex items-center gap-1.5">
+              <h5 className="text-xs font-semibold text-[var(--muted-foreground)] m-0 flex items-center gap-1.5">
                 <AlertTriangle size={13} />
                 Looks wrong, but is not ({item.distractors.length})
               </h5>

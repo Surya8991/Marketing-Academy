@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { ENGAGEMENT_EVENT } from "@/lib/engagement";
 import { EXPORT_KEYS, ALLOWED_KEY_PREFIXES, collectAllKeys, restoreAllKeys } from "@/lib/progress-snapshot";
@@ -316,9 +317,15 @@ export default function SettingsClient({ authConfigured = false }: { authConfigu
         background: "rgba(234, 179, 8, 0.08)",
         border: "1px solid rgba(234, 179, 8, 0.2)",
         lineHeight: 1.5,
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "0.5rem",
       }}>
-        ⚠️ Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
-        Use <strong>Export</strong> below to save a backup you can import later.
+        <AlertTriangle size={16} strokeWidth={1.5} style={{ flexShrink: 0, marginTop: "0.125rem" }} />
+        <span>
+          Your progress is stored in this browser only. Clearing site data or switching browsers will lose it.
+          Use <strong>Export</strong> below to save a backup you can import later.
+        </span>
       </p>
 
       {/* Profile Details */}

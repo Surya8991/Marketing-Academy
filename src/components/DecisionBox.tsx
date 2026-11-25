@@ -27,7 +27,7 @@ export default function DecisionBox({ decision }: Props) {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="font-data text-[0.68rem] tracking-[0.08em] uppercase flex items-center gap-1.5 m-0" style={{ color: "var(--accent)" }}>
+      <p className="font-data text-xs flex items-center gap-1.5 m-0" style={{ color: "var(--accent)" }}>
         <Compass size={12} aria-hidden="true" /> Make the call
       </p>
       <p className="font-display font-semibold text-lg text-[var(--foreground)] m-0">{decision.prompt}</p>
@@ -55,7 +55,7 @@ export default function DecisionBox({ decision }: Props) {
               type="button"
               onClick={() => !picked && setPicked(opt.id)}
               aria-disabled={picked !== null}
-              className="w-full text-left px-3.5 py-2.5 rounded-lg text-sm transition-all flex items-center gap-2"
+              className="w-full text-left px-3.5 py-2.5 rounded-lg text-sm transition-colors flex items-center gap-2"
               style={{ border, background: bg, color: "var(--foreground)", cursor: picked ? "default" : "pointer" }}
             >
               <span className="font-data text-[var(--muted-foreground)]">{String.fromCharCode(65 + i)}.</span>
